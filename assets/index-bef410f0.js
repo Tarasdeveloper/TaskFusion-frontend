@@ -186,4 +186,4 @@ Error generating stack: `+o.message+`
   background-image: url(${Ip});
   background-repeat: no-repeat;
   background-position: center bottom;
-`,Pg="";function _g(){return console.log(Pg),z.jsx(Cg,{children:z.jsx(Xh,{children:z.jsxs(wn,{path:"/",element:z.jsx(vv,{}),children:[z.jsx(wn,{path:"/first",element:z.jsx(pg,{})}),z.jsx(wn,{path:"/second",element:z.jsx(yg,{}),children:z.jsx(wn,{path:":half",element:z.jsx(Sg,{})})}),z.jsx(wn,{path:"*",element:z.jsx(Eg,{})})]})})})}Ml.createRoot(document.getElementById("root")).render(z.jsx(sn.StrictMode,{children:z.jsx(t0,{basename:"/react_vite",children:z.jsx(_g,{})})}));
+`,Pg="";function _g(){return console.log(Pg),z.jsx(Cg,{children:z.jsx(Xh,{children:z.jsxs(wn,{path:"/",element:z.jsx(vv,{}),children:[z.jsx(wn,{path:"/first",element:z.jsx(pg,{})}),z.jsx(wn,{path:"/second",element:z.jsx(yg,{}),children:z.jsx(wn,{path:":half",element:z.jsx(Sg,{})})}),z.jsx(wn,{path:"*",element:z.jsx(Eg,{})})]})})})}Ml.createRoot(document.getElementById("root")).render(z.jsx(sn.StrictMode,{children:z.jsx(t0,{basename:"/TaskFusion-frontend",children:z.jsx(_g,{})})}));
