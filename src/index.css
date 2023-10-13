@@ -1,3 +1,6 @@
+@import-normalize; /* bring in normalize.css styles */
+
+/* rest of app styles */
 body {
   background-color: #f7f6f9;
   background-size: auto 100%;
@@ -32,4 +35,8 @@ img {
 }
 button {
   cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
 }
