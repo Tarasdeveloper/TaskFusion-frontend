@@ -17,9 +17,9 @@ function App() {
           <Route path="/first" element={<FirstPage />} />
           <Route path="/second" element={<SecondPage />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Route>
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </AppWrapper>
   );
