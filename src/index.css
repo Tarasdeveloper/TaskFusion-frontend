@@ -1,10 +1,9 @@
 body {
   background-color: #f7f6f9;
-  background-image: url('./assets/background.png');
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  font-family: 'Inter-SemiBold', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #111111;
