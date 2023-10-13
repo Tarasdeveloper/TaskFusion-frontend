@@ -1,16 +1,11 @@
-import { Link } from 'react-router-dom';
-import goose from '../../assets/img/mainPageImg/goose-desk.png';
+import MainHero from '../../components/MainHero/MainHero';
+import { Container } from './MainPage.styled';
 
 const MainPage = () => {
   return (
-    <div>
-      <div>
-        <img src={goose} alt="goose" />
-        <h1>GooseTrack</h1>
-        <Link>Sign up </Link>
-        <Link>Log in </Link>
-      </div>
-    </div>
+    <Container>
+      <MainHero />
+    </Container>
   );
 };
 
