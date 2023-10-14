@@ -58,4 +58,6 @@ export const LogLink = styled(NavLink)`
   border-radius: 16px;
   background-color: #fff;
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+  display: flex;
+  gap: 6px;
 `;
