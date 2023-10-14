@@ -5,11 +5,17 @@ export const DescrList = styled.ul`
 `;
 
 export const DescrItem = styled.li`
-  display: block;
+  padding: 0 15px;
+  margin-top: 64px;
 `;
 
 export const DescrItemMid = styled.li`
-  display: block;
+  padding: 0 15px;
+  margin-top: 64px;
+`;
+
+export const DescrTextWrap = styled.div`
+  width: 275px;
 `;
 
 export const DescrSpan = styled.span`
@@ -18,7 +24,7 @@ export const DescrSpan = styled.span`
   font-size: 104px;
   font-style: normal;
   font-weight: 700;
-  line-height: 1; /* 104px */
+  line-height: 1;
   letter-spacing: -4px;
 `;
 
