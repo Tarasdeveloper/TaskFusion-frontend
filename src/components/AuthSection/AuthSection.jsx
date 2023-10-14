@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import goose from '../../assets/img/mainPageImg/goose-desk.png';
-import { Container, MainTitle, Ospan } from './MainHero.styled';
+import { Container, MainTitle, Ospan } from './AuthSection.styled';
 
-const MainHero = () => {
+const AuthSection = () => {
   return (
     <Container>
       <img src={goose} alt="goose" />
@@ -10,11 +10,11 @@ const MainHero = () => {
         G<Ospan>oo</Ospan>seTrack
       </MainTitle>
       <div>
-        <Link>Sign up </Link>
+        <NavLink>Sign up </NavLink>
         <Link>Log in </Link>
       </div>
     </Container>
   );
 };
 
-export default MainHero;
+export default AuthSection;

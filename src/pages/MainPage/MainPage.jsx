@@ -1,4 +1,4 @@
-import MainHero from '../../components/MainHero/MainHero';
+import MainHero from '../../components/AuthSection/AuthSection';
 import { Container } from './MainPage.styled';
 
 const MainPage = () => {
