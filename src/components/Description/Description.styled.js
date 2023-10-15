@@ -13,6 +13,7 @@ export const DescrItem = styled.li`
   margin-top: 64px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const DescrItemMid = styled.li`
@@ -20,6 +21,8 @@ export const DescrItemMid = styled.li`
   margin-top: 64px;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
 `;
 
 export const DescrTextWrap = styled.div`
@@ -67,6 +70,7 @@ export const DescrText = styled.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29; /* 128.571% */
+  margin-bottom: 48px;
 `;
 
 export const DescrImgWrap = styled.div`
