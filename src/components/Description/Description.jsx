@@ -1,3 +1,6 @@
+import calendar from '../../assets/img/mainPageImg/calendar-dt.png';
+import sidebar from '../../assets/img/mainPageImg/sidebar-dt.png';
+import one from '../../assets/img/mainPageImg/one-dt.png';
 import {
   DescrImage,
   DescrImgWrap,
@@ -7,6 +10,7 @@ import {
   DescrName,
   DescrSpan,
   DescrText,
+  DescrTextWrap,
   DescrTitle,
 } from './Description.styled';
 
