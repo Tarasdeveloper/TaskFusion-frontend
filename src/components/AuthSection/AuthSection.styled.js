@@ -11,7 +11,8 @@ export const Container = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  font-size: 120px;
+  /* font-size: 120px; */
+  font-size: clamp(44px, 10vw, 120px);
   line-height: 1.25;
   text-shadow:
     0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
@@ -21,7 +22,8 @@ export const MainTitle = styled.h1`
 `;
 
 export const Ospan = styled.span`
-  font-size: 120px;
+  /* font-size: 120px; */
+  font-size: clamp(44px, 10vw, 120px);
   line-height: 1.25;
   color: #fff;
   font-style: italic;
