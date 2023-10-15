@@ -100,7 +100,8 @@ Error generating stack: `+o.message+`
   height: 100vh;
   background-color: #3e85f3;
 `,kS=Ee.h1`
-  font-size: 120px;
+  /* font-size: 120px; */
+  font-size: clamp(44px, 10vw, 120px);
   line-height: 1.25;
   text-shadow:
     0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
@@ -108,7 +109,8 @@ Error generating stack: `+o.message+`
   color: #fff;
   font-style: normal;
 `,CS=Ee.span`
-  font-size: 120px;
+  /* font-size: 120px; */
+  font-size: clamp(44px, 10vw, 120px);
   line-height: 1.25;
   color: #fff;
   font-style: italic;
@@ -165,7 +167,7 @@ Error generating stack: `+o.message+`
 `,ps=Ee.span`
   color: var(--blue1, #3e85f3);
   font-family: Inter;
-  font-size: 104px;
+  font-size: clamp(80px, 10vw, 104px);
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -4px;
@@ -182,7 +184,7 @@ Error generating stack: `+o.message+`
 `,ep=Ee.p`
   color: var(--blue1, #3e85f3);
   font-family: Inter;
-  font-size: 40px;
+  font-size: clamp(32px, 10vw, 40px);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
