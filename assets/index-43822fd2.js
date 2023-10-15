@@ -152,11 +152,14 @@ Error generating stack: `+o.message+`
   margin-top: 64px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `,OS=Ee.li`
   padding: 0 15px;
   margin-top: 64px;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
 `;Ee.div`
   width: 275px;
 `;const ds=Ee.span`
@@ -194,6 +197,7 @@ Error generating stack: `+o.message+`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29; /* 128.571% */
+  margin-bottom: 48px;
 `,ms=Ee.div`
   display: block;
 `,gs=Ee.img`
