@@ -16,6 +16,7 @@ import {
   UserText,
   WithoutAvatar,
 } from './UserForm.styled';
+import StyledDatepicker from './StyledDatepicker';
 
 export const UserForm = () => {
   const [image, setImage] = useState('');
@@ -52,12 +53,7 @@ export const UserForm = () => {
             <Label htmlFor="user-name">User Name</Label>
             <Input id="name" name="name" placeholder="Your name" type="text" />
             <Label htmlFor="birthday">Birthday</Label>
-            <Input
-              dateFormat="dd/MM/yyyy"
-              type="date"
-              id="birthday"
-              name="birthday"
-            />
+            <StyledDatepicker />
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
