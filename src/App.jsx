@@ -4,6 +4,7 @@ import { AppWrapper } from './App.styled';
 import MainPage from './pages/MainPage/MainPage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
+import AccountPage from './pages/AccountPage/AccountPage';
 
 import './fonts.css';
 
@@ -14,7 +15,11 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+<<<<<<< HEAD
      
+=======
+        <Route path="/account" element={<AccountPage />} />
+>>>>>>> main
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AppWrapper>
