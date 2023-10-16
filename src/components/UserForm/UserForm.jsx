@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Avatar,
   AvatarButton,
@@ -8,6 +8,7 @@ import {
   IconPlus,
   IconUser,
   Input,
+  InputPhoto,
   Label,
   ProfileContainer,
   UserInfoColumn,
@@ -20,17 +21,56 @@ import StyledDatepicker from './StyledDatepicker';
 
 export const UserForm = () => {
   const [image, setImage] = useState('');
+  const [newUserName, setNewUserName] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+  const [newPhone, setNewPhone] = useState('');
+  const [newSkype, setNewSkype] = useState('');
+  const [userPhotoPreview, setUserPhotoPreview] = useState('');
+  const userPhotoInputRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (userPhotoPreview) {
+        URL.revokeObjectURL(userPhotoPreview);
+      }
+    };
+  }, [userPhotoPreview]);
+
+  const onClickAvatarButton = () => {
+    if (userPhotoInputRef.current) {
+      userPhotoInputRef.current.click();
+    }
+  };
+
+  const onClickIconPlus = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+
+    if (file) {
+      const previewUrl = URL.createObjectURL(file);
+      setUserPhotoPreview(previewUrl);
+    }
+  };
+
   return (
     <Container>
       <ProfileContainer>
-        {image ? (
+        {userPhotoPreview ? (
           <AvatarContainer>
-            <Avatar src="user-profile-image.jpg" alt="User Photo" />
-            <AvatarButton>
+            <Avatar src={userPhotoPreview} alt="User Photo" />
+            <AvatarButton onClick={onClickAvatarButton}>
               <IconPlus>
                 <use href="/src/assets/sprite.svg#icon-plus"></use>
               </IconPlus>
             </AvatarButton>
+            <input
+              type="file"
+              accept="image/*"
+              ref={userPhotoInputRef}
+              onChange={onClickIconPlus}
+              style={{ display: 'none' }}
+              name="avatar"
+            />
           </AvatarContainer>
         ) : (
           <AvatarContainer>
@@ -39,11 +79,18 @@ export const UserForm = () => {
                 <use href="/src/assets/sprite.svg#icon-user"></use>
               </IconUser>
             </WithoutAvatar>
-            <AvatarButton>
+            <AvatarButton onClick={onClickAvatarButton}>
               <IconPlus>
                 <use href="/src/assets/sprite.svg#icon-plus"></use>
               </IconPlus>
             </AvatarButton>
+            <InputPhoto
+              type="file"
+              accept="image/*"
+              ref={userPhotoInputRef}
+              onChange={onClickIconPlus}
+              name="avatar"
+            />
           </AvatarContainer>
         )}
         <UserName>Username</UserName>

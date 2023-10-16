@@ -52,6 +52,7 @@ export const ProfileContainer = styled.div`
 `;
 
 export const AvatarContainer = styled.div`
+  position: relative;
   align-items: center;
   justify-content: center;
   margin-bottom: 14px;
@@ -62,6 +63,7 @@ export const Avatar = styled.img`
   height: 72px;
   margin-top: -36px;
   border-radius: 50%;
+  object-fit: cover;
 
   @media (min-width: 768px) {
     width: 124px;
@@ -102,6 +104,7 @@ export const IconPlus = styled.svg`
 `;
 
 export const AvatarButton = styled.button`
+  position: absolute;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -119,6 +122,10 @@ export const AvatarButton = styled.button`
     margin-top: -20px;
     margin-left: 80px;
   }
+`;
+
+export const InputPhoto = styled.input`
+  display: none;
 `;
 
 export const UserName = styled.h2`
