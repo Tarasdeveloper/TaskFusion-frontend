@@ -4,7 +4,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   @media screen and (min-width: 768px) {
     gap: 18px;
   }
