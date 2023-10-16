@@ -1,0 +1,76 @@
+.react-datepicker {
+  background-color: #3e85f3;
+  color: white;
+  border-radius: 16px;
+  border: none;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__day {
+  color: white;
+  border-radius: 50%;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-datepicker__day:hover {
+  background-color: white;
+  color: #3e85f3;
+  border-radius: 50%;
+}
+
+.react-datepicker__day--weekend {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.react-datepicker__day--selected {
+  background-color: white;
+  color: #3e85f3;
+  border-radius: 50%;
+}
+
+.react-datepicker__current-month {
+  color: white;
+}
+
+.react-datepicker__header {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: #3e85f3;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  /* border: none; */
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  border-top-right-radius: 16px;
+}
+
+.react-datepicker__day-name {
+  color: white; /* Колір днів тижня */
+}
+.react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: white;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: white;
+}
+
+.react-datepicker__navigation-icon::before:hover {
+  border-color: white;
+}
+
+.react-datepicker-popper[data-placement^='bottom']
+  .react-datepicker__triangle::after {
+  top: -1px;
+  border-bottom-color: #3e85f3;
+}
+
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker__triangle::before {
+  bottom: -1px;
+  border-top-color: #3e85f3;
+}
