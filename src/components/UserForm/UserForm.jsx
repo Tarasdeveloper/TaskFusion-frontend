@@ -21,10 +21,10 @@ import StyledDatepicker from './StyledDatepicker';
 
 export const UserForm = () => {
   const [image, setImage] = useState('');
-  const [newUserName, setNewUserName] = useState('');
-  const [newEmail, setNewEmail] = useState('');
-  const [newPhone, setNewPhone] = useState('');
-  const [newSkype, setNewSkype] = useState('');
+  // const [newUserName, setNewUserName] = useState('');
+  // const [newEmail, setNewEmail] = useState('');
+  // const [newPhone, setNewPhone] = useState('');
+  // const [newSkype, setNewSkype] = useState('');
   const [userPhotoPreview, setUserPhotoPreview] = useState('');
   const userPhotoInputRef = useRef(null);
 
