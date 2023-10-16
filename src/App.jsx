@@ -14,9 +14,11 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+     
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AppWrapper>
   );
 }
+
 export default App;
