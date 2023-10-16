@@ -8,7 +8,6 @@ export const TaskBtn = styled.button`
   width: 90%;
   height: 48px;
   cursor: pointer;
-
   color: var(--primary-text-color);
   background-color: var(--active-item-sidebar-background);
   border: var(--border-AddTaskBtn);
