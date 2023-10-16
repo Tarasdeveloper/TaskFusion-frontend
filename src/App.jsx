@@ -4,6 +4,7 @@ import { AppWrapper } from './App.styled';
 import MainPage from './pages/MainPage/MainPage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
+
 import './fonts.css';
 
 function App() {
