@@ -16,8 +16,8 @@ const AuthSection = () => {
         G<Ospan>oo</Ospan>seTrack
       </MainTitle>
       <LinkWrap>
-        <SignLink>Sign up</SignLink>
-        <LogLink>
+        <SignLink to="/register">Sign up</SignLink>
+        <LogLink to="/login">
           Log in{' '}
           <svg
             xmlns="http://www.w3.org/2000/svg"

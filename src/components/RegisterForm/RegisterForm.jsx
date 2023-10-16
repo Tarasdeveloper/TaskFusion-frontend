@@ -10,13 +10,34 @@ import {
   FormInputWrap,
   FormTitle,
 } from './RegisterForm.styled';
+import { registerThunk } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
+  
   actions.resetForm();
 };
 
 export const RegisterForm = () => {
+const dispatch = useDispatch();
+
+const handleRegFormSubmit = (e) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const name = form.elements.name.value;
+  const email = form.elements.email.value;
+  const password = form.elements.password.value;
+
+  dispatch(
+    registerThunk({
+      name,
+      email,
+      password,
+    }),
+  );
+};
+
   const {
     values,
     errors,
@@ -35,7 +56,7 @@ export const RegisterForm = () => {
     onSubmit,
   });
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={(handleSubmit, handleRegFormSubmit)}>
       <FormTitle>Sign up</FormTitle>
       <FormInputContainer>
         <FormInputWrap>

@@ -10,6 +10,8 @@ import {
   FormInputWrap,
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from '../../redux/auth/operations';
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -17,6 +19,22 @@ const onSubmit = async (values, actions) => {
 };
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
+  const handleLogFormSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+
+    dispatch(
+      loginThunk({
+        email,
+        password,
+      }),
+    );
+  };
+
   const {
     values,
     errors,
@@ -34,7 +52,7 @@ export const LoginForm = () => {
     onSubmit,
   });
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={(handleSubmit, handleLogFormSubmit)}>
       <FormTitle>Log In</FormTitle>
       <FormInputContainer>
         <FormInputWrap>
