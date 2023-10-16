@@ -1,6 +1,5 @@
-@import-normalize; /* bring in normalize.css styles */
-
 @import './utils/styles/vars.css';
+@import-normalize; /* bring in normalize.css styles */
 
 body {
   background-color: #f7f6f9;
