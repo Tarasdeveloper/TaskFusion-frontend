@@ -1,6 +1,4 @@
 import goose from '../../assets/img/mainPageImg/goose-desk.png';
-// import { faArrowRightToBracket } from '@fortawesome/free-regular-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Container,
   LinkWrap,

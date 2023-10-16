@@ -32,7 +32,7 @@ export const DescrTextWrap = styled.div`
 export const DescrSpan = styled.span`
   color: var(--blue1, #3e85f3);
   font-family: Inter;
-  font-size: 104px;
+  font-size: clamp(80px, 10vw, 104px);
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -4px;
@@ -53,7 +53,7 @@ export const DescrTitle = styled.h2`
 export const DescrName = styled.p`
   color: var(--blue1, #3e85f3);
   font-family: Inter;
-  font-size: 40px;
+  font-size: clamp(32px, 10vw, 40px);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
