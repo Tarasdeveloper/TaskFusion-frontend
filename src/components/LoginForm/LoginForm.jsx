@@ -42,7 +42,7 @@ export const LoginForm = () => {
     isSubmitting,
     handleBlur,
     handleChange,
-    handleSubmit,
+    // handleSubmit,
   } = useFormik({
     initialValues: {
       email: '',
@@ -52,7 +52,7 @@ export const LoginForm = () => {
     onSubmit,
   });
   return (
-    <Form onSubmit={(handleSubmit, handleLogFormSubmit)}>
+    <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>
       <FormInputContainer>
         <FormInputWrap>

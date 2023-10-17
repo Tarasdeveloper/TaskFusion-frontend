@@ -7,8 +7,22 @@ import { LoginPage } from './pages/LoginPage/LoginPage';
 import AccountPage from './pages/AccountPage/AccountPage';
 
 import './fonts.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuthenticationStatus, selectToken } from './redux/auth/selectors';
+import { useEffect } from 'react';
+import { refreshUserThunk } from './redux/auth/operations';
 
 function App() {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  const isAuthenticated = useSelector(selectAuthenticationStatus);
+
+  useEffect(() => {
+    if (!token) return;
+
+    dispatch(refreshUserThunk());
+  }, [dispatch, token])
+
   return (
     <AppWrapper>
       <Routes>
