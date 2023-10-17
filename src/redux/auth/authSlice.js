@@ -4,13 +4,23 @@ import {
   logoutThunk,
   refreshUserThunk,
   registerThunk,
+  updateUserThunk,
 } from './operations';
 
 const initialState = {
-  isLoading: false,
-  error: null,
-  userData: null,
+  userData: {
+    _id: null,
+    userName: null,
+    email: null,
+    userPhotoURL: null,
+    phone: null,
+    skype: null,
+    birthDay: null,
+  },
   token: null,
+  isLoading: false,
+  isUpdating: false,
+  error: null,
   isAuthentificated: false,
   isRefreshing: true,
 };
@@ -19,10 +29,10 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
 
-  extraReducers: builder =>
+  extraReducers: (builder) =>
     builder
       // -----------Register-------------
-      .addCase(registerThunk.pending, state => {
+      .addCase(registerThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
@@ -37,7 +47,7 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
       // -----------Login-------------
-      .addCase(loginThunk.pending, state => {
+      .addCase(loginThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
@@ -52,7 +62,7 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
       // -----------Refresh-------------
-      .addCase(refreshUserThunk.pending, state => {
+      .addCase(refreshUserThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
@@ -65,10 +75,9 @@ const authSlice = createSlice({
       .addCase(refreshUserThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.isRefreshing = false;
-
       })
       // -----------Logout-------------
-      .addCase(logoutThunk.pending, state => {
+      .addCase(logoutThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
@@ -80,6 +89,22 @@ const authSlice = createSlice({
       })
       .addCase(logoutThunk.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload;
+      })
+      // -----------Update user-------------
+      .addCase(updateUserThunk.pending, (state) => {
+        state.isLoading = true;
+        state.isUpdating = false;
+        state.error = null;
+      })
+      .addCase(updateUserThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isUpdating = true;
+        state.userData = action.payload;
+      })
+      .addCase(updateUserThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isUpdating = false;
         state.error = action.payload;
       }),
 });

@@ -6,17 +6,25 @@ import uk from 'date-fns/locale/uk';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { Input } from './UserForm.styled';
+import { addDays, isWeekend, parse } from 'date-fns';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
 
 registerLocale('uk', uk);
 
 const StyledDatepicker = () => {
-  const [selectedDate, setSelectedDate] = useState(Date.now());
+  const { birthDay } = useSelector(selectUser);
+  const [selectedDate, setSelectedDate] = useState(
+    birthDay === null ? new Date() : parse(birthDay, 'dd/MM/yyyy', new Date()),
+  );
 
   return (
     <DatePicker
       dateFormat="dd/MM/yyyy"
       calendarStartDay={1}
       selected={selectedDate}
+      maxDate={addDays(new Date(), 0)}
+      highlightDates={(date) => isWeekend(date)}
       onChange={(date) => setSelectedDate(date)}
       customInput={
         <Input
