@@ -7,9 +7,7 @@ export const fetchReviews = createAsyncThunk(
   'reviews/getReviews',
   async ({ page, limit }, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `/api/reviews?page=${page}&limit=4${limit}`,
-      );
+      const { data } = await axios.get(`/reviews?page=${page}&limit=4${limit}`);
 
       return data;
     } catch (e) {
@@ -22,7 +20,7 @@ export const addReview = createAsyncThunk(
   'reviews/addReviews',
   async (review, thunkAPI) => {
     try {
-      const { data } = await axios.post('/api/reviews', review);
+      const { data } = await axios.post('/reviews/own', review);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -34,11 +32,10 @@ export const deleteReview = createAsyncThunk(
   'reviews/deleteReviews',
   async (id, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/api/reviews/${id}`);
-
+      const { data } = await axios.delete(`/reviews/own/`);
       return data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   },
 );
@@ -47,23 +44,24 @@ export const editReview = createAsyncThunk(
   'reviews/editReviews',
   async ({ id, review }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`/api/reviews/${id}`, review);
+      // console.log(review);
+      const { data } = await axios.patch(`/reviews/own/`, review);
 
       return data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   },
 );
 
 export const fetchReviewById = createAsyncThunk(
   'reviews/fetchReviewById',
-  async (id, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/reviews/${id}`);
+      const { data } = await axios.get(`/reviews/own/`);
       return data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   },
 );
