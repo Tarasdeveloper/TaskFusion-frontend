@@ -1,7 +1,7 @@
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { gooseMentor1x, gooseMentor2x } from '../../images/Header';
-import sprite from '../../images/Header/sprite.svg';
+import gooseMentor from '../../images/header/gooseMentor.svg';
+import sprite from '../../images/header/sprite.svg';
 import {
   Wrapper,
   Info,
@@ -44,7 +44,7 @@ const Header = ({ onToggle }) => {
       <Wrapper>
         {calendarPage && tasksForToday() && (
           <GooseMentor
-            src={`${gooseMentor1x} 1x, ${gooseMentor2x} 2x`}
+            src={`${gooseMentor}`}
             alt="goose"
             media="(min-width: 1440px)"
           />
@@ -64,7 +64,9 @@ const Header = ({ onToggle }) => {
             onToggle();
           }}
         >
-          <use href={`${sprite}#icon-menu`} />
+          <svg>
+            <use href={`${sprite}#icon-menu`} />
+          </svg>
         </Toggler>
         <Info></Info>
       </Wrapper>
