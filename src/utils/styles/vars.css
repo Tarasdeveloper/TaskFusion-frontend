@@ -4,8 +4,6 @@
 
   /* text-color */
   --primary-text-color: #ffffff;
-  --accent-text-color: #ffffff;
-  --not-active-item-sidebar-text-color: #ffffff;
   --active-item-sidebar-background: #3e85f3;
   --hover-active-item-sidebar-background: #2b78ef;
   --accent-span-text-color: #3e85f3;
@@ -59,11 +57,9 @@
   --label-text: #343434;
   --feedback-text: rgba(17, 17, 17, 0.7);
   --cloud-text-color: #6d92be;
-  --swagger-text-color: #ffffff;
   --students-text-color: #111111;
 
   /* calendar */
-  --close-btn-color: #ffffff;
   --modal-border-color: #21222c;
   --modal-shadow-color: rgba(62, 133, 243, 0.4);
   --active-button-period-type: #3e85f3;
@@ -119,20 +115,16 @@
   --secondary-background-color: #171820;
   --primary-background-color: #21222c;
   --sidebar-background-color: #13151a;
-
   --ovarlay-background-color: rgba(255, 255, 255, 0.15);
   --star-background-color: #353647;
   --task-input-bg-color: #343434;
   --feedback-label-background-color: #21222c;
   --cancel-button-background-color: #21222c;
   --auth-bg-color: #353647;
-
   --border: 1px solid rgba(255, 255, 255, 0.15);
   --border-account-input: 1px solid rgba(255, 255, 255, 0.15);
   --border-label-color: rgba(255, 255, 255, 0.15);
   --border-cloud-color: grey;
-
-
 
   /* scroll */
   --scrollbar-color: #171820;
@@ -141,7 +133,6 @@
   /* avatar */
   --avatar-fill-color: #d7e3f7;
   --avatar-background-color: #171820;
-
 
   /* shadow */
   --shadow-logout-btn: 4px 2px 16px rgba(136, 165, 191, 0.3);

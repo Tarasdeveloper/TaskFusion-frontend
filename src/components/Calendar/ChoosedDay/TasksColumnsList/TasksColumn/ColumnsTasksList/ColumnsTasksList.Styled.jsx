@@ -12,7 +12,6 @@ export const TaskslistWraper = styled.ul`
 
     }
 
-
     ::-webkit-scrollbar {
       width: 12px;
     }
