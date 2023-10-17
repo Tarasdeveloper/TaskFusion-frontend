@@ -29,3 +29,36 @@ export const loginSchema = yup.object().shape({
     .required('required field'),
   password: yup.string().required('required field'),
 });
+
+export const userInfoSchema = yup.object().shape({
+  userPhotoURL: yup
+    .mixed()
+    .test('fileType', 'Invalid file type. Allowed .jpeg or .png', (value) => {
+      if (!value) return true;
+      return ['image/jpg', 'image/jpeg', 'image/png'].includes(value.type);
+    }),
+  userName: yup
+    .string()
+    .min(3, 'The name must be at least 3 characters.')
+    .max(16, 'The name must be 16 characters or less.')
+    .required('The name is required.'),
+  email: yup
+    .string()
+    .matches(emailRules, 'Invalid email address.')
+    .required('The email is required'),
+  birthDay: yup
+    .string()
+    .nullable()
+    .transform((v) => (v === '' ? null : v)),
+  phone: yup
+    .string()
+    .matches(/^[+]{0,1}[\d]+$/, 'Invalid number.')
+    .nullable()
+    .transform((v) => (v === '' ? null : v)),
+  skype: yup
+    .string()
+    .min(3, 'The skype must be at least 3 characters.')
+    .max(16, 'The skype must be 16 characters or less.')
+    .nullable()
+    .transform((v) => (v === '' ? null : v)),
+});
