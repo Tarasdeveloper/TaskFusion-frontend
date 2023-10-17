@@ -1,8 +1,8 @@
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
-import gooseMentor from '../../images/header/gooseMentor.svg';
-import sprite from '../../images/header/sprite.svg';
+import gooseMentor from '../../assets/img/header/gooseMentor.svg';
+import sprite from '../../assets/sprite.svg';
 import { selectTasks } from '../../redux/tasks/selectors';
 import {
   Wrapper,
