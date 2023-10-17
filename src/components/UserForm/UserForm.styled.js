@@ -23,15 +23,9 @@ export const Container = styled.div`
 `;
 
 export const ProfileContainer = styled.div`
-  display: flex;
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  //   gap: 40px;
-  //   margin-top: 147px;
   background-color: #fff;
   border-radius: 16px;
 
@@ -47,8 +41,14 @@ export const ProfileContainer = styled.div`
     padding-bottom: 60px;
     padding-left: 165px;
     padding-right: 165px;
-    flex-shrink: 0;
   }
+`;
+
+export const FormUser = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const AvatarContainer = styled.div`
@@ -115,6 +115,8 @@ export const AvatarButton = styled.button`
   align-items: center;
   margin-top: -15px;
   margin-left: 51px;
+  color: #fff;
+  font-size: 18px;
 
   @media (min-width: 768px) {
     width: 24px;
@@ -169,9 +171,19 @@ export const UserInfoContainer = styled.div`
 export const UserInfoColumn = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 18px;
+
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
 `;
 
 export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LabelText = styled.span`
   color: #111;
   font-family: Inter;
   font-size: 12px;
@@ -258,26 +270,11 @@ export const ButtonSaveChanges = styled.button`
   }
 `;
 
-export const Form = styled.form`
-  //   display: flex;
-  //   margin: 0;
-  //   padding: 30px 18px;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: flex-start;
-  //   gap: 32px;
-
-  //   border-radius: 8px;
-  //   background: #fff;
-
-  //   font-family: Inter;
-  //   font-style: normal;
-  //   @media (min-width: 375px) {
-  //     width: 335px;
-  //     padding: 40px 24px;
-  //   }
-  //   @media (min-width: 768px) {
-  //     width: 480px;
-  //     padding: 40px;
-  //   }
+export const ErrorInputMessage = styled.p`
+  color: #da1414;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.17;
+  margin-top: -16px;
 `;
