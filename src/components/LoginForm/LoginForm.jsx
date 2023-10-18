@@ -10,8 +10,10 @@ import {
   FormInputWrap,
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginThunk } from '../../redux/auth/operations';
+import { selectAuthenticationStatus } from '../../redux/auth/selectors';
+import { Navigate } from 'react-router-dom';
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -20,6 +22,8 @@ const onSubmit = async (values, actions) => {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+
+  const authenticated = useSelector(selectAuthenticationStatus);
 
   const handleLogFormSubmit = (e) => {
     e.preventDefault();
@@ -51,6 +55,8 @@ export const LoginForm = () => {
     validationSchema: loginSchema,
     onSubmit,
   });
+
+  if (authenticated) return <Navigate to="/calendar/month" />;
   return (
     <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>

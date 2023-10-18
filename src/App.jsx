@@ -5,23 +5,28 @@ import MainPage from './pages/MainPage/MainPage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import AccountPage from './pages/AccountPage/AccountPage';
+// import CalendarPage from './pages/Calendar/CalendarPage';
 
 import './fonts.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthenticationStatus, selectToken } from './redux/auth/selectors';
+import {
+  selectAuthenticationStatus,
+  selectToken,
+} from './redux/auth/selectors';
 import { useEffect } from 'react';
 import { refreshUserThunk } from './redux/auth/operations';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  const isAuthenticated = useSelector(selectAuthenticationStatus);
+  const authenticated = useSelector(selectAuthenticationStatus);
 
   useEffect(() => {
-    if (!token) return;
+    if (!token || authenticated) return;
 
     dispatch(refreshUserThunk());
-  }, [dispatch, token])
+  }, [authenticated, dispatch, token]);
 
   return (
     <AppWrapper>
@@ -29,7 +34,22 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/account" element={<AccountPage />} />
+        <Route
+          path="/account"
+          element={
+            <PrivateRoute redirectTo="/login">
+              <AccountPage />
+            </PrivateRoute>
+          }
+        />
+        {/* <Route
+          path="/calendar"
+          element={
+            <PrivateRoute redirectTo="/login">
+              <CalendarPage />
+            </PrivateRoute>
+          }
+        /> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AppWrapper>
