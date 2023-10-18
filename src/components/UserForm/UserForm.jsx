@@ -7,6 +7,7 @@ import {
   Container,
   ErrorInputMessage,
   FormUser,
+  IconPlus,
   IconUser,
   Input,
   InputPhoto,
@@ -26,6 +27,7 @@ import { format, parse } from 'date-fns';
 import { updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
 import { userInfoSchema } from '../../schemas';
+import sprite from '../../assets/sprite.svg';
 
 const initialState = {
   newUserName: '',
@@ -139,7 +141,11 @@ export const UserForm = () => {
           {userPhotoPreview ? (
             <AvatarContainer>
               <Avatar src={userPhotoPreview} alt="User Photo" />
-              <AvatarButton onClick={onClickAvatarButton}>&#43;</AvatarButton>
+              <AvatarButton onClick={onClickAvatarButton}>
+                <IconPlus>
+                  <use href={`${sprite}#icon-plus`}></use>
+                </IconPlus>
+              </AvatarButton>
               <input
                 type="file"
                 accept="image/*"
@@ -157,10 +163,14 @@ export const UserForm = () => {
             <AvatarContainer>
               <WithoutAvatar>
                 <IconUser>
-                  <use href="/src/assets/sprite.svg#icon-user"></use>
+                  <use href={`${sprite}#icon-user`}></use>
                 </IconUser>
               </WithoutAvatar>
-              <AvatarButton onClick={onClickAvatarButton}>&#43;</AvatarButton>
+              <AvatarButton onClick={onClickAvatarButton}>
+                <IconPlus>
+                  <use href={`${sprite}#icon-plus`}></use>
+                </IconPlus>
+              </AvatarButton>
               <InputPhoto
                 type="file"
                 accept="image/*"

@@ -77,7 +77,7 @@ export const updateUserThunk = createAsyncThunk(
   'auth/user',
   async (credentials, thunkAPI) => {
     try {
-      const response = await $instance.patch('/user', credentials);
+      const response = await axios.patch('/user', credentials);
       return response.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
