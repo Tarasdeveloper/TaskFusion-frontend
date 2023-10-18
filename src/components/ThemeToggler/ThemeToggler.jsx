@@ -1,13 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { themeSelect } from '../../redux/theme/selectors';
 import { setTheme } from '../../redux/theme/themeSlise';
 
+import {
+  ToggleButton,
+  AnimatedIcon,
+  DisappearingIcon,
+} from './ThemeToggler.styled';
+
 const ThemeToggler = () => {
   const dispatch = useDispatch();
   const stateTheme = useSelector(themeSelect);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleToggleButtonClick = () => {
     const newTheme = stateTheme === 'light' ? 'dark' : 'light';
@@ -18,23 +25,21 @@ const ThemeToggler = () => {
     stateTheme === 'light'
       ? document.body.classList.remove('dark')
       : document.body.classList.add('dark');
-  }, [stateTheme]);
+    setIsLoaded(true);
+  }, [stateTheme, setIsLoaded]);
 
   return (
-    <button
-      onClick={handleToggleButtonClick}
-      style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-    >
+    <ToggleButton onClick={handleToggleButtonClick}>
       {stateTheme === 'light' ? (
-        <svg width="32" height="32" viewBox="0 0 27 27" fill="#3E85F3">
+        <AnimatedIcon className={isLoaded ? 'animate' : ''}>
           <use xlinkHref="/src/assets/sprite.svg#profile-moon-f" />
-        </svg>
+        </AnimatedIcon>
       ) : (
-        <svg width="32" height="32" viewBox="0 0 27 27" fill="#3E85F3">
+        <DisappearingIcon className={isLoaded ? 'animate' : ''}>
           <use xlinkHref="/src/assets/sprite.svg#profile-sun-f" />
-        </svg>
+        </DisappearingIcon>
       )}
-    </button>
+    </ToggleButton>
   );
 };
 
