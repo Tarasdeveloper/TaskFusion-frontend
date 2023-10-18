@@ -215,7 +215,7 @@ export const UserForm = () => {
               </Label>
               <Label>
                 <LabelText htmlFor="birthday">Birthday</LabelText>
-                <StyledDatepicker />
+                {/* <StyledDatepicker /> */}
                 {errors.birthday && touched.birthday ? (
                   <ErrorInputMessage>{errors.birthday}</ErrorInputMessage>
                 ) : (

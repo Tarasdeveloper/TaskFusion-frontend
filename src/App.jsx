@@ -15,7 +15,7 @@ import {
 } from './redux/auth/selectors';
 import { useEffect } from 'react';
 import { refreshUserThunk } from './redux/auth/operations';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+// import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   const dispatch = useDispatch();
