@@ -58,6 +58,10 @@ export const UserForm = () => {
     };
   }, [userPhotoPreview]);
 
+  const changeDate = (date) => {
+    setSelectedDate(date);
+  };
+
   const changes =
     userName !== state.newUserName ||
     email !== state.newEmail ||
@@ -215,7 +219,10 @@ export const UserForm = () => {
               </Label>
               <Label>
                 <LabelText htmlFor="birthday">Birthday</LabelText>
-                <StyledDatepicker />
+                <StyledDatepicker
+                  selectedDate={selectedDate}
+                  setSelectedDate={changeDate}
+                />
                 {errors.birthday && touched.birthday ? (
                   <ErrorInputMessage>{errors.birthday}</ErrorInputMessage>
                 ) : (
