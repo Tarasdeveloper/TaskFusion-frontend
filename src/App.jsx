@@ -47,9 +47,7 @@ function App() {
           {/* <Route
           path="/calendar"
           element={
-            <PrivateRoute redirectTo="/login">
               <CalendarPage />
-            </PrivateRoute>
           }
         /> */}
         </Route>

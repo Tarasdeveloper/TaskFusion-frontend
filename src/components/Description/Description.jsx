@@ -12,11 +12,12 @@ import {
   DescrText,
   DescrTextWrap,
   DescrTitle,
+  DescrWrap,
 } from './Description.styled';
 
 const Description = () => {
   return (
-    <>
+    <DescrWrap>
       <DescrList>
         <DescrItem>
           <DescrTextWrap>
@@ -66,7 +67,7 @@ const Description = () => {
           </DescrImgWrap>
         </DescrItem>
       </DescrList>
-    </>
+    </DescrWrap>
   );
 };
 
