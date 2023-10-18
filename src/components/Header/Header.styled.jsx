@@ -67,3 +67,32 @@ export const MotivationTask = styled.p`
 export const Span = styled.p`
   color: #3e85f3;
 `;
+
+export const FeedbackButton = styled.button`
+  padding: 8px 20px;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: none;
+  color: #fff;
+  background-color: #3e85f3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #2b78ef;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 12px 32px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+`;
