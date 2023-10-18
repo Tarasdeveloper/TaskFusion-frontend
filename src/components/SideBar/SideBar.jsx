@@ -1,5 +1,6 @@
-import goose from '../../images/header/goose.jpg';
-import sprite from '../../images/header/sprite.svg';
+import goose from '../../assets/img/header/goose.jpg';
+import sprite from '../../assets/sprite.svg';
+import LogoutBtn from './LogoutBtn';
 import {
   SidebarWrapper,
   SidebarHeader,
@@ -7,6 +8,7 @@ import {
   LogoTitle,
   CloseIcon,
   SidebarSubTitle,
+  Span,
 } from './SideBar.styled';
 
 const SideBar = ({ onToggle }) => {
@@ -14,7 +16,9 @@ const SideBar = ({ onToggle }) => {
     <SidebarWrapper>
       <SidebarHeader>
         <GooseImage src={goose} alt="goose" />
-        <LogoTitle>Goose Track</LogoTitle>
+        <LogoTitle>
+          G<Span>oo</Span>seTrack
+        </LogoTitle>
         <CloseIcon
           onClick={() => {
             onToggle();
@@ -26,6 +30,7 @@ const SideBar = ({ onToggle }) => {
         </CloseIcon>
       </SidebarHeader>
       <SidebarSubTitle>User Panel</SidebarSubTitle>
+      <LogoutBtn />
     </SidebarWrapper>
   );
 };
