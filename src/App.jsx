@@ -37,9 +37,9 @@ function App() {
         <Route
           path="/account"
           element={
-            <PrivateRoute redirectTo="/login">
+            // <PrivateRoute redirectTo="/login">
               <AccountPage />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         />
         {/* <Route
