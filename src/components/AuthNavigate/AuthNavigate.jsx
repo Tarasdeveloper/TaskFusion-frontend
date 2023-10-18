@@ -1,6 +1,5 @@
+import { NavigationLink } from "./AuthNavigate.styled";
 
-export const AuthNavigate = () => {
-  return (
-    <div>AuthNavigate</div>
-  )
+export const AuthNavigate = ({route, content}) => {
+  return <NavigationLink to={route}>{content}</NavigationLink>;
 }
