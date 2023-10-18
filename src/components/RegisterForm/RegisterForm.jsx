@@ -13,48 +13,34 @@ import {
 import { registerThunk } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  
-  actions.resetForm();
-};
-
 export const RegisterForm = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-const handleRegFormSubmit = (e) => {
-  e.preventDefault();
-  const form = e.currentTarget;
-  const name = form.elements.name.value;
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
+  const handleRegFormSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
 
-  dispatch(
-    registerThunk({
-      name,
-      email,
-      password,
-    }),
-  );
-};
+    dispatch(
+      registerThunk({
+        name,
+        email,
+        password,
+      }),
+    );
+  };
 
-  const {
-    values,
-    errors,
-    touched,
-    isSubmitting,
-    handleBlur,
-    handleChange,
-    // handleSubmit,
-  } = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      password: '',
-    },
-    validationSchema: registerSchema,
-    onSubmit,
-  });
+  const { values, errors, touched, isSubmitting, handleBlur, handleChange } =
+    useFormik({
+      initialValues: {
+        name: '',
+        email: '',
+        password: '',
+      },
+      validationSchema: registerSchema,
+    });
   return (
     <Form onSubmit={handleRegFormSubmit}>
       <FormTitle>Sign up</FormTitle>

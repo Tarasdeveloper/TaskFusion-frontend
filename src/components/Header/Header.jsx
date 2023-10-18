@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import gooseMentor from '../../assets/img/header/gooseMentor.svg';
 import sprite from '../../assets/sprite.svg';
 import { selectTasks } from '../../redux/tasks/selectors';
+import { selectIsLoading } from '../../redux/reviews/selectors';
+import { fetchReviewById } from '../../redux/reviews/operations';
+import { FeedbackModal } from '../../components/FeedbackModal/FeedbackModal';
 import {
   Wrapper,
   Info,
@@ -12,11 +16,16 @@ import {
   GooseMentor,
   MotivationTask,
   Span,
+  FeedbackButton,
 } from './Header.styled';
 
 const Header = ({ onToggle }) => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const isLoading = useSelector(selectIsLoading);
+  const [showModal, setShowModal] = useState(false);
 
   const { currentDay } = useParams();
   const calendarPage = currentPath.startsWith('/calendar/day');
@@ -40,6 +49,16 @@ const Header = ({ onToggle }) => {
   } else {
     title = '';
   }
+
+  const openModal = () => {
+    dispatch(fetchReviewById(user.id));
+
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -71,8 +90,12 @@ const Header = ({ onToggle }) => {
           </svg>
         </Toggler>
         <Info>
+          <FeedbackButton type="button" onClick={openModal}>
+            Feedback
+          </FeedbackButton>
           <ThemeToggler />
         </Info>
+        {showModal && !isLoading && <FeedbackModal onClose={closeModal} />}
       </Wrapper>
     </>
   );

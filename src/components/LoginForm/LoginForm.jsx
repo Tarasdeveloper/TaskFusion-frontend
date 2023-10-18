@@ -10,20 +10,11 @@ import {
   FormInputWrap,
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/auth/operations';
-import { selectAuthenticationStatus } from '../../redux/auth/selectors';
-import { Navigate } from 'react-router-dom';
-
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  actions.resetForm();
-};
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-
-  const authenticated = useSelector(selectAuthenticationStatus);
 
   const handleLogFormSubmit = (e) => {
     e.preventDefault();
@@ -39,24 +30,15 @@ export const LoginForm = () => {
     );
   };
 
-  const {
-    values,
-    errors,
-    touched,
-    isSubmitting,
-    handleBlur,
-    handleChange,
-    // handleSubmit,
-  } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: loginSchema,
-    onSubmit,
-  });
+  const { values, errors, touched, isSubmitting, handleBlur, handleChange } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      validationSchema: loginSchema,
+    });
 
-  if (authenticated) return <Navigate to="/account" />;
   return (
     <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>
@@ -96,7 +78,7 @@ export const LoginForm = () => {
       </FormInputContainer>
 
       <FormBtn disabled={isSubmitting} type="submit">
-        <span>Sign Up</span>
+        <span>Log in</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
