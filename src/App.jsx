@@ -15,7 +15,7 @@ import {
 } from './redux/auth/selectors';
 import { useEffect } from 'react';
 import { refreshUserThunk } from './redux/auth/operations';
-// import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,9 +37,9 @@ function App() {
         <Route
           path="/account"
           element={
-            // <PrivateRoute redirectTo="/login">
+            <PrivateRoute redirectTo="/login">
               <AccountPage />
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         />
         {/* <Route
