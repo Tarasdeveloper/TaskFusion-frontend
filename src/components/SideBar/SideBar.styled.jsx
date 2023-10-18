@@ -82,6 +82,8 @@ export const Span = styled.p`
   }
 `;
 export const CloseIcon = styled.svg`
+  fill: #111;
+  color: #111;
   margin-left: auto;
   height: 24px;
   width: 24px;

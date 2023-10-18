@@ -18,6 +18,8 @@ export const registerThunk = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const { data } = await $instance.post('/auth/register', userData);
+      console.log('data: ', data);
+      setToken(data.token);
 
       return data;
     } catch (error) {
@@ -31,6 +33,7 @@ export const loginThunk = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const { data } = await $instance.post('/auth/login', userData);
+      console.log('data: ', data);
       setToken(data.token);
 
       return data;
