@@ -15,7 +15,7 @@ const MainLayout = () => {
 
   const size = useWindowSize();
   useEffect(() => {
-    setVisible(size.width > 1439 && true);
+    setVisible(size.width > 300 && true);
   }, [size.width]);
 
   return (
