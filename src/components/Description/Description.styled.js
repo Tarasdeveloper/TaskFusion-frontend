@@ -14,6 +14,8 @@ export const DescrItem = styled.li`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1110px;
 `;
 
 export const DescrItemMid = styled.li`
