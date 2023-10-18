@@ -1,4 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import StyledDatepicker from './StyledDatepicker';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsUpdating, selectUser } from '../../redux/auth/selectors';
+import { format, parse } from 'date-fns';
+import { updateUserThunk } from '../../redux/auth/operations';
+import { useFormik } from 'formik';
+import { userInfoSchema } from '../../schemas';
 import {
   Avatar,
   AvatarButton,
@@ -20,13 +27,6 @@ import {
   UserText,
   WithoutAvatar,
 } from './UserForm.styled';
-import StyledDatepicker from './StyledDatepicker';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsUpdating, selectUser } from '../../redux/auth/selectors';
-import { format, parse } from 'date-fns';
-import { updateUserThunk } from '../../redux/auth/operations';
-import { useFormik } from 'formik';
-import { userInfoSchema } from '../../schemas';
 import sprite from '../../assets/sprite.svg';
 
 const initialState = {
