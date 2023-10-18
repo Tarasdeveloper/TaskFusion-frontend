@@ -56,7 +56,7 @@ export const LoginForm = () => {
     onSubmit,
   });
 
-  if (authenticated) return <Navigate to="/calendar/month" />;
+  if (authenticated) return <Navigate to="/account" />;
   return (
     <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>
