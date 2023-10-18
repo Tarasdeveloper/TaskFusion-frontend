@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const $instance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
+  baseURL: 'https://taskfusion-service.onrender.com/',
 });
 
 export const setToken = (token) => {
@@ -17,8 +17,7 @@ export const registerThunk = createAsyncThunk(
   'auth/register',
   async (userData, thunkApi) => {
     try {
-      const { data } = await $instance.post('/users/signup', userData);
-      setToken(data.token);
+      const { data } = await $instance.post('/auth/register', userData);
 
       return data;
     } catch (error) {
@@ -31,7 +30,7 @@ export const loginThunk = createAsyncThunk(
   'auth/login',
   async (userData, thunkApi) => {
     try {
-      const { data } = await $instance.post('/users/login', userData);
+      const { data } = await $instance.post('/auth/login', userData);
       setToken(data.token);
 
       return data;
@@ -63,7 +62,7 @@ export const logoutThunk = createAsyncThunk(
   'auth/logout',
   async (_, thunkApi) => {
     try {
-      const { data } = await $instance.post('/users/logout');
+      const { data } = await $instance.post('/auth/logout');
       clearToken();
 
       return data;
@@ -77,7 +76,7 @@ export const updateUserThunk = createAsyncThunk(
   'auth/user',
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.patch('/user', credentials);
+      const response = await $instance.patch('/users/edit', credentials);
       return response.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

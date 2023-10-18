@@ -45,7 +45,7 @@ const handleRegFormSubmit = (e) => {
     isSubmitting,
     handleBlur,
     handleChange,
-    handleSubmit,
+    // handleSubmit,
   } = useFormik({
     initialValues: {
       name: '',
@@ -56,7 +56,7 @@ const handleRegFormSubmit = (e) => {
     onSubmit,
   });
   return (
-    <Form onSubmit={(handleSubmit, handleRegFormSubmit)}>
+    <Form onSubmit={handleRegFormSubmit}>
       <FormTitle>Sign up</FormTitle>
       <FormInputContainer>
         <FormInputWrap>

@@ -23,6 +23,7 @@ const initialState = {
   error: null,
   isAuthentificated: false,
   isRefreshing: true,
+  isRegistered: false,
 };
 
 const authSlice = createSlice({
@@ -36,11 +37,9 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(registerThunk.fulfilled, (state, action) => {
+      .addCase(registerThunk.fulfilled, (state) => {
         state.isLoading = false;
-        state.isAuthentificated = true;
-        state.userData = action.payload.user;
-        state.token = action.payload.token;
+        state.isRegistered = true;
       })
       .addCase(registerThunk.rejected, (state, action) => {
         state.isLoading = false;
@@ -54,7 +53,6 @@ const authSlice = createSlice({
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isAuthentificated = true;
-        state.userData = action.payload.user;
         state.token = action.payload.token;
       })
       .addCase(loginThunk.rejected, (state, action) => {
@@ -72,7 +70,7 @@ const authSlice = createSlice({
         state.userData = action.payload;
         state.isRefreshing = false;
       })
-      .addCase(refreshUserThunk.rejected, (state, action) => {
+      .addCase(refreshUserThunk.rejected, (state) => {
         state.isLoading = false;
         state.isRefreshing = false;
       })
@@ -81,11 +79,12 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(logoutThunk.fulfilled, (state, action) => {
+      .addCase(logoutThunk.fulfilled, (state) => {
         state.isLoading = false;
         state.isAuthentificated = false;
         state.userData = null;
         state.token = null;
+        state.isRegistered = false;
       })
       .addCase(logoutThunk.rejected, (state, action) => {
         state.isLoading = false;
