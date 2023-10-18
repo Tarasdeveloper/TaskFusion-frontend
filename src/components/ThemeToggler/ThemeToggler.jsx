@@ -27,11 +27,11 @@ const ThemeToggler = () => {
     >
       {stateTheme === 'light' ? (
         <svg width="32" height="32" viewBox="0 0 27 27" fill="#3E85F3">
-          <use xlinkHref="/src/images/sprite.svg#profile-moon-f" />
+          <use xlinkHref="/src/assets/sprite.svg#profile-moon-f" />
         </svg>
       ) : (
         <svg width="32" height="32" viewBox="0 0 27 27" fill="#3E85F3">
-          <use xlinkHref="/src/images/sprite.svg#profile-sun-f" />
+          <use xlinkHref="/src/assets/sprite.svg#profile-sun-f" />
         </svg>
       )}
     </button>
