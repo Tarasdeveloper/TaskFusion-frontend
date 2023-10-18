@@ -21,7 +21,7 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
       customInput={
         <Input
           type="text"
-          name="birthDay"
+          name="newBirthday"
           placeholder="dd/MM/yyyy"
           value={selectedDate.toString()}
         />

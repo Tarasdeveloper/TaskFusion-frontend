@@ -60,6 +60,9 @@ export const FormInput = styled.input`
   font-weight: 600;
   line-height: normal;
 
+  transition:
+    border 0.3s;
+
   @media (min-width: 375px) {
     width: 287px;
     height: 46px;
@@ -113,6 +116,19 @@ export const FormBtn = styled.button`
   font-weight: 600;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
+
+  transition:
+    background 0.3s,
+    color 0.3s;
+
+  &:hover {
+    background: #21222c;
+    color: #3e85f3;
+  }
+  &:focus {
+    background: #21222c;
+    color: #3e85f3;
+  }
   @media (min-width: 768px) {
     width: 400px;
     font-size: 18px;

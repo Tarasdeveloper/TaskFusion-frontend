@@ -10,7 +10,7 @@ import {
 const initialState = {
   userData: {
     _id: null,
-    userName: null,
+    name: null,
     email: null,
     userPhotoURL: null,
     phone: null,
