@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import StyledDatepicker from './StyledDatepicker';
+import { registerLocale } from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './CustomDatePicker.css';
+import uk from 'date-fns/locale/uk';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsUpdating, selectUser } from '../../redux/auth/selectors';
-import { format, isValid, parse, parseISO } from 'date-fns';
+import { addDays, format, isWeekend, parseISO } from 'date-fns';
 import { updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
 import { userInfoSchema } from '../../schemas';
@@ -17,6 +21,7 @@ import {
   IconPlus,
   IconUser,
   Input,
+  InputDatePicker,
   InputPhoto,
   Label,
   LabelText,
@@ -29,24 +34,21 @@ import {
 } from './UserForm.styled';
 import sprite from '../../assets/sprite.svg';
 
+registerLocale('uk', uk);
+
 export const UserForm = () => {
-  const { name, email, userPhotoURL, phone, skype, birthDay } =
+  const { name, email, avatar, phone, skype, birthday } =
     useSelector(selectUser);
   const isUpdating = useSelector(selectIsUpdating);
   const initialValues = {
-    newUserName: name ? name : '',
-    newEmail: email ? email : '',
-    newUserPhotoURL: userPhotoURL ? userPhotoURL : '',
-    newPhone: phone ? phone : '',
-    newSkype: skype ? skype : '',
-    newBirthday: birthDay ? parseISO(birthDay) : '',
+    name: name ? name : '',
+    email: email ? email : '',
+    avatar: avatar ? avatar : '',
+    phone: phone ? phone : '',
+    skype: skype ? skype : '',
+    birthday: birthday ? parseISO(birthday) : '',
   };
   const [state, setState] = useState(initialValues);
-  const initialDate =
-    birthDay === '' ? new Date() : parse(birthDay, 'dd/MM/yyyy', new Date());
-  const [selectedDate, setSelectedDate] = useState(
-    isValid(initialDate) ? initialDate : new Date(),
-  );
   const [userPhotoPreview, setUserPhotoPreview] = useState('');
   const userPhotoInputRef = useRef(null);
   const dispatch = useDispatch();
@@ -59,17 +61,14 @@ export const UserForm = () => {
     };
   }, [userPhotoPreview]);
 
-  const changeDate = (date) => {
-    setSelectedDate(date);
-  };
-
   const changes =
-    name !== state.newUserName ||
-    email !== state.newEmail ||
-    phone !== state.newPhone ||
-    skype !== state.newSkype ||
-    birthDay !== format(selectedDate, 'dd/MM/yyyy') ||
-    userPhotoPreview !== '';
+    name !== state.name ||
+    email !== state.email ||
+    phone !== state.phone ||
+    skype !== state.skype ||
+    birthday !== state.birthday ||
+    userPhotoPreview !== '' ||
+    avatar !== state.avatar;
 
   const onClickAvatarButton = () => {
     if (userPhotoInputRef.current) {
@@ -81,37 +80,39 @@ export const UserForm = () => {
     const photo = e.target.files[0];
     setState((prevState) => ({
       ...prevState,
-      newUserPhotoURL: photo,
+      avatar: photo,
     }));
+    setFieldValue('avatar', photo);
 
     if (photo) {
       const previewUrl = URL.createObjectURL(photo);
       setUserPhotoPreview(previewUrl);
     } else {
-      setUserPhotoPreview(userPhotoURL);
+      setUserPhotoPreview(avatar);
     }
   };
 
   const handleSaveChanges = async () => {
+    // event.preventDefault();
     if (!changes) return;
     const formData = new FormData();
-    if (name !== state.newUserName) {
-      formData.append('userName', state.newUserName);
+    if (name !== state.name) {
+      formData.append('userName', state.name);
     }
-    if (email !== state.newEmail) {
-      formData.append('email', state.newEmail);
+    if (email !== state.email) {
+      formData.append('email', state.email);
     }
-    if (userPhotoPreview !== '') {
-      formData.append('avatar', state.newUserPhotoURL);
+    if (userPhotoPreview !== '' || avatar !== state.avatar) {
+      formData.append('avatar', state.avatar);
     }
-    if (phone !== state.newPhone) {
-      formData.append('phone', state.newPhone);
+    if (phone !== state.phone) {
+      formData.append('phone', state.phone);
     }
-    if (skype !== state.newSkype) {
-      formData.append('skype', state.newSkype);
+    if (skype !== state.skype) {
+      formData.append('skype', state.skype);
     }
-    if (birthDay !== format(selectedDate, 'dd/MM/yyyy')) {
-      formData.append('birthDay', format(selectedDate, 'dd/MM/yyyy'));
+    if (birthday !== state.birthday) {
+      formData.append('birthDay', state.birthday);
     }
     dispatch(updateUserThunk(formData));
   };
@@ -126,6 +127,7 @@ export const UserForm = () => {
     handleChange,
     handleSubmit,
     setSubmitting,
+    setFieldValue,
   } = useFormik({
     initialValues,
     validationSchema: userInfoSchema,
@@ -146,6 +148,7 @@ export const UserForm = () => {
               </AvatarButton>
               <input
                 type="file"
+                name="avatar"
                 accept="image/*"
                 ref={userPhotoInputRef}
                 onBlur={handleBlur}
@@ -154,7 +157,6 @@ export const UserForm = () => {
                   setSubmitting(false);
                 }}
                 style={{ display: 'none' }}
-                name="avatar"
               />
             </AvatarContainer>
           ) : (
@@ -171,6 +173,7 @@ export const UserForm = () => {
               </AvatarButton>
               <InputPhoto
                 type="file"
+                name="avatar"
                 accept="image/*"
                 ref={userPhotoInputRef}
                 onBlur={handleBlur}
@@ -178,49 +181,53 @@ export const UserForm = () => {
                   onClickIconPlus(event);
                   setSubmitting(false);
                 }}
-                name="avatar"
               />
             </AvatarContainer>
           )}
-          <UserName>
-            {values.newUserName.length > 1 ? values.newUserName : 'Name'}
-          </UserName>
+          <UserName>{values.name.length > 1 ? values.name : 'Name'}</UserName>
           <UserText>User</UserText>
           <UserInfoContainer>
             <UserInfoColumn>
               <Label>
                 <LabelText htmlFor="user-name">User Name</LabelText>
                 <Input
-                  id="newUserName"
-                  name="newUserName"
+                  id="name"
+                  name="name"
                   placeholder="Your name"
                   type="text"
-                  value={values.newUserName}
+                  value={values.name}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={
-                    errors.newUserName && touched.newUserName
-                      ? 'input-error'
-                      : ''
-                  }
+                  className={errors.name && touched.name ? 'input-error' : ''}
                 />
-                {errors.newUserName && touched.newUserName ? (
-                  <ErrorInputMessage>{errors.newUserName}</ErrorInputMessage>
+                {errors.name && touched.name ? (
+                  <ErrorInputMessage>{errors.name}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
               </Label>
               <Label>
                 <LabelText htmlFor="birthday">Birthday</LabelText>
-                <StyledDatepicker
-                  selectedDate={selectedDate}
-                  setSelectedDate={changeDate}
+                <InputDatePicker
+                  name="birthday"
+                  dateFormat="dd/MM/yyyy"
+                  placeholderText={format(new Date(), 'dd/MM/yyyy')}
+                  selected={values.birthday}
+                  value={values.birthday}
+                  onBlur={handleBlur}
+                  onChange={(date) => {
+                    setFieldValue('birthday', date);
+                    setSubmitting(false);
+                  }}
+                  calendarStartDay={1}
+                  maxDate={addDays(new Date(), 0)}
+                  highlightDates={(date) => isWeekend(date)}
                 />
-                {errors.newBirthday && touched.newBirthday ? (
-                  <ErrorInputMessage>{errors.newBirthday}</ErrorInputMessage>
+                {errors.birthday && touched.birthday ? (
+                  <ErrorInputMessage>{errors.birthday}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -228,23 +235,21 @@ export const UserForm = () => {
               <Label>
                 <LabelText htmlFor="email">Email</LabelText>
                 <Input
-                  id="newEmail"
-                  name="newEmail"
+                  id="email"
+                  name="email"
                   placeholder="Your email"
                   type="email"
-                  value={values.newEmail}
+                  value={values.email}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={
-                    errors.newEmail && touched.newEmail ? 'input-error' : ''
-                  }
+                  className={errors.email && touched.email ? 'input-error' : ''}
                   required
                 />
-                {errors.newEmail && touched.newEmail ? (
-                  <ErrorInputMessage>{errors.newEmail}</ErrorInputMessage>
+                {errors.email && touched.email ? (
+                  <ErrorInputMessage>{errors.email}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -256,20 +261,18 @@ export const UserForm = () => {
                 <Input
                   placeholder="Your phone"
                   type="tel"
-                  id="newPhone"
-                  name="newPhone"
-                  value={values.newPhone}
+                  id="phone"
+                  name="phone"
+                  value={values.phone}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={
-                    errors.newPhone && touched.newPhone ? 'input-error' : ''
-                  }
+                  className={errors.phone && touched.phone ? 'input-error' : ''}
                 />
-                {errors.newPhone && touched.newPhone ? (
-                  <ErrorInputMessage>{errors.newPhone}</ErrorInputMessage>
+                {errors.phone && touched.phone ? (
+                  <ErrorInputMessage>{errors.phone}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -279,20 +282,18 @@ export const UserForm = () => {
                 <Input
                   placeholder="Add a skype number"
                   type="text"
-                  id="newSkype"
-                  name="newSkype"
-                  value={values.newSkype}
+                  id="skype"
+                  name="skype"
+                  value={values.skype}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={
-                    errors.newSkype && touched.newSkype ? 'input-error' : ''
-                  }
+                  className={errors.skype && touched.skype ? 'input-error' : ''}
                 />
-                {errors.newSkype && touched.newSkype ? (
-                  <ErrorInputMessage>{errors.newSkype}</ErrorInputMessage>
+                {errors.skype && touched.skype ? (
+                  <ErrorInputMessage>{errors.skype}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -304,7 +305,10 @@ export const UserForm = () => {
               Submitting...
             </ButtonSaveChanges>
           ) : (
-            <ButtonSaveChanges type="submit" disabled={!dirty || isSubmitting}>
+            <ButtonSaveChanges
+              type="submit"
+              disabled={!dirty || isSubmitting || !changes}
+            >
               Save changes
             </ButtonSaveChanges>
           )}

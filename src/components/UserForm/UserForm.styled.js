@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  background-color: #f7f6f9;
+  background-color: var(--secondary-background-color);
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 64px;
@@ -26,7 +28,7 @@ export const ProfileContainer = styled.div`
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;
-  background-color: #fff;
+  background-color: var(--primary-background-color);
   border-radius: 16px;
 
   @media (min-width: 375px) {
@@ -77,8 +79,8 @@ export const WithoutAvatar = styled.div`
   height: 72px;
   margin-top: -36px;
   border-radius: 50%;
-  border: 2px solid #3e85f3;
-  background-color: #f8f8f8;
+  border: 2px solid var(--accent-span-text-color);
+  background-color: var(--avatar-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,14 +95,14 @@ export const WithoutAvatar = styled.div`
 export const IconUser = styled.svg`
   width: 48px;
   height: 48px;
-  fill: #3e85f3;
+  fill: var(--accent-span-text-color);
   fill-opacity: 0.18;
 `;
 
 export const IconPlus = styled.svg`
   width: 18px;
   height: 18px;
-  fill: #fff;
+  fill: var(--primary-background-color);
 `;
 
 export const AvatarButton = styled.button`
@@ -108,14 +110,14 @@ export const AvatarButton = styled.button`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #3e85f3;
+  background-color: var(--accent-span-text-color);
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -15px;
   margin-left: 51px;
-  color: #fff;
+  color: var(--primary-text-color);
   font-size: 18px;
 
   @media (min-width: 768px) {
@@ -131,7 +133,7 @@ export const InputPhoto = styled.input`
 `;
 
 export const UserName = styled.h2`
-  color: #343434;
+  color: var(--label-text);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -145,7 +147,7 @@ export const UserName = styled.h2`
 `;
 
 export const UserText = styled.h2`
-  color: #343434;
+  color: var(--label-text);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -200,8 +202,47 @@ export const LabelText = styled.span`
 
 export const Input = styled.input`
   border-radius: 8px;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  background: #fff;
+  border: var(--border-account-input);
+  background: var(--primary-background-color);
+  width: 100%;
+  height: 42px;
+  padding: 12px 14px 12px 14px;
+  color: #111;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.29;
+  margin-bottom: 18px;
+
+  @media (min-width: 768px) {
+    height: 46px;
+    padding: 14px 18px 14px 18px;
+    font-size: 16px;
+    line-height: 1.13;
+    margin-bottom: 24px;
+  }
+
+  &::placeholder {
+    color: rgba(17, 17, 17, 0.15);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.13;
+  }
+  &:hover {
+    border: 1px solid #111;
+  }
+  &:focus {
+    border: 1px solid #111;
+  }
+`;
+
+export const InputDatePicker = styled(DatePicker)`
+  border-radius: 8px;
+  border: var(--border-account-input);
+  background: var(--primary-background-color);
   width: 100%;
   height: 42px;
   padding: 12px 14px 12px 14px;
@@ -242,17 +283,32 @@ export const ButtonSaveChanges = styled.button`
   height: 46px;
   padding: 10px 20px 10px 20px;
   border-radius: 16px;
-  background-color: #3e85f3;
-  color: #fff;
+  background-color: var(--accent-span-text-color);
+  color: var(--btn-text-color);
   text-align: center;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
-  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+  box-shadow: var(--shadow-logout-btn);
   border: none;
   margin-top: 22px;
+
+  &:hover {
+    background-color: var(--hover-btn-background-color);
+  }
+
+  &:focus {
+    background-color: var(--hover-btn-background-color);
+  }
+
+  &:disabled {
+    background-color: var(--secondary-background-color);
+    color: var(--feedback-text);
+    border: 1px solid var(--border-color);
+    cursor: not-allowed;
+  }
 
   @media (min-width: 768px) {
     width: 100%;
@@ -264,14 +320,10 @@ export const ButtonSaveChanges = styled.button`
     width: 262px;
     margin-top: 64px;
   }
-
-  &:hover {
-    background-color: #2b78ef;
-  }
 `;
 
 export const ErrorInputMessage = styled.p`
-  color: #da1414;
+  color: var(--status-error);
   font-family: Inter;
   font-size: 12px;
   font-weight: 400;
