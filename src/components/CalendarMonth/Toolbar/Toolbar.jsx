@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import StyledDatepicker from '../datapicker/DataPicker';
+import StyledDatepicker from '../DataPicker/StyledDataPicker';
 
 import {
   DayBtn,

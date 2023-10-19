@@ -35,7 +35,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/calendar" element={<ChoosedDay />} />
+        <Route path="/calendar/day" element={<ChoosedDay />} />
         <Route element={<MainLayout />}>
           <Route
             path="/account"
@@ -53,7 +53,6 @@ function App() {
           }
         /> */}
           <Route path="/calendar" element={<CalendarPage />} />
-
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
