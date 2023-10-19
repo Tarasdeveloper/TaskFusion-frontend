@@ -10,10 +10,14 @@ import {
   FormInputWrap,
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginThunk } from '../../redux/auth/operations';
+import { selectError } from '../../redux/auth/selectors';
 
 export const LoginForm = () => {
+  const authError = useSelector(selectError);
+  console.log('authError: ', authError);
+
   const dispatch = useDispatch();
 
   const handleLogFormSubmit = (e) => {
@@ -38,6 +42,10 @@ export const LoginForm = () => {
       },
       validationSchema: loginSchema,
     });
+
+  const isFormValid = () => {
+    return Object.keys(errors).length === 0 && Object.keys(touched).length > 0;
+  };
 
   return (
     <Form onSubmit={handleLogFormSubmit}>
@@ -77,7 +85,7 @@ export const LoginForm = () => {
         </FormInputWrap>
       </FormInputContainer>
 
-      <FormBtn disabled={isSubmitting} type="submit">
+      <FormBtn disabled={!isFormValid() || isSubmitting} type="submit">
         <span>Log in</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -95,6 +103,12 @@ export const LoginForm = () => {
           />
         </svg>
       </FormBtn>
+      {authError === 'Request failed with status code 401' && (
+        <ErrorText>Email or password is wrong</ErrorText>
+      )}
+      {authError && authError !== 'Request failed with status code 401' && (
+        <ErrorText>{authError}</ErrorText>
+      )}
     </Form>
   );
 };
