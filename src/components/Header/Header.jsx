@@ -7,6 +7,7 @@ import sprite from '../../assets/sprite.svg';
 import { selectTasks } from '../../redux/tasks/selectors';
 import { selectIsLoading } from '../../redux/reviews/selectors';
 import { fetchReviewById } from '../../redux/reviews/operations';
+import { selectUser } from '../../redux/auth/selectors';
 import { FeedbackModal } from '../../components/FeedbackModal/FeedbackModal';
 import {
   Wrapper,
@@ -25,6 +26,7 @@ const Header = ({ onToggle }) => {
   const currentPath = location.pathname;
 
   const isLoading = useSelector(selectIsLoading);
+  const user = useSelector(selectUser);
   const [showModal, setShowModal] = useState(false);
 
   const { currentDay } = useParams();
