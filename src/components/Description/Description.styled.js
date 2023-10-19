@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+export const DescrWrap = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+`;
+
 export const DescrList = styled.ul`
-  max-width: 1470px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
 `;
 
 export const DescrItem = styled.li`
@@ -14,6 +16,8 @@ export const DescrItem = styled.li`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: flex-end;
+  /* max-width: 1190px; */
 `;
 
 export const DescrItemMid = styled.li`

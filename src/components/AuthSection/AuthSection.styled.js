@@ -11,7 +11,6 @@ export const Container = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  /* font-size: 120px; */
   font-size: clamp(44px, 10vw, 120px);
   line-height: 1.25;
   text-shadow:
