@@ -16,7 +16,6 @@ import { selectError } from '../../redux/auth/selectors';
 
 export const LoginForm = () => {
   const authError = useSelector(selectError);
-  console.log('authError: ', authError);
 
   const dispatch = useDispatch();
 
