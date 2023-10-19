@@ -13,8 +13,6 @@ import {
 } from './CalendarMonth.styled';
 
 const formatOfDay = 'd';
-/* const formatOfWeek = 'EEEEE'; */
-console.log(window.innerWidth);
 
 const CalendarMonth = ({ daysOfWeek, totalDate }) => {
   const [formatOfWeek, setFormatOfWeek] = useState('EEEEE');

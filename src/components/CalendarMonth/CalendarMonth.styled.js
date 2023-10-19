@@ -50,7 +50,7 @@ export const Border = styled.div`
 `;
 
 export const CurrentDay = styled.div`
-  padding: 4px 6px;
+  padding: 10px 8px;
   height: 100%;
   width: 100%;
   background: #3e85f3;
