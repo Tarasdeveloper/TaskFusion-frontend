@@ -15,6 +15,7 @@ import {
 
 import { OtherDay, ActiveDay, Day, Item, List } from './DayCalendarHead.styled';
 
+
 export const DayCalendarHead = () => {
   const day = useParams();
   const { currentDay } = day;
@@ -26,19 +27,16 @@ export const DayCalendarHead = () => {
     return day.startsWith('0') ? day.slice(1) : day;
   }
 
-  // const dates = [];
-  // for (let i = 0; i < 7; i++) {
-  //   dates.push(add(day, { days: i }));
-  // }
+  
+  const handleClick = day => {
+   dispatch(addIndexCurrentDay(Number(format(day, 'd')) - 1));
+                    dispatch(
+                      addChoosedDay(
+                        formatISO(new Date(day), {
+                          representation: 'date',
+                        })
+                      )
 
-  const handleClick = (day) => {
-    dispatch(addIndexCurrentDay(Number(format(day, 'd')) - 1));
-    dispatch(
-      addChoosedDay(
-        formatISO(new Date(day), {
-          representation: 'date',
-        }),
-      ),
     );
     navigate(`/calendar/day/${format(day, 'yyyy-MM-dd')}`);
   };
