@@ -2,10 +2,7 @@ import { useDispatch,} from 'react-redux';
 import { useNavigate, useParams,  } from 'react-router-dom';
 import {  eachDayOfInterval, endOfISOWeek, format,  formatISO,  isSameDay,  startOfISOWeek } from 'date-fns';
 import {  addChoosedDay, addIndexCurrentDay } from '../../redux/calendar/calendar.slice';
-
 import {  OtherDay, ActiveDay, Day,  Item, List, } from './DayCalendarHead.styled';
-
-
 
 export const DayCalendarHead = () => {
   const day = useParams();

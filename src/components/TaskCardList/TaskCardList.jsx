@@ -17,7 +17,7 @@ import {
   MainContainer,
   TaskItem,
 } from './TaskCardList.styled';
-import Icon from '../../images/cartIcon.svg';
+import Icon from '../../assets/sprite.svg';
 import useAuth from 'hooks/useAuth';
 import { deleteTaskOperation } from '../../redux/calendar/calendar.operations';
 import { TaskModal } from '../TaskModal/TaskModal';

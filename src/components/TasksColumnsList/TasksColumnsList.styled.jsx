@@ -58,7 +58,6 @@ export const TaskContainer = styled.div`
   padding-left: 14px;
   padding-right: 8px;
   background: ${({ theme }) => theme.bgColors.bgTaskList};
-
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.borderColors.calendar};
   position: relative;
@@ -103,7 +102,6 @@ export const AddTaskButton = styled.button`
   cursor: pointer;
   border: none;
   margin-right: 10px;
-
   background: inherit;
   @media (min-width: 768px) {
   }
@@ -143,7 +141,6 @@ export const AddButton = styled.button`
   @media (min-width: 768px) {
     position: relative;
     width: 304px;
-
     // margin-bottom: 28px;
     margin-top: 28px;
     margin-left: 6px;
