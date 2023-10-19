@@ -31,31 +31,33 @@ export const loginSchema = yup.object().shape({
 });
 
 export const userInfoSchema = yup.object().shape({
-  userPhotoURL: yup
+  newUserPhotoURL: yup
     .mixed()
     .test('fileType', 'Invalid file type. Allowed .jpeg or .png', (value) => {
-      if (!value) return true;
-      return ['image/jpg', 'image/jpeg', 'image/png'].includes(value.type);
+      if (value && value.type) {
+        return ['image/jpg', 'image/jpeg', 'image/png'].includes(value.type);
+      }
+      return true;
     }),
-  userName: yup
+  newUserName: yup
     .string()
     .min(3, 'The name must be at least 3 characters.')
     .max(16, 'The name must be 16 characters or less.')
     .required('The name is required.'),
-  email: yup
+  newEmail: yup
     .string()
     .matches(emailRules, 'Invalid email address.')
     .required('The email is required'),
-  birthDay: yup
+  newBirthday: yup
     .string()
     .nullable()
     .transform((v) => (v === '' ? null : v)),
-  phone: yup
+  newPhone: yup
     .string()
-    .matches(/^[+]{0,1}[\d]+$/, 'Invalid number.')
+    .matches(/^(?:\+\d|[\d\s\-./()]){10,20}$/, 'Invalid number.')
     .nullable()
     .transform((v) => (v === '' ? null : v)),
-  skype: yup
+  newSkype: yup
     .string()
     .min(3, 'The skype must be at least 3 characters.')
     .max(16, 'The skype must be 16 characters or less.')

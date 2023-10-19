@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './CustomDatePicker.css';
@@ -6,18 +5,11 @@ import uk from 'date-fns/locale/uk';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { Input } from './UserForm.styled';
-import { addDays, isWeekend, parse } from 'date-fns';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/selectors';
+import { addDays, isWeekend } from 'date-fns';
 
 registerLocale('uk', uk);
 
-const StyledDatepicker = () => {
-  const { birthDay } = useSelector(selectUser);
-  const [selectedDate, setSelectedDate] = useState(
-    birthDay === null ? new Date() : parse(birthDay, 'dd/MM/yyyy', new Date()),
-  );
-
+const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
   return (
     <DatePicker
       dateFormat="dd/MM/yyyy"
@@ -29,7 +21,7 @@ const StyledDatepicker = () => {
       customInput={
         <Input
           type="text"
-          name="birthDay"
+          name="newBirthday"
           placeholder="dd/MM/yyyy"
           value={selectedDate.toString()}
         />

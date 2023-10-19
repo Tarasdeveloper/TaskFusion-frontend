@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
-import gooseMentor from '../../images/header/gooseMentor.svg';
-import sprite from '../../images/header/sprite.svg';
+import gooseMentor from '../../assets/img/header/gooseMentor.svg';
+import sprite from '../../assets/sprite.svg';
 import { selectTasks } from '../../redux/tasks/selectors';
+import { selectIsLoading } from '../../redux/reviews/selectors';
+import { fetchReviewById } from '../../redux/reviews/operations';
+import { FeedbackModal } from '../../components/FeedbackModal/FeedbackModal';
 import {
   Wrapper,
   Info,
@@ -12,11 +16,16 @@ import {
   GooseMentor,
   MotivationTask,
   Span,
+  FeedbackButton,
 } from './Header.styled';
 
 const Header = ({ onToggle }) => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const isLoading = useSelector(selectIsLoading);
+  const [showModal, setShowModal] = useState(false);
 
   const { currentDay } = useParams();
   const calendarPage = currentPath.startsWith('/calendar/day');
@@ -34,12 +43,22 @@ const Header = ({ onToggle }) => {
 
   let title = '';
   if (currentPath.startsWith('/account')) {
-    title = 'User Account';
+    title = 'User Profile';
   } else if (currentPath.startsWith('/calendar/')) {
     title = 'Calendar';
   } else {
     title = '';
   }
+
+  const openModal = () => {
+    dispatch(fetchReviewById(user.id));
+
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -66,13 +85,43 @@ const Header = ({ onToggle }) => {
             onToggle();
           }}
         >
-          <svg>
-            <use href={`${sprite}#icon-menu`} />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M3 12H21"
+              stroke="#343434"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M3 6H21"
+              stroke="#343434"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M3 18H21"
+              stroke="#343434"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </Toggler>
         <Info>
+          <FeedbackButton type="button" onClick={openModal}>
+            Feedback
+          </FeedbackButton>
           <ThemeToggler />
         </Info>
+        {showModal && !isLoading && <FeedbackModal onClose={closeModal} />}
       </Wrapper>
     </>
   );

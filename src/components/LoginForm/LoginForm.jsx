@@ -10,15 +10,14 @@ import {
   FormInputWrap,
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginThunk } from '../../redux/auth/operations';
-
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  actions.resetForm();
-};
+import { selectError } from '../../redux/auth/selectors';
 
 export const LoginForm = () => {
+  const authError = useSelector(selectError);
+  console.log('authError: ', authError);
+
   const dispatch = useDispatch();
 
   const handleLogFormSubmit = (e) => {
@@ -35,24 +34,21 @@ export const LoginForm = () => {
     );
   };
 
-  const {
-    values,
-    errors,
-    touched,
-    isSubmitting,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: loginSchema,
-    onSubmit,
-  });
+  const { values, errors, touched, isSubmitting, handleBlur, handleChange } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      validationSchema: loginSchema,
+    });
+
+  const isFormValid = () => {
+    return Object.keys(errors).length === 0 && Object.keys(touched).length > 0;
+  };
+
   return (
-    <Form onSubmit={(handleSubmit, handleLogFormSubmit)}>
+    <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>
       <FormInputContainer>
         <FormInputWrap>
@@ -89,8 +85,8 @@ export const LoginForm = () => {
         </FormInputWrap>
       </FormInputContainer>
 
-      <FormBtn disabled={isSubmitting} type="submit">
-        <span>Sign Up</span>
+      <FormBtn disabled={!isFormValid() || isSubmitting} type="submit">
+        <span>Log in</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -107,6 +103,12 @@ export const LoginForm = () => {
           />
         </svg>
       </FormBtn>
+      {authError === 'Request failed with status code 401' && (
+        <ErrorText>Email or password is wrong</ErrorText>
+      )}
+      {authError && authError !== 'Request failed with status code 401' && (
+        <ErrorText>{authError}</ErrorText>
+      )}
     </Form>
   );
 };

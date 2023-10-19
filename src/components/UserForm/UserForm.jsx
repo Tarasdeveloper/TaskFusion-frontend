@@ -1,4 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import StyledDatepicker from './StyledDatepicker';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsUpdating, selectUser } from '../../redux/auth/selectors';
+import { format, isValid, parse, parseISO } from 'date-fns';
+import { updateUserThunk } from '../../redux/auth/operations';
+import { useFormik } from 'formik';
+import { userInfoSchema } from '../../schemas';
 import {
   Avatar,
   AvatarButton,
@@ -7,6 +14,7 @@ import {
   Container,
   ErrorInputMessage,
   FormUser,
+  IconPlus,
   IconUser,
   Input,
   InputPhoto,
@@ -19,30 +27,25 @@ import {
   UserText,
   WithoutAvatar,
 } from './UserForm.styled';
-import StyledDatepicker from './StyledDatepicker';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsUpdating, selectUser } from '../../redux/auth/selectors';
-import { format, parse } from 'date-fns';
-import { updateUserThunk } from '../../redux/auth/operations';
-import { useFormik } from 'formik';
-import { userInfoSchema } from '../../schemas';
-
-const initialState = {
-  newUserName: '',
-  newEmail: '',
-  newUserPhotoURL: '',
-  newPhone: '',
-  newSkype: '',
-  newBirthday: '',
-};
+import sprite from '../../assets/sprite.svg';
 
 export const UserForm = () => {
-  const { userName, email, userPhotoURL, phone, skype, birthDay } =
+  const { name, email, userPhotoURL, phone, skype, birthDay } =
     useSelector(selectUser);
   const isUpdating = useSelector(selectIsUpdating);
-  const [state, setState] = useState(initialState);
+  const initialValues = {
+    newUserName: name ? name : '',
+    newEmail: email ? email : '',
+    newUserPhotoURL: userPhotoURL ? userPhotoURL : '',
+    newPhone: phone ? phone : '',
+    newSkype: skype ? skype : '',
+    newBirthday: birthDay ? parseISO(birthDay) : '',
+  };
+  const [state, setState] = useState(initialValues);
+  const initialDate =
+    birthDay === '' ? new Date() : parse(birthDay, 'dd/MM/yyyy', new Date());
   const [selectedDate, setSelectedDate] = useState(
-    birthDay === null ? new Date() : parse(birthDay, 'dd/MM/yyyy', new Date()),
+    isValid(initialDate) ? initialDate : new Date(),
   );
   const [userPhotoPreview, setUserPhotoPreview] = useState('');
   const userPhotoInputRef = useRef(null);
@@ -56,8 +59,12 @@ export const UserForm = () => {
     };
   }, [userPhotoPreview]);
 
+  const changeDate = (date) => {
+    setSelectedDate(date);
+  };
+
   const changes =
-    userName !== state.newUserName ||
+    name !== state.newUserName ||
     email !== state.newEmail ||
     phone !== state.newPhone ||
     skype !== state.newSkype ||
@@ -88,7 +95,7 @@ export const UserForm = () => {
   const handleSaveChanges = async () => {
     if (!changes) return;
     const formData = new FormData();
-    if (userName !== state.newUserName) {
+    if (name !== state.newUserName) {
       formData.append('userName', state.newUserName);
     }
     if (email !== state.newEmail) {
@@ -120,14 +127,7 @@ export const UserForm = () => {
     handleSubmit,
     setSubmitting,
   } = useFormik({
-    initialValues: {
-      userName: '',
-      email: '',
-      userPhotoURL: '',
-      phone: '',
-      skype: '',
-      birthday: '',
-    },
+    initialValues,
     validationSchema: userInfoSchema,
     onSubmit: (event) => handleSaveChanges(event),
   });
@@ -139,7 +139,11 @@ export const UserForm = () => {
           {userPhotoPreview ? (
             <AvatarContainer>
               <Avatar src={userPhotoPreview} alt="User Photo" />
-              <AvatarButton onClick={onClickAvatarButton}>&#43;</AvatarButton>
+              <AvatarButton type="button" onClick={onClickAvatarButton}>
+                <IconPlus>
+                  <use href={`${sprite}#icon-plus`}></use>
+                </IconPlus>
+              </AvatarButton>
               <input
                 type="file"
                 accept="image/*"
@@ -157,10 +161,14 @@ export const UserForm = () => {
             <AvatarContainer>
               <WithoutAvatar>
                 <IconUser>
-                  <use href="/src/assets/sprite.svg#icon-user"></use>
+                  <use href={`${sprite}#icon-user`}></use>
                 </IconUser>
               </WithoutAvatar>
-              <AvatarButton onClick={onClickAvatarButton}>&#43;</AvatarButton>
+              <AvatarButton type="button" onClick={onClickAvatarButton}>
+                <IconPlus>
+                  <use href={`${sprite}#icon-plus`}></use>
+                </IconPlus>
+              </AvatarButton>
               <InputPhoto
                 type="file"
                 accept="image/*"
@@ -175,7 +183,7 @@ export const UserForm = () => {
             </AvatarContainer>
           )}
           <UserName>
-            {values.userName.length > 1 ? values.userName : 'Name'}
+            {values.newUserName.length > 1 ? values.newUserName : 'Name'}
           </UserName>
           <UserText>User</UserText>
           <UserInfoContainer>
@@ -183,31 +191,36 @@ export const UserForm = () => {
               <Label>
                 <LabelText htmlFor="user-name">User Name</LabelText>
                 <Input
-                  id="userName"
-                  name="userName"
+                  id="newUserName"
+                  name="newUserName"
                   placeholder="Your name"
                   type="text"
-                  value={values.userName}
+                  value={values.newUserName}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
                   className={
-                    errors.userName && touched.userName ? 'input-error' : ''
+                    errors.newUserName && touched.newUserName
+                      ? 'input-error'
+                      : ''
                   }
                 />
-                {errors.userName && touched.userName ? (
-                  <ErrorInputMessage>{errors.userName}</ErrorInputMessage>
+                {errors.newUserName && touched.newUserName ? (
+                  <ErrorInputMessage>{errors.newUserName}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
               </Label>
               <Label>
                 <LabelText htmlFor="birthday">Birthday</LabelText>
-                <StyledDatepicker />
-                {errors.birthday && touched.birthday ? (
-                  <ErrorInputMessage>{errors.birthday}</ErrorInputMessage>
+                <StyledDatepicker
+                  selectedDate={selectedDate}
+                  setSelectedDate={changeDate}
+                />
+                {errors.newBirthday && touched.newBirthday ? (
+                  <ErrorInputMessage>{errors.newBirthday}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -215,21 +228,23 @@ export const UserForm = () => {
               <Label>
                 <LabelText htmlFor="email">Email</LabelText>
                 <Input
-                  id="email"
-                  name="email"
+                  id="newEmail"
+                  name="newEmail"
                   placeholder="Your email"
                   type="email"
-                  value={values.email}
+                  value={values.newEmail}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={errors.email && touched.email ? 'input-error' : ''}
+                  className={
+                    errors.newEmail && touched.newEmail ? 'input-error' : ''
+                  }
                   required
                 />
-                {errors.email && touched.email ? (
-                  <ErrorInputMessage>{errors.email}</ErrorInputMessage>
+                {errors.newEmail && touched.newEmail ? (
+                  <ErrorInputMessage>{errors.newEmail}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -241,18 +256,20 @@ export const UserForm = () => {
                 <Input
                   placeholder="Your phone"
                   type="tel"
-                  id="phone"
-                  name="phone"
-                  value={values.phone}
+                  id="newPhone"
+                  name="newPhone"
+                  value={values.newPhone}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={errors.phone && touched.phone ? 'input-error' : ''}
+                  className={
+                    errors.newPhone && touched.newPhone ? 'input-error' : ''
+                  }
                 />
-                {errors.phone && touched.phone ? (
-                  <ErrorInputMessage>{errors.phone}</ErrorInputMessage>
+                {errors.newPhone && touched.newPhone ? (
+                  <ErrorInputMessage>{errors.newPhone}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}
@@ -262,18 +279,20 @@ export const UserForm = () => {
                 <Input
                   placeholder="Add a skype number"
                   type="text"
-                  id="skype"
-                  name="skype"
-                  value={values.skype}
+                  id="newSkype"
+                  name="newSkype"
+                  value={values.newSkype}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     handleChange(event);
                     setSubmitting(false);
                   }}
-                  className={errors.skype && touched.skype ? 'input-error' : ''}
+                  className={
+                    errors.newSkype && touched.newSkype ? 'input-error' : ''
+                  }
                 />
-                {errors.skype && touched.skype ? (
-                  <ErrorInputMessage>{errors.skype}</ErrorInputMessage>
+                {errors.newSkype && touched.newSkype ? (
+                  <ErrorInputMessage>{errors.newSkype}</ErrorInputMessage>
                 ) : (
                   <ErrorInputMessage />
                 )}

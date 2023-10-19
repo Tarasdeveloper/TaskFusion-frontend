@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  background-color: #f7f6f9;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 64px;
+  margin-top: 24px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 65px;
+    margin-top: 25px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-bottom: 32px;
+    margin-top: 40px;
   }
 `;
 export const Info = styled.div`
@@ -21,6 +22,8 @@ export const Info = styled.div`
 export const SectionTitle = styled.h1`
   display: none;
   @media screen and (min-width: 1440px) {
+    margin-left: 300px;
+    align-items: center;
     display: block;
     color: #111;
     font-weight: 700;
@@ -36,9 +39,12 @@ export const Toggler = styled.button`
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding-left: 20px;
   border: none;
   background-color: transparent;
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+  }
 
   @media screen and (min-width: 1440px) {
     display: none;
@@ -66,4 +72,36 @@ export const MotivationTask = styled.p`
 `;
 export const Span = styled.p`
   color: #3e85f3;
+`;
+
+export const FeedbackButton = styled.button`
+  padding: 8px 20px;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: none;
+  color: #fff;
+  background-color: #3e85f3;
+  border: none;
+  border-radius: 10px;
+  // margin-left: 80px;
+  margin-right: 18px;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #2b78ef;
+    // transform: translateY(-2px);
+    // box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 12px 32px;
+    font-size: 14px;
+    border-radius: 12px;
+    margin-right: 24px;
+  }
 `;

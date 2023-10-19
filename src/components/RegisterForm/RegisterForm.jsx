@@ -11,52 +11,47 @@ import {
   FormTitle,
 } from './RegisterForm.styled';
 import { registerThunk } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
-
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  
-  actions.resetForm();
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { selectError } from '../../redux/auth/selectors';
 
 export const RegisterForm = () => {
-const dispatch = useDispatch();
+  const authError = useSelector(selectError);
+  const dispatch = useDispatch();
 
-const handleRegFormSubmit = (e) => {
-  e.preventDefault();
-  const form = e.currentTarget;
-  const name = form.elements.name.value;
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
+  const handleRegFormSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
 
-  dispatch(
-    registerThunk({
-      name,
-      email,
-      password,
-    }),
-  );
-};
+    dispatch(
+      registerThunk({
+        name,
+        email,
+        password,
+      }),
+    );
+  };
 
-  const {
-    values,
-    errors,
-    touched,
-    isSubmitting,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      password: '',
-    },
-    validationSchema: registerSchema,
-    onSubmit,
-  });
+  const { values, errors, touched, isSubmitting, handleBlur, handleChange } =
+    useFormik({
+      initialValues: {
+        name: '',
+        email: '',
+        password: '',
+      },
+      validationSchema: registerSchema,
+    });
+  
+    const isFormValid = () => {
+      return (
+        Object.keys(errors).length === 0 && Object.keys(touched).length > 0
+      );
+    };
+  
   return (
-    <Form onSubmit={(handleSubmit, handleRegFormSubmit)}>
+    <Form onSubmit={handleRegFormSubmit}>
       <FormTitle>Sign up</FormTitle>
       <FormInputContainer>
         <FormInputWrap>
@@ -107,7 +102,7 @@ const handleRegFormSubmit = (e) => {
         </FormInputWrap>
       </FormInputContainer>
 
-      <FormBtn disabled={isSubmitting} type="submit">
+      <FormBtn disabled={!isFormValid() || isSubmitting} type="submit">
         <span>Sign Up</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -125,6 +120,7 @@ const handleRegFormSubmit = (e) => {
           />
         </svg>
       </FormBtn>
+      {authError && <ErrorText>{authError}</ErrorText>}
     </Form>
   );
 };
