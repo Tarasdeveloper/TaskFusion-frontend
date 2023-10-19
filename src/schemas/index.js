@@ -31,7 +31,7 @@ export const loginSchema = yup.object().shape({
 });
 
 export const userInfoSchema = yup.object().shape({
-  newUserPhotoURL: yup
+  avatar: yup
     .mixed()
     .test('fileType', 'Invalid file type. Allowed .jpeg or .png', (value) => {
       if (value && value.type) {
@@ -39,25 +39,25 @@ export const userInfoSchema = yup.object().shape({
       }
       return true;
     }),
-  newUserName: yup
+  name: yup
     .string()
     .min(3, 'The name must be at least 3 characters.')
     .max(16, 'The name must be 16 characters or less.')
     .required('The name is required.'),
-  newEmail: yup
+  email: yup
     .string()
     .matches(emailRules, 'Invalid email address.')
     .required('The email is required'),
-  newBirthday: yup
+  birthday: yup
     .string()
     .nullable()
     .transform((v) => (v === '' ? null : v)),
-  newPhone: yup
+  phone: yup
     .string()
     .matches(/^(?:\+\d|[\d\s\-./()]){10,20}$/, 'Invalid number.')
     .nullable()
     .transform((v) => (v === '' ? null : v)),
-  newSkype: yup
+  skype: yup
     .string()
     .min(3, 'The skype must be at least 3 characters.')
     .max(16, 'The skype must be 16 characters or less.')

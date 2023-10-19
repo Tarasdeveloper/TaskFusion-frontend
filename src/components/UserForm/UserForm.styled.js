@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const Container = styled.div`
   display: flex;
@@ -237,6 +239,45 @@ export const Input = styled.input`
   }
 `;
 
+export const InputDatePicker = styled(DatePicker)`
+  border-radius: 8px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #fff;
+  width: 100%;
+  height: 42px;
+  padding: 12px 14px 12px 14px;
+  color: #111;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.29;
+  margin-bottom: 18px;
+
+  @media (min-width: 768px) {
+    height: 46px;
+    padding: 14px 18px 14px 18px;
+    font-size: 16px;
+    line-height: 1.13;
+    margin-bottom: 24px;
+  }
+
+  &::placeholder {
+    color: rgba(17, 17, 17, 0.15);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.13;
+  }
+  &:hover {
+    border: 1px solid #111;
+  }
+  &:focus {
+    border: 1px solid #111;
+  }
+`;
+
 export const ButtonSaveChanges = styled.button`
   width: 195px;
   height: 46px;
@@ -254,6 +295,21 @@ export const ButtonSaveChanges = styled.button`
   border: none;
   margin-top: 22px;
 
+  &:hover {
+    background-color: #2b78ef;
+  }
+
+  &:focus {
+    background-color: #2b78ef;
+  }
+
+  &:disabled {
+    background-color: #f7f6f9;
+    color: rgba(17, 17, 17, 0.7);
+    border: 1px solid rgba(220, 227, 229, 0.8);
+    cursor: not-allowed;
+  }
+
   @media (min-width: 768px) {
     width: 100%;
     height: 48px;
@@ -263,10 +319,6 @@ export const ButtonSaveChanges = styled.button`
   @media (min-width: 1440px) {
     width: 262px;
     margin-top: 64px;
-  }
-
-  &:hover {
-    background-color: #2b78ef;
   }
 `;
 
