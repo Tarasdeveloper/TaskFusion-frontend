@@ -6,6 +6,7 @@ import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import AccountPage from './pages/AccountPage/AccountPage';
 import MainLayout from './pages/MainLayout/MainLayout';
+import CalendarPage from './pages/Calendar/CalendarPage';
 import './fonts.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -48,6 +49,7 @@ function App() {
               <CalendarPage />
           }
         /> */}
+          <Route path="/calendar" element={<CalendarPage />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
