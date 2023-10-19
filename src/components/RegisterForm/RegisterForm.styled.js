@@ -121,6 +121,13 @@ export const FormBtn = styled.button`
     background 0.3s,
     color 0.3s;
 
+  &:disabled {background-color: #ccc; /* Задайте цвет фона, который указывает на отключенное состояние */
+  color: #888; /* Задайте цвет текста для отключенной кнопки */
+  cursor: not-allowed; /* Измените курсор на "не разрешено" */
+  border: 1px solid #999; /* Добавьте рамку для отключенной кнопки (по желанию) */
+}
+
+
   &:hover {
     background: #21222c;
     color: #3e85f3;

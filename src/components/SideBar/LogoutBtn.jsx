@@ -1,4 +1,4 @@
-import {logoutThunk} from '../../redux/auth/operations';
+
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
@@ -7,13 +7,13 @@ import {
     Text,
     SVG,
 } from './LogoutBtn.styled';
+import { logoutThunk } from '../../redux/auth/operations';
 
-const LogoutBtn = ({ onToggle }) => {
+const LogoutBtn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function handleClick() {
-    onToggle();
     dispatch(logoutThunk());
     navigate('/', { replace: true });
   }
