@@ -5,7 +5,11 @@ import './CustomDatePicker.css';
 import uk from 'date-fns/locale/uk';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsUpdating, selectUser } from '../../redux/auth/selectors';
+import {
+  selectIsLoadingStatus,
+  selectIsUpdating,
+  selectUser,
+} from '../../redux/auth/selectors';
 import { addDays, format, isWeekend, parseISO } from 'date-fns';
 import { updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
@@ -33,6 +37,8 @@ import {
   WithoutAvatar,
 } from './UserForm.styled';
 import sprite from '../../assets/sprite.svg';
+import Notiflix from 'notiflix';
+import { Loader } from '../Loader/Loader';
 
 registerLocale('uk', uk);
 
@@ -40,6 +46,7 @@ export const UserForm = () => {
   const { name, email, avatar, phone, skype, birthday } =
     useSelector(selectUser);
   const isUpdating = useSelector(selectIsUpdating);
+  const isLoading = useSelector(selectIsLoadingStatus);
   const initialValues = {
     name: name ? name : '',
     email: email ? email : '',
@@ -50,6 +57,7 @@ export const UserForm = () => {
   };
   const [state, setState] = useState(initialValues);
   const [userPhotoPreview, setUserPhotoPreview] = useState('');
+  const [isUploadingPhoto, setIsUploadingPhoto] = useState(false);
   const userPhotoInputRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -85,8 +93,11 @@ export const UserForm = () => {
     setFieldValue('avatar', photo);
 
     if (photo) {
+      setIsUploadingPhoto(true); 
       const previewUrl = URL.createObjectURL(photo);
+      Notiflix.Notify.success('User photo successfully added.');
       setUserPhotoPreview(previewUrl);
+      setIsUploadingPhoto(false);
     } else {
       setUserPhotoPreview(avatar);
     }
@@ -115,6 +126,7 @@ export const UserForm = () => {
       formData.append('birthDay', state.birthday);
     }
     dispatch(updateUserThunk(formData));
+    Notiflix.Notify.success('User information successfully changed.');
   };
 
   const {
@@ -138,6 +150,8 @@ export const UserForm = () => {
     <Container>
       <ProfileContainer>
         <FormUser onSubmit={handleSubmit}>
+          {isLoading && <Loader />}
+          {isUploadingPhoto && <Loader />}
           {userPhotoPreview ? (
             <AvatarContainer>
               <Avatar src={userPhotoPreview} alt="User Photo" />
