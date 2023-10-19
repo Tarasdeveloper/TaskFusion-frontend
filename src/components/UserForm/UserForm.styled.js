@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  background-color: var(--secondary-background-color);
+  background-color: #f7f6f9;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 64px;
@@ -28,7 +28,7 @@ export const ProfileContainer = styled.div`
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;
-  background-color: var(--primary-background-color);
+  background-color: #fff;
   border-radius: 16px;
 
   @media (min-width: 375px) {
@@ -79,8 +79,8 @@ export const WithoutAvatar = styled.div`
   height: 72px;
   margin-top: -36px;
   border-radius: 50%;
-  border: 2px solid var(--accent-span-text-color);
-  background-color: var(--avatar-background-color);
+  border: 2px solid #3e85f3;
+  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,14 +95,14 @@ export const WithoutAvatar = styled.div`
 export const IconUser = styled.svg`
   width: 48px;
   height: 48px;
-  fill: var(--accent-span-text-color);
+  fill: #3e85f3;
   fill-opacity: 0.18;
 `;
 
 export const IconPlus = styled.svg`
   width: 18px;
   height: 18px;
-  fill: var(--primary-background-color);
+  fill: #fff;
 `;
 
 export const AvatarButton = styled.button`
@@ -110,14 +110,14 @@ export const AvatarButton = styled.button`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: var(--accent-span-text-color);
+  background-color: #3e85f3;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -15px;
   margin-left: 51px;
-  color: var(--primary-text-color);
+  color: #fff;
   font-size: 18px;
 
   @media (min-width: 768px) {
@@ -133,7 +133,7 @@ export const InputPhoto = styled.input`
 `;
 
 export const UserName = styled.h2`
-  color: var(--label-text);
+  color: #343434;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -147,7 +147,7 @@ export const UserName = styled.h2`
 `;
 
 export const UserText = styled.h2`
-  color: var(--label-text);
+  color: #343434;
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -202,8 +202,8 @@ export const LabelText = styled.span`
 
 export const Input = styled.input`
   border-radius: 8px;
-  border: var(--border-account-input);
-  background: var(--primary-background-color);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #fff;
   width: 100%;
   height: 42px;
   padding: 12px 14px 12px 14px;
@@ -241,8 +241,8 @@ export const Input = styled.input`
 
 export const InputDatePicker = styled(DatePicker)`
   border-radius: 8px;
-  border: var(--border-account-input);
-  background: var(--primary-background-color);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #fff;
   width: 100%;
   height: 42px;
   padding: 12px 14px 12px 14px;
@@ -283,30 +283,30 @@ export const ButtonSaveChanges = styled.button`
   height: 46px;
   padding: 10px 20px 10px 20px;
   border-radius: 16px;
-  background-color: var(--accent-span-text-color);
-  color: var(--btn-text-color);
+  background-color: #3e85f3;
+  color: #fff;
   text-align: center;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
-  box-shadow: var(--shadow-logout-btn);
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   border: none;
   margin-top: 22px;
 
   &:hover {
-    background-color: var(--hover-btn-background-color);
+    background-color: #2b78ef;
   }
 
   &:focus {
-    background-color: var(--hover-btn-background-color);
+    background-color: #2b78ef;
   }
 
   &:disabled {
-    background-color: var(--secondary-background-color);
-    color: var(--feedback-text);
-    border: 1px solid var(--border-color);
+    background-color: #f7f6f9;
+    color: rgba(17, 17, 17, 0.7);
+    border: 1px solid rgba(220, 227, 229, 0.8);
     cursor: not-allowed;
   }
 
@@ -323,7 +323,7 @@ export const ButtonSaveChanges = styled.button`
 `;
 
 export const ErrorInputMessage = styled.p`
-  color: var(--status-error);
+  color: #da1414;
   font-family: Inter;
   font-size: 12px;
   font-weight: 400;
