@@ -25,6 +25,7 @@ export const SidebarWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     z-index: 0;
     padding: 32px 24px 24px 24px;
+    position: absolute;
   }
 `;
 export const SidebarHeader = styled.div`
@@ -82,14 +83,18 @@ export const Span = styled.p`
   }
 `;
 export const CloseIcon = styled.svg`
-  fill: #111;
-  color: #111;
-  margin-left: auto;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
   height: 24px;
   width: 24px;
+  pading-right: 20px;
+  margin-left: 25px;
   @media screen and (min-width: 768px) {
-    height: 33px;
-    width: 33px;
+    height: 34px;
+    width: 34px;
   }
   @media screen and (min-width: 1440px) {
     display: none;
@@ -104,5 +109,26 @@ export const SidebarSubTitle = styled.h3`
   @media screen and (min-width: 768px) {
     font-size: 14px;
     margin-bottom: 32px;
+  }
+`;
+export const UserPanel = styled.ul`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 18px;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+`;
+export const Title = styled.p`
+  text-align: center;
+  display: inline;
+  color: rgba(52, 52, 52, 0.5);
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    margin-left: 10px;
   }
 `;
