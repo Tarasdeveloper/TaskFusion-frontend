@@ -15,6 +15,7 @@ import {
 import { useEffect } from 'react';
 import { refreshUserThunk } from './redux/auth/operations';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { ChoosedDay } from './components/ChoosedDay/ChoosedDay';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/calendar" element={<ChoosedDay />} />
         <Route element={<MainLayout />}>
           <Route
             path="/account"
@@ -42,12 +44,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          {/* <Route
-          path="/calendar"
-          element={
-              <CalendarPage />
-          }
-        /> */}
+          {/* <Route path="/calendar" element={<ChoosedDay />} /> */}
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
