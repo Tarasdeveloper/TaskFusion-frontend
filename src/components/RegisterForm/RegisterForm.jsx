@@ -11,9 +11,11 @@ import {
   FormTitle,
 } from './RegisterForm.styled';
 import { registerThunk } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectError } from '../../redux/auth/selectors';
 
 export const RegisterForm = () => {
+  const authError = useSelector(selectError);
   const dispatch = useDispatch();
 
   const handleRegFormSubmit = (e) => {
@@ -41,6 +43,13 @@ export const RegisterForm = () => {
       },
       validationSchema: registerSchema,
     });
+  
+    const isFormValid = () => {
+      return (
+        Object.keys(errors).length === 0 && Object.keys(touched).length > 0
+      );
+    };
+  
   return (
     <Form onSubmit={handleRegFormSubmit}>
       <FormTitle>Sign up</FormTitle>
@@ -93,7 +102,7 @@ export const RegisterForm = () => {
         </FormInputWrap>
       </FormInputContainer>
 
-      <FormBtn disabled={isSubmitting} type="submit">
+      <FormBtn disabled={!isFormValid() || isSubmitting} type="submit">
         <span>Sign Up</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -111,6 +120,7 @@ export const RegisterForm = () => {
           />
         </svg>
       </FormBtn>
+      {authError && <ErrorText>{authError}</ErrorText>}
     </Form>
   );
 };
