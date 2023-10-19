@@ -4,12 +4,9 @@ export const List = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 14px 25px;
   margin-bottom: 14px;
-
   background-color: ${({ theme }) => theme.bgColors.page};
-
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 
@@ -28,7 +25,6 @@ export const Item = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   gap: 6px;
   .today {
     color: white;
@@ -69,10 +65,8 @@ export const DateWeek  = styled.button`
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
-
   border: none;
   border-radius: 6px;
-
   padding: 4px 6px;
   color: ${({ theme }) => theme.textColors.modalText};
   background-color: inherit;

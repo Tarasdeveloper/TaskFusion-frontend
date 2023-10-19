@@ -8,22 +8,16 @@ import {  OtherDay, ActiveDay, Day,  Item, List, } from './DayCalendarHead.style
 
 
 export const DayCalendarHead = () => {
-   const day = useParams();
+  const day = useParams();
   const { currentDay } = day;
-
  
   const dispatch = useDispatch();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function formattedDay(day) {
     return day.startsWith('0') ? day.slice(1) : day;
   }
   
-  // const dates = [];
-  // for (let i = 0; i < 7; i++) {
-  //   dates.push(add(day, { days: i }));
-  // }
-
   const handleClick = day => {
    dispatch(addIndexCurrentDay(Number(format(day, 'd')) - 1));
                     dispatch(
