@@ -5,7 +5,6 @@ import MainPage from './pages/MainPage/MainPage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import AccountPage from './pages/AccountPage/AccountPage';
-/*import CalendarPage from './pages/Calendar/CalendarPage';*/
 import MainLayout from './pages/MainLayout/MainLayout';
 import './fonts.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,7 +33,6 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-   
         <Route element={<MainLayout />}>
           <Route
             path="/account"
@@ -42,7 +40,8 @@ function App() {
               <PrivateRoute redirectTo="/login">
                 <AccountPage />
               </PrivateRoute>
-            }          />
+            }
+          />
           {/* <Route
           path="/calendar"
           element={

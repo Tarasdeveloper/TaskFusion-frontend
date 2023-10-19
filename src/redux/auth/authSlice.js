@@ -12,7 +12,7 @@ const initialState = {
     _id: null,
     name: null,
     email: null,
-    userPhotoURL: null,
+    avatar: null,
     phone: null,
     skype: null,
     birthDay: null,
