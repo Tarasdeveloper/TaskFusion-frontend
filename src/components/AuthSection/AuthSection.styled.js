@@ -21,7 +21,6 @@ export const MainTitle = styled.h1`
 `;
 
 export const Ospan = styled.span`
-  /* font-size: 120px; */
   font-size: clamp(44px, 10vw, 120px);
   line-height: 1.25;
   color: #fff;
@@ -32,6 +31,12 @@ export const LinkWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+`;
+
+export const Svg = styled.svg`
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.5px;
 `;
 
 export const SignLink = styled(NavLink)`
