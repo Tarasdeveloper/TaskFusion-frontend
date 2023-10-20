@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-/*import * as auth from '../auth/auth-operations';*/
-import * as auth from '../auth/auth-operations';
+import * as auth from '../auth/operations';
 
-axios.defaults.baseURL = 'https://goose-back-end.onrender.com';
+axios.defaults.baseURL = 'https://taskfusion-service.onrender.com';
 
 export const getTasksOfMonth = createAsyncThunk(
   'get/tasks',
