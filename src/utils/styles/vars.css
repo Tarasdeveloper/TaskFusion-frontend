@@ -1,0 +1,113 @@
+:root {
+  /* fonts */
+  --secondary-font: 'Coolvetica', sans-serif;
+}
+
+:root {
+  /* background colors */
+  --primary-background-color: #ffffff;
+  --secondary-background-color: #f7f6f9;
+
+  /* text colors */
+  --primary-text-color: #111111;
+
+  /* button colors */
+  --btn-background-color: #3e85f3;
+  --btn-text-color: #fff;
+
+  /* navigation colors */
+  --navigation-text-gooseTrack-color: #3e85f3;
+  --navigation-text-userPanel-color: #34343480;
+  --navigation-choosePage-active-color: #3e85f3;
+  --navigation-choosePage-color: #34343480;
+  --navigation-border-right-color: #dce3e580;
+
+  /* header colors */
+  --header-username-color: #343434;
+  --header-userphoto-border-color: #3e85f3;
+
+  /* User Profile colors */
+  --userprofile-photo-border-color: #3e85f3;
+  --userprofile-text-name-color: #343434;
+  --userprofile-text-user-color: #343434;
+  --userprofile-text-input-label-color: #111111;
+  --userprofile-input-border-color: #11111126;
+
+  /* calendar colors */
+  --calendar-arrow-color: #dce3e5;
+  --calendar-arrow-active-color: #343434;
+  --calendar-monthOrDay-background-color: #e3f3ff;
+  --calendar-monthOrDay-active-background-color: #cae8ff;
+  --calendar-monthOrDay-text-color: #3e85f3;
+  --calendar-monthOrDay-active-text-color: #3e85f3;
+  --calendar-monthOrDay-border-color: #3e85f333;
+
+  /* -MONTH- */
+  --calendar-month-primary-text-color: #343434;
+  --calendar-month-week-weekend-color: #3e85f3;
+  --calendar-month-border-color: #dce3e5cc;
+
+  /* DAY */
+  --calendar-day-primary-backgroundcolor: #ffffff;
+
+  --calendar-day-addTask-btn-background-color: #e3f3ff;
+  --calendar-day-addTask-btn-border-color: #3e85f3;
+
+  --calendar-day-task-background-color: #f7f6f9;
+  --calendar-day-task-border-color: #dce3e5cc;
+
+  --calendar-day-task-buttons-color: #111111;
+  --calendar-day-task-buttons-active-color: #3e85f3;
+
+  --calendar-day-task-levels-low-color: #72c2f8;
+  --calendar-day-task-levels-medium-color: #f3b249;
+  --calendar-day-task-levels-high-color: #ea3d65;
+}
+
+.dark {
+  /* background colors */
+  --primary-background-color: #171820;
+  --secondary-background-color: #21222c;
+
+  /* text colors */
+  --primary-text-color: #ffffff;
+
+  /* dark navigation colors */
+  --navigation-text-gooseTrack-color: #e3f3ff;
+  --navigation-text-userPanel-color: #fafafa4d;
+  --navigation-choosePage-active-color: #ffffff;
+  --navigation-choosePage-color: #ffffff;
+  --navigation-border-right-color: none;
+
+  /* header colors */
+  --header-username-color: #ffffff;
+
+  /* User Profile colors */
+  --userprofile-text-name-color: #ffffff;
+  --userprofile-text-name-color: #fafafa4d;
+  --userprofile-text-input-label-color: #fafafa4d;
+  --userprofile-input-border-color: #ffffff26;
+
+  /* calendar colors */
+  --calendar-arrow-color: #ffffff26;
+  --calendar-arrow-active-color: #ffffff;
+  --calendar-monthOrDay-background-color: #21222c;
+  --calendar-monthOrDay-active-background-color: #3e85f3;
+  --calendar-monthOrDay-text-color: #3e85f3;
+  --calendar-monthOrDay-active-text-color: #ffffff;
+  --calendar-monthOrDay-border-color: #3e85f333;
+
+  /* -MONTH- */
+  --calendar-month-primary-text-color: #ffffff;
+  --calendar-month-border-color: #dce3e5cc;
+
+  /* DAY */
+  --calendar-day-primary-backgroundcolor: #21222c;
+
+  --calendar-day-addTask-btn-background-color: #3e85f3;
+
+  --calendar-day-task-background-color: #171820;
+  --calendar-day-task-border-color: #ffffff26;
+
+  --calendar-day-task-buttons-color: #ffffff;
+}
