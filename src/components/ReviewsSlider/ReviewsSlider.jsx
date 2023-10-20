@@ -1,9 +1,13 @@
+import { ReviewSlide, ReviewsTitle, ReviewsWrap } from './ReviewsSlider.styled';
+import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 const ReviewsSlider = () => {
   return (
-    <div>
-      <h2>Reviews</h2>
-      <div>slider</div>
-    </div>
+    <ReviewsWrap>
+      <ReviewsTitle>Reviews</ReviewsTitle>
+      <ReviewSlide>slider</ReviewSlide>
+    </ReviewsWrap>
   );
 };
 
