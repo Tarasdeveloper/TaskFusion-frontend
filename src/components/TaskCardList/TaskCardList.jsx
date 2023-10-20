@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
 import * as ReactDOM from 'react-dom';
 import { useState } from 'react';
-
 import {
   TaskListContainer,
   TaskContainer,
@@ -21,6 +20,7 @@ import Icon from '../../assets/sprite.svg';
 import useAuth from '../../hooks/useAuth';
 import { deleteTaskOperation } from '../../redux/calendar/calendar.operations';
 import { TaskModal } from '../TaskModal/TaskModal';
+import defUser from '../../assets/img/calendar/defuser.jpg';
 
 const TaskCardList = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,7 @@ const TaskCardList = props => {
     setTaskStatus(e.currentTarget.name);
   };
 
-  const defUser = require('../../assets/img/calendar/defuser.jpg')
+  /*const defUser = require('../../assets/img/calendar/defuser.jpg')*/
 
 
   return (
