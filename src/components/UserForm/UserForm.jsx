@@ -71,7 +71,7 @@ export const UserForm = () => {
         URL.revokeObjectURL(userPhotoPreview);
       }
     };
-  }, [userPhotoPreview]);
+  }, [userPhotoPreview, avatar]);
 
   const onClickAvatarButton = () => {
     if (userPhotoInputRef.current) {
@@ -85,6 +85,7 @@ export const UserForm = () => {
       ...prevState,
       avatar: photo,
     }));
+
     setFieldValue('avatar', photo);
 
     if (photo) {
@@ -96,22 +97,10 @@ export const UserForm = () => {
     } else {
       setUserPhotoPreview(avatar);
     }
-  };
 
-  const handleSaveChanges = async () => {
-    const { name, birthday, email, phone, skype, avatar } = values;
-    if (!changes) return;
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    if (avatar) {
-      formData.append('avatar', avatar);
+    if (photo && photo !== avatar) {
+      setFieldValue('avatar', photo);
     }
-    formData.append('phone', phone ? phone : '');
-    formData.append('skype', skype ? skype : '');
-    formData.append('birthday', birthday ? birthday : '');
-    dispatch(updateUserThunk(formData));
-    Notiflix.Notify.success('User information successfully changed.');
   };
 
   const {
@@ -130,6 +119,31 @@ export const UserForm = () => {
     validationSchema: userInfoSchema,
     onSubmit: (event) => handleSaveChanges(event),
   });
+
+  const handleSaveChanges = async () => {
+    const { name, birthday, email, phone, skype, avatar } = values;
+    if (!changes) return;
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    if (!avatar || !(avatar instanceof File)) {
+      formData.delete('avatar');
+    } else {
+      formData.append('avatar', avatar);
+    }
+    formData.append('phone', phone ? phone : '');
+    formData.append('skype', skype ? skype : '');
+    formData.append('birthday', birthday ? birthday : '');
+    dispatch(updateUserThunk(formData))
+      .unwrap()
+      .then(() => {
+        Notiflix.Notify.success('User information successfully changed.');
+        setSubmitting(true);
+      })
+      .catch((error) => {
+        Notiflix.Notify.failure(`${error.message}`);
+      });
+  };
 
   return (
     <Container>
@@ -305,9 +319,7 @@ export const UserForm = () => {
           </UserInfoContainer>
           <ButtonSaveChanges
             type="submit"
-            disabled={
-              !dirty || isSubmitting || !changes || isLoading || !avatar
-            }
+            disabled={!dirty || isSubmitting || !changes || isLoading}
           >
             {saveButtonLabel}
           </ButtonSaveChanges>
