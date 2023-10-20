@@ -6,10 +6,12 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  background-color: #f7f6f9;
+  background-color: var(--secondary-background-color);
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 64px;
+
+  transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 768px) {
     padding-top: 64px;
@@ -28,8 +30,9 @@ export const ProfileContainer = styled.div`
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;
-  background-color: #fff;
+  background-color: var(--primary-background-color);
   border-radius: 16px;
+  transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 375px) {
   }
@@ -79,12 +82,12 @@ export const WithoutAvatar = styled.div`
   height: 72px;
   margin-top: -36px;
   border-radius: 50%;
-  border: 2px solid #3e85f3;
-  background-color: #f8f8f8;
+  border: 2px solid var(--userprofile-photo-border-color);
+  background-color: var(--userprofile-no-photo-color);
   display: flex;
   justify-content: center;
   align-items: center;
-
+  transition: var(--transition-changetheme-background-color);
   @media (min-width: 768px) {
     margin-top: unset;
     width: 124px;
@@ -133,13 +136,14 @@ export const InputPhoto = styled.input`
 `;
 
 export const UserName = styled.h2`
-  color: #343434;
+  color: var(--userprofile-text-name-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.29;
   margin-bottom: 4px;
+  transition: var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     margin-bottom: 8px;
@@ -147,13 +151,14 @@ export const UserName = styled.h2`
 `;
 
 export const UserText = styled.h2`
-  color: #343434;
+  color: var(--userprofile-text-user-color);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.17;
   margin-bottom: 40px;
+  transition: var(--transition-changetheme-color);
 
   @media (min-width: 1440px) {
     margin-bottom: 44px;
@@ -186,13 +191,14 @@ export const Label = styled.label`
 `;
 
 export const LabelText = styled.span`
-  color: #111;
+  color: var(--userprofile-text-input-label-color);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.17;
   margin-bottom: 8px;
+  transition: var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -202,18 +208,20 @@ export const LabelText = styled.span`
 
 export const Input = styled.input`
   border-radius: 8px;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  background: #fff;
+  border: 1px solid var(--userprofile-input-border-color);
+  background-color: var(--userprofile-input-background-color);
   width: 100%;
   height: 42px;
   padding: 12px 14px 12px 14px;
-  color: #111;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
   margin-bottom: 18px;
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     height: 46px;
@@ -224,12 +232,13 @@ export const Input = styled.input`
   }
 
   &::placeholder {
-    color: rgba(17, 17, 17, 0.15);
+    color: var(--userprofile-input-placeholder-color);
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 1.13;
+    transition: var(--transition-changetheme-color);
   }
   &:hover {
     border: 1px solid #111;
@@ -242,17 +251,20 @@ export const Input = styled.input`
 export const InputDatePicker = styled(DatePicker)`
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.1);
-  background: #fff;
+  background-color: var(--userprofile-input-background-color);
   width: 100%;
   height: 42px;
   padding: 12px 14px 12px 14px;
-  color: #111;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
   margin-bottom: 18px;
+
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     height: 46px;
@@ -263,12 +275,13 @@ export const InputDatePicker = styled(DatePicker)`
   }
 
   &::placeholder {
-    color: rgba(17, 17, 17, 0.15);
+    color: var(--userprofile-input-placeholder-color);
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 1.13;
+    transition: var(--transition-changetheme-color);
   }
   &:hover {
     border: 1px solid #111;
