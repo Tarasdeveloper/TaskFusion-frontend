@@ -51,7 +51,7 @@ export const UserForm = () => {
     birthday: birthday ? new Date(birthday) : null,
   };
   const [state, setState] = useState(initialValues);
-  const [userPhotoPreview, setUserPhotoPreview] = useState('');
+  const [userPhotoPreview, setUserPhotoPreview] = useState(avatar || '');
   const [isUploadingPhoto, setIsUploadingPhoto] = useState(false);
   const userPhotoInputRef = useRef(null);
   const saveButtonLabel = isLoading ? 'Submitting...' : 'Save changes';
