@@ -19,6 +19,7 @@ const ThemeToggler = () => {
   const handleToggleButtonClick = () => {
     const newTheme = stateTheme === 'light' ? 'dark' : 'light';
     dispatch(setTheme(newTheme));
+
   };
 
   useEffect(() => {
@@ -27,6 +28,13 @@ const ThemeToggler = () => {
       : document.body.classList.add('dark');
     setIsLoaded(true);
   }, [stateTheme, setIsLoaded]);
+
+  // useEffect(() => {
+  //   stateTheme === 'light'
+  //     ? document.documentElement.setAttribute('data-theme', 'light')
+  //     : document.documentElement.setAttribute('data-theme', 'dark');
+  //   setIsLoaded(true);
+  // }, [stateTheme]);
 
   return (
     <ToggleButton onClick={handleToggleButtonClick}>
