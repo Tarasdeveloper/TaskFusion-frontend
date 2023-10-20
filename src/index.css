@@ -41,6 +41,9 @@
   --userprofile-text-user-color: #343434;
   --userprofile-text-input-label-color: #111111;
   --userprofile-input-border-color: #11111126;
+  --userprofile-no-photo-color: #f8f8f8;
+  --userprofile-input-background-color: #ffffff;
+  --userprofile-input-placeholder-color: rgba(17, 17, 17, 0.15);
 
   /* calendar colors */
   --calendar-arrow-color: #dce3e5;
@@ -96,6 +99,9 @@
   --userprofile-text-name-color: #fafafa4d;
   --userprofile-text-input-label-color: #fafafa4d;
   --userprofile-input-border-color: #ffffff26;
+  --userprofile-no-photo-color: #171820;
+  --userprofile-input-background-color: #21222c;
+  --userprofile-input-placeholder-color: rgba(250, 250, 250, 0.3);
 
   /* calendar colors */
   --calendar-arrow-color: #ffffff26;
