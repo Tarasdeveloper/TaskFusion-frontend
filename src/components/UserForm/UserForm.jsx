@@ -10,7 +10,7 @@ import {
   selectIsUpdating,
   selectUser,
 } from '../../redux/auth/selectors';
-import { addDays, format, isWeekend, parseISO } from 'date-fns';
+import { addDays, format, isWeekend } from 'date-fns';
 import { updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
 import { userInfoSchema } from '../../schemas';
@@ -43,8 +43,8 @@ import { Loader } from '../Loader/Loader';
 registerLocale('uk', uk);
 
 export const UserForm = () => {
-  const { name, email, avatar, phone, skype, birthday } =
-    useSelector(selectUser);
+  const user = useSelector(selectUser);
+  const { name, email, avatar, phone, skype, birthday } = user || {};
   const isUpdating = useSelector(selectIsUpdating);
   const isLoading = useSelector(selectIsLoadingStatus);
   const initialValues = {
@@ -53,21 +53,14 @@ export const UserForm = () => {
     avatar: avatar ? avatar : '',
     phone: phone ? phone : '',
     skype: skype ? skype : '',
-    birthday: birthday ? parseISO(birthday) : '',
+    birthday: birthday ? new Date(birthday) : null,
   };
   const [state, setState] = useState(initialValues);
   const [userPhotoPreview, setUserPhotoPreview] = useState('');
   const [isUploadingPhoto, setIsUploadingPhoto] = useState(false);
   const userPhotoInputRef = useRef(null);
+  const saveButtonLabel = isUpdating ? 'Submitting...' : 'Save changes';
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    return () => {
-      if (userPhotoPreview) {
-        URL.revokeObjectURL(userPhotoPreview);
-      }
-    };
-  }, [userPhotoPreview]);
 
   const changes =
     name !== state.name ||
@@ -77,6 +70,14 @@ export const UserForm = () => {
     birthday !== state.birthday ||
     userPhotoPreview !== '' ||
     avatar !== state.avatar;
+
+  useEffect(() => {
+    return () => {
+      if (userPhotoPreview) {
+        URL.revokeObjectURL(userPhotoPreview);
+      }
+    };
+  }, [userPhotoPreview]);
 
   const onClickAvatarButton = () => {
     if (userPhotoInputRef.current) {
@@ -93,7 +94,7 @@ export const UserForm = () => {
     setFieldValue('avatar', photo);
 
     if (photo) {
-      setIsUploadingPhoto(true); 
+      setIsUploadingPhoto(true);
       const previewUrl = URL.createObjectURL(photo);
       Notiflix.Notify.success('User photo successfully added.');
       setUserPhotoPreview(previewUrl);
@@ -105,26 +106,17 @@ export const UserForm = () => {
 
   const handleSaveChanges = async () => {
     // event.preventDefault();
+    const { name, birthday, email, phone, skype, avatar } = values;
     if (!changes) return;
     const formData = new FormData();
-    if (name !== state.name) {
-      formData.append('userName', state.name);
+    formData.append('name', name);
+    formData.append('email', email);
+    if (avatar) {
+      formData.append('avatar', avatar);
     }
-    if (email !== state.email) {
-      formData.append('email', state.email);
-    }
-    if (userPhotoPreview !== '' || avatar !== state.avatar) {
-      formData.append('avatar', state.avatar);
-    }
-    if (phone !== state.phone) {
-      formData.append('phone', state.phone);
-    }
-    if (skype !== state.skype) {
-      formData.append('skype', state.skype);
-    }
-    if (birthday !== state.birthday) {
-      formData.append('birthDay', state.birthday);
-    }
+    formData.append('phone', phone ? phone : '');
+    formData.append('skype', skype ? skype : '');
+    formData.append('birthday', birthday ? birthday : '');
     dispatch(updateUserThunk(formData));
     Notiflix.Notify.success('User information successfully changed.');
   };
@@ -149,7 +141,11 @@ export const UserForm = () => {
   return (
     <Container>
       <ProfileContainer>
-        <FormUser onSubmit={handleSubmit}>
+        <FormUser
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+          autoComplete="off"
+        >
           {isLoading && <Loader />}
           {isUploadingPhoto && <Loader />}
           {userPhotoPreview ? (
@@ -314,18 +310,12 @@ export const UserForm = () => {
               </Label>
             </UserInfoColumn>
           </UserInfoContainer>
-          {isUpdating ? (
-            <ButtonSaveChanges type="submit" disabled>
-              Submitting...
-            </ButtonSaveChanges>
-          ) : (
-            <ButtonSaveChanges
-              type="submit"
-              disabled={!dirty || isSubmitting || !changes}
-            >
-              Save changes
-            </ButtonSaveChanges>
-          )}
+          <ButtonSaveChanges
+            type="submit"
+            disabled={!dirty || isSubmitting || !changes || isUpdating}
+          >
+            {saveButtonLabel}
+          </ButtonSaveChanges>
         </FormUser>
       </ProfileContainer>
     </Container>
