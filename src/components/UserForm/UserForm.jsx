@@ -5,11 +5,7 @@ import './CustomDatePicker.css';
 import uk from 'date-fns/locale/uk';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectIsLoadingStatus,
-  selectIsUpdating,
-  selectUser,
-} from '../../redux/auth/selectors';
+import { selectIsLoadingStatus, selectUser } from '../../redux/auth/selectors';
 import { addDays, format, isWeekend } from 'date-fns';
 import { updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
@@ -45,7 +41,6 @@ registerLocale('uk', uk);
 export const UserForm = () => {
   const user = useSelector(selectUser);
   const { name, email, avatar, phone, skype, birthday } = user || {};
-  const isUpdating = useSelector(selectIsUpdating);
   const isLoading = useSelector(selectIsLoadingStatus);
   const initialValues = {
     name: name ? name : '',
@@ -59,7 +54,7 @@ export const UserForm = () => {
   const [userPhotoPreview, setUserPhotoPreview] = useState('');
   const [isUploadingPhoto, setIsUploadingPhoto] = useState(false);
   const userPhotoInputRef = useRef(null);
-  const saveButtonLabel = isUpdating ? 'Submitting...' : 'Save changes';
+  const saveButtonLabel = isLoading ? 'Submitting...' : 'Save changes';
   const dispatch = useDispatch();
 
   const changes =
@@ -68,8 +63,7 @@ export const UserForm = () => {
     phone !== state.phone ||
     skype !== state.skype ||
     birthday !== state.birthday ||
-    userPhotoPreview !== '' ||
-    avatar !== state.avatar;
+    userPhotoPreview !== '';
 
   useEffect(() => {
     return () => {
@@ -312,7 +306,9 @@ export const UserForm = () => {
           </UserInfoContainer>
           <ButtonSaveChanges
             type="submit"
-            disabled={!dirty || isSubmitting || !changes || isUpdating}
+            disabled={
+              !dirty || isSubmitting || !changes || isLoading || !avatar
+            }
           >
             {saveButtonLabel}
           </ButtonSaveChanges>
