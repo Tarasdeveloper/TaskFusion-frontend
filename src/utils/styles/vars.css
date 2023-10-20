@@ -4,6 +4,11 @@
 }
 
 :root {
+  --transition-changetheme-background-color: transform 250ms
+      cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-changetheme-color: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 1s cubic-bezier(0.4, 0, 0.2, 1);
   /* background colors */
   --primary-background-color: #ffffff;
   --secondary-background-color: #f7f6f9;
@@ -14,6 +19,7 @@
   /* button colors */
   --btn-background-color: #3e85f3;
   --btn-text-color: #fff;
+  --btn-hover-color: #2b78ef;
 
   /* navigation colors */
   --navigation-text-gooseTrack-color: #3e85f3;

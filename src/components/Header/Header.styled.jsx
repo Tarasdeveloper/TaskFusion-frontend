@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  background: var(  --secondary-background-color);
+  background-color: var(--secondary-background-color);
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
+
+  transition: var(--transition-changetheme-background-color);
 
   @media screen and (min-width: 768px) {
     margin-top: 25px;
@@ -21,11 +23,13 @@ export const Info = styled.div`
 `;
 export const SectionTitle = styled.h1`
   display: none;
+
+  transition: var(--transition-changetheme-color);
   @media screen and (min-width: 1440px) {
     margin-left: 300px;
     align-items: center;
     display: block;
-    color: #111;
+    color: var(--primary-text-color);
     font-weight: 700;
     font-size: 32px;
     text-shadow:
