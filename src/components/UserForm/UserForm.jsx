@@ -99,7 +99,6 @@ export const UserForm = () => {
   };
 
   const handleSaveChanges = async () => {
-    // event.preventDefault();
     const { name, birthday, email, phone, skype, avatar } = values;
     if (!changes) return;
     const formData = new FormData();
