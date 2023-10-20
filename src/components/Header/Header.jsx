@@ -8,7 +8,7 @@ import { selectTasks } from '../../redux/tasks/selectors';
 import { selectIsLoading } from '../../redux/reviews/selectors';
 import { fetchReviewById } from '../../redux/reviews/operations';
 import { selectUser } from '../../redux/auth/selectors';
-import { FeedbackModal } from '../../components/FeedbackModal/FeedbackModal';
+import FeedbackModal from '../../components/FeedbackModal/FeedbackModal';
 import {
   Wrapper,
   Info,
@@ -22,12 +22,11 @@ import {
 
 const Header = ({ onToggle }) => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const isLoading = useSelector(selectIsLoading);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
-
-  const isLoading = useSelector(selectIsLoading);
-  const user = useSelector(selectUser);
-  const [showModal, setShowModal] = useState(false);
 
   const { currentDay } = useParams();
   const calendarPage = currentPath.startsWith('/calendar/day');
@@ -123,8 +122,8 @@ const Header = ({ onToggle }) => {
           </FeedbackButton>
           <ThemeToggler />
         </Info>
-        {showModal && !isLoading && <FeedbackModal onClose={closeModal} />}
       </Wrapper>
+      {showModal && !isLoading && <FeedbackModal onClose={closeModal} />}
     </>
   );
 };

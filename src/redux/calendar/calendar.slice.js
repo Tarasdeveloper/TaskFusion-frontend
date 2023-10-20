@@ -1,7 +1,7 @@
 import { persistReducer } from 'redux-persist';
 import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
-import * as auth from '../auth/auth-operations';
+import * as auth from '../auth/operations';
 
 import {
   getTasksOfMonth,

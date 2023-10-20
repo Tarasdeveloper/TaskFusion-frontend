@@ -81,7 +81,8 @@ export const updateUserThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await $instance.patch('/users/edit', credentials);
-      return response;
+      console.log('response', response);
+      return response.data;
     } catch (error) {
       Notiflix.Notify.failure(`${error.message}`);
       return thunkAPI.rejectWithValue(error.message);

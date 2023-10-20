@@ -18,7 +18,7 @@ import {
   TaskList,
   TaskItem,
 } from './TasksColumnsList.styled';
-import Icon from '../../images/sprite.svg';
+import Icon from '../../assets/sprite.svg';
 import TaskCardList from '../TaskCardList/TaskCardList';
 import { selectTasks } from '../../redux/calendar/calendar.selectors';
 import { getTasksOfMonth } from '../../redux/calendar/calendar.operations';

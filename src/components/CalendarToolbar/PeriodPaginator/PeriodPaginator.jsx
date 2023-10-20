@@ -24,7 +24,7 @@ import {
   selectIsLoading,
 } from 'redux/calendar/calendar.selectors';
 
-import Icons from '../../../images/sprite.svg';
+import Icons from '../../../assets/sprite.svg';
 import * as STC from './PeriodPaginator.styled';
 
 export const PeriodPaginator = ({ currentIndex, choosedDay }) => {
