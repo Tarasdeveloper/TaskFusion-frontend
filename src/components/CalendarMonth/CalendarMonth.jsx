@@ -1,4 +1,7 @@
+import { current } from '@reduxjs/toolkit';
 import * as dateFns from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentMonth } from '../../redux/calendar/calendar.selectors';
 import { useEffect, useState } from 'react';
 import {
   Border,
@@ -14,8 +17,12 @@ import {
 
 const formatOfDay = 'd';
 
-const CalendarMonth = ({ daysOfWeek, totalDate }) => {
+const CalendarMonth = ({ daysOfWeek, totalDate, firstDay, lastDay }) => {
   const [formatOfWeek, setFormatOfWeek] = useState('EEEEE');
+  const currentMonth = dateFns.eachDayOfInterval({
+    start: firstDay,
+    end: lastDay,
+  });
 
   useEffect(() => {
     const handleResize = () => {

@@ -9,16 +9,20 @@ export const GridWrap = styled.div`
 export const CellWrap = styled.div`
   min-width: 47px;
   min-height: 94px;
-  background-color: #ffff;
+  background: white;
 `;
+
 export const DateWrap = styled.div`
   height: 22px;
   width: 18px;
-  padding: 4px 6px;
+  padding: 10px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2px;
+  @media (min-width: 768px) {
+    padding: 14px 14px;
+  }
 `;
 export const RowInCell = styled.div`
   display: flex;
