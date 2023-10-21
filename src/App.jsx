@@ -47,13 +47,6 @@ function App() {
               </PrivateRoute>
             }
           />
-
-          {/* <Route
-          path="/calendar"
-          element={
-              <CalendarPage />
-          }
-        /> */}
           <Route path="/calendar" element={<CalendarPage />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
