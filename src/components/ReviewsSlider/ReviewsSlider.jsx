@@ -1,14 +1,14 @@
 import { ReviewSlide, ReviewsTitle, ReviewsWrap } from './ReviewsSlider.styled';
-import 'swiper/css';
+import 'swiper/css/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, A11y } from 'swiper/modules';
 
 const ReviewsSlider = () => {
   return (
     <ReviewsWrap>
       <ReviewsTitle>Reviews</ReviewsTitle>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, A11y]}
         spaceBetween={50}
         slidesPerView={2}
         navigation

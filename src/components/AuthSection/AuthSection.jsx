@@ -1,5 +1,6 @@
 import gooseDt from '../../assets/img/mainPageImg/goose-desk.png';
 import gooseMob from '../../assets/img/mainPageImg/goose-mob.png';
+import sprite from '../../assets/sprite.svg';
 import {
   Container,
   LinkWrap,
@@ -27,7 +28,7 @@ const AuthSection = () => {
         <LogLink to="/login">
           Log in{' '}
           <Svg>
-            <use href="/src/assets/sprite.svg#login"></use>
+            <use href={`${sprite}#login`}></use>
           </Svg>
         </LogLink>
       </LinkWrap>
