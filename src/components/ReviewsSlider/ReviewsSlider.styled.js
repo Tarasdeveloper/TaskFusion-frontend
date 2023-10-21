@@ -28,3 +28,6 @@ export const ReviewSlide = styled.div`
   width: 100%;
   height: 200px;
 `;
+
+export const Next = styled.div``;
+export const Prev = styled.div``;
