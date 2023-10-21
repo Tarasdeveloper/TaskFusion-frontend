@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import { format, subMonths, addMonths } from 'date-fns';
+import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import {
   CalendarGlobalStyles,
@@ -8,13 +8,13 @@ import {
   LeftArrowIcon,
 } from './StyledDataPicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-const StyledDatepicker = ({ currentDate, prevHandler, nextHandler }) => {
+const StyledDatepicker = ({ currentMonth }) => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
-        {format(currentDate, 'MMMM , yyyy')}
+        {format(currentMonth, 'MMMM , yyyy')}
       </TitleWrapper>
     );
   });
@@ -22,7 +22,7 @@ const StyledDatepicker = ({ currentDate, prevHandler, nextHandler }) => {
   return (
     <>
       <DatePicker
-        selected={currentDate}
+        selected={currentMonth}
         onChange={(date) => {
           setSelectedDate(date);
         }}

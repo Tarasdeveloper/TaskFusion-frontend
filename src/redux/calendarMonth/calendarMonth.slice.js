@@ -8,7 +8,7 @@ const calendarMonthInitState = {
   currentDate: formatISO(new Date(), {
     representation: 'date',
   }),
-  data: [], //list of tasks
+  tasks: [], //list of tasks
   isLoading: false,
   error: null,
 };
