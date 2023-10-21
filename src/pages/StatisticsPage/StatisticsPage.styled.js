@@ -27,3 +27,14 @@ export const StatisticsPageContainer = styled.div`
     padding-right: 113px;
   }
 `;
+
+export const ToolbarContainer = styled.div`
+  @media (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media (min-width: 1440px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+`;
