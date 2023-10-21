@@ -27,7 +27,7 @@ const AuthSection = () => {
         <LogLink to="/login">
           Log in{' '}
           <Svg>
-            <use xlinkHref="./src/assets/sprite.svg#login"></use>
+            <use xlinkHref="/src/assets/sprite.svg#login"></use>
           </Svg>
         </LogLink>
       </LinkWrap>

@@ -40,7 +40,7 @@ const Description = () => {
           <DescrImgWrap>
             <DescrImage
               srcSet={`${calendarMob} 335w, ${calendarTabl} 704w, ${calendarDt} 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 765px) 704px, 335px"
+              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
               src={calendarMob}
               alt="calendar"
             />
@@ -61,7 +61,7 @@ const Description = () => {
           <DescrImgWrap>
             <DescrImage
               srcSet={`${sidebarMob} 335w, ${sidebarTabl} 704w, ${sidebarDt} 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 765px) 704px, 335px"
+              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
               src={sidebarMob}
               alt="sidebar"
             />
@@ -82,7 +82,7 @@ const Description = () => {
           <DescrImgWrap>
             <DescrImage
               srcSet={`${oneMob} 335w, ${oneTabl} 704w, ${oneDt} 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 765px) 704px, 335px"
+              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
               src={oneMob}
               alt="one"
             />

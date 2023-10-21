@@ -42,7 +42,7 @@ export const DescrItemMid = styled.li`
 
 export const DescrTextWrap = styled.div`
   align-self: flex-start;
-  @media screen and (min-width: 765px) {
+  @media screen and (min-width: 480px) {
     width: 275px;
     align-self: flex-start;
   }
@@ -52,7 +52,7 @@ export const DescrTextWrap = styled.div`
 `;
 export const DescrTextWrapMid = styled.div`
   align-self: flex-end;
-  @media screen and (min-width: 765px) {
+  @media screen and (min-width: 480px) {
     width: 275px;
   }
   @media screen and (min-width: 1024px) {
