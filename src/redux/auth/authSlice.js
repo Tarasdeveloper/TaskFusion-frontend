@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  UpdateTokenThunk,
   loginThunk,
   logoutThunk,
   refreshUserThunk,
@@ -107,6 +108,19 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isUpdating = false;
         state.error = action.payload;
+      })
+      //----------------Update token------------------
+      .addCase(UpdateTokenThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(UpdateTokenThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.token = action.meta.arg;
+      })
+      .addCase(UpdateTokenThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action;
       }),
 });
 

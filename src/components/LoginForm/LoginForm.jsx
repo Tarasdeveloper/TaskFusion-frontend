@@ -4,6 +4,7 @@ import {
   ErrorText,
   Form,
   FormBtn,
+  FormGoogleBtn,
   FormInput,
   FormInputContainer,
   FormInputLabel,
@@ -11,14 +12,25 @@ import {
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginThunk } from '../../redux/auth/operations';
+import { UpdateTokenThunk, loginThunk, refreshUserThunk } from '../../redux/auth/operations';
 import { selectError } from '../../redux/auth/selectors';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const LoginForm = () => {
   const authError = useSelector(selectError);
+  const [searchParams] = useSearchParams();
+  
+
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    const token = searchParams.get('token') ?? '';
+    if (token) {
+      dispatch(UpdateTokenThunk(token));
+      dispatch(refreshUserThunk());
+    }
+  }, [dispatch, searchParams]);
   const handleLogFormSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -49,7 +61,7 @@ export const LoginForm = () => {
   return (
     <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>
-      <FormBtn type="button">
+      <FormGoogleBtn href="https://taskfusion-service.onrender.com/auth/google">
         <span>Continue with Google</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +78,7 @@ export const LoginForm = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </FormBtn>
+      </FormGoogleBtn>
       <FormInputContainer>
         <FormInputWrap>
           <FormInputLabel htmlFor="email">Email</FormInputLabel>

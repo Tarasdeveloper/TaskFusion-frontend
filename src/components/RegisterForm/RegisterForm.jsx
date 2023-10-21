@@ -4,6 +4,7 @@ import {
   ErrorText,
   Form,
   FormBtn,
+  FormGoogleBtn,
   FormInput,
   FormInputContainer,
   FormInputLabel,
@@ -54,7 +55,7 @@ export const RegisterForm = () => {
     <Form onSubmit={handleRegFormSubmit}>
       <FormTitle>Sign up</FormTitle>
 
-      <FormBtn type="button">
+      <FormGoogleBtn href="https://taskfusion-service.onrender.com/auth/google">
         <span>Continue with Google</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +72,7 @@ export const RegisterForm = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </FormBtn>
+      </FormGoogleBtn>
 
       <FormInputContainer>
         <FormInputWrap>
