@@ -88,3 +88,14 @@ export const updateUserThunk = createAsyncThunk(
     }
   },
 );
+
+export const UpdateTokenThunk = createAsyncThunk(
+  'auth/updatetoken', (token, thunkApi) => {
+    try {
+      setToken(token);
+
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  },
+);
