@@ -16,7 +16,7 @@ const AuthSection = () => {
     <Container>
       <img
         srcSet={`${gooseMob} 142w, ${gooseDt} 150w,`}
-        sizes="(min-width: 765px) 150px, 142px"
+        sizes="(min-width: 480px) 150px, 142px"
         src={gooseMob}
         alt="goose"
       />

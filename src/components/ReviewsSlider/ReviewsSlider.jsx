@@ -4,10 +4,12 @@ import {
   ReviewSlide,
   ReviewsTitle,
   ReviewsWrap,
+  Svg,
 } from './ReviewsSlider.styled';
 import 'swiper/css/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+import sprite from '../../assets/sprite.svg';
 
 const ReviewsSlider = () => {
   const breakpoints = {
@@ -41,8 +43,16 @@ const ReviewsSlider = () => {
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
         <ReviewSlide></ReviewSlide>
-        <NextBtn className="custom-next-button">Назад</NextBtn>
-        <PrevBtn className="custom-prev-button">Вперед</PrevBtn>
+        <NextBtn className="custom-next-button">
+          <Svg>
+            <use href={`${sprite}#login`}></use>
+          </Svg>
+        </NextBtn>
+        <PrevBtn className="custom-prev-button">
+          <Svg>
+            <use href={`${sprite}#login`}></use>
+          </Svg>
+        </PrevBtn>
       </Swiper>
     </ReviewsWrap>
   );

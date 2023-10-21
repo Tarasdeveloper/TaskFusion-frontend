@@ -35,3 +35,9 @@ export const NextBtn = styled.div`
 export const PrevBtn = styled.div`
   cursor: pointer;
 `;
+
+export const Svg = styled.svg`
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.5px;
+`;
