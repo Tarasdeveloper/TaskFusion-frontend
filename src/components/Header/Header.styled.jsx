@@ -29,7 +29,7 @@ export const SectionTitle = styled.h1`
     margin-left: 300px;
     align-items: center;
     display: block;
-    color: var(--primary-text-color);
+    color: var(--secondary-text-color);
     font-weight: 700;
     font-size: 32px;
     text-shadow:
