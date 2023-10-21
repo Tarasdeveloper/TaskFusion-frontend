@@ -28,3 +28,16 @@ export const ReviewSlide = styled.div`
   width: 100%;
   height: 200px;
 `;
+export const NextBtn = styled.div`
+  cursor: pointer;
+`;
+
+export const PrevBtn = styled.div`
+  cursor: pointer;
+`;
+
+export const Svg = styled.svg`
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.5px;
+`;

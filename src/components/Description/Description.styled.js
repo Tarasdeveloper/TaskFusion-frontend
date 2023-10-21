@@ -5,7 +5,7 @@ export const DescrWrap = styled.div`
   margin: 0 auto;
 
   @media screen and (min-width: 1024px) {
-    max-width: 1110px;
+    max-width: 1220px;
   }
 `;
 
@@ -22,7 +22,7 @@ export const DescrItem = styled.li`
   flex-direction: column;
 
   @media screen and (min-width: 1024px) {
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
   }
 `;
@@ -36,7 +36,7 @@ export const DescrItemMid = styled.li`
 
   @media screen and (min-width: 1024px) {
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 
@@ -48,6 +48,7 @@ export const DescrTextWrap = styled.div`
   }
   @media screen and (min-width: 1024px) {
     align-self: center;
+    margin-left: 77px;
   }
 `;
 export const DescrTextWrapMid = styled.div`
@@ -57,6 +58,7 @@ export const DescrTextWrapMid = styled.div`
   }
   @media screen and (min-width: 1024px) {
     align-self: center;
+    margin-right: 77px;
   }
 `;
 

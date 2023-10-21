@@ -15,9 +15,10 @@
   /* background colors */
   --primary-background-color: #ffffff;
   --secondary-background-color: #f7f6f9;
-
+  --tetriary-background-color: #fff;
   /* text colors */
   --primary-text-color: #111111;
+  --secondary-text-color: #343434;
 
   /* button colors */
   --btn-background-color: #3e85f3;
@@ -32,7 +33,6 @@
   --navigation-border-right-color: #dce3e580;
 
   /* header colors */
-  --header-username-color: #343434;
   --header-userphoto-border-color: #3e85f3;
 
   /* User Profile colors */
@@ -57,7 +57,7 @@
   /* -MONTH- */
   --calendar-month-primary-text-color: #343434;
   --calendar-month-week-weekend-color: #3e85f3;
-  --calendar-month-border-color: #dce3e5cc;
+  --calendar-month-border-color: rgba(220, 227, 229, 0.8);
 
   /* DAY */
   --calendar-day-primary-backgroundcolor: #ffffff;
@@ -74,15 +74,28 @@
   --calendar-day-task-levels-low-color: #72c2f8;
   --calendar-day-task-levels-medium-color: #f3b249;
   --calendar-day-task-levels-high-color: #ea3d65;
+
+  /* modal colors */
+  --modal-background-color: #ffffff;
+
+  --modal-primary-text-color: rgba(52, 52, 52, 0.8);
+
+  --modal-input-background-color: #f6f6f6;
+
+  /* FEEDBACK */
+  --modal-feedback-rating-inactive-color: #cec9c1;
+  --modal-feedback-btn-cancel-background-color: #e5edfa;
 }
 
 .dark {
   /* background colors */
-  --primary-background-color: #171820;
-  --secondary-background-color: #21222c;
+  --primary-background-color: #13151a;
+  --secondary-background-color: #171820;
+  --tetriary-background-color: #21222c;
 
   /* text colors */
   --primary-text-color: #ffffff;
+  --secondary-text-color: #ffffff;
 
   /* dark navigation colors */
   --navigation-text-gooseTrack-color: #e3f3ff;
@@ -92,7 +105,6 @@
   --navigation-border-right-color: none;
 
   /* header colors */
-  --header-username-color: #ffffff;
 
   /* User Profile colors */
   --userprofile-text-name-color: #ffffff;
@@ -114,7 +126,7 @@
 
   /* -MONTH- */
   --calendar-month-primary-text-color: #ffffff;
-  --calendar-month-border-color: #dce3e5cc;
+  --calendar-month-border-color: rgba(255, 255, 255, 0.15);
 
   /* DAY */
   --calendar-day-primary-backgroundcolor: #21222c;
@@ -125,6 +137,18 @@
   --calendar-day-task-border-color: #ffffff26;
 
   --calendar-day-task-buttons-color: #ffffff;
+
+  /* modal feedback colors */
+  --modal-background-color: #171820;
+  --modal-input-border-color: rgba(255, 255, 255, 0.15);
+
+  --modal-primary-text-color: rgba(250, 250, 250, 0.3);
+
+  --modal-input-background-color: #171820;
+
+  /* FEEDBACK */
+  --modal-feedback-rating-inactive-color: #353647;
+  --modal-feedback-btn-cancel-background-color: #21222c;
 }
 
 body {

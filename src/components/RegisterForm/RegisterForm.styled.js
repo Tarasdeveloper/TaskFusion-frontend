@@ -149,3 +149,44 @@ export const ErrorText = styled.p`
   font-weight: 400;
   line-height: 14px; /* 116.667% */
 `;
+
+export const FormGoogleBtn = styled.a`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  align-items: center;
+  gap: 10px;
+
+  border: #3e85f3;
+  border-radius: 16px;
+  background: #3e85f3;
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.28px;
+
+  transition:
+    background 0.3s,
+    color 0.3s;
+
+  &:disabled {
+    background-color: #ccc; /* Задайте цвет фона, который указывает на отключенное состояние */
+    color: #888; /* Задайте цвет текста для отключенной кнопки */
+    cursor: not-allowed; /* Измените курсор на "не разрешено" */
+    border: 1px solid #999; /* Добавьте рамку для отключенной кнопки (по желанию) */
+  }
+
+  &:hover {
+    background: #21222c;
+    color: #3e85f3;
+  }
+  &:focus {
+    background: #21222c;
+    color: #3e85f3;
+  }
+`;

@@ -29,7 +29,7 @@ export const SectionTitle = styled.h1`
     margin-left: 300px;
     align-items: center;
     display: block;
-    color: var(--primary-text-color);
+    color: var(--secondary-text-color);
     font-weight: 700;
     font-size: 32px;
     text-shadow:
@@ -78,7 +78,7 @@ export const Span = styled.p`
   color: #3e85f3;
 `;
 
-export const FeedbackButton = styled.button`
+export const AddFeedbackBtn = styled.button`
   padding: 8px 20px;
   font-family: Inter;
   font-weight: 600;

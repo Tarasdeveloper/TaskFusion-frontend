@@ -30,7 +30,7 @@ export const ProfileContainer = styled.div`
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;
-  background-color: var(--primary-background-color);
+  background-color: var(--tetriary-background-color);
   border-radius: 16px;
   transition: var(--transition-changetheme-background-color);
 
@@ -250,7 +250,7 @@ export const Input = styled.input`
 
 export const InputDatePicker = styled(DatePicker)`
   border-radius: 8px;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  border: 1px solid var(--userprofile-input-border-color);
   background-color: var(--userprofile-input-background-color);
   width: 100%;
   height: 42px;
