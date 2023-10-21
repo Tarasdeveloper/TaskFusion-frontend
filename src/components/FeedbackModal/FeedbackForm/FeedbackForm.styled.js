@@ -49,6 +49,7 @@ export const EditBtn = styled.button`
   border: none;
   width: 30px;
   height: 30px;
+  padding: 7px;
   border-radius: 50%;
   stroke: ${(props) => {
     return props.isActive ? '#FFFFFF' : '#3E85F3';
@@ -62,7 +63,7 @@ export const EditBtn = styled.button`
   &:focus {
     stroke: #ffffff;
     background-color: #3e85f3;
-  }
+  } 
 `;
 
 export const DeleteBtn = styled.button`
@@ -72,6 +73,7 @@ export const DeleteBtn = styled.button`
 
   width: 30px;
   height: 30px;
+  padding: 7px;
   background-color: #ea3d6533;
   stroke: #ea3d65;
   border: none;
@@ -85,7 +87,7 @@ export const DeleteBtn = styled.button`
   &:focus {
     stroke: #ffffff;
     background-color: #ea3d65;
-  }
+  }  
 `;
 
 export const WrapForInput = styled.div`
