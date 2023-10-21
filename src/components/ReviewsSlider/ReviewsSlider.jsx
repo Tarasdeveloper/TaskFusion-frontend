@@ -1,4 +1,5 @@
 import {
+  BtnWrap,
   NextBtn,
   PrevBtn,
   ReviewSlide,
@@ -21,38 +22,47 @@ const ReviewsSlider = () => {
   const swiperParams = {
     breakpoints: breakpoints,
     modules: [Navigation, Autoplay],
-    spaceBetween: 50,
+    spaceBetween: 25,
     slidesPerView: 1,
     navigation: {
       nextEl: '.custom-next-button',
       prevEl: '.custom-prev-button',
     },
+    loop: true,
     // autoplay: {
     //   delay: 3000,
     //   disableOnInteraction: false,
     // },
-    loop: true,
   };
 
   return (
     <ReviewsWrap>
       <ReviewsTitle>Reviews</ReviewsTitle>
       <Swiper {...swiperParams}>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <ReviewSlide></ReviewSlide>
-        <NextBtn className="custom-next-button">
-          <Svg>
-            <use href={`${sprite}#login`}></use>
-          </Svg>
-        </NextBtn>
-        <PrevBtn className="custom-prev-button">
-          <Svg>
-            <use href={`${sprite}#login`}></use>
-          </Svg>
-        </PrevBtn>
+        <SwiperSlide>
+          <ReviewSlide>1</ReviewSlide>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ReviewSlide>2</ReviewSlide>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ReviewSlide>3</ReviewSlide>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ReviewSlide>4</ReviewSlide>
+        </SwiperSlide>
+        <BtnWrap>
+          <NextBtn className="custom-next-button">
+            <Svg>
+              <use href={`${sprite}#left-arrow`}></use>
+            </Svg>
+          </NextBtn>
+          <PrevBtn className="custom-prev-button">
+            <Svg>
+              <use href={`${sprite}#right-arrow`}></use>
+            </Svg>
+          </PrevBtn>
+        </BtnWrap>
       </Swiper>
     </ReviewsWrap>
   );

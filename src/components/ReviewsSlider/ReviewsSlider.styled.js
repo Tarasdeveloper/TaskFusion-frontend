@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ReviewsWrap = styled.div`
-  max-width: 1110px;
+  max-width: 1186px;
   margin: 0 auto;
   padding: 64px 20px;
 
@@ -21,23 +21,29 @@ export const ReviewsTitle = styled.h2`
   margin-bottom: 40px;
 `;
 
+export const BtnWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+`;
+export const NextBtn = styled.div`
+  cursor: pointer;
+  display: inline-block;
+`;
+
+export const PrevBtn = styled.div`
+  cursor: pointer;
+  display: inline-block;
+`;
+
+export const Svg = styled.svg`
+  width: clamp(50px, 9vw, 61px);
+  height: clamp(50px, 9vw, 61px);
+`;
 export const ReviewSlide = styled.div`
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: 8px;
   padding: 24px 20px 24px 24px;
   width: 100%;
   height: 200px;
-`;
-export const NextBtn = styled.div`
-  cursor: pointer;
-`;
-
-export const PrevBtn = styled.div`
-  cursor: pointer;
-`;
-
-export const Svg = styled.svg`
-  width: 19px;
-  height: 19px;
-  stroke-width: 1.5px;
 `;
