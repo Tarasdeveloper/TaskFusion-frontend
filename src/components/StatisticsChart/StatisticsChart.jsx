@@ -10,7 +10,12 @@ import {
   StatisticsWrap,
 } from './StatisticsChart.styled';
 
-export const StatisticsChart = () => {
+export const StatisticsChart = ({ tasksByMonth }) => {
+  const toDoByMonth = Math.round(tasksByMonth.todoByMonth * 100);
+  const inprogressByMonth = Math.round(tasksByMonth.inprogressByMonth * 100);
+  const doneByMonth = Math.round(tasksByMonth.todoByMonth * 100);
+
+
   return (
     <StatisticsChartContainer>
       <StatisticsChartTitle>Tasks</StatisticsChartTitle>
@@ -47,8 +52,11 @@ export const StatisticsChart = () => {
                 <DailyStatisticLine className="day" />
               </StatisticLineWrap>
               <StatisticLineWrap>
-                <p>100%</p>
-                <DailyStatisticLine className="month" />
+                <p>{toDoByMonth}%</p>
+                <DailyStatisticLine
+                  className="month"
+                  width={tasksByMonth.todoByMonth}
+                />
               </StatisticLineWrap>
             </StatisticWrap>
             <p>To Do</p>
@@ -60,8 +68,11 @@ export const StatisticsChart = () => {
                 <DailyStatisticLine className="day" />
               </StatisticLineWrap>
               <StatisticLineWrap>
-                <p>100%</p>
-                <DailyStatisticLine className="month" />
+                <p>{inprogressByMonth}%</p>
+                <DailyStatisticLine
+                  className="month"
+                  width={tasksByMonth.inprogressByMonth}
+                />
               </StatisticLineWrap>
             </StatisticWrap>
             <p>In Progress</p>
@@ -70,11 +81,14 @@ export const StatisticsChart = () => {
             <StatisticWrap>
               <StatisticLineWrap>
                 <p>100%</p>
-                <DailyStatisticLine className="day" />
+                <DailyStatisticLine
+                  className="day"
+                  width={tasksByMonth.doneByMonth}
+                />
               </StatisticLineWrap>
               <StatisticLineWrap>
-                <p>100%</p>
-                <DailyStatisticLine className="month" />
+                <p>{doneByMonth}%</p>
+                <DailyStatisticLine className="month" height="80%"/>
               </StatisticLineWrap>
             </StatisticWrap>
             <p>Done</p>
