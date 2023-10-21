@@ -5,6 +5,7 @@ import Toolbar from '../../components/CalendarMonth/Toolbar/Toolbar';
 import {
   StatisticsPageContainer,
   StatisticsPageSection,
+  ToolbarContainer,
 } from './StatisticsPage.styled';
 import { StatisticsChart } from '../../components/StatisticsChart/StatisticsChart';
 
@@ -22,13 +23,15 @@ export const StatisticsPage = () => {
   return (
     <StatisticsPageSection>
       <StatisticsPageContainer>
-        <Toolbar
-          prevHandler={prevHandler}
-          nextHandler={nextHandler}
-          selectedDate={selectedDate}
-          currentDate={currentDate}
-        />
-        <StatisticsChart/>
+        <ToolbarContainer>
+          <Toolbar
+            prevHandler={prevHandler}
+            nextHandler={nextHandler}
+            selectedDate={selectedDate}
+            currentDate={currentDate}
+          />
+        </ToolbarContainer>
+        <StatisticsChart />
       </StatisticsPageContainer>
     </StatisticsPageSection>
   );
