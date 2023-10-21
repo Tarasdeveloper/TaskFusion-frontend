@@ -1,13 +1,13 @@
 import {
-  // Next,
-  // Prev,
+  NextBtn,
+  PrevBtn,
   ReviewSlide,
   ReviewsTitle,
   ReviewsWrap,
 } from './ReviewsSlider.styled';
 import 'swiper/css/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 
 const ReviewsSlider = () => {
   const breakpoints = {
@@ -18,14 +18,18 @@ const ReviewsSlider = () => {
 
   const swiperParams = {
     breakpoints: breakpoints,
-    modules: [Navigation],
+    modules: [Navigation, Autoplay],
     spaceBetween: 50,
     slidesPerView: 1,
-    navigation: {},
-    autoplay: { delay: 2000 },
+    navigation: {
+      nextEl: '.custom-next-button',
+      prevEl: '.custom-prev-button',
+    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
     loop: true,
-    // onSlideChange={() => console.log('slide change')},
-    // onSwiper={(swiper) => console.log(swiper)}
   };
 
   return (
@@ -36,9 +40,9 @@ const ReviewsSlider = () => {
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
-        {/* <Next></Next>
-        <Prev></Prev> */}
         <ReviewSlide></ReviewSlide>
+        <NextBtn className="custom-next-button">Назад</NextBtn>
+        <PrevBtn className="custom-prev-button">Вперед</PrevBtn>
       </Swiper>
     </ReviewsWrap>
   );
