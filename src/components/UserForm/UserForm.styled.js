@@ -30,7 +30,7 @@ export const ProfileContainer = styled.div`
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;
-  background-color: var(--primary-background-color);
+  background-color: var(--tetriary-background-color);
   border-radius: 16px;
   transition: var(--transition-changetheme-background-color);
 

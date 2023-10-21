@@ -20,6 +20,7 @@ export const ToggleButton = styled.button`
 export const AnimatedIcon = styled.svg`
   width: 32px;
   height: 32px;
+  fill: var(--btn-background-color);
   &.animate {
     animation: ${appear} 0.5s ease forwards;
   }

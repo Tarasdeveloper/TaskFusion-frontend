@@ -15,7 +15,7 @@
   /* background colors */
   --primary-background-color: #ffffff;
   --secondary-background-color: #f7f6f9;
-
+  --tetriary-background-color: #fff;
   /* text colors */
   --primary-text-color: #111111;
 
@@ -57,7 +57,7 @@
   /* -MONTH- */
   --calendar-month-primary-text-color: #343434;
   --calendar-month-week-weekend-color: #3e85f3;
-  --calendar-month-border-color: #dce3e5cc;
+  --calendar-month-border-color: rgba(220, 227, 229, 0.8);
 
   /* DAY */
   --calendar-day-primary-backgroundcolor: #ffffff;
@@ -78,8 +78,9 @@
 
 .dark {
   /* background colors */
-  --primary-background-color: #171820;
-  --secondary-background-color: #21222c;
+  --primary-background-color: #13151a;
+  --secondary-background-color: #171820;
+  --tetriary-background-color: #21222c;
 
   /* text colors */
   --primary-text-color: #ffffff;
@@ -114,7 +115,7 @@
 
   /* -MONTH- */
   --calendar-month-primary-text-color: #ffffff;
-  --calendar-month-border-color: #dce3e5cc;
+  --calendar-month-border-color: rgba(255, 255, 255, 0.15);
 
   /* DAY */
   --calendar-day-primary-backgroundcolor: #21222c;
@@ -128,7 +129,7 @@
 }
 
 body {
-  background-color: var(--secondary-background-color);
+  background-color: #ffffff;
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
