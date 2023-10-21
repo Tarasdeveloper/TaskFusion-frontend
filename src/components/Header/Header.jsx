@@ -6,7 +6,7 @@ import gooseMentor from '../../assets/img/header/gooseMentor.svg';
 import sprite from '../../assets/sprite.svg';
 import { selectTasks } from '../../redux/tasks/selectors';
 import { selectIsLoading } from '../../redux/reviews/selectors';
-import { fetchReviewById } from '../../redux/reviews/operations';
+import { getReviewById } from '../../redux/reviews/operations';
 import { selectUser } from '../../redux/auth/selectors';
 import AddFeedbackModal from '../FeedbackModal/AddFeedbackModal';
 import {
@@ -52,7 +52,7 @@ const Header = ({ onToggle }) => {
   }
 
   const openModal = () => {
-    dispatch(fetchReviewById(user.id));
+    dispatch(getReviewById(user.id));
 
     setShowModal(true);
   };
@@ -127,6 +127,5 @@ const Header = ({ onToggle }) => {
     </>
   );
 };
-// add on 70 line перемикач світла, user info and feedback form
 
 export default Header;
