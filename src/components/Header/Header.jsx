@@ -8,7 +8,7 @@ import { selectTasks } from '../../redux/tasks/selectors';
 import { selectIsLoading } from '../../redux/reviews/selectors';
 import { fetchReviewById } from '../../redux/reviews/operations';
 import { selectUser } from '../../redux/auth/selectors';
-import FeedbackModal from '../../components/FeedbackModal/FeedbackModal';
+import AddFeedbackModal from '../FeedbackModal/AddFeedbackModal';
 import {
   Wrapper,
   Info,
@@ -17,7 +17,7 @@ import {
   GooseMentor,
   MotivationTask,
   Span,
-  FeedbackButton,
+  AddFeedbackBtn,
 } from './Header.styled';
 
 const Header = ({ onToggle }) => {
@@ -117,13 +117,13 @@ const Header = ({ onToggle }) => {
           </svg>
         </Toggler>
         <Info>
-          <FeedbackButton type="button" onClick={openModal}>
+          <AddFeedbackBtn type="button" onClick={openModal}>
             Feedback
-          </FeedbackButton>
+          </AddFeedbackBtn>
           <ThemeToggler />
         </Info>
       </Wrapper>
-      {showModal && !isLoading && <FeedbackModal onClose={closeModal} />}
+      {showModal && !isLoading && <AddFeedbackModal onClose={closeModal} />}
     </>
   );
 };
