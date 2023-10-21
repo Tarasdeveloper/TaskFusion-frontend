@@ -23,8 +23,11 @@ export const SpaceBetween = styled.div`
 export const MonthBtn = styled.button`
   border-radius: 8px 0px 0px 8px;
   padding: 8px 16px;
-  background: #e3f3ff;
+  background-color: var(--calendar-monthOrDay-background-color);
+  color: var(--calendar-monthOrDay-text-color);
   border-color: transparent;
+  border-right: 1px solid var(--calendar-monthOrDay-border-color);
+  transition: var(--transition-changetheme-background-color);
 `;
 
 export const DayBtn = styled.button`
@@ -32,13 +35,17 @@ export const DayBtn = styled.button`
   border-radius: 0px 8px 8px 0px;
   background: #e3f3ff;
   border-color: transparent;
+  background-color: var(--calendar-monthOrDay-background-color);
+  color: var(--calendar-monthOrDay-text-color);
+  transition: var(--transition-changetheme-background-color);
 `;
 
 export const NextBtn = styled.button`
   padding: 8px 12px;
   border-radius: 0px 8px 8px 0px;
   border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  background-color: var(--calendar-day-primary-backgroundcolor);
+  transition: var(--transition-changetheme-background-color);
   @media (min-width: 768px) {
     padding: 10px 14px;
   }
@@ -47,7 +54,9 @@ export const PrevBtn = styled.button`
   padding: 8px 12px;
   border-radius: 8px 0px 0px 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  background-color: var(--calendar-day-primary-backgroundcolor);
+  transition: var(--transition-changetheme-background-color);
+
   @media (min-width: 768px) {
     padding: 10px 14px;
   }
