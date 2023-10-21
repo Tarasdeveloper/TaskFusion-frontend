@@ -38,7 +38,7 @@ const rateIcon = (
 const rateStyled = {
   itemShapes: rateIcon,
   activeFillColor: '#FFAC33',
-  inactiveFillColor: '#CEC9C1',
+  inactiveFillColor: 'var(--modal-feedback-rating-inactive-color)',
 };
 
 const FeedbackSchema = Yup.object().shape({
