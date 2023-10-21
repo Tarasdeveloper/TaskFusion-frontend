@@ -1,7 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+// import { refreshUserThunk } from '../auth/operations';
 
-axios.defaults.baseURL = 'https://taskfusion-service.onrender.com';
+axios.defaults.baseURL = 'https://taskfusion-service.onrender.com/';
+
+export const addReview = createAsyncThunk(
+  'reviews/addReview',
+  async (review, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.token;
+      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+      const { data } = await axios.post('/reviews/own', review, { headers });
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
 
 export const fetchReviews = createAsyncThunk(
   'reviews/getReviews',
@@ -9,18 +25,6 @@ export const fetchReviews = createAsyncThunk(
     try {
       const { data } = await axios.get(`/reviews?page=${page}&limit=4${limit}`);
 
-      return data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);
-
-export const addReview = createAsyncThunk(
-  'reviews/addReviews',
-  async (review, thunkAPI) => {
-    try {
-      const { data } = await axios.post('/reviews/own', review);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -56,12 +60,12 @@ export const editReview = createAsyncThunk(
 
 export const fetchReviewById = createAsyncThunk(
   'reviews/fetchReviewById',
-  async (_id, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
       const { data } = await axios.get(`/reviews/own/${id}`);
       return data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );

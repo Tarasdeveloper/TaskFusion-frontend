@@ -78,7 +78,7 @@ export const Span = styled.p`
   color: #3e85f3;
 `;
 
-export const FeedbackButton = styled.button`
+export const AddFeedbackBtn = styled.button`
   padding: 8px 20px;
   font-family: Inter;
   font-weight: 600;
