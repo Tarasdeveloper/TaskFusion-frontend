@@ -31,14 +31,14 @@ const CalendarPage = () => {
   };
 
   return (
-    <>
+    <div>
       <Toolbar
         currentMonth={currentMonth}
         setCurrentDate={setCurrentDate}
         setPeriodType={switchToDayPeriodType}
       />
       <CalendarGrid />
-    </>
+    </div>
   );
 };
 export default CalendarPage;

@@ -8,7 +8,6 @@ import {
   endOfWeek,
   format,
   formatISO,
-  isToday,
   startOfWeek,
 } from 'date-fns';
 import {
@@ -53,7 +52,7 @@ export const CalendarGrid = () => {
   }, []);
 
   const isCurrentDay = (date) => {
-    return isToday(date);
+    return dateFns.isToday(date);
   };
 
   return (
@@ -74,16 +73,16 @@ export const CalendarGrid = () => {
               disabled={!isCurrentMonth}
               onClick={() => navigate(`/calendar/day/${formatedDate}`)}
             >
-              {isCurrentDay(date) ? (
-                <>
-                  {isCurrentMonth && (
-                    <CalendarDate>
-                      <CurrentDay>{dayOfMonth}</CurrentDay>
-                    </CalendarDate>
-                  )}
-                </>
-              ) : (
-                <CalendarDate>{dayOfMonth}</CalendarDate>
+              {isCurrentMonth && (
+                <CalendarDate
+                  $current={
+                    formatISO(date, {
+                      representation: 'date',
+                    }) === currentDate
+                  }
+                >
+                  {dayOfMonth}
+                </CalendarDate>
               )}
             </CellWrap>
           );

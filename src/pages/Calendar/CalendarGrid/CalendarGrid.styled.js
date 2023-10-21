@@ -44,12 +44,16 @@ export const CalendarDate = styled.span`
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
+  color: ${({ $current }) => ($current ? 'white;' : 'none;')};
+  background-color: ${({ $current }) => ($current ? '#3E85F3;' : 'none;')};
+
   @media (min-width: 768px) {
     font-size: 16px;
     width: 27px;
     height: 26px;
   }
 `;
+
 export const GridWrapOfDays = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -72,11 +76,11 @@ export const CellWrapOfDays = styled.div`
 
   &:nth-child(7n),
   &:nth-child(7n - 1) {
-    color: var(--calendar-month-week-weekend-color);
+    color: #3e85f3;
   }
 `;
 export const CurrentDay = styled.div`
-  padding: 10px 8px;
+  padding: 4px 8px;
   height: 100%;
   width: 100%;
   background: #3e85f3;
