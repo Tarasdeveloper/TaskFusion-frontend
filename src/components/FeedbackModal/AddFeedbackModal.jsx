@@ -1,7 +1,7 @@
 import Modal from '../../components/Modal/Modal';
 import FeedbackForm from '../../components/FeedbackModal/FeedbackForm/FeedbackForm';
 
-const FeedbackModal = ({ onClose }) => {
+const AddFeedbackModal = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
       <FeedbackForm onClose={onClose} />
@@ -9,4 +9,4 @@ const FeedbackModal = ({ onClose }) => {
   );
 };
 
-export default FeedbackModal;
+export default AddFeedbackModal;
