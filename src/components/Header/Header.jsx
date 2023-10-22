@@ -9,6 +9,7 @@ import { selectIsLoading } from '../../redux/reviews/selectors';
 import { getReviewById } from '../../redux/reviews/operations';
 import { selectUser } from '../../redux/auth/selectors';
 import AddFeedbackModal from '../FeedbackModal/AddFeedbackModal';
+import UserInfo from './UserInfo';
 import {
   Wrapper,
   Info,
@@ -121,6 +122,7 @@ const Header = ({ onToggle }) => {
             Feedback
           </AddFeedbackBtn>
           <ThemeToggler />
+          <UserInfo />
         </Info>
       </Wrapper>
       {showModal && !isLoading && <AddFeedbackModal onClose={closeModal} />}

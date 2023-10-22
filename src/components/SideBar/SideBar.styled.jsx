@@ -23,7 +23,6 @@ export const SidebarWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     z-index: 0;
     padding: 32px 24px 24px 24px;
-    position: absolute;
   }
 `;
 export const SidebarHeader = styled.div`
@@ -125,6 +124,10 @@ export const UserPanel = styled.ul`
   @media screen and (min-width: 768px) {
     gap: 16px;
   }
+  &:hover,
+  &:focus {
+    svg: var(--btn-background-color);
+  }
 `;
 export const Title = styled.p`
   text-align: center;
@@ -139,5 +142,9 @@ export const Title = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 16px;
     margin-left: 10px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--btn-background-color);
   }
 `;
