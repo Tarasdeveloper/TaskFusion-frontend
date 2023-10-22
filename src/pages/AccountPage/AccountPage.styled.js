@@ -5,5 +5,6 @@ export const UserFormContainer = styled.div`
   // position: relative;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
 `;

@@ -58,7 +58,7 @@ export const Toggler = styled.button`
     padding-left: 32px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 `;

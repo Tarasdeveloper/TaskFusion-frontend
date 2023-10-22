@@ -36,18 +36,15 @@ export const ProfileContainer = styled.div`
   border-radius: 16px;
   transition: var(--transition-changetheme-background-color);
 
-  @media (min-width: 375px) {
-  }
   @media (min-width: 768px) {
-    padding-top: 40px;
-    padding-left: 175px;
-    padding-right: 175px;
+    padding-top: 40px 0;
   }
   @media (min-width: 1440px) {
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 165px;
     padding-right: 165px;
+    height: 100%;
   }
 `;
 
@@ -294,7 +291,7 @@ export const InputDatePicker = styled(DatePicker)`
 `;
 
 export const ButtonSaveChanges = styled.button`
-  width: 195px;
+  max-width: 195px;
   height: 46px;
   padding: 10px 20px 10px 20px;
   border-radius: 16px;
@@ -326,13 +323,12 @@ export const ButtonSaveChanges = styled.button`
   }
 
   @media (min-width: 768px) {
-    width: 100%;
+    width: 262px;
     height: 48px;
     margin-top: 16px;
   }
 
   @media (min-width: 1440px) {
-    width: 262px;
     margin-top: 64px;
   }
 `;

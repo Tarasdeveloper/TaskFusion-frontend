@@ -13,9 +13,8 @@ const MainLayout = () => {
   const [isVisible, setVisible] = useState(false);
   const toggleSidebar = () => setVisible((isVisible) => !isVisible);
   const size = useWindowSize();
-  // const isWideScreen = size.width > 768;
   useEffect(() => {
-    setVisible(size.width > 768 && true);
+    setVisible(size.width > 1440 && true);
   }, [size.width]);
 
   return (
@@ -26,7 +25,6 @@ const MainLayout = () => {
         </WrapperForFixSideBar>
         <MainWrapper>
           <Header onToggle={toggleSidebar} />
-          {/* {isWideScreen && <Outlet />} */}
           <Outlet />
         </MainWrapper>
       </Wrapper>
