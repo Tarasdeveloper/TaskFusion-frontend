@@ -6,9 +6,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 24px;
-
-  // width: 100%;
-  // text-align: center;
+  padding-bottom: 64px;
   transition: var(--transition-changetheme-background-color);
 
   @media screen and (min-width: 768px) {
@@ -17,11 +15,11 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding-top: 40px;
+    padding-bottom: 33px;
   }
 `;
 export const Info = styled.div`
   display: flex;
-  // align-items: center;
   margin-left: auto;
   padding-right: 20px;
   @media screen and (min-width: 768px) {
@@ -33,7 +31,7 @@ export const SectionTitle = styled.h1`
 
   transition: var(--transition-changetheme-color);
   @media screen and (min-width: 1440px) {
-    margin-left: 300px;
+    margin-left: 30px;
     align-items: center;
     display: block;
     color: var(--secondary-text-color);
@@ -58,7 +56,7 @@ export const Toggler = styled.button`
     padding-left: 32px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 `;
@@ -105,8 +103,6 @@ export const AddFeedbackBtn = styled.button`
   &:hover,
   &:focus {
     background-color: #2b78ef;
-    // transform: translateY(-2px);
-    // box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   }
 
   @media screen and (min-width: 768px) {

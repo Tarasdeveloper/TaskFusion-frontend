@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
+  position: absolute;
+  bottom: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -12,7 +14,7 @@ export const Button = styled.button`
   background-color: #3e85f3;
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   transition: background-color #3e85f3;
-
+margin-bottom: 24px;
   @media screen and (min-width: 768px) {
     gap: 11px;
     min-width: 141px;
