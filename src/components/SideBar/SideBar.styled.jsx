@@ -5,7 +5,7 @@ export const SidebarWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 999;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -98,7 +98,7 @@ export const CloseIcon = styled.svg`
     height: 34px;
     width: 34px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;
