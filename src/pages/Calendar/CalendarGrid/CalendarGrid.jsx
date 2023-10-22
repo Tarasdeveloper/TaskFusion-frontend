@@ -22,6 +22,7 @@ import {
 export const CalendarGrid = () => {
   const { currentDate } = useParams();
   const { daysOfMonth } = useCalendar(currentDate);
+  const navigate = useNavigate();
   const [formatOfWeek, setFormatOfWeek] = useState('EEEEE');
   const monday = startOfWeek(new Date(), { weekStartsOn: 1 });
   const sunday = endOfWeek(new Date(), {
@@ -50,10 +51,6 @@ export const CalendarGrid = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  const isCurrentDay = (date) => {
-    return dateFns.isToday(date);
-  };
 
   return (
     <>

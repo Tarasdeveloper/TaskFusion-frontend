@@ -30,7 +30,14 @@ const Toolbar = ({ currentMonth, setCurrentDate, setPeriodType }) => {
   return (
     <NavigationPanel>
       <SpaceBetween>
-        <div>{<StyledDatepicker currentMonth={currentMonth} />}</div>
+        <div>
+          {
+            <StyledDatepicker
+              currentMonth={currentMonth}
+              setCurrentDate={setCurrentDate}
+            />
+          }
+        </div>
         <ControlBtn>
           <PrevBtn onClick={prevHandler}>&lt;</PrevBtn>
           <NextBtn onClick={nextHandler}>&gt;</NextBtn>

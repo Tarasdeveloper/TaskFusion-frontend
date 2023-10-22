@@ -7,6 +7,7 @@ export const FullCallendar = styled.div`
   @media (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
+    padding-top: 0;
   }
   @media (min-width: 1440px) {
     padding-top: 32px;
