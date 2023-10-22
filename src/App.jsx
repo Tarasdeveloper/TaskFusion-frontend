@@ -36,9 +36,10 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/statistics" element={<StatisticsPage />} />
-        <Route path="/calendar/day" element={<ChoosedDay />} />
+
+        <Route path="/calendar/day/:currentDate" element={<ChoosedDay />} />
         <Route element={<MainLayout />}>
+          <Route path="/statistics" element={<StatisticsPage />} />
           <Route
             path="/account"
             element={
