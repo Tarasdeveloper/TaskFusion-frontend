@@ -29,10 +29,10 @@ const ReviewsSlider = () => {
       prevEl: '.custom-prev-button',
     },
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   };
 
   return (
@@ -40,7 +40,7 @@ const ReviewsSlider = () => {
       <ReviewsTitle>Reviews</ReviewsTitle>
       <Swiper {...swiperParams}>
         <SwiperSlide>
-          <ReviewSlide>{/* <ReviewSingle /> */}</ReviewSlide>
+          <ReviewSlide>1</ReviewSlide>
         </SwiperSlide>
         <SwiperSlide>
           <ReviewSlide>2</ReviewSlide>
