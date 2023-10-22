@@ -10,19 +10,19 @@ export const Container = styled.div`
   background-color: var(--secondary-background-color);
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 64px;
+  // padding-top: 64px;
 
   transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 768px) {
-    padding-top: 64px;
+    // padding-top: 64px;
     padding-left: 32px;
     padding-right: 32px;
     padding-bottom: 38px;
   }
 
   @media (min-width: 1440px) {
-    padding-top: 33px;
+    // padding-top: 33px;
     padding-bottom: 32px;
   }
 `;
@@ -37,7 +37,7 @@ export const ProfileContainer = styled.div`
   transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 768px) {
-    padding-top: 40px 0;
+    padding: 40px 0;
   }
   @media (min-width: 1440px) {
     padding-top: 60px;

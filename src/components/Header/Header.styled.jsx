@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 24px;
+  padding-bottom: 64px;
 
   // width: 100%;
   // text-align: center;
@@ -17,6 +18,7 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding-top: 40px;
+    padding-bottom: 33px;
   }
 `;
 export const Info = styled.div`
