@@ -6,7 +6,7 @@ export const Wrap = styled.div`
   position: relative;
   text-align: left;
   padding: 28px 20px;
-  border-radius: 16px;
+  border-radius: 8px;
   width: 335px;
   background-color: var(--modal-background-color);
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
@@ -44,7 +44,7 @@ export const EditBtn = styled.button`
   justify-content: center;
   align-items: center;
   background-color: ${(props) => {
-    return props.isActive ? '#3E85F3' : '#E5EDFA';
+    return props.$isActive ? '#3E85F3' : 'var(--modal-edit-btn-inactive-color)';
   }};
   border: none;
   width: 30px;
@@ -52,7 +52,7 @@ export const EditBtn = styled.button`
   padding: 7px;
   border-radius: 50%;
   stroke: ${(props) => {
-    return props.isActive ? '#FFFFFF' : '#3E85F3';
+    return props.$isActive ? '#FFFFFF' : '#3E85F3';
   }};
   cursor: pointer;
   transition:
@@ -63,7 +63,7 @@ export const EditBtn = styled.button`
   &:focus {
     stroke: #ffffff;
     background-color: #3e85f3;
-  } 
+  }
 `;
 
 export const DeleteBtn = styled.button`
@@ -87,7 +87,7 @@ export const DeleteBtn = styled.button`
   &:focus {
     stroke: #ffffff;
     background-color: #ea3d65;
-  }  
+  }
 `;
 
 export const WrapForInput = styled.div`
@@ -100,6 +100,7 @@ export const Input = styled(Field)`
   width: 295px;
   box-sizing: border-box;
   height: 127px;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
@@ -121,10 +122,10 @@ export const Input = styled(Field)`
     margin-bottom: 18px;
   }
 
-  /* &:hover,
-    &:focus {
-      border: 1px solid #111111;
-    } */
+  &:hover,
+  &:focus {
+    border: 1px solid #111111;
+  }
   &:disabled {
     cursor: not-allowed;
   }
@@ -208,7 +209,7 @@ export const BtnCloseWrap = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  stroke: #111;
+  stroke: var(--modal-icon-close-btn-color);
 
   transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
