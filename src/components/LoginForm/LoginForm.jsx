@@ -4,6 +4,7 @@ import {
   ErrorText,
   Form,
   FormBtn,
+  FormGoogleBtn,
   FormInput,
   FormInputContainer,
   FormInputLabel,
@@ -11,14 +12,25 @@ import {
   FormTitle,
 } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginThunk } from '../../redux/auth/operations';
+import { UpdateTokenThunk, loginThunk, refreshUserThunk } from '../../redux/auth/operations';
 import { selectError } from '../../redux/auth/selectors';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const LoginForm = () => {
   const authError = useSelector(selectError);
+  const [searchParams] = useSearchParams();
+  
+
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    const token = searchParams.get('token') ?? '';
+    if (token) {
+      dispatch(UpdateTokenThunk(token));
+      dispatch(refreshUserThunk());
+    }
+  }, [dispatch, searchParams]);
   const handleLogFormSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -49,6 +61,24 @@ export const LoginForm = () => {
   return (
     <Form onSubmit={handleLogFormSubmit}>
       <FormTitle>Log In</FormTitle>
+      <FormGoogleBtn href="https://taskfusion-service.onrender.com/auth/google">
+        <span>Continue with Google</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <path
+            d="M12.5 2.5H13.5C14.9001 2.5 15.6002 2.5 16.135 2.77248C16.6054 3.01217 16.9878 3.39462 17.2275 3.86502C17.5 4.3998 17.5 5.09987 17.5 6.5V13.5C17.5 14.9001 17.5 15.6002 17.2275 16.135C16.9878 16.6054 16.6054 16.9878 16.135 17.2275C15.6002 17.5 14.9001 17.5 13.5 17.5H12.5M8.33333 5.83333L12.5 10M12.5 10L8.33333 14.1667M12.5 10L2.5 10"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </FormGoogleBtn>
       <FormInputContainer>
         <FormInputWrap>
           <FormInputLabel htmlFor="email">Email</FormInputLabel>

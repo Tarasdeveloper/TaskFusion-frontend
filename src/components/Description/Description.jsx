@@ -1,6 +1,12 @@
-import calendar from '../../assets/img/mainPageImg/calendar-dt.png';
-import sidebar from '../../assets/img/mainPageImg/sidebar-dt.png';
-import one from '../../assets/img/mainPageImg/one-dt.png';
+import calendarDt from '../../assets/img/mainPageImg/calendar-dt.png';
+import calendarTabl from '../../assets/img/mainPageImg/calendar-tabl.png';
+import calendarMob from '../../assets/img/mainPageImg/calendar-mob.png';
+import sidebarDt from '../../assets/img/mainPageImg/sidebar-dt.png';
+import sidebarTabl from '../../assets/img/mainPageImg/sidebar-tabl.png';
+import sidebarMob from '../../assets/img/mainPageImg/sidebar-mob.png';
+import oneDt from '../../assets/img/mainPageImg/one-dt.png';
+import oneTabl from '../../assets/img/mainPageImg/one-tabl.png';
+import oneMob from '../../assets/img/mainPageImg/one-mob.png';
 import {
   DescrImage,
   DescrImgWrap,
@@ -11,6 +17,7 @@ import {
   DescrSpan,
   DescrText,
   DescrTextWrap,
+  DescrTextWrapMid,
   DescrTitle,
   DescrWrap,
 } from './Description.styled';
@@ -31,11 +38,16 @@ const Description = () => {
             </DescrText>
           </DescrTextWrap>
           <DescrImgWrap>
-            <DescrImage src={calendar} alt="calendar" />
+            <DescrImage
+              srcSet={`${calendarMob} 335w, ${calendarTabl} 704w, ${calendarDt} 604w`}
+              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
+              src={calendarMob}
+              alt="calendar"
+            />
           </DescrImgWrap>
         </DescrItem>
         <DescrItemMid>
-          <DescrTextWrap>
+          <DescrTextWrapMid>
             <DescrSpan>2.</DescrSpan>
             <DescrTitle>SIDEBAR</DescrTitle>
             <DescrText>
@@ -45,9 +57,14 @@ const Description = () => {
               calendar provides a quick and convenient way to view your upcoming
               events and tasks.
             </DescrText>
-          </DescrTextWrap>
+          </DescrTextWrapMid>
           <DescrImgWrap>
-            <DescrImage src={sidebar} alt="sidebar" />
+            <DescrImage
+              srcSet={`${sidebarMob} 335w, ${sidebarTabl} 704w, ${sidebarDt} 604w`}
+              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
+              src={sidebarMob}
+              alt="sidebar"
+            />
           </DescrImgWrap>
         </DescrItemMid>
         <DescrItem>
@@ -63,7 +80,12 @@ const Description = () => {
             </DescrText>
           </DescrTextWrap>
           <DescrImgWrap>
-            <DescrImage src={one} alt="one" />
+            <DescrImage
+              srcSet={`${oneMob} 335w, ${oneTabl} 704w, ${oneDt} 604w`}
+              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
+              src={oneMob}
+              alt="one"
+            />
           </DescrImgWrap>
         </DescrItem>
       </DescrList>

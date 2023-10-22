@@ -9,13 +9,11 @@ export const SidebarWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: #fff;
+  background-color: var(--primary-background-color);
   width: 225px;
   min-height: 100%;
   padding: 24px 20px;
-  transition:
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-changetheme-background-color);
 
   @media screen and (min-width: 768px) {
     width: 289px;
@@ -25,7 +23,6 @@ export const SidebarWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     z-index: 0;
     padding: 32px 24px 24px 24px;
-    position: absolute;
   }
 `;
 export const SidebarHeader = styled.div`
@@ -45,6 +42,8 @@ export const GooseImage = styled.img`
   margin-right: 6px;
   width: 36px;
   height: 35px;
+
+  background-color: var(--primary-background-color);
   @media screen and (min-width: 768px) {
     width: 60px;
     height: 58px;
@@ -60,7 +59,10 @@ export const LogoTitle = styled.h2`
   font-weight: 700;
   font-size: 16px;
   line-height: 1.37;
-  color: #3e85f3;
+  color: var(--navigation-text-gooseTrack-color);
+
+  transition: var(--transition-changetheme-color);
+
   @media screen and (min-width: 768px) {
     line-height: 1.5;
   }
@@ -101,11 +103,14 @@ export const CloseIcon = styled.svg`
   }
 `;
 export const SidebarSubTitle = styled.h3`
-  color: rgba(52, 52, 52, 0.5);
+  color: var(--navigation-text-userPanel-color);
   font-weight: 600;
   line-height: 1.2;
   font-size: 12px;
   margin-bottom: 24px;
+
+  transition: var(--transition-changetheme-color);
+
   @media screen and (min-width: 768px) {
     font-size: 14px;
     margin-bottom: 32px;
@@ -119,16 +124,27 @@ export const UserPanel = styled.ul`
   @media screen and (min-width: 768px) {
     gap: 16px;
   }
+  &:hover,
+  &:focus {
+    svg: var(--btn-background-color);
+  }
 `;
 export const Title = styled.p`
   text-align: center;
   display: inline;
-  color: rgba(52, 52, 52, 0.5);
+  color: var(--navigation-choosePage-color);
   font-weight: 600;
   font-size: 14px;
   margin-left: 8px;
+
+  transition: var(--transition-changetheme-color);
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     margin-left: 10px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--btn-background-color);
   }
 `;

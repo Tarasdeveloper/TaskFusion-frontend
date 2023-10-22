@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import * as ReactDOM from 'react-dom';
 import { useState } from 'react';
-
 import {
   TaskListContainer,
   TaskContainer,
@@ -18,20 +17,20 @@ import {
   TaskItem,
 } from './TaskCardList.styled';
 import Icon from '../../assets/sprite.svg';
-import useAuth from 'hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
 import { deleteTaskOperation } from '../../redux/calendar/calendar.operations';
 import { TaskModal } from '../TaskModal/TaskModal';
+import defUser from '../../assets/img/calendar/defuser.jpg';
 
-const TaskCardList = props => {
+const TaskCardList = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [taskStatus, setTaskStatus] = useState('');
-  const load = useSelector(state => state.calendar.isLoading);
+  const load = useSelector((state) => state.calendar.isLoading);
   const { user } = useAuth();
 
   // console.log(taskStatus);
   const dispatch = useDispatch();
-
-  const colorStatus = status => {
+  const colorStatus = (status) => {
     switch (status) {
       case 'low':
         return ' #72C2F8;';
@@ -50,20 +49,19 @@ const TaskCardList = props => {
   const onClose = () => {
     setIsOpen(false);
   };
-  const onOpen = e => {
+  const onOpen = (e) => {
     setIsOpen(true);
     setTaskStatus(e.currentTarget.name);
   };
 
-  const defUser = require('../../images/defUser.jpg');
- 
+  /*const defUser = require('../../assets/img/calendar/defuser.jpg')*/
+
   return (
     <MainContainer>
       {!load && (
         <TaskListContainer>
           <ul>
             {props.task.map(({ _id, title, priority }) => (
-              
               <TaskItem key={_id}>
                 <TaskContainer>
                   <TaskText>{title}</TaskText>
@@ -103,11 +101,8 @@ const TaskCardList = props => {
 
                   {isOpen &&
                     ReactDOM.createPortal(
-                      <TaskModal
-                        onClose={onClose}
-                        status={taskStatus}
-                      />,
-                      document.querySelector('#modal-root')
+                      <TaskModal onClose={onClose} status={taskStatus} />,
+                      document.querySelector('#modal-root'),
                     )}
                 </TaskContainer>
               </TaskItem>

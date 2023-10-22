@@ -19,7 +19,6 @@ export const registerThunk = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const { data } = await $instance.post('/auth/register', userData);
-      console.log('data: ', data);
       setToken(data.token);
 
       return data;
@@ -34,7 +33,6 @@ export const loginThunk = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const { data } = await $instance.post('/auth/login', userData);
-      console.log('data: ', data);
       setToken(data.token);
 
       return data;
@@ -48,7 +46,6 @@ export const refreshUserThunk = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkApi) => {
     const token = thunkApi.getState().auth.token;
-
     if (!token) return thunkApi.rejectWithValue(null);
 
     try {
@@ -81,10 +78,22 @@ export const updateUserThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await $instance.patch('/users/edit', credentials);
-      return response.data.user;
+      
+      return response.data;
     } catch (error) {
       Notiflix.Notify.failure(`${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const UpdateTokenThunk = createAsyncThunk(
+  'auth/updatetoken', (token, thunkApi) => {
+    try {
+      setToken(token);
+
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
     }
   },
 );

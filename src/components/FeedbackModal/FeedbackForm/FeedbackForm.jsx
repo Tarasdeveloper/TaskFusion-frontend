@@ -1,4 +1,3 @@
-// import ReactStars from "react-rating-stars-component";
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 
@@ -49,13 +48,12 @@ const FeedbackSchema = Yup.object().shape({
     .required('review is required'),
 });
 
-export const FeedbackForm = ({ onClose }) => {
+const FeedbackForm = ({ onClose }) => {
   const dispatch = useDispatch();
   const userReview = useSelector(selectUserReview);
   const [isEditActive, setIsEditActive] = useState(false);
 
   const ratingChanged = (newRating) => {
-    // setRatingValue(newRating);
     dispatch(changeRating(newRating));
   };
 
@@ -156,3 +154,5 @@ export const FeedbackForm = ({ onClose }) => {
     </Wrap>
   );
 };
+
+export default FeedbackForm;

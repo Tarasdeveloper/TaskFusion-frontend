@@ -5,12 +5,8 @@ import './CustomDatePicker.css';
 import uk from 'date-fns/locale/uk';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectIsLoadingStatus,
-  selectIsUpdating,
-  selectUser,
-} from '../../redux/auth/selectors';
-import { addDays, format, isWeekend, parseISO } from 'date-fns';
+import { selectIsLoadingStatus, selectUser } from '../../redux/auth/selectors';
+import { addDays, format, isWeekend } from 'date-fns';
 import { updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
 import { userInfoSchema } from '../../schemas';
@@ -43,9 +39,8 @@ import { Loader } from '../Loader/Loader';
 registerLocale('uk', uk);
 
 export const UserForm = () => {
-  const { name, email, avatar, phone, skype, birthday } =
-    useSelector(selectUser);
-  const isUpdating = useSelector(selectIsUpdating);
+  const user = useSelector(selectUser);
+  const { name, email, avatar, phone, skype, birthday } = user || {};
   const isLoading = useSelector(selectIsLoadingStatus);
   const initialValues = {
     name: name ? name : '',
@@ -53,21 +48,14 @@ export const UserForm = () => {
     avatar: avatar ? avatar : '',
     phone: phone ? phone : '',
     skype: skype ? skype : '',
-    birthday: birthday ? parseISO(birthday) : '',
+    birthday: birthday ? new Date(birthday) : null,
   };
   const [state, setState] = useState(initialValues);
-  const [userPhotoPreview, setUserPhotoPreview] = useState('');
+  const [userPhotoPreview, setUserPhotoPreview] = useState(avatar || '');
   const [isUploadingPhoto, setIsUploadingPhoto] = useState(false);
   const userPhotoInputRef = useRef(null);
+  const saveButtonLabel = isLoading ? 'Submitting...' : 'Save changes';
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    return () => {
-      if (userPhotoPreview) {
-        URL.revokeObjectURL(userPhotoPreview);
-      }
-    };
-  }, [userPhotoPreview]);
 
   const changes =
     name !== state.name ||
@@ -75,8 +63,15 @@ export const UserForm = () => {
     phone !== state.phone ||
     skype !== state.skype ||
     birthday !== state.birthday ||
-    userPhotoPreview !== '' ||
-    avatar !== state.avatar;
+    userPhotoPreview !== '';
+
+  useEffect(() => {
+    return () => {
+      if (userPhotoPreview) {
+        URL.revokeObjectURL(userPhotoPreview);
+      }
+    };
+  }, [userPhotoPreview, avatar]);
 
   const onClickAvatarButton = () => {
     if (userPhotoInputRef.current) {
@@ -90,10 +85,11 @@ export const UserForm = () => {
       ...prevState,
       avatar: photo,
     }));
+
     setFieldValue('avatar', photo);
 
     if (photo) {
-      setIsUploadingPhoto(true); 
+      setIsUploadingPhoto(true);
       const previewUrl = URL.createObjectURL(photo);
       Notiflix.Notify.success('User photo successfully added.');
       setUserPhotoPreview(previewUrl);
@@ -101,32 +97,10 @@ export const UserForm = () => {
     } else {
       setUserPhotoPreview(avatar);
     }
-  };
 
-  const handleSaveChanges = async () => {
-    // event.preventDefault();
-    if (!changes) return;
-    const formData = new FormData();
-    if (name !== state.name) {
-      formData.append('userName', state.name);
+    if (photo && photo !== avatar) {
+      setFieldValue('avatar', photo);
     }
-    if (email !== state.email) {
-      formData.append('email', state.email);
-    }
-    if (userPhotoPreview !== '' || avatar !== state.avatar) {
-      formData.append('avatar', state.avatar);
-    }
-    if (phone !== state.phone) {
-      formData.append('phone', state.phone);
-    }
-    if (skype !== state.skype) {
-      formData.append('skype', state.skype);
-    }
-    if (birthday !== state.birthday) {
-      formData.append('birthDay', state.birthday);
-    }
-    dispatch(updateUserThunk(formData));
-    Notiflix.Notify.success('User information successfully changed.');
   };
 
   const {
@@ -146,10 +120,39 @@ export const UserForm = () => {
     onSubmit: (event) => handleSaveChanges(event),
   });
 
+  const handleSaveChanges = async () => {
+    const { name, birthday, email, phone, skype, avatar } = values;
+    if (!changes) return;
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    if (!avatar || !(avatar instanceof File)) {
+      formData.delete('avatar');
+    } else {
+      formData.append('avatar', avatar);
+    }
+    formData.append('phone', phone ? phone : '');
+    formData.append('skype', skype ? skype : '');
+    formData.append('birthday', birthday ? birthday : '');
+    dispatch(updateUserThunk(formData))
+      .unwrap()
+      .then(() => {
+        Notiflix.Notify.success('User information successfully changed.');
+        setSubmitting(true);
+      })
+      .catch((error) => {
+        Notiflix.Notify.failure(`${error.message}`);
+      });
+  };
+
   return (
     <Container>
       <ProfileContainer>
-        <FormUser onSubmit={handleSubmit}>
+        <FormUser
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+          autoComplete="off"
+        >
           {isLoading && <Loader />}
           {isUploadingPhoto && <Loader />}
           {userPhotoPreview ? (
@@ -314,18 +317,12 @@ export const UserForm = () => {
               </Label>
             </UserInfoColumn>
           </UserInfoContainer>
-          {isUpdating ? (
-            <ButtonSaveChanges type="submit" disabled>
-              Submitting...
-            </ButtonSaveChanges>
-          ) : (
-            <ButtonSaveChanges
-              type="submit"
-              disabled={!dirty || isSubmitting || !changes}
-            >
-              Save changes
-            </ButtonSaveChanges>
-          )}
+          <ButtonSaveChanges
+            type="submit"
+            disabled={!dirty || isSubmitting || !changes || isLoading}
+          >
+            {saveButtonLabel}
+          </ButtonSaveChanges>
         </FormUser>
       </ProfileContainer>
     </Container>

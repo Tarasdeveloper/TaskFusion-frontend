@@ -5,7 +5,7 @@ import { ModalDiv, Overlay } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ onClose, children }) => {
+const Modal = ({ onClose, children }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -37,3 +37,5 @@ export const Modal = ({ onClose, children }) => {
     modalRoot,
   );
 };
+
+export default Modal;

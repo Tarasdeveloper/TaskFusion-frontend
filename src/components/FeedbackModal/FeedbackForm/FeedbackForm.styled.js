@@ -8,9 +8,10 @@ export const Wrap = styled.div`
   padding: 28px 20px;
   border-radius: 16px;
   width: 335px;
-  background: #fff;
+  background-color: var(--modal-background-color);
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
+  transition: var(--transition-changetheme-background-color);
   @media (min-width: 768px) {
     width: 468px;
     padding: 32px;
@@ -18,7 +19,7 @@ export const Wrap = styled.div`
 `;
 
 export const Label = styled.label`
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--modal-primary-text-color);
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
@@ -48,6 +49,7 @@ export const EditBtn = styled.button`
   border: none;
   width: 30px;
   height: 30px;
+  padding: 7px;
   border-radius: 50%;
   stroke: ${(props) => {
     return props.isActive ? '#FFFFFF' : '#3E85F3';
@@ -61,7 +63,7 @@ export const EditBtn = styled.button`
   &:focus {
     stroke: #ffffff;
     background-color: #3e85f3;
-  }
+  } 
 `;
 
 export const DeleteBtn = styled.button`
@@ -71,6 +73,7 @@ export const DeleteBtn = styled.button`
 
   width: 30px;
   height: 30px;
+  padding: 7px;
   background-color: #ea3d6533;
   stroke: #ea3d65;
   border: none;
@@ -84,7 +87,7 @@ export const DeleteBtn = styled.button`
   &:focus {
     stroke: #ffffff;
     background-color: #ea3d65;
-  }
+  }  
 `;
 
 export const WrapForInput = styled.div`
@@ -100,12 +103,14 @@ export const Input = styled(Field)`
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
-  color: rgba(52, 52, 52, 1);
+  color: var(--secondary-text-color);
 
-  background-color: rgba(246, 246, 246, 1);
+  background-color: var(--modal-input-background-color);
   border-radius: 8px;
-  border: 1px solid rgba(246, 246, 246, 1);
+  border: 1px solid var(--modal-input-border-color);
 
+  transition: var(--transition-changetheme-color),
+    var(--transition-changetheme-background-color);
   /* transition: 300ms cubic-bezier(0.4, 0, 0.2, 1); */
 
   @media (min-width: 768px) {
@@ -174,8 +179,8 @@ export const FormBtn = styled.button`
 `;
 
 export const FormBtnCancel = styled.button`
-  color: rgba(52, 52, 52, 1);
-  background-color: #e5edfa;
+  color: var(--secondary-text-color);
+  background-color: var(--modal-feedback-btn-cancel-background-color);
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -184,7 +189,8 @@ export const FormBtnCancel = styled.button`
   border: none;
   border-radius: 16px;
   cursor: pointer;
-  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-changetheme-color),
+    var(--transition-changetheme-background-color);
   &:hover,
   &:focus {
     color: #2b78ef;

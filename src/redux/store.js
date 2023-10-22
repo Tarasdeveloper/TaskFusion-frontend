@@ -15,6 +15,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import themeSlise from './theme/themeSlise';
+import { tasksReducer } from './tasks/tasksSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -31,6 +32,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     reviews: reviewReducer,
+    tasks: tasksReducer,
     theme: persistReducer(themePersistConfig, themeSlise),
     calendar: calendarMonthReducer,
   },

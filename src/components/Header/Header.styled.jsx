@@ -1,31 +1,42 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  background-color: #f7f6f9;
+  background-color: var(--secondary-background-color);
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
+  align-items:center;
+  padding-top: 24px;
+
+  // width: 100%;
+  // text-align: center;
+  transition: var(--transition-changetheme-background-color);
 
   @media screen and (min-width: 768px) {
-    margin-top: 25px;
+    padding-top: 25px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 40px;
+    padding-top: 40px;
   }
 `;
 export const Info = styled.div`
   display: flex;
-  align-items: center;
+  // align-items: center;
   margin-left: auto;
+  padding-right: 20px;
+  @media screen and (min-width: 768px) {
+    padding-right: 32px;
+  }
 `;
 export const SectionTitle = styled.h1`
   display: none;
+
+  transition: var(--transition-changetheme-color);
   @media screen and (min-width: 1440px) {
     margin-left: 300px;
     align-items: center;
     display: block;
-    color: #111;
+    color: var(--secondary-text-color);
     font-weight: 700;
     font-size: 32px;
     text-shadow:
@@ -38,6 +49,7 @@ export const Toggler = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
   margin: 0;
   padding-left: 20px;
   border: none;
@@ -74,7 +86,7 @@ export const Span = styled.p`
   color: #3e85f3;
 `;
 
-export const FeedbackButton = styled.button`
+export const AddFeedbackBtn = styled.button`
   padding: 8px 20px;
   font-family: Inter;
   font-weight: 600;
@@ -86,7 +98,6 @@ export const FeedbackButton = styled.button`
   background-color: #3e85f3;
   border: none;
   border-radius: 10px;
-  // margin-left: 80px;
   margin-right: 18px;
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);

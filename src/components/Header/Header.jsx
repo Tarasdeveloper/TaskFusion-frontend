@@ -6,9 +6,10 @@ import gooseMentor from '../../assets/img/header/gooseMentor.svg';
 import sprite from '../../assets/sprite.svg';
 import { selectTasks } from '../../redux/tasks/selectors';
 import { selectIsLoading } from '../../redux/reviews/selectors';
-import { fetchReviewById } from '../../redux/reviews/operations';
+import { getReviewById } from '../../redux/reviews/operations';
 import { selectUser } from '../../redux/auth/selectors';
-import { FeedbackModal } from '../../components/FeedbackModal/FeedbackModal';
+import AddFeedbackModal from '../FeedbackModal/AddFeedbackModal';
+import UserInfo from './UserInfo';
 import {
   Wrapper,
   Info,
@@ -17,17 +18,16 @@ import {
   GooseMentor,
   MotivationTask,
   Span,
-  FeedbackButton,
+  AddFeedbackBtn,
 } from './Header.styled';
 
 const Header = ({ onToggle }) => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const isLoading = useSelector(selectIsLoading);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
-
-  const isLoading = useSelector(selectIsLoading);
-  const user = useSelector(selectUser);
-  const [showModal, setShowModal] = useState(false);
 
   const { currentDay } = useParams();
   const calendarPage = currentPath.startsWith('/calendar/day');
@@ -53,7 +53,7 @@ const Header = ({ onToggle }) => {
   }
 
   const openModal = () => {
-    dispatch(fetchReviewById(user.id));
+    dispatch(getReviewById(user.id));
 
     setShowModal(true);
   };
@@ -118,16 +118,16 @@ const Header = ({ onToggle }) => {
           </svg>
         </Toggler>
         <Info>
-          <FeedbackButton type="button" onClick={openModal}>
+          <AddFeedbackBtn type="button" onClick={openModal}>
             Feedback
-          </FeedbackButton>
+          </AddFeedbackBtn>
           <ThemeToggler />
+          <UserInfo />
         </Info>
-        {showModal && !isLoading && <FeedbackModal onClose={closeModal} />}
       </Wrapper>
+      {showModal && !isLoading && <AddFeedbackModal onClose={closeModal} />}
     </>
   );
 };
-// add on 70 line перемикач світла, user info and feedback form
 
 export default Header;
