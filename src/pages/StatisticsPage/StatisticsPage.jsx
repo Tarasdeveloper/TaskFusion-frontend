@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as dateFns from 'date-fns';
 
-import Toolbar from '../../components/CalendarMonth/Toolbar/Toolbar';
+import Toolbar from '../../pages/Calendar/NavBar/Toolbar';
 import {
   StatisticsPageContainer,
   StatisticsPageSection,
@@ -59,7 +59,7 @@ export const StatisticsPage = () => {
         inprogressByMonth,
         doneByMonth,
       };
-           console.log('tasksByMonth: ', tasksByMonth);
+      console.log('tasksByMonth: ', tasksByMonth);
       setTasksByMonth(tasksByMonth);
     };
     xxx();

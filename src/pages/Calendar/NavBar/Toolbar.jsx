@@ -15,6 +15,7 @@ import { PERIOD_TYPE_DAY, PERIOD_TYPE_MONTH } from '../constants';
 
 const Toolbar = ({ currentMonth, setCurrentDate, setPeriodType }) => {
   const { currentDate } = useParams();
+
   const prevHandler = () => {
     const prevMonth = new Date(currentMonth);
     prevMonth.setMonth(prevMonth.getMonth() - 1);

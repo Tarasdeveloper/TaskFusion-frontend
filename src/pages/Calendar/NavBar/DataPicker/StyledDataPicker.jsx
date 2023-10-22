@@ -9,9 +9,11 @@ import {
 } from './StyledDataPicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { Navigate, useNavigate } from 'react-router-dom';
-const StyledDatepicker = ({ currentMonth, setCurrentDate }) => {
+const StyledDatepicker = ({ currentMonth }) => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
+
   const navigate = useNavigate();
+
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
@@ -20,7 +22,7 @@ const StyledDatepicker = ({ currentMonth, setCurrentDate }) => {
     );
   });
   const handleDateClick = (date) => {
-    setCurrentDate(date);
+    setSelectedDate(date);
     const formatedDate = formatISO(date, { representation: 'date' });
     navigate(`/calendar/day/${formatedDate}`);
   };
@@ -28,8 +30,8 @@ const StyledDatepicker = ({ currentMonth, setCurrentDate }) => {
   return (
     <>
       <DatePicker
-        selected={currentMonth}
-        onChange={(date) => handleDateClick(date)}
+        selected={selectedDate}
+        onChange={handleDateClick}
         customInput={<CustomInput />}
         dateFormat={'dd MM yyyy'}
         calendarStartDay={1}
