@@ -1159,7 +1159,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`,IH=document.querySelector("#modal-root"),j8=({onClose:e,children:t})=>{C.useEffect(()=>{document.body.style.overflow="hidden";const r=i=>{i.code==="Escape"&&e()};return document.addEventListener("keydown",r),()=>{document.body.style.overflow="auto",document.removeEventListener("keydown",r)}},[e]);const n=r=>{r.target===r.currentTarget&&e()};return oa.createPortal(y.jsx(RH,{onClick:n,children:y.jsx(LH,{children:t})}),IH)},FH=e=>C.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 16 16",...e},C.createElement("path",{stroke:"#fff",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.3,d:"m1.667 14.333 3.7-1.422c.236-.091.354-.137.465-.196.098-.053.192-.114.28-.183.1-.077.19-.166.369-.345L14 4.667A1.886 1.886 0 1 0 11.333 2l-7.52 7.52c-.18.18-.27.269-.346.368a2 2 0 0 0-.182.28c-.06.11-.105.23-.196.466l-1.423 3.7Zm0 0 1.372-3.567c.098-.255.147-.383.232-.441a.333.333 0 0 1 .252-.054c.1.02.198.116.391.31l1.506 1.505c.193.194.29.29.31.391a.333.333 0 0 1-.054.253c-.059.084-.186.133-.442.231l-3.567 1.372Z"})),zH=e=>C.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 16 16",...e},C.createElement("g",{stroke:"#EA3D65",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5},C.createElement("path",{d:"M2 4h12M12.666 4v9.333a1.333 1.333 0 0 1-1.333 1.334H4.666a1.334 1.334 0 0 1-1.333-1.334V4m2 0V2.667a1.333 1.333 0 0 1 1.333-1.334h2.667a1.333 1.333 0 0 1 1.333 1.334V4M6.667 7.333v4M9.333 7.333v4"}))),BH=e=>C.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 24 24",...e},C.createElement("path",{stroke:"#111",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:2,d:"M18 6 6 18M6 6l12 12"})),WH=$.div`
+`,IH=document.querySelector("#modal-root"),j8=({onClose:e,children:t})=>{C.useEffect(()=>{document.body.style.overflow="hidden";const r=i=>{i.code==="Escape"&&e()};return document.addEventListener("keydown",r),()=>{document.body.style.overflow="auto",document.removeEventListener("keydown",r)}},[e]);const n=r=>{r.target===r.currentTarget&&e()};return oa.createPortal(y.jsx(RH,{onClick:n,children:y.jsx(LH,{children:t})}),IH)},FH=e=>C.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 16 16",...e},C.createElement("path",{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.3,d:"m1.667 14.333 3.7-1.422c.236-.091.354-.137.465-.196.098-.053.192-.114.28-.183.1-.077.19-.166.369-.345L14 4.667A1.886 1.886 0 1 0 11.333 2l-7.52 7.52c-.18.18-.27.269-.346.368a2 2 0 0 0-.182.28c-.06.11-.105.23-.196.466l-1.423 3.7Zm0 0 1.372-3.567c.098-.255.147-.383.232-.441a.333.333 0 0 1 .252-.054c.1.02.198.116.391.31l1.506 1.505c.193.194.29.29.31.391a.333.333 0 0 1-.054.253c-.059.084-.186.133-.442.231l-3.567 1.372Z"})),zH=e=>C.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 16 16",...e},C.createElement("g",{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5},C.createElement("path",{d:"M2 4h12M12.666 4v9.333a1.333 1.333 0 0 1-1.333 1.334H4.666a1.334 1.334 0 0 1-1.333-1.334V4m2 0V2.667a1.333 1.333 0 0 1 1.333-1.334h2.667a1.333 1.333 0 0 1 1.333 1.334V4M6.667 7.333v4M9.333 7.333v4"}))),BH=e=>C.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 24 24",...e},C.createElement("path",{stroke:"#111",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:2,d:"M18 6 6 18M6 6l12 12"})),WH=$.div`
   position: relative;
   text-align: left;
   padding: 28px 20px;
@@ -1196,6 +1196,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   border: none;
   width: 30px;
   height: 30px;
+  padding: 7px;
   border-radius: 50%;
   stroke: ${e=>e.isActive?"#FFFFFF":"#3E85F3"};
   cursor: pointer;
@@ -1207,7 +1208,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   &:focus {
     stroke: #ffffff;
     background-color: #3e85f3;
-  }
+  } 
 `,GH=$.button`
   display: flex;
   justify-content: center;
@@ -1215,6 +1216,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
   width: 30px;
   height: 30px;
+  padding: 7px;
   background-color: #ea3d6533;
   stroke: #ea3d65;
   border: none;
@@ -1228,7 +1230,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   &:focus {
     stroke: #ffffff;
     background-color: #ea3d65;
-  }
+  }  
 `,qH=$.div`
   margin-bottom: 14px;
 `,XH=$(kA)`
