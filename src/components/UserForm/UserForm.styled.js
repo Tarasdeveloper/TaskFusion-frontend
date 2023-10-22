@@ -3,8 +3,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const Container = styled.div`
+  flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
   background-color: var(--secondary-background-color);
   padding-left: 20px;
@@ -27,6 +28,7 @@ export const Container = styled.div`
 `;
 
 export const ProfileContainer = styled.div`
+  flex: 1;
   padding-left: 18px;
   padding-right: 18px;
   padding-bottom: 40px;

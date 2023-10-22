@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   background-color: var(--secondary-background-color);
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   padding-top: 24px;
 
   // width: 100%;
@@ -58,7 +58,7 @@ export const Toggler = styled.button`
     padding-left: 32px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;
