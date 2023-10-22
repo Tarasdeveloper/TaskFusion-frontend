@@ -1,4 +1,4 @@
-import goose from '../../assets/img/header/goose.jpg';
+import gooseLogo from '../../assets/img/goose-logo.png';
 import sprite from '../../assets/sprite.svg';
 import LogoutBtn from './LogoutBtn';
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const SideBar = ({ onToggle }) => {
   return (
     <SidebarWrapper>
       <SidebarHeader>
-        <GooseImage src={goose} alt="goose" />
+        <GooseImage src={gooseLogo} alt="goose" />
         <LogoTitle>
           G<Span>oo</Span>seTrack
         </LogoTitle>
@@ -56,7 +56,7 @@ const SideBar = ({ onToggle }) => {
       <UserPanel>
         <Link to="/account">
           {' '}
-          <svg
+          <svg className= 'svg'
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
