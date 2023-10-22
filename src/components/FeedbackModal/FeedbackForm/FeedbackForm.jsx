@@ -108,7 +108,7 @@ const FeedbackForm = ({ onClose }) => {
                 <WrapForEdit>
                   <EditBtn
                     onClick={handleEdit}
-                    isActive={isEditActive}
+                    $isActive={isEditActive}
                     type="button"
                   >
                     <IconEdit />

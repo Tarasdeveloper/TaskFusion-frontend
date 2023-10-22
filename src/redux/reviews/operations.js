@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { $instance } from '../auth/operations';
 
 axios.defaults.baseURL = 'https://taskfusion-service.onrender.com/';
@@ -11,6 +12,7 @@ export const addReview = createAsyncThunk(
       const token = thunkAPI.getState().auth.token;
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
       const { data } = await axios.post('/reviews/own', review, { headers });
+      Notiflix.Notify.success('Your review successfully added.Thank you!');
 
       return data;
     } catch (error) {
@@ -28,8 +30,8 @@ export const getReviews = createAsyncThunk(
       );
 
       return data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
@@ -40,8 +42,8 @@ export const deleteReview = createAsyncThunk(
     try {
       const { data } = await $instance.delete(`/reviews/own`);
       return data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
@@ -52,10 +54,12 @@ export const editReview = createAsyncThunk(
     try {
       // console.log(review);
       const { data } = await $instance.patch(`/reviews/own`, review);
+      Notiflix.Notify.success('Your review successfully edited.Thank you!');
 
       return data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch (error) {
+      Notiflix.Notify.failure(`${error.message}`);
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
