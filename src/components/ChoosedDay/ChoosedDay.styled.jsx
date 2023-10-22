@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 //! (375, 768, 1440)
 //! на ширині екрану до 375 блоки розмітки повинні тягнутись
 
