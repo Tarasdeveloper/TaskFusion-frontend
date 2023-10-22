@@ -39,6 +39,7 @@ export const SidebarHeader = styled.div`
   }
 `;
 export const GooseImage = styled.img`
+  transition: var(--transition-changetheme-background-color);
   margin-right: 6px;
   width: 36px;
   height: 35px;
