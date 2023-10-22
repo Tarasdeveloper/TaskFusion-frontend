@@ -3,6 +3,10 @@ import { styled } from 'styled-components';
 export const StatisticsPageSection = styled.section`
   display: flex;
   justify-content: center;
+  margin-top: 38px;
+  @media (min-width: 768px) {
+    margin-top: 65px;
+  }
 `;
 
 export const StatisticsPageContainer = styled.div`
@@ -25,6 +29,7 @@ export const StatisticsPageContainer = styled.div`
     padding-top: 134px;
     padding-left: 114px;
     padding-right: 113px;
+    margin-left: 273px;
   }
 `;
 

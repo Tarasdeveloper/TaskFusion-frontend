@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as dateFns from 'date-fns';
 
-import Toolbar from '../../pages/Calendar/NavBar/Toolbar';
 import {
   StatisticsPageContainer,
   StatisticsPageSection,
@@ -12,26 +11,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTasksThunk } from '../../redux/tasks/operations';
 import { selectAuthenticationStatus } from '../../redux/auth/selectors';
 import { selectTasks } from '../../redux/tasks/selectors';
+import StatisticsToolbar from '../../components/StatisticsToolbar/StatisticsToolbar';
 
 export const StatisticsPage = () => {
   const authenticated = useSelector(selectAuthenticationStatus);
   const tasks = useSelector(selectTasks);
-  console.log('tasks: ', tasks);
 
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate] = useState(new Date());
   const [tasksByMonth, setTasksByMonth] = useState({
     todoByMonth: 0,
     inprogressByMonth: 0,
     SdoneByMonth: 0,
   });
+  const [tasksByDay, setTasksByDay] = useState({
+    todoByDay: 0,
+    inprogressByDay: 0,
+    SdoneByDay: 0,
+  });
 
-  // console.log('currentDate: ', dateFns.getMonth(currentDate));
-  // console.log('currentDate: ', dateFns.getYear(currentDate));
-  // console.log('currentDate: ', dateFns.getDate(currentDate));
   const dispatch = useDispatch();
 
   const year = dateFns.getYear(currentDate);
   const month = dateFns.getMonth(currentDate) + 1;
+  const day = dateFns.getDate(currentDate);
+
+  const formattedDate = `${year}-${month}-${day}`;
 
   useEffect(() => {
     if (!authenticated) return;
@@ -44,28 +49,44 @@ export const StatisticsPage = () => {
   }, [authenticated, dispatch, month, year]);
 
   useEffect(() => {
-    if (tasks.length < 1) return;
+    const getRequestedTasks = async () => {
+      const filteredTasks = tasks.filter((task) => task.date === formattedDate);
 
-    const xxx = async () => {
       const taskCount = await countTasksByCategory(tasks);
+      const dailyTasksCount = await countTasksByCategory(filteredTasks);
+
       const allTasksByMonth =
         taskCount.done + taskCount.inProgress + taskCount.toDo;
-      const todoByMonth = taskCount.toDo / allTasksByMonth;
-      const inprogressByMonth = taskCount.inProgress / allTasksByMonth;
-      const doneByMonth = taskCount.done / allTasksByMonth;
+      const todoByMonth = taskCount.toDo / allTasksByMonth || 0;
+      const inprogressByMonth = taskCount.inProgress / allTasksByMonth || 0;
+      const doneByMonth = taskCount.done / allTasksByMonth || 0;
+
+      const allTasksByDay =
+        dailyTasksCount.done +
+        dailyTasksCount.inProgress +
+        dailyTasksCount.toDo;
+      const todoByDay = dailyTasksCount.toDo / allTasksByDay || 0;
+      const inprogressByDay = dailyTasksCount.inProgress / allTasksByDay || 0;
+      const doneByDay = dailyTasksCount.done / allTasksByDay || 0;
 
       const tasksByMonth = {
         todoByMonth,
         inprogressByMonth,
         doneByMonth,
       };
-      console.log('tasksByMonth: ', tasksByMonth);
-      setTasksByMonth(tasksByMonth);
-    };
-    xxx();
-  }, [tasks]);
 
-  const [selectedDate] = useState(new Date());
+      const tasksByDay = {
+        todoByDay,
+        inprogressByDay,
+        doneByDay,
+      };
+
+      setTasksByMonth(tasksByMonth);
+      setTasksByDay(tasksByDay);
+    };
+
+    getRequestedTasks();
+  }, [formattedDate, tasks]);
 
   const prevHandler = () => {
     setCurrentDate((prevDate) => dateFns.subMonths(prevDate, 1));
@@ -102,14 +123,15 @@ export const StatisticsPage = () => {
     <StatisticsPageSection>
       <StatisticsPageContainer>
         <ToolbarContainer>
-          <Toolbar
+          <StatisticsToolbar
             prevHandler={prevHandler}
             nextHandler={nextHandler}
             selectedDate={selectedDate}
             currentDate={currentDate}
+            currentPage="/statistics"
           />
         </ToolbarContainer>
-        <StatisticsChart tasksByMonth={tasksByMonth} />
+        <StatisticsChart tasksByMonth={tasksByMonth} tasksByDay={tasksByDay} />
       </StatisticsPageContainer>
     </StatisticsPageSection>
   );
