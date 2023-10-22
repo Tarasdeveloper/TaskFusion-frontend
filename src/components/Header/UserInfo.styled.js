@@ -11,7 +11,6 @@ export const UserName = styled.p`
   margin-right: 14px;
   margin-left: 14px;
 
-
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 1;
@@ -34,4 +33,10 @@ export const Avatar = styled.div`
     width: 44px;
     height: 44px;
   }
+`;
+export const UserIcon = styled.svg`
+  width: 44px;
+  height: 44px;
+  fill: #3e85f3;
+  fill-opacity: 0.18;
 `;

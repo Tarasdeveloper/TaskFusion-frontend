@@ -122,8 +122,12 @@ export const UserPanel = styled.ul`
   flex-direction: column;
   flex: 1 1 auto;
   gap: 18px;
+
   @media screen and (min-width: 768px) {
     gap: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+   
   }
   &:hover,
   &:focus {
