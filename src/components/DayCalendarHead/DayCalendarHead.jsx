@@ -16,9 +16,9 @@ import {
 import { OtherDay, ActiveDay, Day, Item, List } from './DayCalendarHead.styled';
 
 
-export const DayCalendarHead = () => {
-  const day = useParams();
-  const { currentDay } = day;
+const DayCalendarHead = () => {
+  const day = useParams() ?? '2023-10-22';
+  const currentDay = day;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,13 +58,14 @@ export const DayCalendarHead = () => {
     <>
       <List>
         {daysInWeek?.map((day, idx) => {
-          const DateWeek = isSameDay(new Date(currentDay), new Date(day))
+          const currentDate = new Date(currentDay);
+          const otherDate = new Date(day);
+          const DateWeek = isSameDay(currentDate, otherDate)
             ? OtherDay
             : ActiveDay;
           return (
             <Item key={idx}>
               <Day>{format(day, 'EEE').toUpperCase()}</Day>
-              {/* <Day>{format(day, 'EEE').slice(0, 1)}</Day> */}
               <DateWeek type="button" onClick={() => handleClick(day)}>
                 {formattedDay(format(day, 'dd'))}
               </DateWeek>
@@ -75,3 +76,4 @@ export const DayCalendarHead = () => {
     </>
   );
 };
+export default DayCalendarHead

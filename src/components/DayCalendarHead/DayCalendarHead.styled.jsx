@@ -6,7 +6,7 @@ export const List = styled.ul`
   align-items: center;
   padding: 14px 25px;
   margin-bottom: 14px;
-  background-color: ${({ theme }) => theme.bgColors.page};
+  background-color: var(--secondary-background-color);
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 
@@ -55,20 +55,20 @@ export const Item = styled.li`
 export const Day = styled.p`
   font-weight: 600;
   line-height: 18px;
-   color: ${({ theme }) => theme.userProfile.title};
+  color: var(--primary-text-color);
   @media (min-width: 768px) {
     font-size: 14px;
   }
 `;
 
-export const DateWeek  = styled.button`
+export const DateWeek = styled.button`
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   border: none;
   border-radius: 6px;
   padding: 4px 6px;
-  color: ${({ theme }) => theme.textColors.modalText};
+  color: var(--primary-background-color);
   background-color: inherit;
 
   @media (min-width: 768px) {
@@ -82,19 +82,9 @@ export const DateWeek  = styled.button`
 `;
 
 export const OtherDay = styled(DateWeek)`
-  &:hover,
-  :active,
-  :focus {
-     background-color: ${({ theme }) => theme.notChangedcolors.accentColor};
-  }
- 
+  background-color: var(--primary-background-color);
 `;
 
 export const ActiveDay = styled(DateWeek)`
-  &:hover,
-  :active,
-  :focus {
-     background-color: ${({ theme }) => theme.notChangedcolors.accentColor};
-       color:#fff;
-  }
+  background-color: var(--calendar-monthOrDay-active-text-color);
 `;
