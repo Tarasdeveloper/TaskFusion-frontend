@@ -98,7 +98,7 @@ export const CloseIcon = styled.svg`
     height: 34px;
     width: 34px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 `;
