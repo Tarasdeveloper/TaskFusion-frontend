@@ -37,7 +37,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/calendar/day" element={<ChoosedDay />} />
+        <Route path="/calendar/day/:currentDate" element={<ChoosedDay />} />
         <Route element={<MainLayout />}>
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route
