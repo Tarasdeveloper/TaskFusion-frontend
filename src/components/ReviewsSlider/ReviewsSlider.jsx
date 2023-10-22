@@ -40,7 +40,7 @@ const ReviewsSlider = () => {
       <ReviewsTitle>Reviews</ReviewsTitle>
       <Swiper {...swiperParams}>
         <SwiperSlide>
-          <ReviewSlide>1</ReviewSlide>
+          <ReviewSlide>{/* <ReviewSingle /> */}</ReviewSlide>
         </SwiperSlide>
         <SwiperSlide>
           <ReviewSlide>2</ReviewSlide>

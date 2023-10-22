@@ -59,7 +59,7 @@ export const StatisticsPage = () => {
         inprogressByMonth,
         doneByMonth,
       };
-           console.log('tasksByMonth: ', tasksByMonth);
+      console.log('tasksByMonth: ', tasksByMonth);
       setTasksByMonth(tasksByMonth);
     };
     xxx();
