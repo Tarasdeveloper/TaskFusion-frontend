@@ -94,12 +94,15 @@ export const DailyStatisticLine = styled.div`
 `;
 
 export const StatisticLineWrap = styled.div`
+  height: 270px;
   display: flex;
   gap: 8px;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   width: 22px;
   @media (min-width: 768px) {
+    height: 289px;
     width: 27px;
   }
 `;
@@ -139,6 +142,7 @@ export const StatisticsWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   gap: 20px;
 
   color: #343434;
@@ -154,3 +158,20 @@ export const StatisticsWrap = styled.div`
     font-size: 14px;
   }
 `;
+ 
+export const StatisticsInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+export const StatisticsInfoWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+`;
+

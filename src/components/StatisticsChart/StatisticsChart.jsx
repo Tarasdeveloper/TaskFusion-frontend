@@ -10,11 +10,14 @@ import {
   StatisticsWrap,
 } from './StatisticsChart.styled';
 
-export const StatisticsChart = ({ tasksByMonth }) => {
+export const StatisticsChart = ({ tasksByMonth, tasksByDay }) => {
   const toDoByMonth = Math.round(tasksByMonth.todoByMonth * 100);
-  const inprogressByMonth = Math.round(tasksByMonth.inprogressByMonth * 100);
-  const doneByMonth = Math.round(tasksByMonth.todoByMonth * 100);
+  const inProgressByMonth = Math.round(tasksByMonth.inprogressByMonth * 100);
+  const doneByMonth = Math.round(tasksByMonth.doneByMonth * 100);
 
+  const todoByDay = Math.round(tasksByDay.todoByDay * 100);
+  const inprogressByDay = Math.round(tasksByDay.inprogressByDay * 100);
+  const doneByDay = Math.round(tasksByDay.doneByDay * 100);
 
   return (
     <StatisticsChartContainer>
@@ -48,14 +51,17 @@ export const StatisticsChart = ({ tasksByMonth }) => {
           <StatisticsWrap>
             <StatisticWrap>
               <StatisticLineWrap>
-                <p>100%</p>
-                <DailyStatisticLine className="day" />
+                <p>{todoByDay}%</p>
+                <DailyStatisticLine
+                  className="day"
+                  style={{ height: `${todoByDay}%` }}
+                />
               </StatisticLineWrap>
               <StatisticLineWrap>
                 <p>{toDoByMonth}%</p>
                 <DailyStatisticLine
                   className="month"
-                  width={tasksByMonth.todoByMonth}
+                  style={{ height: `${toDoByMonth}%` }}
                 />
               </StatisticLineWrap>
             </StatisticWrap>
@@ -64,14 +70,17 @@ export const StatisticsChart = ({ tasksByMonth }) => {
           <StatisticsWrap>
             <StatisticWrap>
               <StatisticLineWrap>
-                <p>100%</p>
-                <DailyStatisticLine className="day" />
+                <p>{inprogressByDay}%</p>
+                <DailyStatisticLine
+                  className="day"
+                  style={{ height: `${inprogressByDay}%` }}
+                />
               </StatisticLineWrap>
               <StatisticLineWrap>
-                <p>{inprogressByMonth}%</p>
+                <p>{inProgressByMonth}%</p>
                 <DailyStatisticLine
                   className="month"
-                  width={tasksByMonth.inprogressByMonth}
+                  style={{ height: `${inProgressByMonth}%` }}
                 />
               </StatisticLineWrap>
             </StatisticWrap>
@@ -80,15 +89,18 @@ export const StatisticsChart = ({ tasksByMonth }) => {
           <StatisticsWrap>
             <StatisticWrap>
               <StatisticLineWrap>
-                <p>100%</p>
+                <p>{doneByDay}%</p>
                 <DailyStatisticLine
                   className="day"
-                  width={tasksByMonth.doneByMonth}
+                  style={{ height: `${doneByDay}%` }}
                 />
               </StatisticLineWrap>
               <StatisticLineWrap>
                 <p>{doneByMonth}%</p>
-                <DailyStatisticLine className="month" height="80%"/>
+                <DailyStatisticLine
+                  className="month"
+                  style={{ height: `${doneByMonth}%` }}
+                />
               </StatisticLineWrap>
             </StatisticWrap>
             <p>Done</p>
