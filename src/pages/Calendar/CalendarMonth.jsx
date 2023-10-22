@@ -10,7 +10,6 @@ const CalendarPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentMonth = new Date(currentDate);
-
   useEffect(() => {
     dispatch(
       getTasksForMonth({
