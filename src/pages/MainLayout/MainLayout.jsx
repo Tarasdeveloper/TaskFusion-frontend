@@ -7,6 +7,7 @@ import {
   Wrapper,
   WrapperForFixSideBar,
   MainWrapper,
+  Main,
 } from './MainLayout.styled';
 
 const MainLayout = () => {
@@ -25,7 +26,9 @@ const MainLayout = () => {
         </WrapperForFixSideBar>
         <MainWrapper>
           <Header onToggle={toggleSidebar} />
-          <Outlet />
+          <Main>
+            <Outlet />
+          </Main>
         </MainWrapper>
       </Wrapper>
     </>
