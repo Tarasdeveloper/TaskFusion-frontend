@@ -177,3 +177,15 @@
 //   @media (min-width: 1440px) {
 //   }
 // `;
+
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: flex;
+  column-gap: 30px;
+  justify-content: center;
+  @media (min-width: '375') {
+  }
+`;
+
+export { Wrapper };

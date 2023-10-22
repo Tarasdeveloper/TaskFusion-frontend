@@ -1,6 +1,6 @@
 // import { Wrap } from './ChoosedDay.styled';
 // import { DayCalendarHead } from '../../components/DayCalendarHead/DayCalendarHead';
-// import TasksColumnsList from '../../components/TasksColumnsList/TasksColumnsList';
+import TasksColumnsList from '../TasksColumnsList/TasksColumnsList';
 import SideBar from '../SideBar/SideBar';
 import Header from '../Header/Header';
 
@@ -9,7 +9,7 @@ export const ChoosedDay = () => {
     <>
       <Header></Header>
       <SideBar></SideBar>
-      {/* <>{<TasksColumnsList />}</> */}
+      <TasksColumnsList />
     </>
     // <Wrap>
     //   <h1>Calendar</h1>
