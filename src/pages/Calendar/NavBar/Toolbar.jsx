@@ -13,7 +13,12 @@ import {
 } from './Toolbar.styled';
 import { PERIOD_TYPE_DAY, PERIOD_TYPE_MONTH } from '../constants';
 
-const Toolbar = ({ currentMonth, setCurrentDate, setPeriodType }) => {
+const Toolbar = ({
+  currentMonth,
+  setCurrentDate,
+  setPeriodType,
+  monthPeriodType,
+}) => {
   const { currentDate } = useParams();
 
   const prevHandler = () => {
