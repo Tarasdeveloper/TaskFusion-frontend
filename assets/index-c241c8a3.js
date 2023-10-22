@@ -1571,6 +1571,7 @@ width: 18px;
     margin-bottom: 32px;
   }
 `,BY=G.img`
+  transition: var(--transition-changetheme-background-color);
   margin-right: 6px;
   width: 36px;
   height: 35px;
