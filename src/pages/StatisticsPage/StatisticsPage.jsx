@@ -16,9 +16,9 @@ import StatisticsToolbar from '../../components/StatisticsToolbar/StatisticsTool
 export const StatisticsPage = () => {
   const authenticated = useSelector(selectAuthenticationStatus);
   const tasks = useSelector(selectTasks);
+  console.log('tasks: ', tasks);
 
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDate] = useState(new Date());
   const [tasksByMonth, setTasksByMonth] = useState({
     todoByMonth: 0,
     inprogressByMonth: 0,
@@ -89,10 +89,10 @@ export const StatisticsPage = () => {
   }, [formattedDate, tasks]);
 
   const prevHandler = () => {
-    setCurrentDate((prevDate) => dateFns.subMonths(prevDate, 1));
+    setCurrentDate((prevDate) => dateFns.subDays(prevDate, 1));
   };
   const nextHandler = () => {
-    setCurrentDate((prevDate) => dateFns.addMonths(prevDate, 1));
+    setCurrentDate((prevDate) => dateFns.addDays(prevDate, 1));
   };
 
   function countTasksByCategory(taskList) {
@@ -126,9 +126,8 @@ export const StatisticsPage = () => {
           <StatisticsToolbar
             prevHandler={prevHandler}
             nextHandler={nextHandler}
-            selectedDate={selectedDate}
             currentDate={currentDate}
-            currentPage="/statistics"
+            setCurrentDate={setCurrentDate}
           />
         </ToolbarContainer>
         <StatisticsChart tasksByMonth={tasksByMonth} tasksByDay={tasksByDay} />

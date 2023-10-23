@@ -29,7 +29,6 @@ export const StatisticsPageContainer = styled.div`
     padding-top: 134px;
     padding-left: 114px;
     padding-right: 113px;
-    margin-left: 273px;
   }
 `;
 

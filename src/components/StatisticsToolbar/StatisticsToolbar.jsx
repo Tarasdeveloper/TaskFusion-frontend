@@ -9,7 +9,12 @@ import {
 } from '../../pages/Calendar/NavBar/Toolbar.styled';
 import { StatisticsInfo, StatisticsInfoWrap } from '../StatisticsChart/StatisticsChart.styled';
 
-const StatisticsToolbar = ({ prevHandler, nextHandler, currentDate }) => {
+const StatisticsToolbar = ({
+  prevHandler,
+  nextHandler,
+  currentDate,
+  setCurrentDate,
+}) => {
   return (
     <NavigationPanel>
       <SpaceBetween>
@@ -19,6 +24,7 @@ const StatisticsToolbar = ({ prevHandler, nextHandler, currentDate }) => {
               prevHandler={prevHandler}
               nextHandler={nextHandler}
               currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
             />
           }
         </div>
