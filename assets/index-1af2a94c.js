@@ -1391,7 +1391,7 @@ ${h} ${e}`.replace(/  +/g," ").trimEnd()}function kY(e,t,n){return Array.from({l
   height: 44px;
   fill: #3e85f3;
   fill-opacity: 0.18;
-`,RY=()=>{const{name:e,avatar:t}=Ot(pv),n=e==null?void 0:e.trim().split(""),[r,i]=C.useState(!1);return g.jsxs(jY,{children:[g.jsx(AY,{children:n}),r?g.jsx(LY,{children:g.jsx("img",{src:t,alt:"Avatar"})}):g.jsx($Y,{children:g.jsx("use",{href:`${Bi}#icon-user`})})]})},IY=F.div`
+`,RY=()=>{const{name:e,avatar:t}=Ot(pv),n=e==null?void 0:e.trim().split("");return g.jsxs(jY,{children:[g.jsx(AY,{children:n}),t?g.jsx(LY,{children:g.jsx("img",{src:t,alt:"Avatar"})}):g.jsx($Y,{children:g.jsx("use",{href:`${Bi}#icon-user`})})]})},IY=F.div`
   background-color: var(--secondary-background-color);
   display: flex;
   justify-content: space-between;
