@@ -1,59 +1,57 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
-     position: relative;   
-    margin: 40px 28px;  
-    font-size:12px;
-    font-weight: 600;
-    line-height: 14px;  
-   
-`
+  position: relative;
+  margin: 40px 28px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+`;
 export const TaskInput = styled.input`
-     width: 95%;
-    padding: 14px;
-    padding-left: 8px;
-    margin-top: 8px;
-    border: 1px solid #F6F6F6;
-    color: ${({ theme }) => theme.textColors.modalText};
-    background-color: ${({ theme }) => theme.bgColors.modalInputBg};
-    border-radius: 8px;
-`
+  width: 95%;
+  padding: 14px;
+  padding-left: 8px;
+  margin-top: 8px;
+  border: 1px solid #f6f6f6;
+  color: #111;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+`;
 export const Errors = styled.p`
   margin-top: 4px;
   margin-bottom: 2px;
-  color: #DA1414;
+  color: #da1414;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
-  `
- export const None = styled.p`
- margin-top: 4px;
- margin-bottom: 2px;
- color: transparent;
- font-family: 'Inter';
- font-style: normal;
- font-weight: 400;
- font-size: 12px;
- line-height: 1.17;
- `
+`;
+export const None = styled.p`
+  margin-top: 4px;
+  margin-bottom: 2px;
+  color: transparent;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+`;
 export const TimeInput = styled.input`
-     width: 90px;
-     padding: 14px;
-    padding-left: 8px;
-    margin-top: 8px;
-    border: 1px solid #F7F7F7;
-    color: ${({ theme }) => theme.textColors.modalText}; 
-    background-color: ${({ theme }) => theme.bgColors.modalInputBg};
-    border-radius: 8px;
-`
+  width: 90px;
+  padding: 14px;
+  padding-left: 8px;
+  margin-top: 8px;
+  border: 1px solid #f7f7f7;
+  color: #343434;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+`;
 
 export const Lable = styled.label`
-    text-align: left;
-    color: rgba(52, 52, 52, 0.8);
-`
+  text-align: left;
+  color: rgba(52, 52, 52, 0.8);
+`;
 
 export const RadioName = styled.span`
   padding-left: 20px;
@@ -62,17 +60,17 @@ export const RadioName = styled.span`
   font-weight: 600;
   font-size: 12px;
   line-height: 1.17;
-  color: ${({ theme }) => theme.textColors.modalText};
+  color: #343434;
   cursor: pointer;
-`
+`;
 
 export const Text = styled.p`
   color: rgba(52, 52, 52, 0.8);
-margin:0;
-   `
+  margin: 0;
+`;
 export const StartWrapper = styled.div`
-    margin-right: 14px;
-`
+  margin-right: 14px;
+`;
 
 export const RadioGroup = styled.div`
   display: flex;
@@ -81,19 +79,17 @@ export const RadioGroup = styled.div`
   margin-top: 21px;
   gap: 16px;
   padding-bottom: 20px;
-  @media (max-width: 375px){
+  @media (max-width: 375px) {
     margin-top: 5px;
     padding-bottom: 15px;
   }
-  
-`
+`;
 
 export const RadioButton = styled.input`
   appearance: none;
   position: absolute;
   height: 0;
   width: 0;
-  
 
   &::before {
     content: '';
@@ -125,79 +121,77 @@ export const RadioButton = styled.input`
     height: 12px;
     width: 12px;
     outline: 2px solid;
- 
   }
 `;
 
 export const CancelBtn = styled.button`
-   height: 48px;
-   justify-content: center;
-    align-items: center;
-    margin-left: 14px;
-    padding: 16px;
-    width: 100%;
-    cursor: pointer;
-    border: 2px solid white;
-    background: #EFEFEF;
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
-    border-radius: 8px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 14px;
+  padding: 16px;
+  width: 100%;
+  cursor: pointer;
+  border: 2px solid white;
+  background: #efefef;
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 8px;
 
-    Font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.02em;
-    color:black;
-    cursor: pointer; 
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: black;
+  cursor: pointer;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   :focus {
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 1)};
-`
+    box-shadow: 4px 2px 16px rgba(136, 165, 191, 1);
+  }
+`;
 
 export const Flex = styled.div`
-   display: flex;    
-    margin-top: 7px; 
-`
-
+  display: flex;
+  margin-top: 7px;
+`;
 
 export const AddBtn = styled.button`
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    padding: 16px;
-    width: 100%;
-    cursor: pointer;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  cursor: pointer;
 
-    border: none;
-    background: #3e85f3;
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
-    border-radius: 8px;
+  border: none;
+  background: #3e85f3;
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 8px;
 
-    Font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.02em;
-    color: white;
-    cursor: pointer;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: white;
+  cursor: pointer;
 
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   :focus {
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 1)};
-    
-`
+    box-shadow: 4px 2px 16px rgba(136, 165, 191, 1);
+  }
+`;
 export const Plus = styled.span`
   margin-right: 10px;
-
-`
+`;
 export const Close = styled.span`
-    position: absolute;
-    top:-22px;
-    right:-5px;
-    cursor: pointer; 
-`
+  position: absolute;
+  top: -22px;
+  right: -5px;
+  cursor: pointer;
+`;
