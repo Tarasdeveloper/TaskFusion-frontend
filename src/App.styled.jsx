@@ -5,5 +5,4 @@ export const AppWrapper = styled.div`
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center bottom;
-  overflow: hidden;
 `;
