@@ -91,9 +91,17 @@ const PlusCircleIcon = styled.button`
 
 const AddTaskBtn = styled.button`
   type: 'button';
-  padding: 12px 100px;
-  padding-top: 13px;
+  //   padding: 12px 100px;
+  //   padding-top: 13px;
+  width: 299px;
+  height: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 8px;
+
   border: 1px dashed #3e85f3;
   background: #e3f3ff;
   outline: none;
@@ -108,10 +116,13 @@ const AddTaskBtn = styled.button`
 
   @media (min-width: 768px) {
     bottom: ${(props) => (props.$isTasksAdded ? '28px' : '20px')};
-    padding: 14px 20px 14px 20px;
+    // padding: 14px 20px 14px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 304px;
+    height: 52px;
   }
 
   @media (min-width: 1440px) {

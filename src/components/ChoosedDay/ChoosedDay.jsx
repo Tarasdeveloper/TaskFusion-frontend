@@ -1,18 +1,19 @@
-// import { Wrap } from './ChoosedDay.styled';
-// import { DayCalendarHead } from '../../components/DayCalendarHead/DayCalendarHead';
+import { Wrap } from './ChoosedDay.styled';
 import TasksColumnsList from '../TasksColumnsList/TasksColumnsList';
 // import SideBar from '../SideBar/SideBar';
-import Header from '../Header/Header';
-// import DayCalendarHead from '../DayCalendarHead/DayCalendarHead';
+// import Header from '../Header/Header';
+import DayCalendarHead from '../DayCalendarHead/DayCalendarHead';
+// import { CalendarToolbar } from '../CalendarToolbar/CalendarToolbar';
 
 export const ChoosedDay = () => {
   return (
-    <>
-      <Header></Header>
+    <Wrap>
+      {/* <Header></Header> */}
       {/* <SideBar></SideBar> */}
+      {/* <CalendarToolbar /> */}
+      <DayCalendarHead />
       <TasksColumnsList />
-      {/* <DayCalendarHead /> */}
-    </>
+    </Wrap>
     // <Wrap>
     //   <h1>Calendar</h1>
     // {<DayCalendarHead />}

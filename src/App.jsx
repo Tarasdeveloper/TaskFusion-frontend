@@ -16,8 +16,10 @@ import {
 import { useEffect } from 'react';
 import { refreshUserThunk } from './redux/auth/operations';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import { ChoosedDay } from './components/ChoosedDay/ChoosedDay';
+// import { ChoosedDay } from './components/ChoosedDay/ChoosedDay';
 import { StatisticsPage } from './pages/StatisticsPage/StatisticsPage';
+
+import CalendarDayView from './pages/Calendar/CalendarDayView';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +39,6 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/calendar/day/:currentDate" element={<ChoosedDay />} />
         <Route element={<MainLayout />}>
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route
@@ -49,6 +50,10 @@ function App() {
             }
           />
           <Route path="calendar/*" element={<CalendarPage />} />
+          <Route
+            path="/calendar/day/:currentDate"
+            element={<CalendarDayView />}
+          />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
