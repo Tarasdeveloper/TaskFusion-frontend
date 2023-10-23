@@ -40,10 +40,3 @@ export const Svg = styled.svg`
   width: clamp(50px, 9vw, 61px);
   height: clamp(50px, 9vw, 61px);
 `;
-export const ReviewSlide = styled.div`
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  border-radius: 8px;
-  padding: 24px;
-  width: 100%;
-  height: 200px;
-`;
