@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { CalendarGrid } from './CalendarGrid/CalendarGrid';
 import { getTasksForMonth } from '../../redux/calendarMonth/calendarMonth.operations';
 import Toolbar from './NavBar/Toolbar';
+import { PERIOD_TYPE_DAY, PERIOD_TYPE_MONTH } from './constants';
 const CalendarPage = () => {
   const { currentDate } = useParams();
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const CalendarPage = () => {
         currentMonth={currentMonth}
         setCurrentDate={setCurrentDate}
         setPeriodType={switchToDayPeriodType}
+        monthPeriodType={PERIOD_TYPE_MONTH}
       />
       <CalendarGrid />
     </div>

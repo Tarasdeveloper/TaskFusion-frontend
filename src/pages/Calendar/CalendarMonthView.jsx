@@ -16,18 +16,16 @@ export default function CalendarMonth() {
   useEffect(() => {
     dispatch(
       getTasksOfMonth({
-        // I left this line in case you'll understand that I was right and we don`t need fix our getTasksOfMonth method
-        // month: format(new Date(currentDate), 'M'),
         month: +format(new Date(currentDate), 'M') - 1,
         year: format(new Date(currentDate), 'yyyy'),
-      })
+      }),
     );
   }, [currentDate, dispatch]);
 
-  const setCurrentDate = isoDate => {
+  const setCurrentDate = (isoDate) => {
     navigate(`/calendar/month/${isoDate}`);
   };
-  const switchToDayPeriodType = type => {
+  const switchToDayPeriodType = (type) => {
     if (type === PERIOD_TYPE_DAY) {
       navigate(`/calendar/day/${currentDate}`);
     }
