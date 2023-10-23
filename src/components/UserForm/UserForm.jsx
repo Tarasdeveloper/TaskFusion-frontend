@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoadingStatus, selectUser } from '../../redux/auth/selectors';
 import { addDays, format, isWeekend } from 'date-fns';
-import { updateUserThunk } from '../../redux/auth/operations';
+import { refreshUserThunk, updateUserThunk } from '../../redux/auth/operations';
 import { useFormik } from 'formik';
 import { userInfoSchema } from '../../schemas';
 import {
@@ -139,9 +139,10 @@ export const UserForm = () => {
       .then(() => {
         Notiflix.Notify.success('User information successfully changed.');
         setSubmitting(true);
+        dispatch(refreshUserThunk());
       })
-      .catch((error) => {
-        Notiflix.Notify.failure(`${error.message}`);
+      .catch(() => {
+        Notiflix.Notify.failure(`All fields must be filled!`);
       });
   };
 

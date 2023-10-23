@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import Notiflix from 'notiflix';
 
 export const $instance = axios.create({
   baseURL: 'https://taskfusion-service.onrender.com/',
@@ -78,20 +77,19 @@ export const updateUserThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await $instance.patch('/users/edit', credentials);
-      
+
       return response.data;
     } catch (error) {
-      Notiflix.Notify.failure(`${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
 
 export const UpdateTokenThunk = createAsyncThunk(
-  'auth/updatetoken', (token, thunkApi) => {
+  'auth/updatetoken',
+  (token, thunkApi) => {
     try {
       setToken(token);
-
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
