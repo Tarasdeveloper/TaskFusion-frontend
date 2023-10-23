@@ -1245,8 +1245,10 @@ Notiflix needs to be appended to the "<`+P+'>" element, but you called it before
   color: var(--secondary-text-color);
 
   background-color: var(--modal-input-background-color);
+  border: 1px solid;
+  border-color: var(--modal-input-border-color);
   border-radius: 8px;
-  border: 1px solid var(--modal-input-border-color);
+  outline: none;
 
   transition: var(--transition-changetheme-color),
     var(--transition-changetheme-background-color);
@@ -1263,7 +1265,7 @@ Notiflix needs to be appended to the "<`+P+'>" element, but you called it before
 
   &:hover,
   &:focus {
-    border: 1px solid #111111;
+    border-color: var(--modal-input-border-color-hover);
   }
   &:disabled {
     cursor: not-allowed;
