@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   padding-right: 18px;
   border-radius: 8px;
 
-  min-width: 336px;
+  width: 336px;
   direction: ltr;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: #fff;
