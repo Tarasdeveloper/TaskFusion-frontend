@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import sprite from '../../assets/sprite.svg';
 import { Loader } from '../Loader/Loader';
-import SvgRatingStar from '../ReviewSingle/ReviewSingle';
+import SvgRatingStar from '../SvgRatingStar/SvgRatingStar';
 import { getReviews } from '../../redux/reviews/operations';
 
 const ReviewsSlider = () => {
