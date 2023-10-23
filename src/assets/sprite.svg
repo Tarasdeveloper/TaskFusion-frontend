@@ -63,16 +63,6 @@
 <symbol id="left-arrow" viewBox="0 0 62 61" fill="none">
   <path id="Vector" d="M15.1847 32.5346L12.8917 30.9754L56.5 30.9742V29.7542L13.165 29.7554L15.325 28.514L14.7174 27.4563L9.74654 30.3123L14.4984 33.5435L15.1847 32.5346Z" fill="#111111"/>
 </symbol>
-<symbol id="icon-plus-circle" viewBox="0 0 32 32">
-  <g clip-path="url(#clip0_362_725)">
-<path d="M10.9997 7.33331V14.6666M7.33301 11H14.6663M20.1663 11C20.1663 16.0626 16.0623 20.1666 10.9997 20.1666C5.93706 20.1666 1.83301 16.0626 1.83301 11C1.83301 5.93737 5.93706 1.83331 10.9997 1.83331C16.0623 1.83331 20.1663 5.93737 20.1663 11Z" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_362_725">
-<rect width="22" height="22" fill="white"/>
-</clipPath>
-</defs>
-</symbol>
   </defs>
 </svg>
  
