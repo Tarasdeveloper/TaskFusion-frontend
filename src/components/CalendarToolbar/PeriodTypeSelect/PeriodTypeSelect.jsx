@@ -3,12 +3,12 @@ import { format, formatISO, isThisMonth } from 'date-fns';
 import {
   addChoosedDay,
   addIndexCurrentDay,
-} from 'redux/calendar/calendar.slice';
+} from '../../../redux/calendar/calendar.slice.js';
 import {
   selectChoosedDay,
   selectCurrentMonth,
   selectIndexCurrentDay,
-} from 'redux/calendar/calendar.selectors';
+} from '../../../redux/calendar/calendar.selectors';
 
 import * as STC from './PeriodTypeSelect.styled';
 
@@ -56,11 +56,13 @@ export const PeriodTypeSelect = () => {
           onClick={() => {
             dispath(
               addChoosedDay(
-                formatISO(new Date(currentDate), { representation: 'date' })
-              )
+                formatISO(new Date(currentDate), { representation: 'date' }),
+              ),
             );
             dispath(
-              addIndexCurrentDay(Number(format(new Date(currentDate), 'd')) - 1)
+              addIndexCurrentDay(
+                Number(format(new Date(currentDate), 'd')) - 1,
+              ),
             );
           }}
         >
@@ -74,11 +76,11 @@ export const PeriodTypeSelect = () => {
           onClick={() => {
             dispath(
               addChoosedDay(
-                formatISO(new Date(choosedDay), { representation: 'date' })
-              )
+                formatISO(new Date(choosedDay), { representation: 'date' }),
+              ),
             );
             dispath(
-              addIndexCurrentDay(Number(format(new Date(choosedDay), 'd')) - 1)
+              addIndexCurrentDay(Number(format(new Date(choosedDay), 'd')) - 1),
             );
           }}
         >

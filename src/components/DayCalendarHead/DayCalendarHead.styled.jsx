@@ -82,9 +82,10 @@ export const DateWeek = styled.button`
 `;
 
 export const OtherDay = styled(DateWeek)`
-  background-color: var(--primary-background-color);
+  background-color: var(--calendar-monthOrDay-active-text-color);
 `;
 
 export const ActiveDay = styled(DateWeek)`
-  background-color: var(--calendar-monthOrDay-active-text-color);
+  background-color: var(--primary-background-color);
+  color: #343434;
 `;

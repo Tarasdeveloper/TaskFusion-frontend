@@ -171,7 +171,6 @@ body {
   height: 100vh;
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-color);
-  /* position: relative; */
 }
 h1,
 h2,

@@ -16,10 +16,22 @@ import {
   IconBtnsWrap,
   IconBtnWrap,
 } from './TasksColumnItem.styled';
+import { useState } from 'react';
+import TaskForm from '../TaskModal/TaskModal';
 
 const TasksColumnItem = ({ title }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   const isTasksAdded = true;
   const priority = 'High';
+  const action = 'add' || 'edit';
 
   return (
     <Wrapper $isTasksAdded={isTasksAdded}>
@@ -69,8 +81,8 @@ const TasksColumnItem = ({ title }) => {
                       fill: 'inherit',
                       stroke: 'inherit',
                       display: 'inherit',
-                      'align-items': 'inherit',
-                      'justify-content': 'inherit',
+                      alignItems: 'inherit',
+                      justifyContent: 'inherit',
                     }}
                   >
                     <g clipPath="url(#clip0_124_1579)">
@@ -487,7 +499,7 @@ const TasksColumnItem = ({ title }) => {
         </TasksWrap>
       )}
 
-      <AddTaskBtn $isTasksAdded={isTasksAdded}>
+      <AddTaskBtn $isTasksAdded={isTasksAdded} onClick={openModal}>
         <BtnContentWrap>
           <svg width="24" height="24" fill="none">
             <path
@@ -501,6 +513,8 @@ const TasksColumnItem = ({ title }) => {
           <AddTaskText>Add Task</AddTaskText>
         </BtnContentWrap>
       </AddTaskBtn>
+
+      {modalOpen && <TaskForm onClose={closeModal} action={action} />}
     </Wrapper>
   );
 };
