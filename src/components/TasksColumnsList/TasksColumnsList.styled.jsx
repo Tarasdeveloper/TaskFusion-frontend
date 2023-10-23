@@ -177,3 +177,33 @@
 //   @media (min-width: 1440px) {
 //   }
 // `;
+
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: flex;
+  column-gap: 30px;
+  justify-content: start;
+
+  width: 375px;
+
+  overflow-x: scroll;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: 375px) {
+  }
+
+  @media (min-width: 768px) {
+    min-width: 704px;
+  }
+
+  @media (min-width: 1440px) {
+    min-width: 1430px;
+  }
+`;
+
+export { Wrapper };
