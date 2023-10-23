@@ -18,6 +18,15 @@ export const Wrap = styled.div`
   }
 `;
 
+export const RatingWrap = styled.div`
+  width: 128px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+`;
+
 export const Label = styled.label`
   color: var(--modal-primary-text-color);
   display: block;
@@ -30,7 +39,6 @@ export const Label = styled.label`
 export const WrapForReview = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
   margin-bottom: 8px;
 `;
 
@@ -91,12 +99,12 @@ export const DeleteBtn = styled.button`
 `;
 
 export const WrapForInput = styled.div`
-  margin-bottom: 14px;
+  margin: 0;
 `;
 
 export const Input = styled(Field)`
   resize: none;
-  padding: 12px 0 12px 14px;
+  padding: 12px 14px;
   width: 295px;
   box-sizing: border-box;
   height: 127px;
@@ -116,6 +124,7 @@ export const Input = styled(Field)`
 
   @media (min-width: 768px) {
     width: 404px;
+    padding: 14px 18px;
   }
 
   @media (min-width: 1440px) {
@@ -155,6 +164,10 @@ export const FormBtnWrap = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-top: 14px;
+  @media (min-width: 768px) {
+    margin-top: 18px;
+  }
 `;
 
 export const FormBtn = styled.button`
@@ -200,18 +213,21 @@ export const FormBtnCancel = styled.button`
 
 export const BtnCloseWrap = styled.button`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 14px;
+  right: 14px;
 
   width: 24px;
   height: 24px;
-  border-radius: 50%;
   border: none;
   background-color: transparent;
   cursor: pointer;
   stroke: var(--modal-icon-close-btn-color);
 
   transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
 
   &:hover,
   &:focus {
