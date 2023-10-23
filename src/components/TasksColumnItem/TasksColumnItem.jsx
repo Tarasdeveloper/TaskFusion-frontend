@@ -17,7 +17,7 @@ import {
   IconBtnWrap,
 } from './TasksColumnItem.styled';
 import { useState } from 'react';
-import { TaskModal } from '../TaskModal/TaskModal';
+import TaskForm from '../TaskModal/TaskModal';
 
 const TasksColumnItem = ({ title }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -31,6 +31,7 @@ const TasksColumnItem = ({ title }) => {
   };
   const isTasksAdded = true;
   const priority = 'High';
+  const action = 'add' || 'edit';
 
   return (
     <Wrapper $isTasksAdded={isTasksAdded}>
@@ -513,7 +514,7 @@ const TasksColumnItem = ({ title }) => {
         </BtnContentWrap>
       </AddTaskBtn>
 
-      {modalOpen && <TaskModal groupId={'123'} onClose={closeModal} />}
+      {modalOpen && <TaskForm onClose={closeModal} action={action} />}
     </Wrapper>
   );
 };

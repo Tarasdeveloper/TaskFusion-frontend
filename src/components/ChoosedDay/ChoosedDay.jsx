@@ -8,7 +8,7 @@ import // useNavigate,
 'react-router-dom';
 // import { CalendarToolbar } from '../../components/CalendarToolbar/CalendarToolbar';
 // import { PERIOD_TYPE_DAY, PERIOD_TYPE_MONTH } from './constants';
-// import DayCalendarHead from '../DayCalendarHead/DayCalendarHead';
+import DayCalendarHead from '../DayCalendarHead/DayCalendarHead';
 // import { CalendarToolbar } from '../CalendarToolbar/CalendarToolbar';
 
 // const { currentDate } = useParams();
@@ -51,12 +51,11 @@ export const ChoosedDay = () => {
         periodType={PERIOD_TYPE_DAY}
         setPeriodType={switchToMonthPeriodType}
       /> */}
-      {/* <DayCalendarHead currentDay={''} /> */}
+      <DayCalendarHead />
       <TasksColumnsList />
     </Wrap>
     // <Wrap>
     //   <h1>Calendar</h1>
-    // {<DayCalendarHead />}
     // </Wrap>
   );
 };
