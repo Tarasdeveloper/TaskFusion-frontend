@@ -49,6 +49,9 @@ export const FormInputWrap = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  &.password {
+    position: relative;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -60,8 +63,7 @@ export const FormInput = styled.input`
   font-weight: 600;
   line-height: normal;
 
-  transition:
-    border 0.3s;
+  transition: border 0.1s;
 
   @media (min-width: 375px) {
     width: 287px;
@@ -79,6 +81,12 @@ export const FormInput = styled.input`
 
     font-size: 14px;
     line-height: 18px; /* 128.571% */
+  }
+  &.input-success {
+    border: 2px solid green;
+  }
+  &.input-error {
+    border: 2px solid red;
   }
   &:hover {
     border: 1px solid #111;
@@ -118,21 +126,22 @@ export const FormBtn = styled.button`
   letter-spacing: -0.28px;
 
   transition:
-    background 0.3s,
-    color 0.3s;
+    background 0.1s,
+    color 0.1s;
 
-  &:disabled {background-color: #ccc; /* Задайте цвет фона, который указывает на отключенное состояние */
-  color: #888; /* Задайте цвет текста для отключенной кнопки */
-  cursor: not-allowed; /* Измените курсор на "не разрешено" */
-  border: 1px solid #999; /* Добавьте рамку для отключенной кнопки (по желанию) */
-}
+  &:disabled {
+    background-color: #ccc; /* Задайте цвет фона, который указывает на отключенное состояние */
+    color: #888; /* Задайте цвет текста для отключенной кнопки */
+    cursor: not-allowed; /* Измените курсор на "не разрешено" */
+    border: 1px solid #999; /* Добавьте рамку для отключенной кнопки (по желанию) */
+  }
 
-
-  &:hover {
+  &:not(:disabled):hover {
     background: #21222c;
     color: #3e85f3;
   }
-  &:focus {
+
+  &:not(:disabled):focus {
     background: #21222c;
     color: #3e85f3;
   }
@@ -151,6 +160,7 @@ export const ErrorText = styled.p`
 `;
 
 export const FormGoogleBtn = styled.a`
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -171,22 +181,49 @@ export const FormGoogleBtn = styled.a`
   letter-spacing: -0.28px;
 
   transition:
-    background 0.3s,
-    color 0.3s;
-
-  &:disabled {
-    background-color: #ccc; /* Задайте цвет фона, который указывает на отключенное состояние */
-    color: #888; /* Задайте цвет текста для отключенной кнопки */
-    cursor: not-allowed; /* Измените курсор на "не разрешено" */
-    border: 1px solid #999; /* Добавьте рамку для отключенной кнопки (по желанию) */
-  }
+    background 0.1s,
+    color 0.1s;
 
   &:hover {
     background: #21222c;
     color: #3e85f3;
   }
+
   &:focus {
     background: #21222c;
     color: #3e85f3;
+  }
+  @media (min-width: 768px) {
+    width: 400px;
+    font-size: 18px;
+    height: 56px;
+  }
+`;
+
+export const GoogleIconWrapper = styled.div`
+  position: absolute;
+  left: 7px;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  align-items: center;
+
+  border: #fff;
+  border-radius: 11px;
+  background: #fff;
+  opacity: 0.9;
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+
+  @media (min-width: 768px) {
+    padding: 7px;
+  }
+`;
+
+export const EyeIcon = styled.div`
+  position: absolute;
+  top: 34px;
+  right: 20px;
+  @media (min-width: 768px) {
+    top: 40px;
   }
 `;
