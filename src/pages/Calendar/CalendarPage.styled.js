@@ -14,7 +14,6 @@ export const FullCallendar = styled.div`
   }
   @media (min-width: 1440px) {
     padding-top: 32px;
-    padding-left: 321px;
     padding-right: 32px;
   }
 `;
