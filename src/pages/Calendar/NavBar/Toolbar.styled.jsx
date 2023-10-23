@@ -23,11 +23,18 @@ export const SpaceBetween = styled.div`
 export const MonthBtn = styled.button`
   border-radius: 8px 0px 0px 8px;
   padding: 8px 16px;
-  color: var(--calendar-monthOrDay-text-color);
+  color: ${({ $isActive }) =>
+    $isActive
+      ? '  var(--calendar-monthOrDay-active-text-color)'
+      : 'var(--calendar-monthOrDay-text-color)'};
   border-color: transparent;
   border-right: 1px solid var(--calendar-monthOrDay-border-color);
-  transition: var(--transition-changetheme-background-color);
-  background-color: ${({ $isActive }) => ($isActive ? '#CAE8FF' : '#E3F3FF;')};
+  background-color: ${({ $isActive }) =>
+    $isActive
+      ? 'var(--calendar-monthOrDay-active-background-color)'
+      : 'var(--calendar-monthOrDay-background-color)'};
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 `;
 
 export const DayBtn = styled.button`
@@ -35,26 +42,33 @@ export const DayBtn = styled.button`
   border-radius: 0px 8px 8px 0px;
   border-color: transparent;
   color: var(--calendar-monthOrDay-text-color);
+  background-color: ${({ $isActive }) =>
+    $isActive
+      ? 'var(--calendar-monthOrDay-active-background-color)'
+      : 'var(--calendar-monthOrDay-background-color)'};
   transition: var(--transition-changetheme-background-color);
-  background-color: ${({ $isActive }) => ($isActive ? '#CAE8FF' : '#E3F3FF;')};
 `;
 
 export const NextBtn = styled.button`
+  color: var(--calendar-arrow-active-color);
   padding: 8px 12px;
   border-radius: 0px 8px 8px 0px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background-color: var(--calendar-day-primary-backgroundcolor);
-  transition: var(--transition-changetheme-background-color);
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
   @media (min-width: 768px) {
     padding: 10px 14px;
   }
 `;
 export const PrevBtn = styled.button`
+  color: var(--calendar-arrow-color);
   padding: 8px 12px;
   border-radius: 8px 0px 0px 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background-color: var(--calendar-day-primary-backgroundcolor);
-  transition: var(--transition-changetheme-background-color);
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     padding: 10px 14px;

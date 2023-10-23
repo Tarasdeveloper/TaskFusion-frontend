@@ -10,12 +10,14 @@ export const StatisticsPageSection = styled.section`
 `;
 
 export const StatisticsPageContainer = styled.div`
-  background-color: white;
+  background-color: var(--tetriary-background-color);
   width: 335px;
   height: 684px;
   padding-top: 28px;
   padding-left: 14px;
   padding-right: 14px;
+  transition: var(--transition-changetheme-background-color);
+  border-radius: 16px;
   @media (min-width: 768px) {
     width: 704px;
     height: 854px;

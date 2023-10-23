@@ -127,7 +127,6 @@ export const UserPanel = styled.ul`
     gap: 16px;
   }
   @media screen and (min-width: 1440px) {
-   
   }
   &:hover,
   &:focus {

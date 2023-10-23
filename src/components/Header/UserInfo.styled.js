@@ -10,6 +10,9 @@ export const UserName = styled.p`
   line-height: 1.3;
   margin-right: 14px;
   margin-left: 14px;
+  color: var(--secondary-text-color);
+
+  transition: var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     font-size: 18px;
@@ -37,6 +40,6 @@ export const Avatar = styled.div`
 export const UserIcon = styled.svg`
   width: 44px;
   height: 44px;
-  fill: #3e85f3;
+  fill: var(--user-icon-color);
   fill-opacity: 0.18;
 `;

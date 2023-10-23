@@ -14,6 +14,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--secondary-background-color);
 
   padding-left: 48px;
   padding-right: 48px;
@@ -50,7 +51,7 @@ export const ErrorImage = styled.div`
 export const ErrorText = styled.p`
   display: inline-block;
   margin-bottom: 24px;
-  color: rgba(17, 17, 17, 0.7);
+  color: var(--error-text-color);
 
   text-align: center;
   font-family: Inter;
