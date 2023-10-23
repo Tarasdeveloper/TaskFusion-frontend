@@ -15,7 +15,7 @@ export const CellWrap = styled.button`
   flex-direction: column;
   text-decoration: none;
   text-align: right;
-  padding: 8px 4px 4px 8px;
+  padding: 8px 4px 8px 4px;
   height: 94px;
   border: none;
   align-items: flex-end;
@@ -40,8 +40,8 @@ export const CalendarDate = styled.span`
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
-  color: ${({ $current }) => ($current ? 'white;' : 'none;')};
-  background-color: ${({ $current }) => ($current ? '#3E85F3;' : 'none;')};
+  color: ${({ $current }) => ($current ? 'white;' : '#343434')};
+  background-color: ${({ $current }) => ($current ? '#3E85F3;' : 'white')};
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -105,11 +105,13 @@ export const TaskTitle = styled.li`
   display: flex;
   justify-content: flex-start;
   list-style: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: Inter;
-  font-size: 12px;
+  font-size: 10px;
   font-style: normal;
   font-weight: 700;
-  line-height: 18px;
+  line-height: 14px;
   border-radius: 4px;
   padding: 2px 6px 2px 6px;
   background-color: ${(props) => {
@@ -136,4 +138,8 @@ export const TaskTitle = styled.li`
         return 'none';
     }
   }};
+  @media (min-width: 1440px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `;

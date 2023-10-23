@@ -1,18 +1,29 @@
 import {
   BtnWrap,
+  HeadWrap,
   NextBtn,
   PrevBtn,
+  ReviewImg,
+  ReviewName,
   ReviewSlide,
+  ReviewText,
   ReviewsTitle,
   ReviewsWrap,
+  SingleHeader,
+  StarzWrap,
   Svg,
 } from './ReviewsSlider.styled';
 import 'swiper/css/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import sprite from '../../assets/sprite.svg';
+import { Loader } from '../Loader/Loader';
+import SvgRatingStar from '../ReviewSingle/ReviewSingle';
+import { getReviews } from '../../redux/reviews/operations';
 
 const ReviewsSlider = () => {
+  const { data: { reviews } = [], isLoading } = getReviews();
+
   const breakpoints = {
     1024: {
       slidesPerView: 2,
@@ -29,28 +40,55 @@ const ReviewsSlider = () => {
       prevEl: '.custom-prev-button',
     },
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <ReviewsWrap>
       <ReviewsTitle>Reviews</ReviewsTitle>
       <Swiper {...swiperParams}>
-        <SwiperSlide>
-          <ReviewSlide>1</ReviewSlide>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ReviewSlide>2</ReviewSlide>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ReviewSlide>3</ReviewSlide>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ReviewSlide>4</ReviewSlide>
-        </SwiperSlide>
+        {Array.isArray(reviews) &&
+          reviews?.map((review) => {
+            const {
+              _id,
+              rating,
+              comment,
+              owner: { avatar, name },
+            } = review;
+            <SwiperSlide key={_id}>
+              <ReviewSlide>
+                <SingleHeader>
+                  <ReviewImg src={avatar} alt={name} />
+
+                  <HeadWrap>
+                    <ReviewName>{name}</ReviewName>
+                    <StarzWrap>
+                      {Array.from({ length: 5 }, (_, index) => (
+                        <SvgRatingStar
+                          key={index}
+                          width={14}
+                          height={14}
+                          fill={index < rating ? '#FFAC33' : '#CEC9C1'}
+                          color={index < rating ? '#FFAC33' : '#CEC9C1'}
+                        />
+                      ))}
+                    </StarzWrap>
+                  </HeadWrap>
+                </SingleHeader>
+                <ReviewText>
+                  {comment.length > 150
+                    ? `${comment.slice(0, 150)}...`
+                    : comment}
+                </ReviewText>
+              </ReviewSlide>
+            </SwiperSlide>;
+          })}
+
         <BtnWrap>
           <NextBtn className="custom-next-button">
             <Svg>
