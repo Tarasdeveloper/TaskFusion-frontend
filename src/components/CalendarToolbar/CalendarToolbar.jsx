@@ -1,8 +1,8 @@
-/* import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   selectChoosedDay,
   selectIndexCurrentDay,
-} from 'redux/calendar/calendar.selectors';
+} from '../../redux/calendar/calendar.selectors';
 import { PeriodPaginator } from './PeriodPaginator/PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect/PeriodTypeSelect';
 
@@ -17,4 +17,4 @@ export const CalendarToolbar = () => {
       <PeriodTypeSelect />
     </Wrapper>
   );
-}; */
+};

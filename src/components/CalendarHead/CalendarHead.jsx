@@ -73,8 +73,8 @@ export const CalendarHead = ({ currentDay }) => {
                       addChoosedDay(
                         formatISO(new Date(day), {
                           representation: 'date',
-                        })
-                      )
+                        }),
+                      ),
                     );
                   }}
                 >

@@ -18,11 +18,11 @@ import {
   addCurrentMonth,
   addIndexCurrentDay,
   clearTasks,
-} from 'redux/calendar/calendar.slice';
+} from '../../../redux/calendar/calendar.slice.js';
 import {
   selectCurrentMonth,
   selectIsLoading,
-} from 'redux/calendar/calendar.selectors';
+} from '../../../redux/calendar/calendar.selectors';
 
 import Icons from '../../../assets/sprite.svg';
 import * as STC from './PeriodPaginator.styled';
@@ -52,9 +52,9 @@ export const PeriodPaginator = ({ currentIndex, choosedDay }) => {
       addChoosedDay(
         formatISO(
           new Date(subMonths(startOfMonth(new Date(currentMonth)), 1)),
-          { representation: 'date' }
-        )
-      )
+          { representation: 'date' },
+        ),
+      ),
     );
   };
   const handleNextMonth = () => {
@@ -64,9 +64,9 @@ export const PeriodPaginator = ({ currentIndex, choosedDay }) => {
       addChoosedDay(
         formatISO(
           new Date(addMonths(startOfMonth(new Date(currentMonth)), 1)),
-          { representation: 'date' }
-        )
-      )
+          { representation: 'date' },
+        ),
+      ),
     );
   };
   const handlePrevDay = () => {
@@ -115,7 +115,7 @@ export const PeriodPaginator = ({ currentIndex, choosedDay }) => {
           <STC.ButtonLeft
             to={`month/${formatISO(
               new Date(subMonths(startOfMonth(new Date(currentMonth)), 1)),
-              { representation: 'date' }
+              { representation: 'date' },
             )}`}
             onClick={() => {
               if (isLoading) {
@@ -149,7 +149,7 @@ export const PeriodPaginator = ({ currentIndex, choosedDay }) => {
           <STC.ButtonRight
             to={`month/${formatISO(
               new Date(addMonths(startOfMonth(new Date(currentMonth)), 1)),
-              { representation: 'date' }
+              { representation: 'date' },
             )}`}
             onClick={() => {
               if (isLoading) {
