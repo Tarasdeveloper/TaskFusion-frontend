@@ -5,6 +5,7 @@ import { ReactComponent as IconEdit } from '../../../assets/img/pencil-01.svg';
 import { ReactComponent as IconTrash } from '../../../assets/img/trash-2.svg';
 import { ReactComponent as IconClose } from '../../../assets/img/x-close.svg';
 import {
+  RatingWrap,
   Input,
   Label,
   FormBtn,
@@ -92,15 +93,17 @@ const FeedbackForm = ({ onClose }) => {
       >
         <Form>
           <Label name="rating">Rating</Label>
-          <Rating
-            name="rating"
-            component="div"
-            value={Number(userReview.rating)}
-            itemStyles={rateStyled}
-            style={{ maxWidth: 128, gap: 2, marginBottom: '20px' }}
-            onChange={ratingChanged}
-            readOnly={Boolean(userReview.rating) && !isEditActive}
-          />
+          <RatingWrap>
+            <Rating
+              name="rating"
+              component="div"
+              value={Number(userReview.rating)}
+              itemStyles={rateStyled}
+              style={{ maxWidth: 128, gap: 2 }}
+              onChange={ratingChanged}
+              readOnly={Boolean(userReview.rating) && !isEditActive}
+            />
+          </RatingWrap>
           <WrapForInput>
             <WrapForReview>
               <Label htmlFor="review">Review</Label>
