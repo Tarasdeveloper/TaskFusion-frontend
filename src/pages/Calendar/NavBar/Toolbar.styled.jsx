@@ -23,21 +23,20 @@ export const SpaceBetween = styled.div`
 export const MonthBtn = styled.button`
   border-radius: 8px 0px 0px 8px;
   padding: 8px 16px;
-  background-color: var(--calendar-monthOrDay-background-color);
   color: var(--calendar-monthOrDay-text-color);
   border-color: transparent;
   border-right: 1px solid var(--calendar-monthOrDay-border-color);
   transition: var(--transition-changetheme-background-color);
+  background-color: ${({ $isActive }) => ($isActive ? '#CAE8FF' : '#E3F3FF;')};
 `;
 
 export const DayBtn = styled.button`
   padding: 8px 25px;
   border-radius: 0px 8px 8px 0px;
-  background: #e3f3ff;
   border-color: transparent;
-  background-color: var(--calendar-monthOrDay-background-color);
   color: var(--calendar-monthOrDay-text-color);
   transition: var(--transition-changetheme-background-color);
+  background-color: ${({ $isActive }) => ($isActive ? '#CAE8FF' : '#E3F3FF;')};
 `;
 
 export const NextBtn = styled.button`

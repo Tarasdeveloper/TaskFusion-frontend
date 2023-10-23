@@ -36,7 +36,7 @@ const CalendarPage = () => {
         currentMonth={currentMonth}
         setCurrentDate={setCurrentDate}
         setPeriodType={switchToDayPeriodType}
-        monthPeriodType={PERIOD_TYPE_MONTH}
+        periodType={PERIOD_TYPE_MONTH}
       />
       <CalendarGrid />
     </div>
