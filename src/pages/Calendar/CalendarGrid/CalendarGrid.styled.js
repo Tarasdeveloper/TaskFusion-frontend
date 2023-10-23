@@ -11,21 +11,17 @@ export const GridWrap = styled.div`
 `;
 
 export const CellWrap = styled.button`
-  text-align: right;
-  padding-top: 8px;
-  padding-right: 4px;
-  padding-bottom: 4px;
-  height: 94px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  text-align: right;
+  padding: 8px 4px 4px 8px;
+  height: 94px;
   border: none;
   align-items: flex-end;
   background-color: #fff;
   @media (min-width: 768px) {
-    padding-top: 14px;
-    padding-right: 14px;
-    padding-bottom: 8px;
+    padding: 7px;
     height: 144px;
   }
   @media (min-width: 1440px) {
@@ -61,6 +57,7 @@ export const GridWrapOfDays = styled.div`
   margin-top: 24px;
   border-radius: 5px;
   background-color: white;
+  border-radius: 8px;
 `;
 export const CellWrapOfDays = styled.div`
   display: flex;
@@ -73,7 +70,6 @@ export const CellWrapOfDays = styled.div`
   background-color: var(--tetriary-background-color);
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-color);
-
   &:nth-child(7n),
   &:nth-child(7n - 1) {
     color: #3e85f3;
@@ -88,4 +84,56 @@ export const CurrentDay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const WeekDay = styled.span`
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+`;
+export const TaskContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  gap: 2px;
+`;
+export const TaskTitle = styled.li`
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 4px;
+  padding: 2px 6px 2px 6px;
+  background-color: ${(props) => {
+    switch (props.$priority) {
+      case 'low':
+        return '#CEEEFD';
+      case 'medium':
+        return '#FCF0D4;';
+      case 'high':
+        return '#FFD2DD';
+      default:
+        return 'none';
+    }
+  }};
+  color: ${(props) => {
+    switch (props.$priority) {
+      case 'low':
+        return '#3E85F3';
+      case 'medium':
+        return '#F3B249';
+      case 'high':
+        return '#EA3D65';
+      default:
+        return 'none';
+    }
+  }};
 `;
