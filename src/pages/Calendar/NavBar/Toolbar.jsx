@@ -17,7 +17,7 @@ const Toolbar = ({
   currentMonth,
   setCurrentDate,
   setPeriodType,
-  monthPeriodType,
+  periodType,
 }) => {
   const { currentDate } = useParams();
 
@@ -50,10 +50,18 @@ const Toolbar = ({
         </ControlBtn>
       </SpaceBetween>
       <BtnOfCalender>
-        <MonthBtn onClick={() => setPeriodType(PERIOD_TYPE_MONTH)}>
+        <MonthBtn
+          onClick={() => setPeriodType(PERIOD_TYPE_MONTH)}
+          $isActive={periodType === PERIOD_TYPE_MONTH}
+        >
           Month
         </MonthBtn>
-        <DayBtn onClick={() => setPeriodType(PERIOD_TYPE_DAY)}>Day</DayBtn>
+        <DayBtn
+          onClick={() => setPeriodType(PERIOD_TYPE_DAY)}
+          $isActive={periodType === PERIOD_TYPE_DAY}
+        >
+          Day
+        </DayBtn>
       </BtnOfCalender>
     </NavigationPanel>
   );
