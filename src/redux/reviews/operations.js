@@ -50,7 +50,7 @@ export const deleteReview = createAsyncThunk(
 
 export const editReview = createAsyncThunk(
   'reviews/editReviews',
-  async ({ _, review }, thunkAPI) => {
+  async (_, { review }, thunkAPI) => {
     try {
       // console.log(review);
       const { data } = await $instance.patch(`/reviews/own`, review);
