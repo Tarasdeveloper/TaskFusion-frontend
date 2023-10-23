@@ -141,8 +141,8 @@ export const UserForm = () => {
         setSubmitting(true);
         dispatch(refreshUserThunk());
       })
-      .catch((error) => {
-        Notiflix.Notify.failure(`${error.message}`);
+      .catch(() => {
+        Notiflix.Notify.failure(`All fields must be filled!`);
       });
   };
 

@@ -42,9 +42,6 @@ export const ProfileContainer = styled.div`
   @media (min-width: 1440px) {
     padding-top: 60px;
     padding-bottom: 60px;
-    padding-left: 165px;
-    padding-right: 165px;
-    height: 100%;
   }
 `;
 
