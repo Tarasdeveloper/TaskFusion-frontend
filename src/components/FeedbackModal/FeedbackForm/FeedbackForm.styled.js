@@ -102,7 +102,7 @@ export const WrapForInput = styled.div`
   margin: 0;
 `;
 
-export const Input = styled(Field)`
+export const InputFeedbackForm = styled(Field)`
   resize: none;
   padding: 12px 14px;
   width: 295px;
@@ -115,8 +115,10 @@ export const Input = styled(Field)`
   color: var(--secondary-text-color);
 
   background-color: var(--modal-input-background-color);
+  border: 1px solid;
+  border-color: var(--modal-input-border-color);
   border-radius: 8px;
-  border: 1px solid var(--modal-input-border-color);
+  outline: none;
 
   transition: var(--transition-changetheme-color),
     var(--transition-changetheme-background-color);
@@ -133,7 +135,7 @@ export const Input = styled(Field)`
 
   &:hover,
   &:focus {
-    border: 1px solid #111111;
+    border-color: var(--modal-input-border-color-hover);
   }
   &:disabled {
     cursor: not-allowed;

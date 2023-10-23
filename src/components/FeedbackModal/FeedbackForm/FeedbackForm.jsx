@@ -6,7 +6,7 @@ import { ReactComponent as IconTrash } from '../../../assets/img/trash-2.svg';
 import { ReactComponent as IconClose } from '../../../assets/img/x-close.svg';
 import {
   RatingWrap,
-  Input,
+  InputFeedbackForm,
   Label,
   FormBtn,
   Wrap,
@@ -123,7 +123,7 @@ const FeedbackForm = ({ onClose }) => {
               )}
             </WrapForReview>
 
-            <Input
+            <InputFeedbackForm
               type="text"
               placeholder="Enter text"
               id="review"
