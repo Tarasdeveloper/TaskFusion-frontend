@@ -16,3 +16,32 @@ export const getTasksThunk = createAsyncThunk(
     }
   },
 );
+
+export const deleteTaskThunk = createAsyncThunk(
+  'tasks/deleteTask',
+  async (requestedData, thunkApi) => {
+    try {
+      const { data } = await $instance.delete(`/tasks/${requestedData}`);
+      const newData = {
+        data: data,
+        id : requestedData
+      }
+
+      return newData;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  },
+);
+export const editTaskThunk = createAsyncThunk(
+  'reviews/editReviews',
+  async ({id, task }, thunkAPI) => {
+    try {
+      const { data } = await $instance.patch(`/tasks/${id}`, task);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
