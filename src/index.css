@@ -87,6 +87,8 @@
   --modal-feedback-rating-inactive-color: #cec9c1;
   --modal-feedback-btn-cancel-background-color: #e5edfa;
   --modal-icon-close-btn-color: #111111;
+  --modal-input-border-color: #f6f6f6;
+  --modal-input-border-color-hover: rgba(255, 255, 255, 0.15);
 }
 
 .dark {
@@ -142,7 +144,8 @@
 
   /* modal feedback colors */
   --modal-background-color: #171820;
-  --modal-input-border-color: rgba(255, 255, 255, 0.15);
+  --modal-input-border-color: #e5edfa;
+  --modal-input-border-color-hover: #3e85f3;
   --modal-edit-btn-inactive-color: #353647;
 
   --modal-primary-text-color: rgba(250, 250, 250, 0.3);

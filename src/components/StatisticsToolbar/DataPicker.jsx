@@ -1,21 +1,24 @@
-import { forwardRef, useState } from 'react';
-import { format, subMonths, addMonths } from 'date-fns';
+import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import {
-  CalendarGlobalStyles,
-  TitleWrapper,
   RightArrowIcon,
   LeftArrowIcon,
+  DatepickerStyled,
 } from '../../pages/Calendar/NavBar/DataPicker/StyledDataPicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-const DataPicker = ({ currentDate, prevHandler, nextHandler }) => {
-  const [selectedDate, setSelectedDate] = useState(Date.now());
-
+const DataPicker = ({
+  prevHandle,
+  nextHandler,
+  currentDate,
+  setCurrentDate,
+}) => {
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
-      <TitleWrapper onClick={onClick} ref={ref}>
-        {format(currentDate, 'MMMM , yyyy')}
-      </TitleWrapper>
+      <DatepickerStyled
+        onClick={onClick}
+        value={value}
+        readOnly
+      ></DatepickerStyled>
     );
   });
 
@@ -24,16 +27,15 @@ const DataPicker = ({ currentDate, prevHandler, nextHandler }) => {
       <DatePicker
         selected={currentDate}
         onChange={(date) => {
-          setSelectedDate(date);
+          setCurrentDate(date);
         }}
         customInput={<CustomInput />}
         dateFormat={'dd MM yyyy'}
         calendarStartDay={1}
-        formatWeekDay={(day) => day.substr(0, 1)}
-        nextMonthButtonLabel={<LeftArrowIcon />}
-        previousMonthButtonLabel={<RightArrowIcon />}
+        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
+        nextMonthButtonLabel={<RightArrowIcon onClick={nextHandler} />}
+        previousMonthButtonLabel={<LeftArrowIcon onClick={prevHandle} />}
       />
-      <CalendarGlobalStyles />
     </>
   );
 };

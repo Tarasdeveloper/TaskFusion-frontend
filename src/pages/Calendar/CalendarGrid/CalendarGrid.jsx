@@ -27,6 +27,7 @@ export const CalendarGrid = () => {
   const tasks = useSelector(selectTasks);
   const navigate = useNavigate();
   const [formatOfWeek, setFormatOfWeek] = useState('EEEEE');
+  const [maxLength, setMaxLength] = useState(8);
   const monday = startOfWeek(new Date(), { weekStartsOn: 1 });
   const sunday = endOfWeek(new Date(), {
     weekStartsOn: 1,
@@ -36,6 +37,26 @@ export const CalendarGrid = () => {
     start: monday,
     end: sunday,
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 375) {
+        setMaxLength(3);
+      } else if (window.innerWidth <= 768) {
+        setMaxLength(5);
+      } else if (window.innerWidth <= 1440) {
+        setMaxLength(12);
+      } else {
+        setMaxLength(16);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const shortenTittle = (title, maxLength) => {
     if (title.length > maxLength) {
@@ -59,7 +80,10 @@ export const CalendarGrid = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  console.log(tasks);
+
+  const isCurrentDate = (date) => {
+    return formatISO(date, { representation: 'date' }) === currentDate;
+  };
 
   const listOfTasks = tasks.reduce((acc, task) => {
     const { date } = task;
@@ -67,7 +91,6 @@ export const CalendarGrid = () => {
     acc[date].push(task);
     return acc;
   }, {});
-  console.log('listOfTasks: ', listOfTasks);
 
   return (
     <>
@@ -88,13 +111,7 @@ export const CalendarGrid = () => {
               onClick={() => navigate(`/calendar/day/${formatedDate}`)}
             >
               {isCurrentMonth && (
-                <CalendarDate
-                  $current={
-                    formatISO(date, {
-                      representation: 'date',
-                    }) === currentDate
-                  }
-                >
+                <CalendarDate $current={isCurrentDate(date)}>
                   {dayOfMonth}
                 </CalendarDate>
               )}
@@ -102,7 +119,7 @@ export const CalendarGrid = () => {
                 <TaskContainer>
                   {listOfTasks[formatedDate]?.map((task) => (
                     <TaskTitle $priority={task.priority} key={task._id}>
-                      {shortenTittle(task.title, 8)}
+                      {shortenTittle(task.title, maxLength)}
                     </TaskTitle>
                   ))}
                 </TaskContainer>
