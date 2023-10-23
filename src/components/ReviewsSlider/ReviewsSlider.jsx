@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import sprite from '../../assets/sprite.svg';
 import { Loader } from '../Loader/Loader';
-import SvgRatingStar from '../ReviewSingle/ReviewSingle';
+import SvgRatingStar from '../SvgRatingStar/SvgRatingStar';
 import { getReviews } from '../../redux/reviews/operations';
 
 const ReviewsSlider = () => {
@@ -58,12 +58,12 @@ const ReviewsSlider = () => {
               _id,
               rating,
               comment,
-              owner: { avatarUrl, name },
+              owner: { avatar, name },
             } = review;
             <SwiperSlide key={_id}>
               <ReviewSlide>
                 <SingleHeader>
-                  <ReviewImg src={avatarUrl} alt={name} />
+                  <ReviewImg src={avatar} alt={name} />
 
                   <HeadWrap>
                     <ReviewName>{name}</ReviewName>

@@ -1,11 +1,3 @@
-// import sprite from '../../assets/sprite.svg';
-//           <Svg key={i}>
-//             <use href={`${sprite}#starActive`}></use>
-//           </Svg>,
-//           <Svg key={i}>
-//             <use href={`${sprite}#starDeactive`}></use>
-//           </Svg>,
-
 const SvgRatingStar = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
