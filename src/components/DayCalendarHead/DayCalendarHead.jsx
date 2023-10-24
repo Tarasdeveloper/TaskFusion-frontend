@@ -15,10 +15,10 @@ import {
 
 import { OtherDay, ActiveDay, Day, Item, List } from './DayCalendarHead.styled';
 
-
 const DayCalendarHead = () => {
-  const day = useParams() ?? '2023-10-22';
+  const { currentDate: day } = useParams() ?? '2023-10-22';
   const currentDay = day;
+  console.log(day);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,16 +27,14 @@ const DayCalendarHead = () => {
     return day.startsWith('0') ? day.slice(1) : day;
   }
 
-  
-  const handleClick = day => {
-   dispatch(addIndexCurrentDay(Number(format(day, 'd')) - 1));
-                    dispatch(
-                      addChoosedDay(
-                        formatISO(new Date(day), {
-                          representation: 'date',
-                        })
-                      )
-
+  const handleClick = (day) => {
+    dispatch(addIndexCurrentDay(Number(format(day, 'd')) - 1));
+    dispatch(
+      addChoosedDay(
+        formatISO(new Date(day), {
+          representation: 'date',
+        }),
+      ),
     );
     navigate(`/calendar/day/${format(day, 'yyyy-MM-dd')}`);
   };
@@ -65,7 +63,9 @@ const DayCalendarHead = () => {
             : ActiveDay;
           return (
             <Item key={idx}>
-              <Day>{format(day, 'EEE').toUpperCase()}</Day>
+              <Day className={idx >= 5 ? 'weekend' : ''}>
+                {format(day, 'EEE').toUpperCase()}
+              </Day>
               <DateWeek type="button" onClick={() => handleClick(day)}>
                 {formattedDay(format(day, 'dd'))}
               </DateWeek>
@@ -76,4 +76,4 @@ const DayCalendarHead = () => {
     </>
   );
 };
-export default DayCalendarHead
+export default DayCalendarHead;
