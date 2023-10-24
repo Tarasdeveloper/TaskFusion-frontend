@@ -15,7 +15,7 @@ const MainLayout = () => {
   const toggleSidebar = () => setVisible((isVisible) => !isVisible);
   const size = useWindowSize();
   useEffect(() => {
-    setVisible(size.width > 1440 && true);
+    setVisible(size.width >= 1440 && true);
   }, [size.width]);
 
   return (
