@@ -37,12 +37,14 @@ const TitleWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: ${(props) => (props.$isTasksAdded ? '24px' : '35px')};
+  padding-right: ${(props) => (props.$isTasksAdded ? '12px' : '0px')};
 
   @media (min-width: 375px) {
   }
 
   @media (min-width: 768px) {
     margin-bottom: ${(props) => (props.$isTasksAdded ? '28px' : '35px')};
+    padding-right: ${(props) => (props.$isTasksAdded ? '15px' : '12px')};
   }
 
   @media (min-width: 1440px) {
