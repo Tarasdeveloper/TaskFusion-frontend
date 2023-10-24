@@ -7,14 +7,12 @@ const Wrapper = styled.div`
   padding-right: ${(props) => (props.$isTasksAdded ? '6px' : '18px')};
 
   border-radius: 8px;
-  width: 100%;
-  direction: ltr;
-  border: 1px solid var(--calendar-day-task-border-color);
-  background-color: var(--tetriary-background-color);
-  position: relative;
 
-  transition: var(--transition-changetheme-background-color),
-    var(--transition-changetheme-border-color);
+  min-width: 335px;
+  direction: ltr;
+  border: 1px solid rgba(220, 227, 229, 0.5);
+  background: #fff;
+  position: relative;
 
   height: ${(props) => (props.$isTasksAdded ? '442px' : '155px')};
   padding-bottom: ${(props) => (props.$isTasksAdded ? '0' : '0px')};
@@ -26,6 +24,8 @@ const Wrapper = styled.div`
     padding: ${(props) =>
       props.$isTasksAdded ? '18px 18px 112px 17px' : '20px 20px 107px 20px'};
     height: ${(props) => (props.$isTasksAdded ? '568px' : '165px')};
+    min-width: 344px;
+    padding-right: 8px;
   }
 
   @media (min-width: 1440px) {
@@ -52,12 +52,11 @@ const TitleWrap = styled.div`
 `;
 
 const Title = styled.p`
-  color: var(--primary-text-color);
+  color: #111;
   font-family: 'Inter';
   font-size: 18px;
   font-weight: 700;
   line-height: 20px;
-  transition: var(--transition-changetheme-color);
 
   @media (min-width: 375px) {
   }
@@ -96,7 +95,9 @@ const PlusCircleIcon = styled.button`
 
 const AddTaskBtn = styled.button`
   type: 'button';
-  max-width: 299px;
+  //   padding: 12px 100px;
+  //   padding-top: 13px;
+  width: 299px;
   height: 48px;
 
   display: flex;
@@ -104,27 +105,27 @@ const AddTaskBtn = styled.button`
   align-items: center;
 
   border-radius: 8px;
-  border: 1px dashed var(--calendar-day-addTask-btn-border-color);
-  background-color: var(--calendar-day-addTask-btn-background-color);
 
+  border: 1px dashed #3e85f3;
+  background: #e3f3ff;
   outline: none;
   position: absolute;
   bottom: ${(props) => (props.$isTasksAdded ? '10px' : '20px')};
   right: 18px;
   left: 18px;
   z-index: 1;
-  transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 375px) {
   }
 
   @media (min-width: 768px) {
     bottom: ${(props) => (props.$isTasksAdded ? '28px' : '20px')};
+    // padding: 14px 20px 14px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    max-width: 90%;
+    width: 304px;
     height: 52px;
   }
 
@@ -171,6 +172,7 @@ const TasksWrap = styled.div`
 
   height: 314px;
   padding-bottom: 14px;
+  padding-right: 6px;
 
   overflow-y: scroll;
 
@@ -192,6 +194,7 @@ const TasksWrap = styled.div`
 
   @media (min-width: 768px) {
     height: 372px;
+    // padding-bottom: 0px;
     padding-right: 7px;
 
     row-gap: 18px;
@@ -203,12 +206,10 @@ const TasksWrap = styled.div`
 
 const Task = styled.div`
   border-radius: 8px;
-  border: 1px solid var(--calendar-day-task-border-color);
-  background-color: var(--secondary-background-color);
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  background: #f7f6f9;
   padding: 14px 12px 18px 15px;
-  width: 100%;
-  transition: var(--transition-changetheme-background-color),
-    var(--transition-changetheme-border-color);
+  width: 299px;
 
   @media (min-width: 375px) {
   }
@@ -216,7 +217,6 @@ const Task = styled.div`
   @media (min-width: 768px) {
     padding: 14px 14px 18px 14px;
     height: 112px;
-    min-width: 300px;
   }
 
   @media (min-width: 1440px) {
@@ -225,19 +225,18 @@ const Task = styled.div`
 
 const TaskTitle = styled.p`
   display: block;
-  width: 100%;
+  max-width: 272px;
   margin-bottom: 28px;
 
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: var(--primary-text-color);
+  color: #111;
   white-space: nowrap;
   font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  transition: var(--transition-changetheme-color);
 
   @media (min-width: 375px) {
   }
