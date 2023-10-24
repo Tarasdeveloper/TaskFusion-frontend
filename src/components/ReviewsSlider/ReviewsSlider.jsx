@@ -1,3 +1,4 @@
+// import React from 'react';
 import {
   BtnWrap,
   HeadWrap,
@@ -22,7 +23,7 @@ import SvgRatingStar from '../SvgRatingStar/SvgRatingStar';
 import { getReviews } from '../../redux/reviews/operations';
 
 const ReviewsSlider = () => {
-  const { data: { reviews } = {}, isLoading } = getReviews();
+  const { data: { reviews } = [], isLoading } = getReviews();
 
   const breakpoints = {
     1024: {
@@ -60,33 +61,35 @@ const ReviewsSlider = () => {
               comment,
               owner: { avatar, name },
             } = review;
-            <SwiperSlide key={_id}>
-              <ReviewSlide>
-                <SingleHeader>
-                  <ReviewImg src={avatar} alt={name} />
+            return (
+              <SwiperSlide key={_id}>
+                <ReviewSlide>
+                  <SingleHeader>
+                    <ReviewImg src={avatar} alt={name} />
 
-                  <HeadWrap>
-                    <ReviewName>{name}</ReviewName>
-                    <StarzWrap>
-                      {Array.from({ length: 5 }, (_, index) => (
-                        <SvgRatingStar
-                          key={index}
-                          width={14}
-                          height={14}
-                          fill={index < rating ? '#FFAC33' : '#CEC9C1'}
-                          color={index < rating ? '#FFAC33' : '#CEC9C1'}
-                        />
-                      ))}
-                    </StarzWrap>
-                  </HeadWrap>
-                </SingleHeader>
-                <ReviewText>
-                  {comment.length > 150
-                    ? `${comment.slice(0, 150)}...`
-                    : comment}
-                </ReviewText>
-              </ReviewSlide>
-            </SwiperSlide>;
+                    <HeadWrap>
+                      <ReviewName>{name}</ReviewName>
+                      <StarzWrap>
+                        {Array.from({ length: 5 }, (_, index) => (
+                          <SvgRatingStar
+                            key={index}
+                            width={14}
+                            height={14}
+                            fill={index < rating ? '#FFAC33' : '#CEC9C1'}
+                            color={index < rating ? '#FFAC33' : '#CEC9C1'}
+                          />
+                        ))}
+                      </StarzWrap>
+                    </HeadWrap>
+                  </SingleHeader>
+                  <ReviewText>
+                    {comment.length > 150
+                      ? `${comment.slice(0, 150)}...`
+                      : comment}
+                  </ReviewText>
+                </ReviewSlide>
+              </SwiperSlide>
+            );
           })}
 
         <BtnWrap>
