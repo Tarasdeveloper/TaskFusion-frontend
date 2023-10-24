@@ -22,7 +22,7 @@ import SvgRatingStar from '../SvgRatingStar/SvgRatingStar';
 import { getReviews } from '../../redux/reviews/operations';
 
 const ReviewsSlider = () => {
-  const { data: { reviews } = [], isLoading } = getReviews();
+  const { data: { reviews } = {}, isLoading } = getReviews();
 
   const breakpoints = {
     1024: {
