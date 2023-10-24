@@ -18,6 +18,7 @@ export const MainTitle = styled.h1`
     0px 47px 355px rgba(0, 0, 0, 0.07);
   color: #fff;
   font-style: normal;
+  margin-bottom: clamp(32px, 6vw, 50px);
 `;
 
 export const Ospan = styled.span`
@@ -31,6 +32,10 @@ export const LinkWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  flex-direction: column-reverse;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const Svg = styled.svg`
@@ -45,7 +50,7 @@ export const SignLink = styled(NavLink)`
     0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
     0px 47px 355px rgba(0, 0, 0, 0.07);
   font-family: Inter;
-  font-size: 14px;
+  font-size: clamp(12px, 10vw, 14px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.28;

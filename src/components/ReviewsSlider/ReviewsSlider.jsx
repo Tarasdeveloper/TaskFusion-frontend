@@ -1,4 +1,3 @@
-// import React from 'react';
 import {
   BtnWrap,
   HeadWrap,
@@ -21,9 +20,21 @@ import sprite from '../../assets/sprite.svg';
 import { Loader } from '../Loader/Loader';
 import SvgRatingStar from '../SvgRatingStar/SvgRatingStar';
 import { getReviews } from '../../redux/reviews/operations';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsLoading, selectReviews } from '../../redux/reviews/selectors';
 
 const ReviewsSlider = () => {
-  const { data: { reviews } = [], isLoading } = getReviews();
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectReviews);
+  const isLoading = useSelector(selectIsLoading);
+
+  useEffect(() => {
+    const page = 1; // Значення для сторінки
+    const limit = 2; // Значення для обмеження
+    dispatch(getReviews({ page, limit }));
+  }, [dispatch]);
+  console.log('review', reviews);
 
   const breakpoints = {
     1024: {
@@ -55,12 +66,11 @@ const ReviewsSlider = () => {
       <Swiper {...swiperParams}>
         {Array.isArray(reviews) &&
           reviews?.map((review) => {
-            const {
-              _id,
-              rating,
-              comment,
-              owner: { avatar, name },
-            } = review;
+            const { _id, rating, owner } = review;
+
+            const avatar = owner?.avatar;
+            const name = owner?.name;
+
             return (
               <SwiperSlide key={_id}>
                 <ReviewSlide>
@@ -83,15 +93,14 @@ const ReviewsSlider = () => {
                     </HeadWrap>
                   </SingleHeader>
                   <ReviewText>
-                    {comment.length > 150
-                      ? `${comment.slice(0, 150)}...`
-                      : comment}
+                    {review.review.length > 150
+                      ? `${review.review.slice(0, 150)}...`
+                      : review.review}
                   </ReviewText>
                 </ReviewSlide>
               </SwiperSlide>
             );
           })}
-
         <BtnWrap>
           <NextBtn className="custom-next-button">
             <Svg>
@@ -108,5 +117,4 @@ const ReviewsSlider = () => {
     </ReviewsWrap>
   );
 };
-
 export default ReviewsSlider;
