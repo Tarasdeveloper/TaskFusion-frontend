@@ -33,7 +33,8 @@ const tasksSlice = createSlice({
       })
       .addCase(addTaskThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.tasks = [...state.tasks, action.payload];
+        console.log(action.payload)
+        state.tasks = [...state.tasks, action.payload.data.result];
       })
       .addCase(addTaskThunk.rejected, (state, action) => {
         state.isLoading = false;

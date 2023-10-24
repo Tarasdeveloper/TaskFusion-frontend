@@ -49,20 +49,36 @@ export const ReviewSlide = styled.div`
   height: 200px;
 `;
 
+export const SlideWrap = styled.div`
+  display: flex;
+`;
+
 export const SingleHeader = styled.div`
   display: flex;
   gap: 18px;
-  margin-bottom: 24px;
+  flex-direction: column;
 `;
 
 export const ReviewImg = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  object-fit: cover;
+`;
+
+export const ImgWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 18px;
 `;
 
 export const ReviewName = styled.p`
-  display: block;
+  margin-bottom: 13px;
 `;
 
 export const HeadWrap = styled.div`

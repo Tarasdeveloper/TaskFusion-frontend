@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
   border-radius: 8px;
 
-  min-width: 335px;
+  width: 100%;
   direction: ltr;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: #fff;
@@ -97,7 +97,7 @@ const AddTaskBtn = styled.button`
   type: 'button';
   //   padding: 12px 100px;
   //   padding-top: 13px;
-  width: 299px;
+  max-width: 90%;
   height: 48px;
 
   display: flex;
@@ -124,8 +124,6 @@ const AddTaskBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 304px;
     height: 52px;
   }
 
@@ -209,7 +207,7 @@ const Task = styled.div`
   border: 1px solid rgba(220, 227, 229, 0.8);
   background: #f7f6f9;
   padding: 14px 12px 18px 15px;
-  width: 299px;
+  width: 100%;
 
   @media (min-width: 375px) {
   }
@@ -217,6 +215,7 @@ const Task = styled.div`
   @media (min-width: 768px) {
     padding: 14px 14px 18px 14px;
     height: 112px;
+    min-width: 300px;
   }
 
   @media (min-width: 1440px) {
@@ -225,7 +224,7 @@ const Task = styled.div`
 
 const TaskTitle = styled.p`
   display: block;
-  max-width: 272px;
+  width: 100%;
   margin-bottom: 28px;
 
   overflow: hidden;
