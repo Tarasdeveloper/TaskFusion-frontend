@@ -1,8 +1,5 @@
 import { Wrap } from './ChoosedDay.styled';
 import TasksColumnsList from '../TasksColumnsList/TasksColumnsList';
-// import SideBar from '../SideBar/SideBar';
-// import Header from '../Header/Header';
-
 import // useNavigate,
 // useParams,
 'react-router-dom';
@@ -54,8 +51,5 @@ export const ChoosedDay = () => {
       <DayCalendarHead />
       <TasksColumnsList />
     </Wrap>
-    // <Wrap>
-    //   <h1>Calendar</h1>
-    // </Wrap>
   );
 };
