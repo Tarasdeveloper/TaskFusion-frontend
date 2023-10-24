@@ -1,53 +1,50 @@
 import { Wrap } from './ChoosedDay.styled';
 import TasksColumnsList from '../TasksColumnsList/TasksColumnsList';
-import // useNavigate,
-// useParams,
-'react-router-dom';
-// import { CalendarToolbar } from '../../components/CalendarToolbar/CalendarToolbar';
-// import { PERIOD_TYPE_DAY, PERIOD_TYPE_MONTH } from './constants';
 import DayCalendarHead from '../DayCalendarHead/DayCalendarHead';
-// import { CalendarToolbar } from '../CalendarToolbar/CalendarToolbar';
+import Toolbar from '../../pages/Calendar/NavBar/Toolbar';
+import { useNavigate, useParams } from 'react-router-dom';
 
-// const { currentDate } = useParams();
-// const navigate = useNavigate();
-
-// const setCurrentDate = (isoDate) => {
-//   navigate(`/calendar/day/${isoDate}`);
-// };
-
-// const switchToMonthPeriodType = (type) => {
-//   if (type === PERIOD_TYPE_MONTH) {
-//     navigate(`/calendar/month/${currentDate}`);
-//   }
-// };
+import {
+  PERIOD_TYPE_DAY,
+  PERIOD_TYPE_MONTH,
+} from '../../pages/Calendar/constants';
 
 export const ChoosedDay = () => {
-  // const { currentDate } = useParams();
+  const { currentDate } = useParams();
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const currentMonth = new Date(currentDate);
 
-  // const navigate = useNavigate();
+  const setCurrentDate = (isoDate) => {
+    navigate(`/calendar/month/${isoDate}`);
+  };
 
-  // const setCurrentDate = (isoDate) => {
-  //   navigate(`/calendar/day/${isoDate}`);
-  // };
+  const switchToDayPeriodType = (type) => {
+    if (type === PERIOD_TYPE_DAY) {
+      navigate(`/calendar/day/${currentDate}`);
+    }
+  };
 
-  // const switchToMonthPeriodType = (type) => {
-  //   if (type === PERIOD_TYPE_MONTH) {
-  //     navigate(`/calendar/month/${currentDate}`);
-  //   }
-  // };
+  const prevHandler = () => {
+    const prevMonth = new Date(currentMonth);
+    prevMonth.setMonth(prevMonth.getMonth() - 1);
+    setCurrentDate(format(prevMonth, 'yyyy-MM-dd'));
+  };
 
-  // console.log(currentDate);
+  const nextHandler = () => {
+    const nextMonth = new Date(currentDate);
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    setCurrentDate(format(nextMonth, 'yyyy-MM-dd'));
+  };
+
   return (
     <Wrap>
-      {/* <Header></Header> */}
-      {/* <SideBar></SideBar> */}
-      {/* 
-      <CalendarToolbar
-        currentDate={currentDate}
+      <Toolbar
+        currentMonth={currentMonth}
         setCurrentDate={setCurrentDate}
-        periodType={PERIOD_TYPE_DAY}
-        setPeriodType={switchToMonthPeriodType}
-      /> */}
+        setPeriodType={switchToDayPeriodType}
+        periodType={PERIOD_TYPE_MONTH}
+      />
       <DayCalendarHead />
       <TasksColumnsList />
     </Wrap>
