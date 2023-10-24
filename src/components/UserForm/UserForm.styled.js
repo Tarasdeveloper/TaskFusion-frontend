@@ -10,19 +10,16 @@ export const Container = styled.div`
   background-color: var(--secondary-background-color);
   padding-left: 20px;
   padding-right: 20px;
-  // padding-top: 64px;
 
   transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 768px) {
-    // padding-top: 64px;
     padding-left: 32px;
     padding-right: 32px;
     padding-bottom: 38px;
   }
 
   @media (min-width: 1440px) {
-    // padding-top: 33px;
     padding-bottom: 32px;
   }
 `;
@@ -94,14 +91,14 @@ export const WithoutAvatar = styled.div`
 export const IconUser = styled.svg`
   width: 48px;
   height: 48px;
-  fill: #3e85f3;
+  fill: var(--btn-background-color);
   fill-opacity: 0.18;
 `;
 
 export const IconPlus = styled.svg`
   width: 18px;
   height: 18px;
-  fill: #fff;
+  fill: var(--btn-text-color);
 `;
 
 export const AvatarButton = styled.button`
@@ -109,14 +106,14 @@ export const AvatarButton = styled.button`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #3e85f3;
+  background-color: var(--btn-background-color);
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -15px;
   margin-left: 51px;
-  color: #fff;
+  color: var(--btn-text-color);
   font-size: 18px;
 
   @media (min-width: 768px) {
@@ -132,7 +129,7 @@ export const InputPhoto = styled.input`
 `;
 
 export const UserName = styled.h2`
-  color: var(--userprofile-text-name-color);
+  color: var(--secondary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -238,10 +235,10 @@ export const Input = styled.input`
     transition: var(--transition-changetheme-color);
   }
   &:hover {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
   &:focus {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
 `;
 
@@ -282,10 +279,10 @@ export const InputDatePicker = styled(DatePicker)`
     transition: var(--transition-changetheme-color);
   }
   &:hover {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
   &:focus {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
 `;
 
@@ -294,8 +291,8 @@ export const ButtonSaveChanges = styled.button`
   height: 46px;
   padding: 10px 20px 10px 20px;
   border-radius: 16px;
-  background-color: #3e85f3;
-  color: #fff;
+  background-color: var(--btn-background-color);
+  color: var(--btn-text-color);
   text-align: center;
   font-family: Inter;
   font-size: 14px;
@@ -307,17 +304,17 @@ export const ButtonSaveChanges = styled.button`
   margin-top: 22px;
 
   &:hover {
-    background-color: #2b78ef;
+    background-color: var(--btn-hover-color);
   }
 
   &:focus {
-    background-color: #2b78ef;
+    background-color: var(--btn-hover-color);
   }
 
   &:disabled {
-    background-color: #f7f6f9;
-    color: rgba(17, 17, 17, 0.7);
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    background-color: var(--secondary-background-color);
+    color: var(--error-text-color);
+    border: 1px solid var(--calendar-month-border-color);
     cursor: not-allowed;
   }
 

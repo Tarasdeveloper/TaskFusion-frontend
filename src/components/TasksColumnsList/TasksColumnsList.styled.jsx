@@ -3,14 +3,13 @@ import styled from 'styled-components';
 const Wrap = styled.div`
   display: flex;
   column-gap: 30px;
-  justify-content: start;
-
-  width: 375px;
+  justify-content: space-between;
+  width: 100%;
   //   padding-left: 20px;
   padding-bottom: 34px;
   // padding-bottom: ${(props) => (props.$isTasksAdded ? '34px' : '311px')}
 
-  overflow-x: scroll;
+  overflow-x: auto;
 
   &::-webkit-scrollbar {
     width: 12px; /* Ширина скролбара для вебкіт-браузерів (Chrome, Safari) */
@@ -29,13 +28,11 @@ const Wrap = styled.div`
   }
 
   @media (min-width: 768px) {
-    min-width: 728px;
     padding-left: 0;
     padding-bottom: 15px;
   }
 
   @media (min-width: 1440px) {
-    min-width: 1430px;
   }
 `;
 
