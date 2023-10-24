@@ -91,7 +91,6 @@ export const UserForm = () => {
     if (photo) {
       setIsUploadingPhoto(true);
       const previewUrl = URL.createObjectURL(photo);
-      Notiflix.Notify.success('User photo successfully added.');
       setUserPhotoPreview(previewUrl);
       setIsUploadingPhoto(false);
     } else {

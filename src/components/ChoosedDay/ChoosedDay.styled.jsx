@@ -9,6 +9,7 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0px 20px 20px 20px;
+  width: 100%;
   //   overflow: visible;
 
   @media (min-width: 375px) {
