@@ -874,19 +874,16 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   background-color: var(--secondary-background-color);
   padding-left: 20px;
   padding-right: 20px;
-  // padding-top: 64px;
 
   transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 768px) {
-    // padding-top: 64px;
     padding-left: 32px;
     padding-right: 32px;
     padding-bottom: 38px;
   }
 
   @media (min-width: 1440px) {
-    // padding-top: 33px;
     padding-bottom: 32px;
   }
 `,LH=Oe.div`
@@ -946,25 +943,25 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,IH=Oe.svg`
   width: 48px;
   height: 48px;
-  fill: #3e85f3;
+  fill: var(--btn-background-color);
   fill-opacity: 0.18;
 `,s5=Oe.svg`
   width: 18px;
   height: 18px;
-  fill: #fff;
+  fill: var(--btn-text-color);
 `,l5=Oe.button`
   position: absolute;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #3e85f3;
+  background-color: var(--btn-background-color);
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -15px;
   margin-left: 51px;
-  color: #fff;
+  color: var(--btn-text-color);
   font-size: 18px;
 
   @media (min-width: 768px) {
@@ -976,7 +973,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,FH=Oe.input`
   display: none;
 `,zH=Oe.h2`
-  color: var(--userprofile-text-name-color);
+  color: var(--secondary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -1070,10 +1067,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     transition: var(--transition-changetheme-color);
   }
   &:hover {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
   &:focus {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
 `,UH=Oe(ry)`
   border-radius: 8px;
@@ -1112,18 +1109,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     transition: var(--transition-changetheme-color);
   }
   &:hover {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
   &:focus {
-    border: 1px solid #111;
+    border: 1px solid var(--userprofile-text-input-label-color);
   }
 `,HH=Oe.button`
   max-width: 195px;
   height: 46px;
   padding: 10px 20px 10px 20px;
   border-radius: 16px;
-  background-color: #3e85f3;
-  color: #fff;
+  background-color: var(--btn-background-color);
+  color: var(--btn-text-color);
   text-align: center;
   font-family: Inter;
   font-size: 14px;
@@ -1135,17 +1132,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   margin-top: 22px;
 
   &:hover {
-    background-color: #2b78ef;
+    background-color: var(--btn-hover-color);
   }
 
   &:focus {
-    background-color: #2b78ef;
+    background-color: var(--btn-hover-color);
   }
 
   &:disabled {
-    background-color: #f7f6f9;
-    color: rgba(17, 17, 17, 0.7);
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    background-color: var(--secondary-background-color);
+    color: var(--error-text-color);
+    border: 1px solid var(--calendar-month-border-color);
     cursor: not-allowed;
   }
 
@@ -2124,6 +2121,7 @@ const uq=A.div`
   align-items: center;
   justify-content: center;
   padding: 0px 20px 20px 20px;
+  width: 100%;
   //   overflow: visible;
 
   @media (min-width: 375px) {
@@ -2143,7 +2141,7 @@ const cq=A.div`
 
   border-radius: 8px;
 
-  min-width: 335px;
+  width: 100%;
   direction: ltr;
   border: 1px solid var(--calendar-day-task-border-color);
   background-color: var(--tetriary-background-color);
@@ -2161,7 +2159,7 @@ const cq=A.div`
   @media (min-width: 768px) {
     padding: ${e=>e.$isTasksAdded?"18px 18px 112px 17px":"20px 20px 107px 20px"};
     height: ${e=>e.$isTasksAdded?"568px":"165px"};
-    width: 344px;
+    min-width: 344px;
   }
 
   @media (min-width: 1440px) {
@@ -2226,7 +2224,7 @@ const cq=A.div`
   type: 'button';
   //   padding: 12px 100px;
   //   padding-top: 13px;
-  width: 299px;
+  max-width: 299px;
   height: 48px;
 
   display: flex;
@@ -2255,7 +2253,7 @@ const cq=A.div`
     justify-content: center;
     align-items: center;
 
-    width: 304px;
+    max-width: 90%;
     height: 52px;
   }
 
@@ -2332,7 +2330,7 @@ const cq=A.div`
   border: 1px solid var(--calendar-day-task-border-color);
   background-color: var(--secondary-background-color);
   padding: 14px 12px 18px 15px;
-  width: 299px;
+  width: 100%;
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-border-color);
 
@@ -2342,13 +2340,14 @@ const cq=A.div`
   @media (min-width: 768px) {
     padding: 14px 14px 18px 14px;
     height: 112px;
+    min-width: 300px;
   }
 
   @media (min-width: 1440px) {
   }
 `,sc=A.p`
   display: block;
-  max-width: 272px;
+  width: 100%;
   margin-bottom: 28px;
 
   overflow: hidden;
@@ -2703,14 +2702,13 @@ const cq=A.div`
 const _q=A.div`
   display: flex;
   column-gap: 30px;
-  justify-content: start;
-
-  width: 375px;
+  justify-content: space-between;
+  width: 100%;
   //   padding-left: 20px;
   padding-bottom: 34px;
   // padding-bottom: ${e=>e.$isTasksAdded?"34px":"311px"}
 
-  overflow-x: scroll;
+  overflow-x: auto;
 
   &::-webkit-scrollbar {
     width: 12px; /* Ширина скролбара для вебкіт-браузерів (Chrome, Safari) */
@@ -2729,13 +2727,11 @@ const _q=A.div`
   }
 
   @media (min-width: 768px) {
-    min-width: 728px;
     padding-left: 0;
     padding-bottom: 15px;
   }
 
   @media (min-width: 1440px) {
-    min-width: 1430px;
   }
 `,Nq=()=>p.jsxs(_q,{children:[p.jsx(v0,{title:"To do"}),p.jsx(v0,{title:"In progress"}),p.jsx(v0,{title:"Done"})]});var ay="persist:",oy="persist/FLUSH",Ap="persist/REHYDRATE",sy="persist/PAUSE",ly="persist/PERSIST",uy="persist/PURGE",cy="persist/REGISTER",Mq=-1;function id(e){return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?id=function(n){return typeof n}:id=function(n){return n&&typeof Symbol=="function"&&n.constructor===Symbol&&n!==Symbol.prototype?"symbol":typeof n},id(e)}function b5(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(i){return Object.getOwnPropertyDescriptor(e,i).enumerable})),n.push.apply(n,r)}return n}function jq(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]!=null?arguments[t]:{};t%2?b5(n,!0).forEach(function(r){Lq(e,r,n[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):b5(n).forEach(function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(n,r))})}return e}function Lq(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Aq(e,t,n,r){r.debug;var i=jq({},n);return e&&id(e)==="object"&&Object.keys(e).forEach(function(a){a!=="_persist"&&t[a]===n[a]&&(i[a]=e[a])}),i}function $q(e){var t=e.blacklist||null,n=e.whitelist||null,r=e.transforms||[],i=e.throttle||0,a="".concat(e.keyPrefix!==void 0?e.keyPrefix:ay).concat(e.key),o=e.storage,s;e.serialize===!1?s=function(S){return S}:typeof e.serialize=="function"?s=e.serialize:s=Rq;var l=e.writeFailHandler||null,u={},c={},d=[],f=null,m=null,g=function(S){Object.keys(S).forEach(function(E){v(E)&&u[E]!==S[E]&&d.indexOf(E)===-1&&d.push(E)}),Object.keys(u).forEach(function(E){S[E]===void 0&&v(E)&&d.indexOf(E)===-1&&u[E]!==void 0&&d.push(E)}),f===null&&(f=setInterval(h,i)),u=S};function h(){if(d.length===0){f&&clearInterval(f),f=null;return}var b=d.shift(),S=r.reduce(function(E,k){return k.in(E,b,u)},u[b]);if(S!==void 0)try{c[b]=s(S)}catch(E){console.error("redux-persist/createPersistoid: error serializing state",E)}else delete c[b];d.length===0&&w()}function w(){Object.keys(c).forEach(function(b){u[b]===void 0&&delete c[b]}),m=o.setItem(a,s(c)).catch(y)}function v(b){return!(n&&n.indexOf(b)===-1&&b!=="_persist"||t&&t.indexOf(b)!==-1)}function y(b){l&&l(b)}var x=function(){for(;d.length!==0;)h();return m||Promise.resolve()};return{update:g,flush:x}}function Rq(e){return JSON.stringify(e)}function Iq(e){var t=e.transforms||[],n="".concat(e.keyPrefix!==void 0?e.keyPrefix:ay).concat(e.key),r=e.storage;e.debug;var i;return e.deserialize===!1?i=function(o){return o}:typeof e.deserialize=="function"?i=e.deserialize:i=Fq,r.getItem(n).then(function(a){if(a)try{var o={},s=i(a);return Object.keys(s).forEach(function(l){o[l]=t.reduceRight(function(u,c){return c.out(u,l,s)},i(s[l]))}),o}catch(l){throw l}else return})}function Fq(e){return JSON.parse(e)}function zq(e){var t=e.storage,n="".concat(e.keyPrefix!==void 0?e.keyPrefix:ay).concat(e.key);return t.removeItem(n,Bq)}function Bq(e){}function k5(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(i){return Object.getOwnPropertyDescriptor(e,i).enumerable})),n.push.apply(n,r)}return n}function Yr(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]!=null?arguments[t]:{};t%2?k5(n,!0).forEach(function(r){Wq(e,r,n[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):k5(n).forEach(function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(n,r))})}return e}function Wq(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Uq(e,t){if(e==null)return{};var n=Hq(e,t),r,i;if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);for(i=0;i<a.length;i++)r=a[i],!(t.indexOf(r)>=0)&&Object.prototype.propertyIsEnumerable.call(e,r)&&(n[r]=e[r])}return n}function Hq(e,t){if(e==null)return{};var n={},r=Object.keys(e),i,a;for(a=0;a<r.length;a++)i=r[a],!(t.indexOf(i)>=0)&&(n[i]=e[i]);return n}var Yq=5e3;function pf(e,t){var n=e.version!==void 0?e.version:Mq;e.debug;var r=e.stateReconciler===void 0?Aq:e.stateReconciler,i=e.getStoredState||Iq,a=e.timeout!==void 0?e.timeout:Yq,o=null,s=!1,l=!0,u=function(d){return d._persist.rehydrated&&o&&!l&&o.update(d),d};return function(c,d){var f=c||{},m=f._persist,g=Uq(f,["_persist"]),h=g;if(d.type===ly){var w=!1,v=function(N,M){w||(d.rehydrate(e.key,N,M),w=!0)};if(a&&setTimeout(function(){!w&&v(void 0,new Error('redux-persist: persist timed out for persist key "'.concat(e.key,'"')))},a),l=!1,o||(o=$q(e)),m)return Yr({},t(h,d),{_persist:m});if(typeof d.rehydrate!="function"||typeof d.register!="function")throw new Error("redux-persist: either rehydrate or register is not a function on the PERSIST action. This can happen if the action is being replayed. This is an unexplored use case, please open an issue and we will figure out a resolution.");return d.register(e.key),i(e).then(function(k){var N=e.migrate||function(M,F){return Promise.resolve(M)};N(k,n).then(function(M){v(M)},function(M){v(void 0,M)})},function(k){v(void 0,k)}),Yr({},t(h,d),{_persist:{version:n,rehydrated:!1}})}else{if(d.type===uy)return s=!0,d.result(zq(e)),Yr({},t(h,d),{_persist:m});if(d.type===oy)return d.result(o&&o.flush()),Yr({},t(h,d),{_persist:m});if(d.type===sy)l=!0;else if(d.type===Ap){if(s)return Yr({},h,{_persist:Yr({},m,{rehydrated:!0})});if(d.key===e.key){var y=t(h,d),x=d.payload,b=r!==!1&&x!==void 0?r(x,c,y,e):y,S=Yr({},b,{_persist:Yr({},m,{rehydrated:!0})});return u(S)}}}if(!m)return t(c,d);var E=t(h,d);return E===h?c:u(Yr({},E,{_persist:m}))}}function S5(e){return Xq(e)||qq(e)||Gq()}function Gq(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function qq(e){if(Symbol.iterator in Object(e)||Object.prototype.toString.call(e)==="[object Arguments]")return Array.from(e)}function Xq(e){if(Array.isArray(e)){for(var t=0,n=new Array(e.length);t<e.length;t++)n[t]=e[t];return n}}function C5(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(i){return Object.getOwnPropertyDescriptor(e,i).enumerable})),n.push.apply(n,r)}return n}function Om(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]!=null?arguments[t]:{};t%2?C5(n,!0).forEach(function(r){Qq(e,r,n[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):C5(n).forEach(function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(n,r))})}return e}function Qq(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var mk={registry:[],bootstrapped:!1},Kq=function(){var t=arguments.length>0&&arguments[0]!==void 0?arguments[0]:mk,n=arguments.length>1?arguments[1]:void 0;switch(n.type){case cy:return Om({},t,{registry:[].concat(S5(t.registry),[n.key])});case Ap:var r=t.registry.indexOf(n.key),i=S5(t.registry);return i.splice(r,1),Om({},t,{registry:i,bootstrapped:i.length===0});default:return t}};function Zq(e,t,n){var r=n||!1,i=uv(Kq,mk,t&&t.enhancer?t.enhancer:void 0),a=function(u){i.dispatch({type:cy,key:u})},o=function(u,c,d){var f={type:Ap,payload:c,err:d,key:u};e.dispatch(f),i.dispatch(f),r&&s.getState().bootstrapped&&(r(),r=!1)},s=Om({},i,{purge:function(){var u=[];return e.dispatch({type:uy,result:function(d){u.push(d)}}),Promise.all(u)},flush:function(){var u=[];return e.dispatch({type:oy,result:function(d){u.push(d)}}),Promise.all(u)},pause:function(){e.dispatch({type:sy})},persist:function(){e.dispatch({type:ly,register:a,rehydrate:o})}});return t&&t.manualPersist||s.persist(),s}var dy={},fy={};fy.__esModule=!0;fy.default=tX;function ad(e){return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?ad=function(n){return typeof n}:ad=function(n){return n&&typeof Symbol=="function"&&n.constructor===Symbol&&n!==Symbol.prototype?"symbol":typeof n},ad(e)}function y0(){}var Jq={getItem:y0,setItem:y0,removeItem:y0};function eX(e){if((typeof self>"u"?"undefined":ad(self))!=="object"||!(e in self))return!1;try{var t=self[e],n="redux-persist ".concat(e," test");t.setItem(n,"test"),t.getItem(n),t.removeItem(n)}catch{return!1}return!0}function tX(e){var t="".concat(e,"Storage");return eX(t)?self[t]:Jq}dy.__esModule=!0;dy.default=iX;var nX=rX(fy);function rX(e){return e&&e.__esModule?e:{default:e}}function iX(e){var t=(0,nX.default)(e);return{getItem:function(r){return new Promise(function(i,a){i(t.getItem(r))})},setItem:function(r,i){return new Promise(function(a,o){a(t.setItem(r,i))})},removeItem:function(r){return new Promise(function(i,a){i(t.removeItem(r))})}}}var ku=void 0,aX=oX(dy);function oX(e){return e&&e.__esModule?e:{default:e}}var sX=(0,aX.default)("local");ku=sX;pi.defaults.baseURL="https://taskfusion-service.onrender.com";const x0=Ct("get/tasks",async(e,t)=>{const r=t.getState().auth.token;if(r===null)return t.rejectWithValue("Error authorization");(void 0).set(r);try{const{data:i}=await pi.get(`/tasks/query?month=${+e.month+1}&year=${e.year}`);return i}catch(i){return t.rejectWithValue(i.message)}}),w0=Ct("tasks/addTaskOperation",async(e,t)=>{try{const r=t.getState().auth.token;return r===null?t.rejectWithValue("Error authorization"):((void 0).set(r),(await pi.post("/tasks",e)).data)}catch(n){return t.rejectWithValue({message:n.message,status:n.response.status})}}),b0=Ct("tasks/deleteTaskOperation",async(e,t)=>{try{const n=await pi.delete(`/tasks/${e}`);return{_id:e,...n.data}}catch(n){return t.rejectWithValue(n.message)}}),k0=Ct("tasks/editTaskOperation",async(e,t)=>{try{return(await pi.patch(`/tasks/${e._id}`,e)).data}catch(n){return t.rejectWithValue(n.message)}}),E5={currentMonth:Ba(new Date,{representation:"date"}),choosedDay:null,tasks:[],indexCurrentDay:null,isLoading:!1,error:null},gk=Cs({name:"calendar",initialState:E5,reducers:{addCurrentMonth(e,{payload:t}){e.currentMonth=t},addIndexCurrentDay(e,{payload:t}){e.indexCurrentDay=t},addChoosedDay(e,{payload:t}){e.choosedDay=t},clearTasks(e){e.tasks=[]}},extraReducers:e=>{e.addCase(x0.pending,t=>{t.isLoading=!0}).addCase(x0.fulfilled,(t,{payload:n})=>{t.tasks=[...n],t.error=null,t.isLoading=!1}).addCase(x0.rejected,(t,{payload:n})=>{t.error=n,t.isLoading=!1}).addCase((void 0).fulfilled,()=>E5).addCase(w0.pending,t=>{t.isLoading=!0}).addCase(w0.fulfilled,(t,{payload:n})=>{t.tasks.push(n),t.error=null,t.isLoading=!1}).addCase(w0.rejected,(t,{payload:n})=>{t.error=n,t.isLoading=!1}).addCase(b0.pending,t=>{t.isLoading=!0}).addCase(b0.fulfilled,(t,{payload:n})=>{t.isLoading=!1,t.error=null,t.tasks=t.tasks.filter(r=>r._id!==n._id)}).addCase(b0.rejected,(t,{payload:n})=>{t.error=n,t.isLoading=!1}).addCase(k0.pending,t=>{t.isLoading=!0}).addCase(k0.fulfilled,(t,{payload:n})=>{const r=t.tasks[t.indexCurrentDay].findIndex(i=>i._id===n._id);r!==-1&&(t.tasks[t.indexCurrentDay][r]=n),t.isLoading=!1,t.error=null}).addCase(k0.rejected,(t,{payload:n})=>{t.error=n,t.isLoading=!1})}}),{addCurrentMonth:XX,addIndexCurrentDay:lX,addChoosedDay:uX,clearTasks:QX}=gk.actions;pf({key:"calendar",storage:ku,whitelist:["currentMonth","choosedDay","indexCurrentDay"]},gk.reducer);const cX=A.ul`
   display: flex;
