@@ -17,7 +17,7 @@ import {
   IconBtnWrap,
 } from './TasksColumnItem.styled';
 import { useState } from 'react';
-import TaskForm from '../TaskModal/TaskModal';
+import TaskModal from '../TaskModal/TaskModal';
 
 const TasksColumnItem = ({ title }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -532,7 +532,7 @@ const TasksColumnItem = ({ title }) => {
         </BtnContentWrap>
       </AddTaskBtn>
 
-      {modalOpen && <TaskForm onClose={closeModal} action={action} />}
+      {modalOpen && <TaskModal onClose={closeModal} action={action} />}
     </Wrapper>
   );
 };
