@@ -63,7 +63,9 @@ const DayCalendarHead = () => {
             : ActiveDay;
           return (
             <Item key={idx}>
-              <Day>{format(day, 'EEE').toUpperCase()}</Day>
+              <Day className={idx >= 5 ? 'weekend' : ''}>
+                {format(day, 'EEE').toUpperCase()}
+              </Day>
               <DateWeek type="button" onClick={() => handleClick(day)}>
                 {formattedDay(format(day, 'dd'))}
               </DateWeek>
