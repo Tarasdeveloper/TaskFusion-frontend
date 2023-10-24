@@ -1,53 +1,34 @@
 import { Wrap } from './ChoosedDay.styled';
 import TasksColumnsList from '../TasksColumnsList/TasksColumnsList';
-import // useNavigate,
-// useParams,
-'react-router-dom';
-// import { CalendarToolbar } from '../../components/CalendarToolbar/CalendarToolbar';
-// import { PERIOD_TYPE_DAY, PERIOD_TYPE_MONTH } from './constants';
 import DayCalendarHead from '../DayCalendarHead/DayCalendarHead';
-// import { CalendarToolbar } from '../CalendarToolbar/CalendarToolbar';
+import DayToolbar from './DayToolbar';
+import { useNavigate, useParams } from 'react-router-dom';
 
-// const { currentDate } = useParams();
-// const navigate = useNavigate();
-
-// const setCurrentDate = (isoDate) => {
-//   navigate(`/calendar/day/${isoDate}`);
-// };
-
-// const switchToMonthPeriodType = (type) => {
-//   if (type === PERIOD_TYPE_MONTH) {
-//     navigate(`/calendar/month/${currentDate}`);
-//   }
-// };
+import { PERIOD_TYPE_MONTH } from '../../pages/Calendar/constants';
 
 export const ChoosedDay = () => {
-  // const { currentDate } = useParams();
+  const { currentDate } = useParams();
+  const navigate = useNavigate();
+  const currentMonth = new Date(currentDate);
 
-  // const navigate = useNavigate();
+  const setCurrentDate = (isoDate) => {
+    navigate(`/calendar/day/${isoDate}`);
+  };
 
-  // const setCurrentDate = (isoDate) => {
-  //   navigate(`/calendar/day/${isoDate}`);
-  // };
+  const switchToMonthPeriodType = (type) => {
+    if (type === PERIOD_TYPE_MONTH) {
+      navigate(`/calendar/month/${currentDate}`);
+    }
+  };
 
-  // const switchToMonthPeriodType = (type) => {
-  //   if (type === PERIOD_TYPE_MONTH) {
-  //     navigate(`/calendar/month/${currentDate}`);
-  //   }
-  // };
-
-  // console.log(currentDate);
   return (
     <Wrap>
-      {/* <Header></Header> */}
-      {/* <SideBar></SideBar> */}
-      {/* 
-      <CalendarToolbar
-        currentDate={currentDate}
+      <DayToolbar
+        currentMonth={currentMonth}
         setCurrentDate={setCurrentDate}
-        periodType={PERIOD_TYPE_DAY}
         setPeriodType={switchToMonthPeriodType}
-      /> */}
+        periodType={PERIOD_TYPE_MONTH}
+      />
       <DayCalendarHead />
       <TasksColumnsList />
     </Wrap>

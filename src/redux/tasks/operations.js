@@ -4,7 +4,7 @@ import { $instance } from '../auth/operations';
 export const getTasksThunk = createAsyncThunk(
   'tasks/getTasks',
   async (requestedData, thunkApi) => {
-    const date = requestedData.split('-')
+    const date = requestedData.split('-');
     try {
       const { data } = await $instance.get(
         `/tasks?year=${date[0]}&month=${date[1]}`,
@@ -25,8 +25,8 @@ export const deleteTaskThunk = createAsyncThunk(
       const { data } = await $instance.delete(`/tasks/${requestedData}`);
       const newData = {
         data: data,
-        id : requestedData
-      }
+        id: requestedData,
+      };
 
       return newData;
     } catch (error) {
@@ -51,7 +51,7 @@ export const addTaskThunk = createAsyncThunk(
   'tasks/addTask',
   async (requestedData, thunkApi) => {
     try {
-      const  result  = await $instance.post('/tasks', requestedData);
+      const result = await $instance.post('/tasks', requestedData);
 
       return result;
     } catch (error) {
@@ -59,4 +59,3 @@ export const addTaskThunk = createAsyncThunk(
     }
   },
 );
-

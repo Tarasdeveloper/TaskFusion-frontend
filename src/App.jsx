@@ -32,6 +32,14 @@ function App() {
     dispatch(refreshUserThunk());
   }, [authenticated, dispatch, token]);
 
+  // useEffect(() => {
+  //   if (!token || authenticated) return;
+  //   const res = async () => {
+  //     await dispatch(refreshUserThunk());
+  //   };
+  //   res();
+  // }, [authenticated, dispatch, token]);
+
   return (
     <AppWrapper>
       <Routes>
