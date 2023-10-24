@@ -8,15 +8,17 @@ const Wrap = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 0px 20px 66px 20px;
+  padding: 0px 20px 20px 20px;
+  //   overflow: visible;
 
   @media (min-width: 375px) {
   }
   @media (min-width: 768px) {
-    padding: 0 32px;
+    padding: 0 32px 18px 32px;
   }
   @media (min-width: 1440px) {
     // padding-top: 116px;
+    padding: 0 32px 50px 32px;
   }
 `;
 
