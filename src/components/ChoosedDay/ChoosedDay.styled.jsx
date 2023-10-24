@@ -9,7 +9,6 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0px 20px 20px 20px;
-  width: 100%;
   //   overflow: visible;
 
   @media (min-width: 375px) {
@@ -24,3 +23,13 @@ const Wrap = styled.div`
 `;
 
 export { Wrap };
+
+// import styled from 'styled-components';
+
+// const Wrap = styled.div`
+//   //   overflow: scroll;
+//   min-height: 100vh;
+//   width: 100%;
+// `;
+
+// export { Wrap };
