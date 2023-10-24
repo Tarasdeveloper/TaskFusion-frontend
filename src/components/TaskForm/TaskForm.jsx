@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { addTaskThunk, editTaskThunk } from '../../redux/tasks/operations';
 import { ReactComponent as IconAdd } from '../../assets/img/addIcon.svg';
@@ -23,7 +23,7 @@ import {
   RadioWrapper,
   TimeWrapper,
 } from './TaskForm.styled';
-import { selectCurrentDate } from '../../redux/calendarMonth/calendarMonth.selectors';
+import { useParams } from 'react-router-dom';
 
 const TaskSchema = Yup.object().shape({
   title: Yup.string()
@@ -50,15 +50,18 @@ const TaskSchema = Yup.object().shape({
     .required('Priority is required'),
 });
 
-const TaskForm = ({ onClose, action, taskToEdit }) => {
+const TaskForm = ({ onClose, action, taskToEdit, column }) => {
+  const { currentDate } = useParams();
   const { _id, title, start, end, priority } = taskToEdit || {};
 
   const dispatch = useDispatch();
-  const date = useSelector(selectCurrentDate);
+  const date = currentDate;
+
+  const resultColumn = column.trim().replace(' ', '-').toLowerCase();
 
   const handleSubmit = (values, actions) => {
     if (action === 'add') {
-      values = { ...values, date: date, category: 'to-do' };
+      values = { ...values, date: date, category: resultColumn };
       dispatch(addTaskThunk(values));
     }
 
@@ -81,72 +84,73 @@ const TaskForm = ({ onClose, action, taskToEdit }) => {
       validationSchema={TaskSchema}
       onSubmit={handleSubmit}
     >
-      {props =>
-      <Form>
-        {console.log(props.errors)}
-        <Label>
-          Title
-          <InputTitle type="text" name="title" placeholder="Enter text" />
-          <ErrorMessage name="title" component="div" />
-        </Label>
-
-        <TimeWrapper>
+      {(props) => (
+        <Form>
+          {console.log(props.errors)}
           <Label>
-            Start
-            <InputTime type="time" name="start" />
-            <ErrorMessage name="start" component="div" />
+            Title
+            <InputTitle type="text" name="title" placeholder="Enter text" />
+            <ErrorMessage name="title" component="div" />
           </Label>
-          <Label>
-            End
-            <InputTime type="time" name="end" />
-            <ErrorMessage name="end" component="div" />
-          </Label>
-        </TimeWrapper>
 
-        <RadioWrapper role="group" aria-labelledby="my-radio-group">
-          <RadioLabel>
-            <RadioField type="radio" name="priority" value="low" />
-            <RadioSpan value="low" />
-            Low
-          </RadioLabel>
-          <RadioLabel>
-            <RadioField type="radio" name="priority" value="medium" />
-            <RadioSpan value="medium" />
-            Medium
-          </RadioLabel>
-          <RadioLabel>
-            <RadioField type="radio" name="priority" value="high" />
-            <RadioSpan value="high" />
-            High
-          </RadioLabel>
-        </RadioWrapper>
+          <TimeWrapper>
+            <Label>
+              Start
+              <InputTime type="time" name="start" />
+              <ErrorMessage name="start" component="div" />
+            </Label>
+            <Label>
+              End
+              <InputTime type="time" name="end" />
+              <ErrorMessage name="end" component="div" />
+            </Label>
+          </TimeWrapper>
 
-        <ButtonWrapper>
-          {action === 'add' ? (
-            <ButtonAction type="submit">
-              <IconAdd />
-              Add
-            </ButtonAction>
-          ) : (
-            <ButtonAction type="submit">
-              <IconEdit stroke="#fff" />
-              Edit
-            </ButtonAction>
-          )}
+          <RadioWrapper role="group" aria-labelledby="my-radio-group">
+            <RadioLabel>
+              <RadioField type="radio" name="priority" value="low" />
+              <RadioSpan value="low" />
+              Low
+            </RadioLabel>
+            <RadioLabel>
+              <RadioField type="radio" name="priority" value="medium" />
+              <RadioSpan value="medium" />
+              Medium
+            </RadioLabel>
+            <RadioLabel>
+              <RadioField type="radio" name="priority" value="high" />
+              <RadioSpan value="high" />
+              High
+            </RadioLabel>
+          </RadioWrapper>
 
-          <ButtonCancel type="button" onClick={onClose}>
-            Cancel
-          </ButtonCancel>
-        </ButtonWrapper>
+          <ButtonWrapper>
+            {action === 'add' ? (
+              <ButtonAction type="submit">
+                <IconAdd />
+                Add
+              </ButtonAction>
+            ) : (
+              <ButtonAction type="submit">
+                <IconEdit stroke="#fff" />
+                Edit
+              </ButtonAction>
+            )}
 
-        <ButtonCloseWrap
-          type="button"
-          aria-label="close button"
-          onClick={onClose}
-        >
-          <CloseIcon />
-        </ButtonCloseWrap>
-      </Form>}
+            <ButtonCancel type="button" onClick={onClose}>
+              Cancel
+            </ButtonCancel>
+          </ButtonWrapper>
+
+          <ButtonCloseWrap
+            type="button"
+            aria-label="close button"
+            onClick={onClose}
+          >
+            <CloseIcon />
+          </ButtonCloseWrap>
+        </Form>
+      )}
     </Formik>
   );
 };

@@ -303,15 +303,16 @@ const Priority = styled.div`
   border-radius: 4px;
 
   color: #f7f6f9;
+  text-transform: capitalize;
   font-family: 'Inter';
   font-size: 10px;
   font-weight: 600;
   line-height: 12px;
 
   background-color: ${(props) =>
-    props.$priority === 'Low'
+    props.$priority === 'low'
       ? '#72C2F8'
-      : props.$priority === 'Medium'
+      : props.$priority === 'medium'
       ? '#F3B249'
       : '#EA3D65'};
 
