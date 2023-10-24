@@ -52,7 +52,9 @@ export const EditBtn = styled.button`
   justify-content: center;
   align-items: center;
   background-color: ${(props) => {
-    return props.$isActive ? '#3E85F3' : 'var(--modal-edit-btn-inactive-color)';
+    return props.$isActive
+      ? '#3E85F3'
+      : 'var(--modal-feedback-edit-btn-inactive-color)';
   }};
   border: none;
   width: 30px;
@@ -116,7 +118,7 @@ export const InputFeedbackForm = styled(Field)`
 
   background-color: var(--modal-input-background-color);
   border: 1px solid;
-  border-color: var(--modal-input-border-color);
+  border-color: var(--modal-feedback-input-border-color);
   border-radius: 8px;
   outline: none;
 
@@ -135,7 +137,7 @@ export const InputFeedbackForm = styled(Field)`
 
   &:hover,
   &:focus {
-    border-color: var(--modal-input-border-color-hover);
+    border-color: var(--modal-feedback-input-border-color-hover);
   }
   &:disabled {
     cursor: not-allowed;
@@ -223,7 +225,7 @@ export const BtnCloseWrap = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  stroke: var(--modal-icon-close-btn-color);
+  stroke: var(--modal-feedback-icon-close-btn-color);
 
   transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
   @media (min-width: 768px) {
