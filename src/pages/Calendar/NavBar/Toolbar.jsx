@@ -20,9 +20,8 @@ const Toolbar = ({
   periodType,
 }) => {
   const { currentDate } = useParams();
-
   const prevHandler = () => {
-    const prevMonth = new Date(currentMonth);
+    const prevMonth = new Date(currentDate);
     prevMonth.setMonth(prevMonth.getMonth() - 1);
     setCurrentDate(format(prevMonth, 'yyyy-MM-dd'));
   };

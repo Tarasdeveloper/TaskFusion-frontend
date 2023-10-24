@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { selectTasks } from '../../../redux/calendarMonth/calendarMonth.selectors';
 import { useSelector } from 'react-redux';
 import useCalendar from '../../../hooks/useCalendar';
@@ -82,7 +82,10 @@ export const CalendarGrid = () => {
   }, []);
 
   const isCurrentDate = (date) => {
-    return formatISO(date, { representation: 'date' }) === currentDate;
+    return (
+      formatISO(date, { representation: 'date' }) ===
+      formatISO(new Date(), { representation: 'date' })
+    );
   };
 
   const listOfTasks = tasks.reduce((acc, task) => {
