@@ -366,7 +366,6 @@ Error generating stack: `+a.message+`
   display: flex;
   gap: 18px;
   flex-direction: column;
-  max-width: 443px;
 `,HO=L.img`
   width: 50px;
   height: 50px;
@@ -380,6 +379,7 @@ Error generating stack: `+a.message+`
   height: 50px;
   border-radius: 50%;
   background-color: #fff;
+  flex-shrink: 0;
 `,GO=L.p`
   margin-bottom: 13px;
 `,qO=L.div`
