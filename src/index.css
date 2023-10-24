@@ -85,6 +85,10 @@
   /* FEEDBACK */
   --modal-feedback-rating-inactive-color: #cec9c1;
   --modal-feedback-btn-cancel-background-color: #e5edfa;
+  --modal-feedback-edit-btn-inactive-color: #e3f3ff;
+  --modal-feedback-icon-close-btn-color: #111111;
+  --modal-feedback-input-border-color: #f6f6f6;
+  --modal-feedback-input-border-color-hover: rgba(255, 255, 255, 0.15);
 
   /* error */
   --error-text-color: rgba(17, 17, 17, 0.7);
@@ -150,6 +154,9 @@
   /* FEEDBACK */
   --modal-feedback-rating-inactive-color: #353647;
   --modal-feedback-btn-cancel-background-color: #21222c;
+  --modal-feedback-icon-close-btn-color: #ffffff;
+  --modal-feedback-input-border-color-hover: #3e85f3;
+  --modal-feedback-edit-btn-inactive-color: #353647;
 
   /* error */
   --error-text-color: rgba(255, 255, 255, 1);
