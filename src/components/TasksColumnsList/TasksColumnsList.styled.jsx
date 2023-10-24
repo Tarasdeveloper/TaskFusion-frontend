@@ -5,9 +5,7 @@ const Wrap = styled.div`
   column-gap: 30px;
   justify-content: space-between;
   width: 100%;
-  //   padding-left: 20px;
   padding-bottom: 34px;
-  // padding-bottom: ${(props) => (props.$isTasksAdded ? '34px' : '311px')}
 
   overflow-x: auto;
 
