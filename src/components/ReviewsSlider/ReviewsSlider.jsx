@@ -1,6 +1,7 @@
 import {
   BtnWrap,
   HeadWrap,
+  ImgWrap,
   NextBtn,
   PrevBtn,
   ReviewImg,
@@ -10,6 +11,7 @@ import {
   ReviewsTitle,
   ReviewsWrap,
   SingleHeader,
+  SlideWrap,
   StarzWrap,
   Svg,
 } from './ReviewsSlider.styled';
@@ -51,10 +53,10 @@ const ReviewsSlider = () => {
       prevEl: '.custom-prev-button',
     },
     loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
   };
 
   return isLoading ? (
@@ -73,29 +75,33 @@ const ReviewsSlider = () => {
             return (
               <SwiperSlide key={_id}>
                 <ReviewSlide>
-                  <SingleHeader>
-                    <ReviewImg src={avatar} alt={name} />
+                  <SlideWrap>
+                    <ImgWrap>
+                      <ReviewImg src={avatar} alt={name} />
+                    </ImgWrap>
+                    <SingleHeader>
+                      <HeadWrap>
+                        <ReviewName>{name}</ReviewName>
 
-                    <HeadWrap>
-                      <ReviewName>{name}</ReviewName>
-                      <StarzWrap>
-                        {Array.from({ length: 5 }, (_, index) => (
-                          <SvgRatingStar
-                            key={index}
-                            width={14}
-                            height={14}
-                            fill={index < rating ? '#FFAC33' : '#CEC9C1'}
-                            color={index < rating ? '#FFAC33' : '#CEC9C1'}
-                          />
-                        ))}
-                      </StarzWrap>
-                    </HeadWrap>
-                  </SingleHeader>
-                  <ReviewText>
-                    {review.review.length > 150
-                      ? `${review.review.slice(0, 150)}...`
-                      : review.review}
-                  </ReviewText>
+                        <StarzWrap>
+                          {Array.from({ length: 5 }, (_, index) => (
+                            <SvgRatingStar
+                              key={index}
+                              width={14}
+                              height={14}
+                              fill={index < rating ? '#FFAC33' : '#CEC9C1'}
+                              color={index < rating ? '#FFAC33' : '#CEC9C1'}
+                            />
+                          ))}
+                        </StarzWrap>
+                      </HeadWrap>
+                      <ReviewText>
+                        {review.review.length > 150
+                          ? `${review.review.slice(0, 150)}...`
+                          : review.review}
+                      </ReviewText>
+                    </SingleHeader>
+                  </SlideWrap>
                 </ReviewSlide>
               </SwiperSlide>
             );
