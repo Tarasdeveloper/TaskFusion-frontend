@@ -1,7 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { addTaskThunk, editTaskThunk } from '../../redux/tasks/operations';
 import { ReactComponent as IconAdd } from '../../assets/img/addIcon.svg';
@@ -24,6 +23,7 @@ import {
   RadioWrapper,
   TimeWrapper,
 } from './TaskForm.styled';
+import { selectCurrentDate } from '../../redux/calendarMonth/calendarMonth.selectors';
 
 const TaskSchema = Yup.object().shape({
   title: Yup.string()
@@ -48,30 +48,17 @@ const TaskSchema = Yup.object().shape({
   priority: Yup.string()
     .oneOf(['low', 'medium', 'high'])
     .required('Priority is required'),
-  date: Yup.date()
-    .required('Date is required')
-    .transform((value, originalValue) => {
-      if (originalValue) {
-        const [year, month, day] = originalValue.split('-');
-        return new Date(
-          `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`,
-        );
-      }
-      return value;
-    }),
-  category: Yup.string()
-    .oneOf(['to-do', 'in-progress', 'done'])
-    .required('Category is required'),
 });
 
-const TaskForm = ({ onClose, action, column, taskToEdit }) => {
-  const { _id, title, start, end, priority, date } = taskToEdit || {};
+const TaskForm = ({ onClose, action, taskToEdit }) => {
+  const { _id, title, start, end, priority } = taskToEdit || {};
 
   const dispatch = useDispatch();
-  const { currentDay } = useParams();
+  const date = useSelector(selectCurrentDate);
 
   const handleSubmit = (values, actions) => {
     if (action === 'add') {
+      values = { ...values, date: date, category: 'to-do' };
       dispatch(addTaskThunk(values));
     }
 
@@ -83,12 +70,6 @@ const TaskForm = ({ onClose, action, column, taskToEdit }) => {
     onClose();
   };
 
-  const setCategory = () => {
-    if (column === 'To do') return 'to-do';
-    if (column === 'In progress') return 'in-progress';
-    if (column === 'Done') return 'done';
-  };
-
   return (
     <Formik
       initialValues={{
@@ -96,13 +77,13 @@ const TaskForm = ({ onClose, action, column, taskToEdit }) => {
         start: (action === 'edit' && start) || '09:00',
         end: (action === 'edit' && end) || '10:00',
         priority: (action === 'edit' && priority) || 'low',
-        date: date ? date : currentDay,
-        category: setCategory(),
       }}
       validationSchema={TaskSchema}
       onSubmit={handleSubmit}
     >
+      {props =>
       <Form>
+        {console.log(props.errors)}
         <Label>
           Title
           <InputTitle type="text" name="title" placeholder="Enter text" />
@@ -165,7 +146,7 @@ const TaskForm = ({ onClose, action, column, taskToEdit }) => {
         >
           <CloseIcon />
         </ButtonCloseWrap>
-      </Form>
+      </Form>}
     </Formik>
   );
 };

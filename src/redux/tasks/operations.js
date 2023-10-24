@@ -4,13 +4,14 @@ import { $instance } from '../auth/operations';
 export const getTasksThunk = createAsyncThunk(
   'tasks/getTasks',
   async (requestedData, thunkApi) => {
+    const date = requestedData.split('-')
     try {
-      const {data} = await $instance.get(
-        `/tasks?year=${requestedData.year}&month=${requestedData.month}`,
+      const { data } = await $instance.get(
+        `/tasks?year=${date[0]}&month=${date[1]}`,
       );
-      console.log('res: ', data);
+      const newData = data.filter((task) => task.date === requestedData);
 
-      return data;
+      return newData;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
