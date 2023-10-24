@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
   border-radius: 8px;
 
-  min-width: 335px;
+  width: 100%;
   direction: ltr;
   border: 1px solid var(--calendar-day-task-border-color);
   background-color: var(--tetriary-background-color);
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     padding: ${(props) =>
       props.$isTasksAdded ? '18px 18px 112px 17px' : '20px 20px 107px 20px'};
     height: ${(props) => (props.$isTasksAdded ? '568px' : '165px')};
-    width: 344px;
+    min-width: 344px;
   }
 
   @media (min-width: 1440px) {
@@ -100,7 +100,7 @@ const AddTaskBtn = styled.button`
   type: 'button';
   //   padding: 12px 100px;
   //   padding-top: 13px;
-  width: 299px;
+  max-width: 299px;
   height: 48px;
 
   display: flex;
@@ -129,7 +129,7 @@ const AddTaskBtn = styled.button`
     justify-content: center;
     align-items: center;
 
-    width: 304px;
+    max-width: 90%;
     height: 52px;
   }
 
@@ -214,7 +214,7 @@ const Task = styled.div`
   border: 1px solid var(--calendar-day-task-border-color);
   background-color: var(--secondary-background-color);
   padding: 14px 12px 18px 15px;
-  width: 299px;
+  width: 100%;
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-border-color);
 
@@ -224,6 +224,7 @@ const Task = styled.div`
   @media (min-width: 768px) {
     padding: 14px 14px 18px 14px;
     height: 112px;
+    min-width: 300px;
   }
 
   @media (min-width: 1440px) {
@@ -232,7 +233,7 @@ const Task = styled.div`
 
 const TaskTitle = styled.p`
   display: block;
-  max-width: 272px;
+  width: 100%;
   margin-bottom: 28px;
 
   overflow: hidden;
