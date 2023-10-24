@@ -2492,10 +2492,10 @@ const lq=j.div`
   width: 303px;
   max-height: 420px;
   padding: 48px 18px 40px;
-  background-color: #fff;
+  background-color: var(--modal-background-color);
 
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--calendar-day-addTask-btn-border-color: );
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
   @media (min-width: 768px) {
@@ -2507,7 +2507,7 @@ const lq=j.div`
   flex-direction: column;
   gap: 8px;
 
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--modal-primary-text-color);
   font-size: 12px;
   font-family: Inter;
   font-weight: 500;
@@ -2517,10 +2517,10 @@ const lq=j.div`
   height: 42px;
   padding: 12px 14px;
   border-radius: 8px;
-  background: #f6f6f6;
-  border: 1px solid #f6f6f6;
+  background: var(--modal-input-background-color);
+  border: 1px solid var(--modal-feedback-input-border-color);
 
-  color: #343434;
+  color: var(--secondary-text-color);
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
@@ -2534,7 +2534,7 @@ const lq=j.div`
 
   &::placeholder {
     opacity: 1;
-    color: #343434;
+    color: var(--secondary-text-color);
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
@@ -2553,8 +2553,8 @@ const lq=j.div`
   height: 42px;
   padding: 12px 14px;
   border-radius: 8px;
-  background: #f6f6f6;
-  border: 1px solid #f6f6f6;
+  background: var(--modal-input-background-color);
+  border: 1px solid var(--modal-feedback-input-border-color);
   cursor: pointer;
 
   color: #343434;
@@ -2586,7 +2586,7 @@ const lq=j.div`
   align-items: center;
   margin-top: 16px;
 
-  color: #343434;
+  color: var(--secondary-text-color);
   font-size: 12px;
   font-family: Inter;
   font-weight: 600;
@@ -2635,7 +2635,7 @@ const lq=j.div`
 
   border-radius: 8px;
   border: none;
-  background-color: #3e85f3;
+  background-color: var(--btn-background-color);
   cursor: pointer;
 
   color: #fff;
@@ -2645,11 +2645,11 @@ const lq=j.div`
   font-weight: 600;
   line-height: 18px;
 
-  transition: background-color 250ms linear;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
+    background-color: var(--btn-hover-color);
   }
 
   @media (min-width: 768px) {
@@ -2674,7 +2674,7 @@ const lq=j.div`
   font-weight: 600;
   line-height: 18px;
 
-  transition: background-color 250ms linear;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -2704,8 +2704,8 @@ const lq=j.div`
   font-family: Inter;
   line-height: 14px;
 `,Nq=j(Y9)`
-  transition: stroke 250ms linear;
-  stroke: #111;
+  transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: var(--modal-feedback-icon-close-btn-color);
 
   &:hover,
   &:focus {
