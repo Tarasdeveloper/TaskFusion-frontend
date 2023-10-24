@@ -7,7 +7,8 @@ export const StatisticsChartContainer = styled.div`
   padding: 40px 14px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 0.8px solid #e3f3ff;
+  border: 0.8px solid var(--statistic-border-color);
+  transition: var(--transition-changetheme-border-color);
   @media (min-width: 768px) {
     width: 640px;
     height: 440px;
@@ -22,12 +23,14 @@ export const StatisticsChartContainer = styled.div`
 
 export const StatisticsChartTitle = styled.p`
   margin-bottom: 20px;
-  color: #343434;
+  color: var(--secondary-text-color);
 
   font-family: Inter;
   font-size: 14px;
   font-weight: 600;
   line-height: 150%; /* 21px */
+  transition: var(--transition-changetheme-color);
+
   @media (min-width: 768px) {
     margin-bottom: 24px;
   }
@@ -48,16 +51,18 @@ export const StatisticsChartSection = styled.div`
   p {
     display: inline-block;
     width: 25px;
-    color: #343434;
+    color: var(--secondary-text-color);
     text-align: right;
     font-family: Inter;
     font-size: 14px;
     line-height: 150%; /* 21px */
+    transition: var(--transition-changetheme-color);
   }
   div {
     width: 243px;
     height: 1px;
-    background: #e3f3ff;
+    background-color: var(--statistic-border-color);
+    transition: var(--transition-changetheme-background-color);
     @media (min-width: 768px) {
       width: 522px;
     }
@@ -111,11 +116,13 @@ export const StatisticWrap = styled.div`
   display: flex;
   gap: 8px;
 
-  color: #343434;
+  color: var(--secondary-text-color);
   font-family: Poppins;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px; /* 133.333% */
+  transition: var(--transition-changetheme-color);
+
   @media (min-width: 768px) {
     gap: 14px;
   }
@@ -145,11 +152,14 @@ export const StatisticsWrap = styled.div`
   justify-content: flex-end;
   gap: 20px;
 
-  color: #343434;
+  color: var(--secondary-text-color);
 
   font-family: Inter;
   font-size: 12px;
   line-height: 16px; /* 133.333% */
+
+  transition: var(--transition-changetheme-color);
+
   p {
     white-space: nowrap;
   }
@@ -158,7 +168,7 @@ export const StatisticsWrap = styled.div`
     font-size: 14px;
   }
 `;
- 
+
 export const StatisticsInfo = styled.div`
   display: flex;
   justify-content: center;
@@ -174,4 +184,3 @@ export const StatisticsInfoWrap = styled.div`
     margin-top: 0;
   }
 `;
-

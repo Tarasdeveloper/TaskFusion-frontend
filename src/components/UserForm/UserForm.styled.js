@@ -217,7 +217,8 @@ export const Input = styled.input`
   line-height: 1.29;
   margin-bottom: 18px;
   transition: var(--transition-changetheme-background-color),
-    var(--transition-changetheme-color);
+    var(--transition-changetheme-color),
+    var(--transition-changetheme-border-color);
 
   @media (min-width: 768px) {
     height: 46px;
@@ -260,7 +261,8 @@ export const InputDatePicker = styled(DatePicker)`
   margin-bottom: 18px;
 
   transition: var(--transition-changetheme-background-color),
-    var(--transition-changetheme-color);
+    var(--transition-changetheme-color),
+    var(--transition-changetheme-border-color);
 
   @media (min-width: 768px) {
     height: 46px;

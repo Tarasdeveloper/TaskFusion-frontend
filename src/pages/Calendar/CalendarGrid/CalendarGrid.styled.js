@@ -4,10 +4,11 @@ export const GridWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: stretch;
-  gap: 1px;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 52px;
+  border: 1px solid var(--calendar-month-border-color);
+  transition: var(--transition-changetheme-border-color);
 `;
 
 export const CellWrap = styled.button`
@@ -17,9 +18,11 @@ export const CellWrap = styled.button`
   text-align: right;
   padding: 8px 4px 8px 4px;
   height: 94px;
-  border: none;
+  border: 1px solid var(--calendar-month-border-color);
   align-items: flex-end;
-  background-color: #fff;
+  background-color: var(--tetriary-background-color);
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-border-color);
   @media (min-width: 768px) {
     padding: 7px;
     height: 144px;
@@ -40,8 +43,12 @@ export const CalendarDate = styled.span`
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
-  color: ${({ $current }) => ($current ? 'white;' : '#343434')};
-  background-color: ${({ $current }) => ($current ? '#3E85F3;' : 'white')};
+  color: ${({ $current }) =>
+    $current ? 'white;' : 'var(--secondary-text-color)'};
+  background-color: ${({ $current }) =>
+    $current ? '#3E85F3;' : 'var(--tetriary-background-color)'};
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -55,9 +62,6 @@ export const GridWrapOfDays = styled.div`
   grid-template-columns: repeat(7, 1fr);
   margin-bottom: 14px;
   margin-top: 24px;
-  border-radius: 5px;
-  background-color: white;
-  border-radius: 8px;
 `;
 export const CellWrapOfDays = styled.div`
   display: flex;
@@ -65,11 +69,21 @@ export const CellWrapOfDays = styled.div`
   justify-content: center;
   padding-top: 16px;
   padding-bottom: 16px;
-  color: var(--calendar-month-primary-text-color);
+  color: var(--secondary-text-color);
 
   background-color: var(--tetriary-background-color);
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-color);
+
+  &:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
   &:nth-child(7n),
   &:nth-child(7n - 1) {
     color: #3e85f3;
