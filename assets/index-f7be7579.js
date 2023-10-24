@@ -1755,7 +1755,7 @@ width: 18px;
     height: 80vh;
     overflow-y: auto;
   }
-`,RG=()=>{const[e,t]=C.useState(!1),n=()=>t(i=>!i),r=MG();return C.useEffect(()=>{t(r.width>1440&&!0)},[r.width]),p.jsx(p.Fragment,{children:p.jsxs(jG,{children:[p.jsx(LG,{children:e&&p.jsx(NG,{onToggle:n})}),p.jsxs(AG,{children:[p.jsx(yG,{onToggle:n}),p.jsx($G,{children:p.jsx(LS,{})})]})]})})},IG=A.div`
+`,RG=()=>{const[e,t]=C.useState(!1),n=()=>t(i=>!i),r=MG();return C.useEffect(()=>{t(r.width>=1440&&!0)},[r.width]),p.jsx(p.Fragment,{children:p.jsxs(jG,{children:[p.jsx(LG,{children:e&&p.jsx(NG,{onToggle:n})}),p.jsxs(AG,{children:[p.jsx(yG,{onToggle:n}),p.jsx($G,{children:p.jsx(LS,{})})]})]})})},IG=A.div`
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 64px;
