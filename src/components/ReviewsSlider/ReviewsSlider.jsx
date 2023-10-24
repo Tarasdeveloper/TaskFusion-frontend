@@ -30,11 +30,10 @@ const ReviewsSlider = () => {
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    const page = 1; // Значення для сторінки
-    const limit = 2; // Значення для обмеження
+    const page = 1;
+    const limit = 2;
     dispatch(getReviews({ page, limit }));
   }, [dispatch]);
-  console.log('review', reviews);
 
   const breakpoints = {
     1024: {
