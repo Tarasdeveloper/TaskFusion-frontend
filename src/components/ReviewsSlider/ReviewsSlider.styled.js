@@ -51,12 +51,14 @@ export const ReviewSlide = styled.div`
 
 export const SlideWrap = styled.div`
   display: flex;
+  gap: 18px;
 `;
 
 export const SingleHeader = styled.div`
   display: flex;
   gap: 18px;
   flex-direction: column;
+  max-width: 443px;
 `;
 
 export const ReviewImg = styled.img`
@@ -74,7 +76,6 @@ export const ImgWrap = styled.div`
   height: 50px;
   border-radius: 50%;
   background-color: #fff;
-  margin-right: 18px;
 `;
 
 export const ReviewName = styled.p`

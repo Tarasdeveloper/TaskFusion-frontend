@@ -96,8 +96,8 @@ const ReviewsSlider = () => {
                         </StarzWrap>
                       </HeadWrap>
                       <ReviewText>
-                        {review.review.length > 150
-                          ? `${review.review.slice(0, 150)}...`
+                        {review.review.length > 300
+                          ? `${review.review.slice(0, 300)}...`
                           : review.review}
                       </ReviewText>
                     </SingleHeader>
