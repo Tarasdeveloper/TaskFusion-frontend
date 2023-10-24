@@ -51,9 +51,9 @@ export const addTaskThunk = createAsyncThunk(
   'tasks/addTask',
   async (requestedData, thunkApi) => {
     try {
-      const { data } = await $instance.post('/tasks', requestedData);
+      const  result  = await $instance.post('/tasks', requestedData);
 
-      return data;
+      return result;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
