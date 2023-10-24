@@ -45,7 +45,7 @@ export const ReviewSlide = styled.div`
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: 8px;
   padding: 24px;
-  width: 100%;
+  max-width: 580px;
   height: 200px;
 `;
 
@@ -82,12 +82,18 @@ export const ReviewName = styled.p`
   margin-bottom: 13px;
 `;
 
-export const HeadWrap = styled.div`
+export const NameStarz = styled.div`
   display: block;
 `;
 
+export const HeadWrap = styled.div`
+  display: flex;
+  gap: 18px;
+`;
+
 export const StarzWrap = styled.div`
-  display: block;
+  display: flex;
+  gap: 10px;
 `;
 
 export const Stars = styled.svg`

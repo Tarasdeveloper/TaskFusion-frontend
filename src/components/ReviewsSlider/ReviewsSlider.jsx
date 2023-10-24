@@ -2,6 +2,7 @@ import {
   BtnWrap,
   HeadWrap,
   ImgWrap,
+  NameStarz,
   NextBtn,
   PrevBtn,
   ReviewImg,
@@ -40,12 +41,14 @@ const ReviewsSlider = () => {
   const breakpoints = {
     1024: {
       slidesPerView: 2,
+      centeredSlides: false,
     },
   };
 
   const swiperParams = {
     breakpoints: breakpoints,
     modules: [Navigation, Autoplay],
+    centeredSlides: true,
     spaceBetween: 25,
     slidesPerView: 1,
     navigation: {
@@ -76,28 +79,30 @@ const ReviewsSlider = () => {
               <SwiperSlide key={_id}>
                 <ReviewSlide>
                   <SlideWrap>
-                    <ImgWrap>
-                      <ReviewImg src={avatar} alt={name} />
-                    </ImgWrap>
                     <SingleHeader>
                       <HeadWrap>
-                        <ReviewName>{name}</ReviewName>
+                        <ImgWrap>
+                          <ReviewImg src={avatar} alt={name} />
+                        </ImgWrap>
+                        <NameStarz>
+                          <ReviewName>{name}</ReviewName>
 
-                        <StarzWrap>
-                          {Array.from({ length: 5 }, (_, index) => (
-                            <SvgRatingStar
-                              key={index}
-                              width={14}
-                              height={14}
-                              fill={index < rating ? '#FFAC33' : '#CEC9C1'}
-                              color={index < rating ? '#FFAC33' : '#CEC9C1'}
-                            />
-                          ))}
-                        </StarzWrap>
+                          <StarzWrap>
+                            {Array.from({ length: 5 }, (_, index) => (
+                              <SvgRatingStar
+                                key={index}
+                                width={14}
+                                height={14}
+                                fill={index < rating ? '#FFAC33' : '#CEC9C1'}
+                                color={index < rating ? '#FFAC33' : '#CEC9C1'}
+                              />
+                            ))}
+                          </StarzWrap>
+                        </NameStarz>
                       </HeadWrap>
                       <ReviewText>
-                        {review.review.length > 300
-                          ? `${review.review.slice(0, 300)}...`
+                        {review.review.length > 150
+                          ? `${review.review.slice(0, 150)}...`
                           : review.review}
                       </ReviewText>
                     </SingleHeader>
