@@ -4,17 +4,18 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   padding-top: 18px;
   padding-left: 17px;
-  padding-right: 18px;
+  padding-right: ${(props) => (props.$isTasksAdded ? '6px' : '18px')};
+
   border-radius: 8px;
 
-  width: 336px;
+  min-width: 335px;
   direction: ltr;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: #fff;
   position: relative;
 
   height: ${(props) => (props.$isTasksAdded ? '442px' : '155px')};
-  padding-bottom: ${(props) => (props.$isTasksAdded ? '10px' : '0px')};
+  padding-bottom: ${(props) => (props.$isTasksAdded ? '0' : '0px')};
 
   @media (min-width: 375px) {
   }
@@ -23,7 +24,8 @@ const Wrapper = styled.div`
     padding: ${(props) =>
       props.$isTasksAdded ? '18px 18px 112px 17px' : '20px 20px 107px 20px'};
     height: ${(props) => (props.$isTasksAdded ? '568px' : '165px')};
-    width: 344px;
+    min-width: 344px;
+    padding-right: 8px;
   }
 
   @media (min-width: 1440px) {
@@ -168,15 +170,31 @@ const TasksWrap = styled.div`
 
   height: 314px;
   padding-bottom: 14px;
+  padding-right: 6px;
 
   overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 6px; /* Ширина скролбара для вебкіт-браузерів (Chrome, Safari) */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5; /* Колір пальця скролбара для вебкіт-браузерів */
+    border-radius: 12px; /* Закруглені кути пальця скролбара для вебкіт-браузерів */
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f2f2f2; /* Колір треку скролбара для вебкіт-браузерів */
+    border-radius: 12px; /* Закруглені кути треку скролбара для вебкіт-браузерів */
+  }
 
   @media (min-width: 375px) {
   }
 
   @media (min-width: 768px) {
     height: 372px;
-    padding-bottom: 0px;
+    // padding-bottom: 0px;
+    padding-right: 7px;
+
     row-gap: 18px;
   }
 
