@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { setToken } from '../auth/operations';
 import { selectToken } from '../auth/selectors';
 
 export const $instance = axios.create({
