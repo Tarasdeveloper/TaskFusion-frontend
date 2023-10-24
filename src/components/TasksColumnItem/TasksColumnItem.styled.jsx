@@ -9,9 +9,12 @@ const Wrapper = styled.div`
 
   min-width: 336px;
   direction: ltr;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  border: 1px solid var(--calendar-day-task-border-color);
+  background-color: var(--tetriary-background-color);
   position: relative;
+
+  transition: var(--transition-changetheme-background-color),
+  var(--transition-changetheme-border-color);
 
   height: ${(props) => (props.$isTasksAdded ? '442px' : '155px')};
   padding-bottom: ${(props) => (props.$isTasksAdded ? '10px' : '0px')};
@@ -24,6 +27,7 @@ const Wrapper = styled.div`
       props.$isTasksAdded ? '18px 18px 112px 17px' : '20px 20px 107px 20px'};
     height: ${(props) => (props.$isTasksAdded ? '568px' : '165px')};
     width: 344px;
+    
   }
 
   @media (min-width: 1440px) {
@@ -48,11 +52,12 @@ const TitleWrap = styled.div`
 `;
 
 const Title = styled.p`
-  color: #111;
+  color: var(--primary-text-color);
   font-family: 'Inter';
   font-size: 18px;
   font-weight: 700;
   line-height: 20px;
+  transition: var(--transition-changetheme-color);
 
   @media (min-width: 375px) {
   }
@@ -94,14 +99,15 @@ const AddTaskBtn = styled.button`
   padding: 12px 100px;
   padding-top: 13px;
   border-radius: 8px;
-  border: 1px dashed #3e85f3;
-  background: #e3f3ff;
+  border: 1px dashed var(--calendar-day-addTask-btn-border-color);
+  background-color: var(--calendar-day-addTask-btn-background-color);
   outline: none;
   position: absolute;
   bottom: ${(props) => (props.$isTasksAdded ? '10px' : '20px')};
   right: 18px;
   left: 18px;
   z-index: 1;
+  transition: var(--transition-changetheme-background-color);
 
   @media (min-width: 375px) {
   }
@@ -160,6 +166,7 @@ const TasksWrap = styled.div`
 
   overflow-y: scroll;
 
+
   @media (min-width: 375px) {
   }
 
@@ -175,10 +182,12 @@ const TasksWrap = styled.div`
 
 const Task = styled.div`
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
+  border: 1px solid var(--calendar-day-task-border-color);
+  background-color: var(--secondary-background-color);
   padding: 14px 12px 18px 15px;
   width: 299px;
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-border-color);
 
   @media (min-width: 375px) {
   }
@@ -200,12 +209,13 @@ const TaskTitle = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: #111;
+  color: var(--primary-text-color);
   white-space: nowrap;
   font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
+  transition: var(--transition-changetheme-color);
 
   @media (min-width: 375px) {
   }

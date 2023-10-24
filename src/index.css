@@ -64,10 +64,8 @@
   --calendar-day-addTask-btn-background-color: #e3f3ff;
   --calendar-day-addTask-btn-border-color: #3e85f3;
 
-  --calendar-day-task-background-color: #f7f6f9;
-  --calendar-day-task-border-color: #dce3e5cc;
+  --calendar-day-task-border-color: rgba(220, 227, 229, 0.80);
 
-  --calendar-day-task-buttons-color: #111111;
   --calendar-day-task-buttons-active-color: #3e85f3;
 
   --calendar-day-task-levels-low-color: #72c2f8;
@@ -134,8 +132,7 @@
 
   --calendar-day-addTask-btn-background-color: #3e85f3;
 
-  --calendar-day-task-background-color: #171820;
-  --calendar-day-task-border-color: #ffffff26;
+  --calendar-day-task-border-color: rgba(255, 255, 255, 0.15);
 
   --calendar-day-task-buttons-color: #ffffff;
 
