@@ -64,7 +64,7 @@
   --calendar-day-addTask-btn-background-color: #e3f3ff;
   --calendar-day-addTask-btn-border-color: #3e85f3;
 
-  --calendar-day-task-border-color: rgba(220, 227, 229, 0.80);
+  --calendar-day-task-border-color: rgba(220, 227, 229, 0.8);
 
   --calendar-day-task-buttons-active-color: #3e85f3;
 
@@ -169,6 +169,7 @@ body {
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-color);
 }
+
 h1,
 h2,
 h3,
@@ -200,6 +201,9 @@ button {
   color: inherit;
   font-family: inherit;
   outline: transparent;
+}
+input {
+  font-family: inherit;
 }
 body {
   margin: 0;
