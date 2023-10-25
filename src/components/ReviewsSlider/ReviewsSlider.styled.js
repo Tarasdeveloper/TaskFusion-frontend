@@ -7,7 +7,7 @@ export const ReviewsWrap = styled.div`
   max-width: 622px;
 
   @media screen and (min-width: 1024px) {
-    max-width: unset;
+    max-width: 1188px;
   }
 `;
 
@@ -48,6 +48,11 @@ export const ReviewSlide = styled.div`
   padding: 24px;
   max-width: 580px;
   height: 200px;
+  /* cursor: grab; */
+
+  @media screen and (min-width: 480px) {
+    height: 190px;
+  }
 `;
 
 export const SlideWrap = styled.div`
