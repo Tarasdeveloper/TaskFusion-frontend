@@ -346,7 +346,7 @@ Error generating stack: `+a.message+`
   max-width: 622px;
 
   @media screen and (min-width: 1024px) {
-    max-width: unset;
+    max-width: 1188px;
   }
 `,NO=j.h2`
   color: var(--blue1, #3e85f3);
@@ -376,6 +376,11 @@ Error generating stack: `+a.message+`
   padding: 24px;
   max-width: 580px;
   height: 200px;
+  cursor: grab;
+
+  @media screen and (min-width: 480px) {
+    height: 190px;
+  }
 `,LO=j.div`
   display: flex;
   gap: 18px;
