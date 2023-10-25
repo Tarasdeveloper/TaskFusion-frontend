@@ -346,8 +346,8 @@ const IconBtnWrap = styled.button`
   border: none;
   width: fit-content;
   height: fit-content;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   fill: none;
 
   display: flex;
@@ -362,6 +362,8 @@ const IconBtnWrap = styled.button`
   }
 
   @media (min-width: 768px) {
+    width: 16px;
+    height: 16px;
   }
 
   @media (min-width: 1440px) {
