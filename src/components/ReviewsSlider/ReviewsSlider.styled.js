@@ -48,7 +48,7 @@ export const ReviewSlide = styled.div`
   padding: 24px;
   max-width: 580px;
   height: 200px;
-  cursor: grab;
+  /* cursor: grab; */
 
   @media screen and (min-width: 480px) {
     height: 190px;
