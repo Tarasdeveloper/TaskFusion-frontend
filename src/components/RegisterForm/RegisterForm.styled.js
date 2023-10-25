@@ -62,14 +62,11 @@ export const FormInput = styled.input`
   font-size: 14px;
   font-weight: 600;
   line-height: normal;
-
   transition: border 0.1s;
+  width: 287px;
+  height: 46px;
+  padding: 14px;
 
-  @media (min-width: 375px) {
-    width: 287px;
-    height: 46px;
-    padding: 14px;
-  }
   @media (min-width: 768px) {
     width: 400px;
     height: 54px;
