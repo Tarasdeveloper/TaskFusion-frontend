@@ -56,10 +56,10 @@ const ReviewsSlider = () => {
       prevEl: '.custom-prev-button',
     },
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   };
 
   return isLoading ? (
