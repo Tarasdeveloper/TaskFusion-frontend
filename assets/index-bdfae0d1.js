@@ -218,6 +218,14 @@ Error generating stack: `+a.message+`
   font-weight: 600;
   line-height: 1.28;
   text-decoration-line: underline;
+  transition:
+    background-color var(--transition-color),
+    color var(--transition-color);
+
+  &:focus,
+  &:hover {
+    color: #cdf0e6;
+  }
 `,yO=j($m)`
   color: #3e85f3;
   font-family: Inter;
@@ -232,6 +240,14 @@ Error generating stack: `+a.message+`
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   display: flex;
   gap: 6px;
+  transition:
+    background-color var(--transition-color),
+    color var(--transition-color);
+
+  &:focus,
+  &:hover {
+    background-color: #cdf0e6;
+  }
 `,xO=()=>v.jsxs(fO,{children:[v.jsx("img",{srcSet:`${Ax} 142w, ${cT} 150w,`,sizes:"(min-width: 480px) 150px, 142px",src:Ax,alt:"goose"}),v.jsxs(pO,{children:["G",v.jsx(hO,{children:"oo"}),"seTrack"]}),v.jsxs(mO,{children:[v.jsx(vO,{to:"/register",children:"Sign up"}),v.jsxs(yO,{to:"/login",children:["Log in"," ",v.jsx(gO,{children:v.jsx("use",{href:`${ni}#login`})})]})]})]}),wO="/TaskFusion-frontend/assets/calendar-dt-6995cc41.png",bO="/TaskFusion-frontend/assets/calendar-tabl-4ee24738.png",qx="/TaskFusion-frontend/assets/calendar-mob-74992713.png",kO="/TaskFusion-frontend/assets/sidebar-dt-42e2bb83.png",SO="/TaskFusion-frontend/assets/sidebar-tabl-a22180e5.png",Xx="/TaskFusion-frontend/assets/sidebar-mob-e20a554b.png",CO="/TaskFusion-frontend/assets/one-dt-ee10fce8.png",EO="/TaskFusion-frontend/assets/one-tabl-8f214221.png",Qx="/TaskFusion-frontend/assets/one-mob-ede9186e.png",VO=j.div`
   max-width: 600px;
   margin: 0 auto;
