@@ -5,10 +5,11 @@ const Wrapper = styled.div`
   padding-top: 18px;
   padding-left: 17px;
   padding-right: ${(props) => (props.$isTasksAdded ? '6px' : '18px')};
-
+  flex: 1;
   border-radius: 8px;
-
-  width: 100%;
+  // ${(props) => props.$isTasksAdded > 0 && 'width: 100%;'};
+  // ${(props) => props.$isTasksAdded === 0 && 'min-width: 299px;'};
+  min-width: 299px;
   direction: ltr;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: var(--primary-background-color);
@@ -172,7 +173,7 @@ const TasksWrap = styled.div`
   padding-bottom: 14px;
   padding-right: 6px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: 6px; /* Ширина скролбара для вебкіт-браузерів (Chrome, Safari) */
