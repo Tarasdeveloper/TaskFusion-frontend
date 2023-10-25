@@ -2183,10 +2183,11 @@ const lq=j.div`
   padding-top: 18px;
   padding-left: 17px;
   padding-right: ${e=>e.$isTasksAdded?"6px":"18px"};
-
+  flex: 1;
   border-radius: 8px;
-
-  width: 100%;
+  // ${e=>e.$isTasksAdded>0&&"width: 100%;"};
+  // ${e=>e.$isTasksAdded===0&&"min-width: 299px;"};
+  min-width: 299px;
   direction: ltr;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: var(--primary-background-color);
@@ -2335,7 +2336,7 @@ const lq=j.div`
   padding-bottom: 14px;
   padding-right: 6px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: 6px; /* Ширина скролбара для вебкіт-браузерів (Chrome, Safari) */
@@ -2743,7 +2744,6 @@ const $q=j.div`
   //   padding-left: 20px;
   padding-bottom: 34px;
   // padding-bottom: ${e=>e.$isTasksAdded?"34px":"311px"}
-
   overflow-x: auto;
 
   &::-webkit-scrollbar {
@@ -2857,6 +2857,7 @@ const $q=j.div`
   background-color: var(--primary-background-color);
   color: #343434;
 `,wX=()=>{const{currentDate:e}=fi()??"2023-10-22",t=e,n=cn(),r=Br();function i(s){return s.startsWith("0")?s.slice(1):s}const a=s=>{n(pX(Number(rn(s,"d"))-1)),n(hX(Zi(new Date(s),{representation:"date"}))),r(`/calendar/day/${rn(s,"yyyy-MM-dd")}`)};let o;return t?o=Sm({start:ls(new Date(t),{weekStartsOn:1}),end:Jb(new Date(t),{weekStartsOn:1})}):o=Sm({start:ls(new Date,{weekStartsOn:1}),end:Jb(new Date,{weekStartsOn:1})}),v.jsx(v.Fragment,{children:v.jsx(mX,{children:o==null?void 0:o.map((s,l)=>{const u=new Date(t),c=new Date(s),d=u9(u,c)?yX:xX;return v.jsxs(gX,{children:[v.jsx(vX,{className:l>=5?"weekend":"",children:rn(s,"EEE").toUpperCase()}),v.jsx(d,{type:"button",onClick:()=>a(s),children:i(rn(s,"dd"))})]},l)})})})},bX=j.nav`
+  width: 100%;
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
