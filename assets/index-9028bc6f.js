@@ -249,7 +249,7 @@ Error generating stack: `+a.message+`
   &:hover {
     background-color: #bfc9f2;
   }
-`,SP=()=>v.jsxs(gP,{children:[v.jsx("img",{srcSet:`${Ax} 142w, ${hD} 2x 142w, ${fD} 150w,${pD} 2x 142w`,sizes:"(min-width: 480px) 150px, 142px",src:Ax,alt:"goose"}),v.jsxs(vP,{children:["G",v.jsx(yP,{children:"oo"}),"seTrack"]}),v.jsxs(xP,{children:[v.jsx(bP,{to:"/register",children:"Sign up"}),v.jsxs(kP,{to:"/login",children:["Log in"," ",v.jsx(wP,{children:v.jsx("use",{href:`${Pn}#login`})})]})]})]}),CP="/TaskFusion-frontend/assets/calendar-dt-6995cc41.png",EP="/TaskFusion-frontend/assets/calendar-dt-x2-eee4ae5f.png",TP="/TaskFusion-frontend/assets/calendar-tabl-4ee24738.png",OP="/TaskFusion-frontend/assets/calendar-tabl-x2-f614f4d7.png",Gx="/TaskFusion-frontend/assets/calendar-mob-74992713.png",DP="/TaskFusion-frontend/assets/calendar-mob-x2-6b7c10ba.png",PP="/TaskFusion-frontend/assets/sidebar-dt-42e2bb83.png",_P="/TaskFusion-frontend/assets/sidebar-dt-x2-336f4c34.png",NP="/TaskFusion-frontend/assets/sidebar-tabl-a22180e5.png",MP="/TaskFusion-frontend/assets/sidebar-tabl-x2-3785c1ba.png",Xx="/TaskFusion-frontend/assets/sidebar-mob-e20a554b.png",jP="/TaskFusion-frontend/assets/sidebar-mob-x2-a7dd7712.png",AP="/TaskFusion-frontend/assets/one-dt-ee10fce8.png",$P="/TaskFusion-frontend/assets/one-dt-x2-0bbf3d40.png",LP="/TaskFusion-frontend/assets/one-tabl-8f214221.png",RP="/TaskFusion-frontend/assets/one-tabl-x2-7d7baebb.png",qx="/TaskFusion-frontend/assets/one-mob-ede9186e.png",IP="/TaskFusion-frontend/assets/one-mob-x2-c3746750.png",FP=A.div`
+`,SP=()=>v.jsxs(gP,{children:[v.jsx("img",{srcSet:`${Ax} 142w, ${hD} 2x 142w, ${fD} 150w,${pD} 2x 150w`,sizes:"(min-width: 480px) 150px, 142px",src:Ax,alt:"goose",type:"image/png"}),v.jsxs(vP,{children:["G",v.jsx(yP,{children:"oo"}),"seTrack"]}),v.jsxs(xP,{children:[v.jsx(bP,{to:"/register",children:"Sign up"}),v.jsxs(kP,{to:"/login",children:["Log in"," ",v.jsx(wP,{children:v.jsx("use",{href:`${Pn}#login`})})]})]})]}),CP="/TaskFusion-frontend/assets/calendar-dt-6995cc41.png",EP="/TaskFusion-frontend/assets/calendar-dt-x2-0c20368e.png",TP="/TaskFusion-frontend/assets/calendar-tabl-4ee24738.png",OP="/TaskFusion-frontend/assets/calendar-tabl-x2-f614f4d7.png",Gx="/TaskFusion-frontend/assets/calendar-mob-74992713.png",DP="/TaskFusion-frontend/assets/calendar-mob-x2-6b7c10ba.png",PP="/TaskFusion-frontend/assets/sidebar-dt-42e2bb83.png",_P="/TaskFusion-frontend/assets/sidebar-dt-x2-336f4c34.png",NP="/TaskFusion-frontend/assets/sidebar-tabl-a22180e5.png",MP="/TaskFusion-frontend/assets/sidebar-tabl-x2-3785c1ba.png",Xx="/TaskFusion-frontend/assets/sidebar-mob-e20a554b.png",jP="/TaskFusion-frontend/assets/sidebar-mob-x2-a7dd7712.png",AP="/TaskFusion-frontend/assets/one-dt-ee10fce8.png",$P="/TaskFusion-frontend/assets/one-dt-x2-0bbf3d40.png",LP="/TaskFusion-frontend/assets/one-tabl-8f214221.png",RP="/TaskFusion-frontend/assets/one-tabl-x2-7d7baebb.png",qx="/TaskFusion-frontend/assets/one-mob-ede9186e.png",IP="/TaskFusion-frontend/assets/one-mob-x2-c3746750.png",FP=A.div`
   max-width: 600px;
   margin: 0 auto;
 
@@ -331,7 +331,6 @@ Error generating stack: `+a.message+`
   margin-bottom: 8px;
 `,xh=A.p`
   color: rgba(17, 17, 17, 0.9);
-  font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
@@ -340,7 +339,7 @@ Error generating stack: `+a.message+`
   align-self: center;
 `,bh=A.img`
   display: block;
-`,UP=()=>v.jsx(FP,{children:v.jsxs(zP,{children:[v.jsxs(Qx,{children:[v.jsxs(Kx,{children:[v.jsx(vh,{children:"1."}),v.jsx(Zx,{children:"Calendar"}),v.jsx(yh,{children:"VIEW"}),v.jsx(xh,{children:"GooseTrack's Calendar view provides a comprehensive overview of your schedule, displaying all your tasks, events, and appointments in a visually appealing and intuitive layout."})]}),v.jsx(wh,{children:v.jsx(bh,{srcSet:`${Gx} 335w,${DP} 2x 335w, ${TP} 704w,${OP} 2x 704w, ${CP} 604w , ${EP} 2x 604w`,sizes:"(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px",src:Gx,alt:"calendar"})})]}),v.jsxs(BP,{children:[v.jsxs(WP,{children:[v.jsx(vh,{children:"2."}),v.jsx(yh,{children:"SIDEBAR"}),v.jsx(xh,{children:'GooseTrack offers easy access to your account settings, calendar, and filters. The "My Account" section allows you to manage your profile information and preferences, while the calendar provides a quick and convenient way to view your upcoming events and tasks.'})]}),v.jsx(wh,{children:v.jsx(bh,{srcSet:`${Xx} 335w,${jP} 2x 335w, ${NP} 704w,${MP} 2x 704w, ${PP} 604w, ${_P} 2x 604w`,sizes:"(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px",src:Xx,alt:"sidebar"})})]}),v.jsxs(Qx,{children:[v.jsxs(Kx,{children:[v.jsx(vh,{children:"3."}),v.jsx(Zx,{children:"All in"}),v.jsx(yh,{children:"ONE"}),v.jsx(xh,{children:"GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack."})]}),v.jsx(wh,{children:v.jsx(bh,{srcSet:`${qx} 335w,${IP} 2x 335w, ${LP} 704w,${RP} 2x 704w, ${AP} 604w, ${$P} 2x 604w`,sizes:"(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px",src:qx,alt:"one"})})]})]})}),HP=A.div`
+`,UP=()=>v.jsx(FP,{children:v.jsxs(zP,{children:[v.jsxs(Qx,{children:[v.jsxs(Kx,{children:[v.jsx(vh,{children:"1."}),v.jsx(Zx,{children:"Calendar"}),v.jsx(yh,{children:"VIEW"}),v.jsx(xh,{children:"GooseTrack's Calendar view provides a comprehensive overview of your schedule, displaying all your tasks, events, and appointments in a visually appealing and intuitive layout."})]}),v.jsx(wh,{children:v.jsx(bh,{srcSet:`${Gx} 335w,${DP} 2x 335w, ${TP} 704w,${OP} 2x 704w, ${CP} 604w , ${EP} 2x 604w`,sizes:"(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px",src:Gx,alt:"calendar",type:"image/png"})})]}),v.jsxs(BP,{children:[v.jsxs(WP,{children:[v.jsx(vh,{children:"2."}),v.jsx(yh,{children:"SIDEBAR"}),v.jsx(xh,{children:'GooseTrack offers easy access to your account settings, calendar, and filters. The "My Account" section allows you to manage your profile information and preferences, while the calendar provides a quick and convenient way to view your upcoming events and tasks.'})]}),v.jsx(wh,{children:v.jsx(bh,{srcSet:`${Xx} 335w,${jP} 2x 335w, ${NP} 704w,${MP} 2x 704w, ${PP} 604w, ${_P} 2x 604w`,sizes:"(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px",src:Xx,alt:"sidebar",type:"image/png"})})]}),v.jsxs(Qx,{children:[v.jsxs(Kx,{children:[v.jsx(vh,{children:"3."}),v.jsx(Zx,{children:"All in"}),v.jsx(yh,{children:"ONE"}),v.jsx(xh,{children:"GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack."})]}),v.jsx(wh,{children:v.jsx(bh,{srcSet:`${qx} 335w,${IP} 2x 335w, ${LP} 704w,${RP} 2x 704w, ${AP} 604w, ${$P} 2x 604w`,sizes:"(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px",src:qx,alt:"one",type:"image/png"})})]})]})}),HP=A.div`
   max-width: 1186px;
   margin: 0 auto;
   padding: 64px 20px;
@@ -357,11 +356,12 @@ Error generating stack: `+a.message+`
   line-height: 1.14;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: clamp(40px, 10vw, 50px);
 `,VP=A.div`
   display: flex;
   justify-content: center;
   gap: 25px;
+  margin-top: clamp(8px, 3vw, 32px);
 `,GP=A.div`
   cursor: pointer;
   display: inline-block;
@@ -418,7 +418,6 @@ Error generating stack: `+a.message+`
   display: flex;
   gap: 10px;
 `;A.svg`
-  /* width: clamp(50px, 9vw, 61px); */
   width: 14px;
   height: 14px;
 `;const i7=A.p`
