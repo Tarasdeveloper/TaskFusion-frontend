@@ -61,6 +61,14 @@ export const CalendarGlobalStyles = createGlobalStyle`
     text-align: center;
     
   }
+  .react-datepicker__day--selected{
+    padding: 3px 3px;
+    background: #FFF;
+    color:#3E85F3;
+  }
+  .react-datepicker__day--keyboard-selected{
+    background:#3E85F3;
+  }
   .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
