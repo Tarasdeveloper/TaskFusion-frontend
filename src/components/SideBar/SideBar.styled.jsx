@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const SidebarWrapper = styled.div`
   position: fixed;
@@ -122,26 +123,34 @@ export const UserPanel = styled.ul`
   flex-direction: column;
   flex: 1 1 auto;
   gap: 18px;
-
+  transition: var(--transition-changetheme-color);
   @media screen and (min-width: 768px) {
     gap: 16px;
   }
   @media screen and (min-width: 1440px) {
   }
-  &:hover,
-  &:focus {
-    svg: var(--btn-background-color);
+`;
+export const SVG = styled.svg`
+  transition: var(--transition-changetheme-color);
+  &:hover {
+    path {
+      stroke: #3e85f3;
+    }
+  }
+  .active {
+    stroke: #3e85f3;
+    background-color: #e3f3ff;
   }
 `;
 export const Title = styled.p`
-  text-align: center;
-  display: inline;
+  display: flex;
+
   color: var(--navigation-choosePage-color);
   font-weight: 600;
   font-size: 14px;
   margin-left: 8px;
 
-  transition: var(--transition-changetheme-color);
+  // transition: var(--transition-changetheme-color);
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -149,6 +158,28 @@ export const Title = styled.p`
   }
   &:hover,
   &:focus {
-    color: var(--btn-background-color);
+    color: #3e85f3;
+  }
+  .active {
+    color: #3e85f3;
+    background-color: #e3f3ff;
+  }
+`;
+export const CurrentLink = styled(NavLink)`
+  display: flex;
+  flex-direction: row;
+  padding: 10px 81px 10px 14px;
+  align-items: flex-start;
+  cursor: pointer;
+  border-radius: 8px;
+
+  &:hover,
+  &:focus {
+    color: #3e85f3;
+    background-color: #e3f3ff;
+  }
+  .active {
+    color: #3e85f3;
+    background-color: #e3f3ff;
   }
 `;
