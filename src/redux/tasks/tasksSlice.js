@@ -33,7 +33,6 @@ const tasksSlice = createSlice({
       })
       .addCase(addTaskThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload)
         state.tasks = [...state.tasks, action.payload.data.result];
       })
       .addCase(addTaskThunk.rejected, (state, action) => {
@@ -63,11 +62,9 @@ const tasksSlice = createSlice({
       })
       .addCase(deleteTaskThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload.id);
         state.tasks = state.tasks.filter(
           (task) => task._id !== action.payload.id,
         );
-        console.log(state.tasks);
       })
       .addCase(deleteTaskThunk.rejected, (state, action) => {
         state.isLoading = false;
