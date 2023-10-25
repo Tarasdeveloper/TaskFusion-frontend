@@ -14,7 +14,7 @@ export const LoginPage = () => {
   const route = '/register';
   const content = 'Sign up';
 
-  if (authenticated) return <Navigate to="/account" />;
+  if (authenticated) return <Navigate to="/calendar" />;
 
   return (
     <FormContainer>
