@@ -57,6 +57,7 @@ export const NextBtn = styled.button`
   background-color: var(--calendar-day-primary-backgroundcolor);
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-color);
+
   @media (min-width: 768px) {
     padding: 10px 14px;
   }
