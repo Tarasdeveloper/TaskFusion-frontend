@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const SidebarWrapper = styled.div`
   position: fixed;
@@ -115,40 +116,5 @@ export const SidebarSubTitle = styled.h3`
   @media screen and (min-width: 768px) {
     font-size: 14px;
     margin-bottom: 32px;
-  }
-`;
-export const UserPanel = styled.ul`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 18px;
-
-  @media screen and (min-width: 768px) {
-    gap: 16px;
-  }
-  @media screen and (min-width: 1440px) {
-  }
-  &:hover,
-  &:focus {
-    svg: var(--btn-background-color);
-  }
-`;
-export const Title = styled.p`
-  text-align: center;
-  display: inline;
-  color: var(--navigation-choosePage-color);
-  font-weight: 600;
-  font-size: 14px;
-  margin-left: 8px;
-
-  transition: var(--transition-changetheme-color);
-
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-    margin-left: 10px;
-  }
-  &:hover,
-  &:focus {
-    color: var(--btn-background-color);
   }
 `;

@@ -61,7 +61,8 @@ export const SignLink = styled(NavLink)`
 
   &:focus,
   &:hover {
-    color: #cdf0e6;
+    color: #bfc9f2;
+    text-decoration-line: none;
   }
 `;
 
@@ -85,6 +86,6 @@ export const LogLink = styled(NavLink)`
 
   &:focus,
   &:hover {
-    background-color: #cdf0e6;
+    background-color: #bfc9f2;
   }
 `;

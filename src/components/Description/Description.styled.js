@@ -76,7 +76,7 @@ export const DescrSpan = styled.span`
 export const DescrTitle = styled.h2`
   color: #171820;
   font-family: Inter;
-  font-size: 40px;
+  font-size: clamp(32px, 8vw, 40px);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
