@@ -4,10 +4,11 @@ export const ReviewsWrap = styled.div`
   max-width: 1186px;
   margin: 0 auto;
   padding: 64px 20px;
+  max-width: 622px;
 
-  /* @media screen and (min-width: 1024px) {
-    max-width: 1110px;
-  } */
+  @media screen and (min-width: 1024px) {
+    max-width: unset;
+  }
 `;
 
 export const ReviewsTitle = styled.h2`
@@ -107,4 +108,8 @@ export const ReviewText = styled.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
+
+  @media screen and (min-width: 480px) {
+    margin-left: 68px;
+  }
 `;

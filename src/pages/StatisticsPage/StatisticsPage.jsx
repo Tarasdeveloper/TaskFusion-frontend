@@ -16,7 +16,6 @@ import StatisticsToolbar from '../../components/StatisticsToolbar/StatisticsTool
 export const StatisticsPage = () => {
   const authenticated = useSelector(selectAuthenticationStatus);
   const tasks = useSelector(selectTasks);
-  console.log('tasks: ', tasks);
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [tasksByMonth, setTasksByMonth] = useState({

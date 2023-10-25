@@ -55,6 +55,14 @@ export const SignLink = styled(NavLink)`
   font-weight: 600;
   line-height: 1.28;
   text-decoration-line: underline;
+  transition:
+    background-color var(--transition-color),
+    color var(--transition-color);
+
+  &:focus,
+  &:hover {
+    color: #cdf0e6;
+  }
 `;
 
 export const LogLink = styled(NavLink)`
@@ -71,4 +79,12 @@ export const LogLink = styled(NavLink)`
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   display: flex;
   gap: 6px;
+  transition:
+    background-color var(--transition-color),
+    color var(--transition-color);
+
+  &:focus,
+  &:hover {
+    background-color: #cdf0e6;
+  }
 `;

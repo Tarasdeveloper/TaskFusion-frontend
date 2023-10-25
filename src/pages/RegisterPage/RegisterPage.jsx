@@ -14,7 +14,7 @@ export const RegisterPage = () => {
   const route = '/login';
   const content = 'Log In';
 
-  if (authenticated) return <Navigate to="/account" />;
+  if (authenticated) return <Navigate to="/calendar" />;
   return (
     <FormContainer>
       <RegisterPageImage alt="" src={image} />
