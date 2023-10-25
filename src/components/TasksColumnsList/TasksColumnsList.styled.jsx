@@ -5,10 +5,7 @@ const Wrap = styled.div`
   column-gap: 30px;
   justify-content: space-between;
   width: 100%;
-  //   padding-left: 20px;
   padding-bottom: 34px;
-  // padding-bottom: ${(props) => (props.$isTasksAdded ? '34px' : '311px')}
-
   overflow-x: auto;
 
   &::-webkit-scrollbar {
@@ -24,15 +21,9 @@ const Wrap = styled.div`
     border-radius: 12px; /* Закруглені кути треку скролбара для вебкіт-браузерів */
   }
 
-  @media (min-width: 375px) {
-  }
-
   @media (min-width: 768px) {
     padding-left: 0;
     padding-bottom: 15px;
-  }
-
-  @media (min-width: 1440px) {
   }
 `;
 

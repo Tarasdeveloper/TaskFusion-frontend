@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const NavigationPanel = styled.nav`
+  width: 100%;
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
