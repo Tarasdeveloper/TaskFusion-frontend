@@ -17,7 +17,7 @@ import {
   TaskItem,
 } from './TaskCardList.styled';
 import Icon from '../../assets/sprite.svg';
-// import useAuth from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { deleteTaskOperation } from '../../redux/calendar/calendar.operations';
 import { TaskModal } from '../TaskModal/TaskModal';
 import defUser from '../../assets/img/calendar/defuser.jpg';
