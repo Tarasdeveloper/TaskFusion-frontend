@@ -1051,6 +1051,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,rV=De.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  @media (min-width: 768px) {
+    padding-left: 175px;
+    padding-right: 175px;
+  }
 
   @media (min-width: 1440px) {
     flex-direction: unset;
@@ -1060,6 +1068,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   display: flex;
   flex-direction: column;
   gap: 18px;
+  width: 100%;
 
   @media (min-width: 768px) {
     gap: 24px;
