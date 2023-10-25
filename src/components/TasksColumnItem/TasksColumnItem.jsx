@@ -24,12 +24,22 @@ import { useDispatch } from 'react-redux';
 const TasksColumnItem = ({ title, tasks }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [action, setAction] = useState('add');
+  const [taskToEdit, setTaskToEdit] = useState({});
 
   const dispatch = useDispatch();
 
-  const openModal = (e) => {
-    const condition = [...e.currentTarget.classList].includes('addTaskBtn');
-    condition ? setAction('add') : setAction('edit');
+  const openAddModal = () => {
+    setAction('add');
+    setTaskToEdit(null);
+    setModalOpen(true);
+  };
+
+  const openEditModal = (e) => {
+    const task = tasks.find(
+      (task) => task._id === e.currentTarget.getAttribute('_id'),
+    );
+    setAction('edit');
+    setTaskToEdit(task);
     setModalOpen(true);
   };
 
@@ -43,7 +53,7 @@ const TasksColumnItem = ({ title, tasks }) => {
     <Wrapper $isTasksAdded={isTasksAdded}>
       <TitleWrap $isTasksAdded={isTasksAdded}>
         <Title>{title}</Title>
-        <PlusCircleIcon onClick={openModal} className="addTaskBtn">
+        <PlusCircleIcon onClick={openAddModal}>
           <svg
             style={{
               width: 'inherit',
@@ -123,7 +133,7 @@ const TasksColumnItem = ({ title, tasks }) => {
                         </defs>
                       </svg>
                     </IconBtnWrap>
-                    <IconBtnWrap onClick={openModal}>
+                    <IconBtnWrap _id={e._id} onClick={openEditModal}>
                       <svg
                         style={{
                           width: 'inherit',
@@ -190,11 +200,7 @@ const TasksColumnItem = ({ title, tasks }) => {
         </TasksWrap>
       )}
 
-      <AddTaskBtn
-        $isTasksAdded={isTasksAdded}
-        onClick={openModal}
-        className="addTaskBtn"
-      >
+      <AddTaskBtn $isTasksAdded={isTasksAdded} onClick={openAddModal}>
         <BtnContentWrap>
           <svg width="24" height="24" fill="none">
             <path
@@ -210,7 +216,12 @@ const TasksColumnItem = ({ title, tasks }) => {
       </AddTaskBtn>
 
       {modalOpen && (
-        <TaskModal onClose={closeModal} action={action} column={title} />
+        <TaskModal
+          onClose={closeModal}
+          action={action}
+          column={title}
+          taskToEdit={taskToEdit}
+        />
       )}
     </Wrapper>
   );
