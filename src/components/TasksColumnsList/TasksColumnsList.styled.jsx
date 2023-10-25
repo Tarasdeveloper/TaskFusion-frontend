@@ -8,7 +8,6 @@ const Wrap = styled.div`
   //   padding-left: 20px;
   padding-bottom: 34px;
   // padding-bottom: ${(props) => (props.$isTasksAdded ? '34px' : '311px')}
-
   overflow-x: auto;
 
   &::-webkit-scrollbar {
