@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   width: 100%;
   direction: ltr;
   border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  background: var(--primary-background-color);
   position: relative;
 
   height: ${(props) => (props.$isTasksAdded ? '442px' : '155px')};
@@ -52,7 +52,7 @@ const TitleWrap = styled.div`
 `;
 
 const Title = styled.p`
-  color: #111;
+  color: var(--primary-text-color);
   font-family: 'Inter';
   font-size: 18px;
   font-weight: 700;
@@ -106,8 +106,8 @@ const AddTaskBtn = styled.button`
 
   border-radius: 8px;
 
-  border: 1px dashed #3e85f3;
-  background: #e3f3ff;
+  border: 1px dashed var(--btn-background-color);
+  background: var(--calendar-day-addTask-btn-background-color);
   outline: none;
   position: absolute;
   bottom: ${(props) => (props.$isTasksAdded ? '10px' : '20px')};
@@ -147,7 +147,7 @@ const BtnContentWrap = styled.div`
 `;
 
 const AddTaskText = styled.p`
-  color: #111;
+  color: var(--primary-text-color);
   font-family: 'Inter';
   font-size: 14px;
   font-weight: 600;
@@ -205,7 +205,7 @@ const TasksWrap = styled.div`
 const Task = styled.div`
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
+  background: var(--secondary-background-color);
   padding: 14px 12px 18px 15px;
   width: 100%;
 
@@ -230,7 +230,7 @@ const TaskTitle = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: #111;
+  color: var(--primary-text-color);
   white-space: nowrap;
   font-family: Inter;
   font-size: 14px;
@@ -286,7 +286,7 @@ const Avatar = styled.div`
   height: 32px;
   border-radius: 50%;
   background: rgba(220, 227, 229, 0.8);
-  border: 1.8px solid #3e85f3;
+  border: 1.8px solid var(--userprofile-photo-border-color);
 
   @media (min-width: 375px) {
   }
@@ -302,7 +302,7 @@ const Priority = styled.div`
   padding: 4px 12px;
   border-radius: 4px;
 
-  color: #f7f6f9;
+  color: var(--secondary-background-color);
   text-transform: capitalize;
   font-family: 'Inter';
   font-size: 10px;
@@ -311,10 +311,10 @@ const Priority = styled.div`
 
   background-color: ${(props) =>
     props.$priority === 'low'
-      ? '#72C2F8'
+      ? 'var(--calendar-day-task-levels-low-color)'
       : props.$priority === 'medium'
-      ? '#F3B249'
-      : '#EA3D65'};
+      ? 'var(--calendar-day-task-levels-medium-color)'
+      : 'var(--calendar-day-task-levels-high-color)'};
 
   @media (min-width: 375px) {
   }

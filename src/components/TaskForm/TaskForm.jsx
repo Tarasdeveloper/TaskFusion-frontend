@@ -66,7 +66,7 @@ const TaskForm = ({ onClose, action, taskToEdit, column }) => {
     }
 
     if (action === 'edit') {
-      dispatch(editTaskThunk({ _id, ...values }));
+      dispatch(editTaskThunk({ _id, values }));
     }
 
     actions.resetForm();
