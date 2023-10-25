@@ -15,16 +15,21 @@ import {
   Priority,
   IconBtnsWrap,
   IconBtnWrap,
+  WithoutAvatar,
+  IconUser,
 } from './TasksColumnItem.styled';
 import { useState } from 'react';
 import TaskModal from '../TaskModal/TaskModal';
 import { deleteTaskThunk } from '../../redux/tasks/operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
+import sprite from '../../assets/sprite.svg';
 
 const TasksColumnItem = ({ title, tasks }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [action, setAction] = useState('add');
   const [taskToEdit, setTaskToEdit] = useState({});
+  const { avatar } = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -87,7 +92,17 @@ const TasksColumnItem = ({ title, tasks }) => {
                 <TaskTitle>{e.title}</TaskTitle>
                 <TaskBottomWrap>
                   <AvatarPriorWrap>
-                    <Avatar></Avatar>
+                    {avatar ? (
+                      <Avatar>
+                        <img src={avatar} alt="Avatar" />
+                      </Avatar>
+                    ) : (
+                      <WithoutAvatar>
+                        <IconUser>
+                          <use href={`${sprite}#icon-user`}></use>
+                        </IconUser>
+                      </WithoutAvatar>
+                    )}
                     <Priority $priority={e.priority}>{e.priority}</Priority>
                   </AvatarPriorWrap>
                   <IconBtnsWrap>
