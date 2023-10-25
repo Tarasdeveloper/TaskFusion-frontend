@@ -1,7 +1,8 @@
 import gooseLogo from '../../assets/img/goose-logo.png';
 import sprite from '../../assets/sprite.svg';
 import LogoutBtn from './LogoutBtn';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useWindowSize from '../../hooks/useWindowSize';
 import {
   SidebarWrapper,
   SidebarHeader,
@@ -12,9 +13,17 @@ import {
   Span,
   UserPanel,
   Title,
+  SVG,
+  CurrentLink,
 } from './SideBar.styled';
 
 const SideBar = ({ onToggle }) => {
+  const windowSize = useWindowSize();
+  function closeSideBar() {
+    if (windowSize.width < 1440) {
+      onToggle();
+    }
+  }
   return (
     <SidebarWrapper>
       <SidebarHeader>
@@ -54,9 +63,15 @@ const SideBar = ({ onToggle }) => {
       </SidebarHeader>
       <SidebarSubTitle>User Panel</SidebarSubTitle>
       <UserPanel>
-        <Link to="/account">
+        <CurrentLink
+          activeclassname="active"
+          to="/account"
+          onClick={() => {
+            closeSideBar();
+          }}
+        >
           {' '}
-          <svg
+          <SVG
             className="svg"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -85,11 +100,17 @@ const SideBar = ({ onToggle }) => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg>
+          </SVG>
           <Title>My Account</Title>
-        </Link>
-        <Link to="/calendar">
-          <svg
+        </CurrentLink>
+        <CurrentLink
+          activeclassname="active"
+          to="/calendar"
+          onClick={() => {
+            closeSideBar();
+          }}
+        >
+          <SVG
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -131,11 +152,18 @@ const SideBar = ({ onToggle }) => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg>
+          </SVG>
           <Title>Calendar</Title>
-        </Link>
-        <Link to="/statistics">
-          <svg
+        </CurrentLink>
+
+        <CurrentLink
+          activeclassname="active"
+          to="/statistics"
+          onClick={() => {
+            closeSideBar();
+          }}
+        >
+          <SVG
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -149,9 +177,9 @@ const SideBar = ({ onToggle }) => {
               fill="var(--navigation-choosePage-color)"
               fillOpacity="0,5"
             />
-          </svg>
+          </SVG>
           <Title>Statistics</Title>
-        </Link>
+        </CurrentLink>
       </UserPanel>
       <LogoutBtn />
     </SidebarWrapper>
