@@ -99,7 +99,6 @@ export const DescrName = styled.p`
 
 export const DescrText = styled.p`
   color: rgba(17, 17, 17, 0.9);
-  font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
