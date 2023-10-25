@@ -183,16 +183,41 @@ const AvatarPriorWrap = styled.div`
   column-gap: 8px;
   align-items: end;
 `;
-const Avatar = styled.div`
-  margin-top: 1px;
+
+export const WithoutAvatar = styled.div`
   width: 32px;
   height: 32px;
+  margin-top: 1px;
   border-radius: 50%;
-  background: rgba(220, 227, 229, 0.8);
   border: 1.8px solid var(--userprofile-photo-border-color);
-
+  background-color: rgba(220, 227, 229, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-changetheme-background-color);
   @media (min-width: 768px) {
     margin-top: 0px;
+  }
+`;
+
+const IconUser = styled.svg`
+  width: 48px;
+  height: 48px;
+  fill: var(--btn-background-color);
+  fill-opacity: 0.18;
+`;
+
+const Avatar = styled.div`
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border: 1.8px solid #3e85f3;
+  border-radius: 50%;
+
+  & img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
 `;
 const Priority = styled.div`
@@ -249,6 +274,7 @@ export {
   TaskBottomWrap,
   AvatarPriorWrap,
   Avatar,
+  IconUser,
   Priority,
   IconBtnsWrap,
   IconBtnWrap,
