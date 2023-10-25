@@ -81,14 +81,21 @@ export const UserForm = () => {
 
   const onClickIconPlus = (e) => {
     const photo = e.target.files[0];
-    setState((prevState) => ({
-      ...prevState,
-      avatar: photo,
-    }));
-
-    setFieldValue('avatar', photo);
 
     if (photo) {
+      if (photo.size > 5 * 1024 * 1024) {
+        Notiflix.Notify.failure(
+          'The selected image is too large. Please choose an image smaller than 5MB.',
+        );
+        return;
+      }
+      setState((prevState) => ({
+        ...prevState,
+        avatar: photo,
+      }));
+
+      setFieldValue('avatar', photo);
+
       setIsUploadingPhoto(true);
       const previewUrl = URL.createObjectURL(photo);
       setUserPhotoPreview(previewUrl);

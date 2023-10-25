@@ -161,6 +161,14 @@ export const UserText = styled.h2`
 export const UserInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  @media (min-width: 768px) {
+    padding-left: 175px;
+    padding-right: 175px;
+  }
 
   @media (min-width: 1440px) {
     flex-direction: unset;
@@ -172,6 +180,7 @@ export const UserInfoColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
+  width: 100%;
 
   @media (min-width: 768px) {
     gap: 24px;
