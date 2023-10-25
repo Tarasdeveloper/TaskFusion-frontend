@@ -37,11 +37,11 @@ export const deleteTaskThunk = createAsyncThunk(
 );
 export const editTaskThunk = createAsyncThunk(
   'tasks/editTask',
-  async ({ id, task }, thunkAPI) => {
+  async ({ _id, values }, thunkAPI) => {
     try {
-      const { data } = await $instance.patch(`/tasks/${id}`, task);
+      const { data } = await $instance.patch(`/tasks/${_id}`, values);
 
-      return data;
+      return data.updatedTask;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
