@@ -3,8 +3,6 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import gooseMentor from '../../assets/img/header/gooseMentor.svg';
-import sprite from '../../assets/sprite.svg';
-import { selectTasks } from '../../redux/tasks/selectors';
 import { selectIsLoading } from '../../redux/reviews/selectors';
 import { getReviewById } from '../../redux/reviews/operations';
 import { selectUser } from '../../redux/auth/selectors';
@@ -26,28 +24,18 @@ const Header = ({ onToggle }) => {
   const user = useSelector(selectUser);
   const isLoading = useSelector(selectIsLoading);
   const [showModal, setShowModal] = useState(false);
-  const location = useLocation();
-  const currentPath = location.pathname;
 
-  const { currentDay } = useParams();
-  const calendarPage = currentPath.startsWith('/calendar/day');
-  const tasks = useSelector(selectTasks);
-
-  const tasksForToday = () => {
-    const tasksToday = tasks.filter((task) => task.date === currentDay);
-    if (tasksToday.length > 0) {
-      const tasksInProgress = tasksToday[0].tasks.find(
-        (task) => task.category === 'to-do' || task.category === 'in-progress',
-      );
-      return tasksInProgress;
-    }
-  };
+  const { pathname } = useLocation();
+  const currentPath = pathname;
+  const isCalendarPage = currentPath.startsWith('/calendar/day');
 
   let title = '';
   if (currentPath.startsWith('/account')) {
     title = 'User Profile';
-  } else if (currentPath.startsWith('/calendar/')) {
+  } else if (currentPath.startsWith('/calendar')) {
     title = 'Calendar';
+  } else if (currentPath.startsWith('/statistics')) {
+    title = 'Statistics';
   } else {
     title = '';
   }
@@ -65,7 +53,7 @@ const Header = ({ onToggle }) => {
   return (
     <>
       <Wrapper>
-        {calendarPage && tasksForToday() && (
+        {isCalendarPage && (
           <GooseMentor
             src={`${gooseMentor}`}
             alt="goose"
@@ -75,7 +63,7 @@ const Header = ({ onToggle }) => {
         <div>
           <SectionTitle>{title}</SectionTitle>
 
-          {calendarPage && tasksForToday() && (
+          {isCalendarPage && (
             <MotivationTask>
               <Span>Let go</Span> of the past and focus on the present!
             </MotivationTask>
