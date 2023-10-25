@@ -65,8 +65,10 @@ const TasksColumnsList = () => {
   const { currentDate } = useParams();
   const tasks = useSelector(selectTasks);
 
+  const newData = tasks.filter((task) => task.date === currentDate);
+
   const tasksArr = [[], [], []]; // ! tasksArr[0] - to-do ; tasksArr[1] - in-progress ; tasksArr[2] - done
-  tasks.forEach((el) => {
+  newData.forEach((el) => {
     el.category === 'to-do'
       ? tasksArr[0].push(el)
       : el.category === 'in-progress'
