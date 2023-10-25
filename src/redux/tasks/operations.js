@@ -5,13 +5,14 @@ export const getTasksThunk = createAsyncThunk(
   'tasks/getTasks',
   async (requestedData, thunkApi) => {
     const date = requestedData.split('-');
+
     try {
       const { data } = await $instance.get(
         `/tasks?year=${date[0]}&month=${date[1]}`,
       );
-      const newData = data.filter((task) => task.date === requestedData);
+      // const newData = data.filter((task) => task.date === requestedData);
 
-      return newData;
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

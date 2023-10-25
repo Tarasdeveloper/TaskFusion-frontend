@@ -14,10 +14,12 @@ import { selectTasks } from '../../redux/tasks/selectors';
 import StatisticsToolbar from '../../components/StatisticsToolbar/StatisticsToolbar';
 
 export const StatisticsPage = () => {
+
   const authenticated = useSelector(selectAuthenticationStatus);
   const tasks = useSelector(selectTasks);
 
   const [currentDate, setCurrentDate] = useState(new Date());
+
   const [tasksByMonth, setTasksByMonth] = useState({
     todoByMonth: 0,
     inprogressByMonth: 0,
@@ -40,12 +42,13 @@ export const StatisticsPage = () => {
   useEffect(() => {
     if (!authenticated) return;
     dispatch(
-      getTasksThunk({
-        year,
-        month,
-      }),
+      getTasksThunk(
+        dateFns.formatISO(currentDate, {
+          representation: 'date',
+        }),
+      ),
     );
-  }, [authenticated, dispatch, month, year]);
+  }, [authenticated, currentDate, dispatch]);
 
   useEffect(() => {
     const getRequestedTasks = async () => {
