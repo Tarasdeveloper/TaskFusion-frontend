@@ -85,6 +85,10 @@ export const ImgWrap = styled.div`
 `;
 
 export const ReviewName = styled.p`
+  color: #343434;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1; /* 100% */
   margin-bottom: 13px;
 `;
 
