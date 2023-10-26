@@ -35,7 +35,7 @@ export const MoveBtn = styled(Move)`
   cursor: pointer;
   width: 14px;
   height: 14px;
-  stroke: #343434;
+  stroke: var(--task-drop-down-color);
   transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -61,7 +61,7 @@ export const ChangeCategoryWrapper = styled.div`
 
   gap: 14px;
 
-  color: #343434;
+  color: var(--task-drop-down-color);
   font-size: 12px;
   font-family: Inter;
   font-weight: 500;
@@ -81,7 +81,7 @@ export const ChangeCategoryWrapper = styled.div`
     width: 147px;
     height: 90px;
 
-    color: #343434;
+    color: var(--task-drop-down-color);
     font-size: 14px;
     font-family: Inter;
     font-weight: 500;
@@ -130,7 +130,7 @@ export const MoveToInProgress = styled.div`
     ${MoveBtn} {
       width: 16px;
       height: 16px;
-      stroke: #343434;
+      stroke: var(--task-drop-down-color);
       transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
@@ -176,7 +176,7 @@ export const MoveToDone = styled.div`
   ${MoveBtn} {
     width: 16px;
     height: 16px;
-    stroke: #343434;
+    stroke: var(--task-drop-down-color);
     transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;

@@ -130,7 +130,7 @@ const TaskForm = ({ onClose, action, taskToEdit, column }) => {
               </ButtonAction>
             ) : (
               <ButtonAction type="submit">
-                <IconEdit stroke="#fff" />
+                <IconEdit/>
                 Edit
               </ButtonAction>
             )}

@@ -50,6 +50,12 @@ export const InputTitle = styled(Field)`
   font-family: Inter;
   font-weight: 600;
   line-height: 18px;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--modal-feedback-input-border-color-hover);
+  }
 
   @media (min-width: 768px) {
     width: 340px;
@@ -86,11 +92,17 @@ export const InputTime = styled(Field)`
   border: 1px solid var(--modal-feedback-input-border-color);
   cursor: pointer;
 
-  color: #343434;
+  color: var(--input-time-color);
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
   line-height: 18px;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--modal-feedback-input-border-color-hover);
+  }
 
   @media (min-width: 768px) {
     width: 163px;
@@ -184,24 +196,27 @@ export const ButtonAction = styled.button`
   align-items: center;
   gap: 10px;
   padding: 12px;
+  stroke: #111;
 
   border-radius: 8px;
   border: none;
-  background-color: var(--btn-background-color);
+  background-color: #efefef;
   cursor: pointer;
 
-  color: #fff;
+  color: #111;
   text-align: center;
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
   line-height: 18px;
 
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: var(--btn-hover-color);
+    background-color: var(--btn-task-form-background-color-hover);
+    color: #fff;
+    stroke: #fff;
   }
 
   @media (min-width: 768px) {
@@ -232,7 +247,8 @@ export const ButtonCancel = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #e7e3e3;
+    background-color: var(--btn-task-form-background-color-hover);
+    color: #fff;
   }
 
   @media (min-width: 768px) {

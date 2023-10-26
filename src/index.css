@@ -21,15 +21,19 @@
   --secondary-background-color: #f7f6f9;
   --tetriary-background-color: #fff;
   /* text colors */
-  --sidebar-focus-text-color: #3E85F3;
+  --sidebar-focus-text-color: #3e85f3;
   --sidebar-text-color: #34343480;
   --primary-text-color: #111111;
   --secondary-text-color: #343434;
+  --input-time-color: #343434;
+  --task-drop-down-color: #343434;
 
   /* button colors */
   --btn-background-color: #3e85f3;
   --btn-text-color: #fff;
   --btn-hover-color: #2b78ef;
+  --btn-task-form-background-color: #efefef;
+  --btn-task-form-background-color-hover: #3e85f3;
 
   /* navigation colors */
   --navigation-text-gooseTrack-color: #3e85f3;
@@ -109,6 +113,8 @@
   --sidebar-text-color: #ffffff;
   --primary-text-color: #ffffff;
   --secondary-text-color: #ffffff;
+  --input-time-color: #fff;
+  --task-drop-down-color: #fff;
 
   /* dark navigation colors */
   --navigation-text-gooseTrack-color: #e3f3ff;
