@@ -50,7 +50,7 @@ const TaskSchema = Yup.object().shape({
     .required('Priority is required'),
 });
 
-const TaskForm = ({ onClose, action, taskToEdit, column }) => {
+const TaskForm = ({ onClose, action, taskToEdit, column, setOnEdit }) => {
   const { currentDate } = useParams();
   const { _id, title, start, end, priority } = taskToEdit || {};
 
@@ -59,18 +59,18 @@ const TaskForm = ({ onClose, action, taskToEdit, column }) => {
 
   const resultColumn = column.trim().replace(' ', '-').toLowerCase();
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     if (action === 'add') {
       values = { ...values, date: date, category: resultColumn };
-      dispatch(addTaskThunk(values));
+      await dispatch(addTaskThunk(values));
     }
 
     if (action === 'edit') {
-      dispatch(editTaskThunk({ _id, values }));
+      await dispatch(editTaskThunk({ _id, values }));
     }
-
     actions.resetForm();
     onClose();
+    setOnEdit(true);
   };
 
   return (
@@ -84,9 +84,8 @@ const TaskForm = ({ onClose, action, taskToEdit, column }) => {
       validationSchema={TaskSchema}
       onSubmit={handleSubmit}
     >
-      {(props) => (
+      {
         <Form>
-          {console.log(props.errors)}
           <Label>
             Title
             <InputTitle type="text" name="title" placeholder="Enter text" />
@@ -150,7 +149,7 @@ const TaskForm = ({ onClose, action, taskToEdit, column }) => {
             <CloseIcon />
           </ButtonCloseWrap>
         </Form>
-      )}
+      }
     </Formik>
   );
 };

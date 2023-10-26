@@ -11,7 +11,6 @@ export const getTasksThunk = createAsyncThunk(
         `/tasks?year=${date[0]}&month=${date[1]}`,
       );
       // const newData = data.filter((task) => task.date === requestedData);
-
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
