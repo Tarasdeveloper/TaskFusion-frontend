@@ -336,9 +336,9 @@ Error generating stack: `+a.message+`
   line-height: 1.29;
   margin-bottom: 40px;
 
-  /* @media screen and (min-width: 480px) {
+  @media screen and (min-width: 480px) {
     margin-bottom: 48px;
-  } */
+  }
 `,Cm=A.div`
   align-self: center;
 `,Em=A.img`
