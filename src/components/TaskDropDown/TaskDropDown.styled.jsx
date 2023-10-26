@@ -162,26 +162,26 @@ export const MoveToDone = styled.div`
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1)};
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-    @media screen and (max-width: 768px) {
-      padding: 0 12px;
-    }
+  @media screen and (max-width: 768px) {
+    padding: 0 12px;
+  }
 
-    &:hover,
-    :focus {
-      color: #3e85f3;
-
-      ${MoveBtn} {
-        stroke: #3e85f3;
-      }
-    }
+  &:hover,
+  :focus {
+    color: #3e85f3;
 
     ${MoveBtn} {
-      width: 16px;
-      height: 16px;
-      stroke: #343434;
-      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1)};
+      stroke: #3e85f3;
     }
+  }
+
+  ${MoveBtn} {
+    width: 16px;
+    height: 16px;
+    stroke: #343434;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
