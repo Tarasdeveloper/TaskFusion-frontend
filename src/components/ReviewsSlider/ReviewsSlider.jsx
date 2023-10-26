@@ -1,6 +1,7 @@
 import {
   BtnWrap,
   HeadWrap,
+  IconUser,
   ImgWrap,
   NameStarz,
   NextBtn,
@@ -15,6 +16,7 @@ import {
   SlideWrap,
   StarzWrap,
   Svg,
+  WithoutAvatar,
 } from './ReviewsSlider.styled';
 import 'swiper/css/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -81,9 +83,17 @@ const ReviewsSlider = () => {
                   <SlideWrap>
                     <SingleHeader>
                       <HeadWrap>
-                        <ImgWrap>
-                          <ReviewImg src={avatar} alt={name} />
-                        </ImgWrap>
+                        {avatar ? (
+                          <ImgWrap>
+                            <ReviewImg src={avatar} alt={name} />
+                          </ImgWrap>
+                        ) : (
+                          <WithoutAvatar>
+                            <IconUser>
+                              <use href={`${sprite}#icon-user`}></use>
+                            </IconUser>
+                          </WithoutAvatar>
+                        )}
                         <NameStarz>
                           <ReviewName>{name}</ReviewName>
 
