@@ -248,8 +248,8 @@ const IconBtnWrap = styled.button`
   border: none;
   width: fit-content;
   height: fit-content;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   fill: none;
   display: flex;
   align-items: center;
@@ -257,6 +257,17 @@ const IconBtnWrap = styled.button`
 
   &:hover {
     fill: rgba(62, 133, 243, 1);
+  }
+
+  @media (min-width: 375px) {
+  }
+
+  @media (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (min-width: 1440px) {
   }
 `;
 
