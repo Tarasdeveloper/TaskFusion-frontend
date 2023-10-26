@@ -2911,8 +2911,7 @@ const Cq=A.div`
     gap: 4px;
   }
 `,Jee=A.span`
-  color: var(--secondary-text-color);
-
+  color: var(--userprofile-text-user-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -2933,7 +2932,7 @@ const Cq=A.div`
   border: none;
   border-radius: 6px;
   padding: 4px 6px;
-  color: var(--primary-background-color);
+  color: var(--btn-text-color);
   background-color: inherit;
   width: 22px;
   height: 22px;
@@ -2958,14 +2957,22 @@ const Cq=A.div`
   }
 
   &:hover {
-    background-color: var(--calendar-day-addTask-btn-background-color);
-    color: var(--calendar-day-task-buttons-active-color);
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
+  }
+
+  &:focus {
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
   }
 `,ete=A(g8)`
-  background-color: var(--calendar-monthOrDay-active-text-color);
+  background-color: var(--btn-background-color);
 `,tte=A(g8)`
   background-color: var(--primary-background-color);
-  color: #343434;
+  color: var(--secondary-text-color);
+
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 `,nte=()=>{const{currentDate:e}=xa()??"2023-10-22",t=e,n=an(),r=Jr();function i(s){return s.startsWith("0")?s.slice(1):s}const a=s=>{n(Xee(Number(dn(s,"d"))-1)),n(qee(hi(new Date(s),{representation:"date"}))),r(`/calendar/day/${dn(s,"yyyy-MM-dd")}`)};let o;return t?o=Mv({start:Is(new Date(t),{weekStartsOn:1}),end:w3(new Date(t),{weekStartsOn:1})}):o=Mv({start:Is(new Date,{weekStartsOn:1}),end:w3(new Date,{weekStartsOn:1})}),g.jsx(g.Fragment,{children:g.jsx(Qee,{children:o==null?void 0:o.map((s,l)=>{const u=new Date(t),c=new Date(s),d=JE(u,c)?ete:tte;return g.jsxs(Zee,{children:[g.jsx(Jee,{className:l>=5?"weekend":"",children:dn(s,"EEE").toUpperCase()}),g.jsx(d,{type:"button",onClick:()=>a(s),children:i(dn(s,"dd"))})]},l)})})})},rte=A.nav`
   width: 100%;
   @media (min-width: 768px) {
@@ -2987,9 +2994,9 @@ const Cq=A.div`
 `,ote=A.button`
   border-radius: 8px 0px 0px 8px;
   padding: 8px 16px;
-  color: ${({$isActive:e})=>e?"  var(--calendar-monthOrDay-active-text-color)":"var(--calendar-monthOrDay-text-color)"};
   border-color: transparent;
   border-right: 1px solid var(--calendar-monthOrDay-border-color);
+  color: ${({$isActive:e})=>e?"  var(--calendar-monthOrDay-active-text-color)":"var(--calendar-monthOrDay-text-color)"};
   background-color: ${({$isActive:e})=>e?"var(--calendar-monthOrDay-active-background-color)":"var(--calendar-monthOrDay-background-color)"};
   transition: var(--transition-changetheme-background-color),
     var(--transition-changetheme-color);
@@ -2997,9 +3004,10 @@ const Cq=A.div`
   padding: 8px 25px;
   border-radius: 0px 8px 8px 0px;
   border-color: transparent;
-  color: var(--calendar-monthOrDay-text-color);
+  color: ${({$isActive:e})=>e?"  var(--calendar-monthOrDay-active-text-color)":"var(--calendar-monthOrDay-text-color)"};
   background-color: ${({$isActive:e})=>e?"var(--calendar-monthOrDay-active-background-color)":"var(--calendar-monthOrDay-background-color)"};
-  transition: var(--transition-changetheme-background-color);
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 `,lte=A.button`
   color: var(--calendar-arrow-active-color);
   padding: 8px 12px;
