@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DescrWrap = styled.div`
-  max-width: 600px;
+  max-width: 735px;
   margin: 0 auto;
 
   @media screen and (min-width: 1024px) {
@@ -15,7 +15,7 @@ export const DescrList = styled.ul`
 `;
 
 export const DescrItem = styled.li`
-  padding: 0 15px;
+  padding: 0 20px;
   margin-top: 64px;
   display: flex;
   align-items: center;
@@ -114,5 +114,8 @@ export const DescrImgWrap = styled.div`
 `;
 
 export const DescrImage = styled.img`
+  display: block;
+`;
+export const DescrPicture = styled.picture`
   display: block;
 `;

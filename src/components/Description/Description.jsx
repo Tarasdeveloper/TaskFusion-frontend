@@ -23,6 +23,7 @@ import {
   DescrItemMid,
   DescrList,
   DescrName,
+  DescrPicture,
   DescrSpan,
   DescrText,
   DescrTextWrap,
@@ -47,13 +48,21 @@ const Description = () => {
             </DescrText>
           </DescrTextWrap>
           <DescrImgWrap>
-            <DescrImage
-              srcSet={`${calendarMob} 335w,${calendarMobX2} 2x 335w, ${calendarTabl} 704w,${calendarTablX2} 2x 704w, ${calendarDt} 604w , ${calendarDtX2} 2x 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
-              src={calendarMob}
-              alt="calendar"
-              type="image/png"
-            />
+            <DescrPicture>
+              <source
+                srcSet={`${calendarDt} 1x,${calendarDtX2} 2x`}
+                media="(min-width: 1024px)"
+              />
+              <source
+                srcSet={`${calendarTabl} 1x, ${calendarTablX2} 2x`}
+                media=" (min-width: 480px)"
+              />
+              <source
+                srcSet={`${calendarMob} 1x, ${calendarMobX2} 2x`}
+                media="(min-width: 320px)"
+              />
+              <img src={calendarMob} alt="calendar" />
+            </DescrPicture>
           </DescrImgWrap>
         </DescrItem>
         <DescrItemMid>
