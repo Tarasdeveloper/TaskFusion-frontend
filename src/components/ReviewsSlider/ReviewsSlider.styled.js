@@ -19,14 +19,16 @@ export const ReviewsTitle = styled.h2`
   line-height: 1.14;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: clamp(40px, 10vw, 50px);
 `;
 
 export const BtnWrap = styled.div`
   display: flex;
   justify-content: center;
   gap: 25px;
+  margin-top: clamp(8px, 3vw, 32px);
 `;
+
 export const NextBtn = styled.div`
   cursor: pointer;
   display: inline-block;
@@ -107,7 +109,6 @@ export const StarzWrap = styled.div`
 `;
 
 export const Stars = styled.svg`
-  /* width: clamp(50px, 9vw, 61px); */
   width: 14px;
   height: 14px;
 `;

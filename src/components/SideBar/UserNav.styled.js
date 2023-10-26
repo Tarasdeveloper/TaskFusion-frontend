@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.nav`
@@ -27,13 +27,13 @@ export const CurrentLink = styled(NavLink)`
     }
   }
 
-  @media (min-width: 765px) {
+  @media screen and (min-width: 768px) {
     font-size: 16px;
     padding: 16px 20px;
     width: 225px;
   }
 
-  @media (min-width: 1087px) {
+  @media screen and (min-width: 1440px) {
     width: 241px;
   }
 `;
@@ -46,7 +46,7 @@ export const Icon = styled.svg`
   height: 20px;
   margin-right: 10px;
 
-  @media (min-width: 765px) {
+  @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
     margin-right: 12px;

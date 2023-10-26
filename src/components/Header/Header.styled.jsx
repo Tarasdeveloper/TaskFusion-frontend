@@ -69,7 +69,7 @@ export const GooseMentor = styled.img`
     margin-right: 8px;
   }
 `;
-export const MotivationTask = styled.p`
+export const MotivationTask = styled.div`
   display: none;
   @media screen and (min-width: 1440px) {
     display: block;
@@ -80,8 +80,9 @@ export const MotivationTask = styled.p`
     line-height: 1.3;
   }
 `;
-export const Span = styled.p`
+export const Span = styled.div`
   color: #3e85f3;
+  display: inline;
 `;
 
 export const AddFeedbackBtn = styled.button`

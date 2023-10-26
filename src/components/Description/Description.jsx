@@ -52,6 +52,7 @@ const Description = () => {
               sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
               src={calendarMob}
               alt="calendar"
+              type="image/png"
             />
           </DescrImgWrap>
         </DescrItem>
@@ -73,6 +74,7 @@ const Description = () => {
               sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
               src={sidebarMob}
               alt="sidebar"
+              type="image/png"
             />
           </DescrImgWrap>
         </DescrItemMid>
@@ -94,6 +96,7 @@ const Description = () => {
               sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
               src={oneMob}
               alt="one"
+              type="image/png"
             />
           </DescrImgWrap>
         </DescrItem>

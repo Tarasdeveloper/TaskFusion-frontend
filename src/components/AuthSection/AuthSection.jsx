@@ -17,10 +17,11 @@ const AuthSection = () => {
   return (
     <Container>
       <img
-        srcSet={`${gooseMob} 142w, ${gooseMobX2} 2x 142w, ${gooseDt} 150w,${gooseDtX2} 2x 142w`}
+        srcSet={`${gooseMob} 142w, ${gooseMobX2} 2x 142w, ${gooseDt} 150w,${gooseDtX2} 2x 150w`}
         sizes="(min-width: 480px) 150px, 142px"
         src={gooseMob}
         alt="goose"
+        type="image/png"
       />
       <MainTitle>
         G<Ospan>oo</Ospan>seTrack
