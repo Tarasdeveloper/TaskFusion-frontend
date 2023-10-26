@@ -8,6 +8,7 @@ export const ReviewsWrap = styled.div`
 
   @media screen and (min-width: 1024px) {
     max-width: 1188px;
+    padding: 64px 20px;
   }
 `;
 
