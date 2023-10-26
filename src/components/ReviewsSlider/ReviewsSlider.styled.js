@@ -86,6 +86,19 @@ export const ImgWrap = styled.div`
   flex-shrink: 0;
 `;
 
+export const WithoutAvatar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(220, 227, 229, 0.8);
+  border: 1.8px solid var(--userprofile-photo-border-color);
+  transition: var(--transition-changetheme-background-color);
+  flex-shrink: 0;
+`;
+
 export const ReviewName = styled.p`
   color: #343434;
   font-size: 18px;
@@ -122,4 +135,11 @@ export const ReviewText = styled.p`
   @media screen and (min-width: 480px) {
     margin-left: 68px;
   }
+`;
+
+export const IconUser = styled.svg`
+  width: 48px;
+  height: 48px;
+  fill: var(--btn-background-color);
+  fill-opacity: 0.18;
 `;
