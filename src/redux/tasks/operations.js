@@ -25,7 +25,7 @@ export const deleteTaskThunk = createAsyncThunk(
       const { data } = await $instance.delete(`/tasks/${requestedData}`);
       const newData = {
         data: data,
-        id: requestedData,
+        _id: requestedData,
       };
 
       return newData;
