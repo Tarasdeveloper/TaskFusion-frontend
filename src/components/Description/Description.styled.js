@@ -113,9 +113,6 @@ export const DescrImgWrap = styled.div`
   align-self: center;
 `;
 
-export const DescrImage = styled.img`
-  display: block;
-`;
 export const DescrPicture = styled.picture`
   display: block;
 `;
