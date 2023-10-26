@@ -51,6 +51,10 @@ export const DayBtn = styled.button`
 
 export const NextBtn = styled.button`
   color: var(--calendar-arrow-active-color);
+  &:hover,
+  &:focus {
+    color: var(--calendar-arrow-color);
+  }
   padding: 8px 12px;
   border-radius: 0px 8px 8px 0px;
   border: 1px solid rgba(220, 227, 229, 0.5);
@@ -63,7 +67,12 @@ export const NextBtn = styled.button`
   }
 `;
 export const PrevBtn = styled.button`
-  color: var(--calendar-arrow-color);
+  color: var(--calendar-arrow-active-color);
+  &:hover,
+  &:focus {
+    color: var(--calendar-arrow-color);
+  }
+
   padding: 8px 12px;
   border-radius: 8px 0px 0px 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
