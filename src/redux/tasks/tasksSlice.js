@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTaskThunk, deleteTaskThunk, editTaskThunk, getTasksThunk } from './operations';
+import {
+  addTaskThunk,
+  deleteTaskThunk,
+  editTaskThunk,
+  getTasksThunk,
+} from './operations';
 
 const initialState = {
   tasks: [],
@@ -46,7 +51,7 @@ const tasksSlice = createSlice({
       })
       .addCase(editTaskThunk.fulfilled, (state, action) => {
         const index = state.tasks.findIndex(
-          (task) => task._id === action.payload.id,
+          (task) => task._id === action.payload._id,
         );
         state.tasks.splice(index, 1, action.payload);
         state.isLoading = false;
@@ -63,7 +68,7 @@ const tasksSlice = createSlice({
       .addCase(deleteTaskThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.tasks = state.tasks.filter(
-          (task) => task._id !== action.payload.id,
+          (task) => task._id !== action.payload._id,
         );
       })
       .addCase(deleteTaskThunk.rejected, (state, action) => {

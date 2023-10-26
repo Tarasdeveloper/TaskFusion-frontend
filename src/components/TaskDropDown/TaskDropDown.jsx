@@ -10,7 +10,7 @@ import {
 import { selectTasks } from '../../redux/tasks/selectors';
 import { editTaskThunk } from '../../redux/tasks/operations';
 
-const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
+const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl }) => {
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
   const { category, _id } = tasks.find((task) => {
@@ -55,7 +55,6 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
                     editTaskThunk({ _id, values: { category: 'to-do' } }),
                   );
                   closePopover();
-                  setOnEdit(true);
                 }}
               >
                 To do <MoveBtn />
@@ -71,7 +70,6 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
                     editTaskThunk({ _id, values: { category: 'in-progress' } }),
                   );
                   closePopover();
-                  setOnEdit(true);
                 }}
               >
                 In progress <MoveBtn />
@@ -87,7 +85,6 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
                     editTaskThunk({ _id, values: { category: 'done' } }),
                   );
                   closePopover();
-                  setOnEdit(true);
                 }}
               >
                 Done <MoveBtn />
