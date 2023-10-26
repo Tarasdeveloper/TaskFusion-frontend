@@ -351,6 +351,7 @@ Error generating stack: `+a.message+`
 
   @media screen and (min-width: 1024px) {
     max-width: 1188px;
+    padding: 64px 20px;
   }
 `,K_=A.h2`
   color: var(--blue1, #3e85f3);
