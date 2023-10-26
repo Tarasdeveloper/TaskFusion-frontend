@@ -4,7 +4,6 @@ import {
   ChangeCategoryWrapper,
   MoveBtn,
   MoveToInProgress,
-  // MoveToDone,
   PopoverStyled,
 } from './TaskDropDown.styled';
 import { selectTasks } from '../../redux/tasks/selectors';
