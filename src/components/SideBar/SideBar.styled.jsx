@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 export const SidebarWrapper = styled.div`
   position: fixed;
@@ -94,7 +93,7 @@ export const CloseIcon = styled.svg`
   cursor: pointer;
   height: 24px;
   width: 24px;
-  pading-right: 20px;
+  padding-right: 20px;
   margin-left: 25px;
   @media screen and (min-width: 768px) {
     height: 34px;

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { selectUser } from '../../redux/auth/selectors';
 import { Avatar, Wrapper, UserName, UserIcon } from './UserInfo.styled';
 import sprite from '../../assets/sprite.svg';

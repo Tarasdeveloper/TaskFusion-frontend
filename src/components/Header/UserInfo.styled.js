@@ -45,6 +45,6 @@ export const Avatar = styled.div`
 export const UserIcon = styled.svg`
   width: 44px;
   height: 44px;
-  fill: var(--user-icon-color);
-  fill-opacity: 0.18;
+  fill: var(--primary-text-color);
+  fill-opacity: 0.5;
 `;
