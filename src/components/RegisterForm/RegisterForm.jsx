@@ -1,5 +1,12 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
+
+import { registerThunk } from '../../redux/auth/operations';
 import { registerSchema } from '../../schemas';
+import { selectError, selectIsLoadingStatus } from '../../redux/auth/selectors';
+import { Loader } from '../Loader/Loader';
+
 import {
   ErrorText,
   EyeIcon,
@@ -13,15 +20,11 @@ import {
   FormTitle,
   GoogleIconWrapper,
 } from './RegisterForm.styled';
-import { registerThunk } from '../../redux/auth/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoadingStatus } from '../../redux/auth/selectors';
-import { Loader } from '../Loader/Loader';
-import { useState } from 'react';
 
 export const RegisterForm = () => {
   const authError = useSelector(selectError);
   const isLoading = useSelector(selectIsLoadingStatus);
+  
   const dispatch = useDispatch();
 
   const [showPassword, setShowPassword] = useState(false);

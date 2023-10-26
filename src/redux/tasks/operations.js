@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { $instance } from '../auth/operations';
 
 export const getTasksThunk = createAsyncThunk(
@@ -10,7 +11,7 @@ export const getTasksThunk = createAsyncThunk(
       const { data } = await $instance.get(
         `/tasks?year=${date[0]}&month=${date[1]}`,
       );
-      // const newData = data.filter((task) => task.date === requestedData);
+
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -34,6 +35,7 @@ export const deleteTaskThunk = createAsyncThunk(
     }
   },
 );
+
 export const editTaskThunk = createAsyncThunk(
   'tasks/editTask',
   async ({ _id, values }, thunkAPI) => {

@@ -1,5 +1,17 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
+
 import { loginSchema } from '../../schemas';
+import {
+  UpdateTokenThunk,
+  loginThunk,
+  refreshUserThunk,
+} from '../../redux/auth/operations';
+import { selectError, selectIsLoadingStatus } from '../../redux/auth/selectors';
+import { Loader } from '../Loader/Loader';
+
 import {
   ErrorText,
   EyeIcon,
@@ -13,16 +25,6 @@ import {
   FormTitle,
   GoogleIconWrapper,
 } from '../RegisterForm/RegisterForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  UpdateTokenThunk,
-  loginThunk,
-  refreshUserThunk,
-} from '../../redux/auth/operations';
-import { selectError, selectIsLoadingStatus } from '../../redux/auth/selectors';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { Loader } from '../Loader/Loader';
 
 export const LoginForm = () => {
   const authError = useSelector(selectError);
