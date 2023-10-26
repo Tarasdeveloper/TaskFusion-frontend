@@ -175,8 +175,8 @@ export const FormBtnWrap = styled.div`
 `;
 
 export const FormBtn = styled.button`
-  color: #ffffff;
-  background-color: #3e85f3;
+  color: #111;
+  background-color: #efefef;
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -185,7 +185,7 @@ export const FormBtn = styled.button`
   border: none;
   border-radius: 16px;
   cursor: pointer;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     background-color: #2b78ef;
@@ -194,11 +194,17 @@ export const FormBtn = styled.button`
   &:disabled {
     cursor: not-allowed;
   }
+
+  &:hover,
+  &:focus {
+    background-color: var(--btn-task-form-background-color-hover);
+    color: #fff;
+  }
 `;
 
 export const FormBtnCancel = styled.button`
-  color: var(--secondary-text-color);
-  background-color: var(--modal-feedback-btn-cancel-background-color);
+  color: #111;
+  background-color: #efefef;
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -209,9 +215,11 @@ export const FormBtnCancel = styled.button`
   cursor: pointer;
   transition: var(--transition-changetheme-color),
     var(--transition-changetheme-background-color);
+
   &:hover,
   &:focus {
-    color: #2b78ef;
+    background-color: var(--btn-task-form-background-color-hover);
+    color: #fff;
   }
 `;
 
