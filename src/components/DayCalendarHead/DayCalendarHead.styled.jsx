@@ -36,8 +36,7 @@ export const Item = styled.li`
 `;
 
 export const Day = styled.span`
-  color: var(--secondary-text-color);
-
+  color: var(--userprofile-text-user-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -60,7 +59,7 @@ export const DateWeek = styled.button`
   border: none;
   border-radius: 6px;
   padding: 4px 6px;
-  color: var(--primary-background-color);
+  color: var(--btn-text-color);
   background-color: inherit;
   width: 22px;
   height: 22px;
@@ -85,16 +84,24 @@ export const DateWeek = styled.button`
   }
 
   &:hover {
-    background-color: var(--calendar-day-addTask-btn-background-color);
-    color: var(--calendar-day-task-buttons-active-color);
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
+  }
+
+  &:focus {
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
   }
 `;
 
 export const OtherDay = styled(DateWeek)`
-  background-color: var(--calendar-monthOrDay-active-text-color);
+  background-color: var(--btn-background-color);
 `;
 
 export const ActiveDay = styled(DateWeek)`
   background-color: var(--primary-background-color);
-  color: #343434;
+  color: var(--secondary-text-color);
+
+  transition: var(--transition-changetheme-background-color),
+    var(--transition-changetheme-color);
 `;
