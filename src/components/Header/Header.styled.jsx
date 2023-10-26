@@ -46,6 +46,7 @@ export const Toggler = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  stroke: var(--modal-feedback-icon-close-btn-color);
   align-items: center;
   position: absolute;
   margin: 0;
@@ -58,6 +59,11 @@ export const Toggler = styled.button`
 
   @media screen and (min-width: 1440px) {
     display: none;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: var(--btn-hover-color);
   }
 `;
 export const GooseMentor = styled.img`
@@ -79,7 +85,7 @@ export const MotivationTask = styled.div`
     font-size: 14px;
     line-height: 1.3;
     /* &.span{ */
-      color: var(--primary-text-color);
+    color: var(--primary-text-color);
     /* } */
   }
 `;

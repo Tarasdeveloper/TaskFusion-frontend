@@ -33,15 +33,13 @@ const SideBar = ({ onToggle }) => {
             fill="none"
           >
             <path
-              d="M25.5 8.5L8.5 25.5"
-              stroke="#343434"
+              d="M25.5 8.5L8.5 25.5"              
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M8.5 8.5L25.5 25.5"
-              stroke="#343434"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
