@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const $instance = axios.create({
   baseURL: 'https://taskfusion-service.onrender.com/',

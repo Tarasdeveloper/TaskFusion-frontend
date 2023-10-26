@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
-import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
-import { FormContainer, RegisterPageImage } from './RegisterPage.styled';
-import image from './register-page-image.svg';
-import {
-  selectAuthenticationStatus,
-} from '../../redux/auth/selectors';
 import { Navigate } from 'react-router-dom';
+
+import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 import { AuthNavigate } from '../../components/AuthNavigate/AuthNavigate';
+import { selectAuthenticationStatus } from '../../redux/auth/selectors';
+
+import { FormContainer, RegisterPageImage } from './RegisterPage.styled';
+
+import image from './register-page-image.svg';
 
 export const RegisterPage = () => {
   const authenticated = useSelector(selectAuthenticationStatus);

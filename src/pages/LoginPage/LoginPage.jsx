@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { selectAuthenticationStatus } from '../../redux/auth/selectors';
 import { FormContainer } from '../RegisterPage/RegisterPage.styled';
 import { LoginPageImage } from './LoginPage.styled';
+import { AuthNavigate } from '../../components/AuthNavigate/AuthNavigate';
 
 import image from './login-page-image.svg';
-import { Navigate } from 'react-router-dom';
-import { AuthNavigate } from '../../components/AuthNavigate/AuthNavigate';
 
 export const LoginPage = () => {
   const authenticated = useSelector(selectAuthenticationStatus);

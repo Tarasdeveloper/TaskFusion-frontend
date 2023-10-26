@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import * as dateFns from 'date-fns';
+
+import { StatisticsChart } from '../../components/StatisticsChart/StatisticsChart';
+import { getTasksThunk } from '../../redux/tasks/operations';
+import { selectAuthenticationStatus } from '../../redux/auth/selectors';
+import { selectTasks } from '../../redux/tasks/selectors';
+import StatisticsToolbar from '../../components/StatisticsToolbar/StatisticsToolbar';
 
 import {
   StatisticsPageContainer,
   StatisticsPageSection,
   ToolbarContainer,
 } from './StatisticsPage.styled';
-import { StatisticsChart } from '../../components/StatisticsChart/StatisticsChart';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTasksThunk } from '../../redux/tasks/operations';
-import { selectAuthenticationStatus } from '../../redux/auth/selectors';
-import { selectTasks } from '../../redux/tasks/selectors';
-import StatisticsToolbar from '../../components/StatisticsToolbar/StatisticsToolbar';
 
 export const StatisticsPage = () => {
-
   const authenticated = useSelector(selectAuthenticationStatus);
   const tasks = useSelector(selectTasks);
+
+  const dispatch = useDispatch();
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -25,17 +27,16 @@ export const StatisticsPage = () => {
     inprogressByMonth: 0,
     SdoneByMonth: 0,
   });
+
   const [tasksByDay, setTasksByDay] = useState({
     todoByDay: 0,
     inprogressByDay: 0,
     SdoneByDay: 0,
   });
 
-  const dispatch = useDispatch();
-
   const year = dateFns.getYear(currentDate);
   const month = dateFns.getMonth(currentDate) + 1;
-  const day = dateFns.getDate(currentDate);
+  const day = String(dateFns.getDate(currentDate)).padStart(2, '0');
 
   const formattedDate = `${year}-${month}-${day}`;
 
@@ -76,7 +77,6 @@ export const StatisticsPage = () => {
         inprogressByMonth,
         doneByMonth,
       };
-
       const tasksByDay = {
         todoByDay,
         inprogressByDay,
