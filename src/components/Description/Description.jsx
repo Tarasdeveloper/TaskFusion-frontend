@@ -17,12 +17,12 @@ import oneTablX2 from '../../assets/img/mainPageImg/one-tabl-x2.png';
 import oneMob from '../../assets/img/mainPageImg/one-mob.png';
 import oneMobX2 from '../../assets/img/mainPageImg/one-mob-x2.png';
 import {
-  DescrImage,
   DescrImgWrap,
   DescrItem,
   DescrItemMid,
   DescrList,
   DescrName,
+  DescrPicture,
   DescrSpan,
   DescrText,
   DescrTextWrap,
@@ -47,13 +47,21 @@ const Description = () => {
             </DescrText>
           </DescrTextWrap>
           <DescrImgWrap>
-            <DescrImage
-              srcSet={`${calendarMob} 335w,${calendarMobX2} 2x 335w, ${calendarTabl} 704w,${calendarTablX2} 2x 704w, ${calendarDt} 604w , ${calendarDtX2} 2x 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
-              src={calendarMob}
-              alt="calendar"
-              type="image/png"
-            />
+            <DescrPicture>
+              <source
+                srcSet={`${calendarDt} 1x,${calendarDtX2} 2x`}
+                media="(min-width: 1024px)"
+              />
+              <source
+                srcSet={`${calendarTabl} 1x, ${calendarTablX2} 2x`}
+                media=" (min-width: 480px)"
+              />
+              <source
+                srcSet={`${calendarMob} 1x, ${calendarMobX2} 2x`}
+                media="(min-width: 320px)"
+              />
+              <img src={calendarMob} alt="calendar" />
+            </DescrPicture>
           </DescrImgWrap>
         </DescrItem>
         <DescrItemMid>
@@ -69,13 +77,21 @@ const Description = () => {
             </DescrText>
           </DescrTextWrapMid>
           <DescrImgWrap>
-            <DescrImage
-              srcSet={`${sidebarMob} 335w,${sidebarMobX2} 2x 335w, ${sidebarTabl} 704w,${sidebarTablX2} 2x 704w, ${sidebarDt} 604w, ${sidebarDtX2} 2x 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
-              src={sidebarMob}
-              alt="sidebar"
-              type="image/png"
-            />
+            <DescrPicture>
+              <source
+                srcSet={`${sidebarDt} 1x, ${sidebarDtX2} 2x`}
+                media="(min-width: 1024px)"
+              />
+              <source
+                srcSet={`${sidebarTabl} 1x, ${sidebarTablX2} 2x`}
+                media=" (min-width: 480px)"
+              />
+              <source
+                srcSet={`${sidebarMob} 1x, ${sidebarMobX2} 2x`}
+                media="(min-width: 320px)"
+              />
+              <img src={sidebarMob} alt="sidebar" />
+            </DescrPicture>
           </DescrImgWrap>
         </DescrItemMid>
         <DescrItem>
@@ -91,13 +107,21 @@ const Description = () => {
             </DescrText>
           </DescrTextWrap>
           <DescrImgWrap>
-            <DescrImage
-              srcSet={`${oneMob} 335w,${oneMobX2} 2x 335w, ${oneTabl} 704w,${oneTablX2} 2x 704w, ${oneDt} 604w, ${oneDtX2} 2x 604w`}
-              sizes="(min-width: 1024px) 604px, (min-width: 480px) 704px, 335px"
-              src={oneMob}
-              alt="one"
-              type="image/png"
-            />
+            <DescrPicture>
+              <source
+                srcSet={`${oneDt} 1x, ${oneDtX2} 2x`}
+                media="(min-width: 1024px)"
+              />
+              <source
+                srcSet={`${oneTabl} 1x, ${oneTablX2} 2x`}
+                media=" (min-width: 480px)"
+              />
+              <source
+                srcSet={`${oneMob} 1x, ${oneMobX2} 2x`}
+                media="(min-width: 320px)"
+              />
+              <img src={oneMob} alt="one" />
+            </DescrPicture>
           </DescrImgWrap>
         </DescrItem>
       </DescrList>

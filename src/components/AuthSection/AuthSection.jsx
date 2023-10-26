@@ -16,16 +16,22 @@ import {
 const AuthSection = () => {
   return (
     <Container>
-      <img
-        srcSet={`${gooseMob} 142w, ${gooseMobX2} 2x 142w, ${gooseDt} 150w,${gooseDtX2} 2x 150w`}
-        sizes="(min-width: 480px) 150px, 142px"
-        src={gooseMob}
-        alt="goose"
-        type="image/png"
-      />
+      <picture>
+        <source
+          srcSet={`${gooseDt} 1x, ${gooseDtX2} 2x`}
+          media="(min-width: 768px)"
+        />
+        <source
+          srcSet={`${gooseMob} 1x, ${gooseMobX2} 2x`}
+          media="(min-width: 320px)"
+        />
+        <img src={gooseMob} alt="goose" />
+      </picture>
+
       <MainTitle>
         G<Ospan>oo</Ospan>seTrack
       </MainTitle>
+
       <LinkWrap>
         <SignLink to="/register">Sign up</SignLink>
         <LogLink to="/login">
