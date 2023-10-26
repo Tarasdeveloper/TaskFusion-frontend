@@ -1809,7 +1809,6 @@ width: 18px;
   cursor: pointer;
   height: 24px;
   width: 24px;
-  padding-right: 20px;
   margin-left: 25px;
   @media screen and (min-width: 768px) {
     height: 34px;
