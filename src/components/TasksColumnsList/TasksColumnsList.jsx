@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TasksColumnItem from '../TasksColumnItem/TasksColumnItem';
 import { Wrap } from './TasksColumnsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,11 +11,13 @@ const TasksColumnsList = () => {
   const dispatch = useDispatch();
   const { currentDate } = useParams();
   const tasks = useSelector(selectTasks);
+  const [onEdit, setOnEdit] = useState(false);
 
-  const newData = tasks.filter((task) => task.date === currentDate);
+  const filtByDate = tasks.filter((task) => task.date === currentDate);
 
   const tasksArr = [[], [], []];
-  newData.forEach((el) => {
+
+  filtByDate.forEach((el) => {
     el.category === 'to-do'
       ? tasksArr[0].push(el)
       : el.category === 'in-progress'
@@ -30,14 +32,34 @@ const TasksColumnsList = () => {
     })();
   }, [dispatch, currentDate]);
 
+  useEffect(() => {
+    if (onEdit) {
+      (async () => {
+        await dispatch(getTasksThunk(currentDate));
+      })();
+      setOnEdit(false);
+    }
+  }, [dispatch, currentDate, onEdit]);
+
   return (
     <Wrap>
-      <TasksColumnItem title={'To do'} tasks={tasksArr[0]}></TasksColumnItem>
-      <TasksColumnItem
-        title={'In progress'}
-        tasks={tasksArr[1]}
-      ></TasksColumnItem>
-      <TasksColumnItem title={'Done'} tasks={tasksArr[2]}></TasksColumnItem>
+      <>
+        <TasksColumnItem
+          title={'To do'}
+          setOnEdit={setOnEdit}
+          tasks={tasksArr[0]}
+        ></TasksColumnItem>
+        <TasksColumnItem
+          title={'In progress'}
+          setOnEdit={setOnEdit}
+          tasks={tasksArr[1]}
+        ></TasksColumnItem>
+        <TasksColumnItem
+          title={'Done'}
+          setOnEdit={setOnEdit}
+          tasks={tasksArr[2]}
+        ></TasksColumnItem>
+      </>
     </Wrap>
   );
 };

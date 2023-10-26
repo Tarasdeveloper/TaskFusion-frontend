@@ -1,7 +1,7 @@
 import TaskForm from '../TaskForm/TaskForm';
 import Modal from '../Modal/Modal';
 
-const TaskModal = ({ onClose, action, column, taskToEdit }) => {
+const TaskModal = ({ onClose, action, column, taskToEdit, setOnEdit }) => {
   return (
     <Modal onClose={onClose}>
       <TaskForm
@@ -9,6 +9,7 @@ const TaskModal = ({ onClose, action, column, taskToEdit }) => {
         action={action}
         column={column}
         taskToEdit={taskToEdit}
+        setOnEdit={setOnEdit}
       />
     </Modal>
   );
