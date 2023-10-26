@@ -94,12 +94,21 @@ export const CloseIcon = styled.svg`
   height: 24px;
   width: 24px;
   margin-left: 25px;
+  stroke: var(--modal-feedback-icon-close-btn-color);
+
+  transition: all var(--transition-changetheme-color);
+
   @media screen and (min-width: 768px) {
     height: 34px;
     width: 34px;
   }
   @media screen and (min-width: 1440px) {
     display: none;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: var(--btn-hover-color);
   }
 `;
 export const SidebarSubTitle = styled.h3`
