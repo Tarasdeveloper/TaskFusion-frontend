@@ -4,10 +4,6 @@ import { ReactComponent as Move } from '../../assets/img/arrow-circle-broken-rig
 import Popover from '@mui/material/Popover';
 
 export const PopoverStyled = styled(Popover)`
-  .MuiPopover-paper {
-    background-color: var(--primary-background-color);
-    border-radius: 8px;
-  }
   @media screen and (min-width: 768px) {
   }
 
@@ -133,10 +129,50 @@ export const MoveToInProgress = styled.div`
       stroke: #343434;
       transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
+  }
+`;
 
-    @media screen and (max-width: 768px) {
-      width: 99px;
-      //   padding: 0 12px;
+export const MoveToDone = styled.div`
+  button {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+    width: 120px;
+    height: 26px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 12px;
+  }
+
+  &:hover,
+  :focus {
+    color: #3e85f3;
+
+    ${MoveBtn} {
+      stroke: #3e85f3;
     }
+  }
+
+  ${MoveBtn} {
+    width: 16px;
+    height: 16px;
+    stroke: #343434;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;

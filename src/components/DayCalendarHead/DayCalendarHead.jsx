@@ -18,7 +18,6 @@ import { OtherDay, ActiveDay, Day, Item, List } from './DayCalendarHead.styled';
 const DayCalendarHead = () => {
   const { currentDate: day } = useParams() ?? '2023-10-22';
   const currentDay = day;
-  // console.log(day);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

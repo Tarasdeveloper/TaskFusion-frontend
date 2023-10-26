@@ -8,7 +8,7 @@ export const NavList = styled.nav`
 `;
 
 export const CurrentLink = styled(NavLink)`
-  color: #34343480;
+  color: var(--sidebar-text-color);
   width: 185px;
 
   font-weight: 600;
@@ -17,13 +17,15 @@ export const CurrentLink = styled(NavLink)`
   border-radius: 8px;
   display: flex;
   align-items: center;
+  & > svg {
+    fill: transparent;
+    stroke: var(--sidebar-text-color);
+  }
   &.active {
-    color: #3e85f3;
-    background-color: #e3f3ff;
-
+    color: var(--sidebar-focus-text-color);
+    background-color: var(--sidebar-background-color);
     & > svg {
-      fill: transparent;
-      stroke: #3e85f3;
+      stroke: var(--sidebar-focus-text-color);
     }
   }
 

@@ -26,7 +26,7 @@ import { selectUser } from '../../redux/auth/selectors';
 import TaskDropDown from '../TaskDropDown/TaskDropDown';
 import sprite from '../../assets/sprite.svg';
 
-const TasksColumnItem = ({ title, tasks, setOnEdit }) => {
+const TasksColumnItem = ({ title, tasks }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [action, setAction] = useState('add');
   const [taskToEdit, setTaskToEdit] = useState({});
@@ -253,7 +253,6 @@ const TasksColumnItem = ({ title, tasks, setOnEdit }) => {
           action={action}
           column={title}
           taskToEdit={taskToEdit}
-          setOnEdit={setOnEdit}
         />
       )}
       {isPopoverOpen && (
@@ -265,7 +264,6 @@ const TasksColumnItem = ({ title, tasks, setOnEdit }) => {
             vertical: 'bottom',
             horizontal: 'left',
           }}
-          setOnEdit={setOnEdit}
         />
       )}
     </Wrapper>

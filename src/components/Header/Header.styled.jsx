@@ -78,6 +78,9 @@ export const MotivationTask = styled.div`
     font-weight: 600;
     font-size: 14px;
     line-height: 1.3;
+    /* &.span{ */
+      color: var(--primary-text-color);
+    /* } */
   }
 `;
 export const Span = styled.div`

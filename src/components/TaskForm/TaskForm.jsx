@@ -50,7 +50,7 @@ const TaskSchema = Yup.object().shape({
     .required('Priority is required'),
 });
 
-const TaskForm = ({ onClose, action, taskToEdit, column, setOnEdit }) => {
+const TaskForm = ({ onClose, action, taskToEdit, column }) => {
   const { currentDate } = useParams();
   const { _id, title, start, end, priority } = taskToEdit || {};
 
@@ -70,7 +70,6 @@ const TaskForm = ({ onClose, action, taskToEdit, column, setOnEdit }) => {
     }
     actions.resetForm();
     onClose();
-    setOnEdit(true);
   };
 
   return (

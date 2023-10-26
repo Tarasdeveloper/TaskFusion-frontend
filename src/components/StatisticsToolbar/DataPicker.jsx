@@ -1,11 +1,12 @@
 import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
+
 import {
   RightArrowIcon,
   LeftArrowIcon,
   DatepickerStyled,
 } from '../../pages/Calendar/NavBar/DataPicker/StyledDataPicker.styled';
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
 const DataPicker = ({
   prevHandle,
   nextHandler,
@@ -30,7 +31,7 @@ const DataPicker = ({
           setCurrentDate(date);
         }}
         customInput={<CustomInput />}
-        dateFormat={'dd MM yyyy'}
+        dateFormat={'dd MMMM yyyy'}
         calendarStartDay={1}
         formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
         nextMonthButtonLabel={<RightArrowIcon onClick={nextHandler} />}

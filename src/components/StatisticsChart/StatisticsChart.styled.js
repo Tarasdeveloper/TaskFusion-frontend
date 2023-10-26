@@ -174,6 +174,7 @@ export const StatisticsInfo = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  color: var(--secondary-text-color);
 `;
 export const StatisticsInfoWrap = styled.div`
   display: flex;
