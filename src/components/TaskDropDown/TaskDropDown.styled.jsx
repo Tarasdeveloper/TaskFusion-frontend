@@ -4,6 +4,10 @@ import { ReactComponent as Move } from '../../assets/img/arrow-circle-broken-rig
 import Popover from '@mui/material/Popover';
 
 export const PopoverStyled = styled(Popover)`
+  .MuiPopover-paper {
+    background-color: var(--primary-background-color);
+    border-radius: 8px;
+  }
   @media screen and (min-width: 768px) {
   }
 
