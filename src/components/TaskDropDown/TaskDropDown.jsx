@@ -47,7 +47,7 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
       >
         <ChangeCategoryWrapper>
           {category !== 'to-do' && (
-            <MoveToDone>
+            <MoveToInProgress>
               <button
                 type="button"
                 onClick={async () => {
@@ -60,7 +60,7 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
               >
                 To do <MoveBtn />
               </button>
-            </MoveToDone>
+            </MoveToInProgress>
           )}
           {category !== 'in-progress' && (
             <MoveToInProgress>
@@ -79,7 +79,7 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
             </MoveToInProgress>
           )}
           {category !== 'done' && (
-            <MoveToDone>
+            <MoveToInProgress>
               <button
                 type="button"
                 onClick={async () => {
@@ -92,7 +92,7 @@ const TaskDropDown = ({ isPopoverOpen, closePopover, anchorEl, setOnEdit }) => {
               >
                 Done <MoveBtn />
               </button>
-            </MoveToDone>
+            </MoveToInProgress>
           )}
         </ChangeCategoryWrapper>
       </PopoverStyled>

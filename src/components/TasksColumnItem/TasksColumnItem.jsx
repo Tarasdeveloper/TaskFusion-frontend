@@ -23,7 +23,7 @@ import TaskModal from '../TaskModal/TaskModal';
 import { deleteTaskThunk } from '../../redux/tasks/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
-import TaskDropDown from './TaskDropDown';
+import TaskDropDown from '../TaskDropDown/TaskDropDown';
 import sprite from '../../assets/sprite.svg';
 
 const TasksColumnItem = ({ title, tasks, setOnEdit }) => {
