@@ -1479,6 +1479,10 @@ ${m} ${e}`.replace(/  +/g," ").trimEnd()}function lX(e,t,n){return Array.from({l
   align-items: center;
   display: flex;
 `,bX=A.p`
+  text-align: center;
+  display: flex;
+  width: 60px;
+  justify-content: center;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.3;
@@ -1491,6 +1495,7 @@ ${m} ${e}`.replace(/  +/g," ").trimEnd()}function lX(e,t,n){return Array.from({l
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 1;
+    width: 80px;
   }
 `,kX=A.div`
   width: 32px;
