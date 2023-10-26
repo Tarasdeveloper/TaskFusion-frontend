@@ -53,6 +53,9 @@ export const Toggler = styled.button`
   padding-left: 20px;
   border: none;
   background-color: transparent;
+
+  transition: all var(--transition-changetheme-color);
+
   @media screen and (min-width: 768px) {
     padding-left: 32px;
   }
