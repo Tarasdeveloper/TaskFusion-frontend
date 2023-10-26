@@ -102,7 +102,11 @@ export const DescrText = styled.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+
+  /* @media screen and (min-width: 480px) {
+    margin-bottom: 48px;
+  } */
 `;
 
 export const DescrImgWrap = styled.div`
