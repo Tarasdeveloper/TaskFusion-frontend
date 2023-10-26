@@ -1432,8 +1432,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     margin-top: 18px;
   }
 `,RK=A.button`
-  color: #ffffff;
-  background-color: #3e85f3;
+  color: #111;
+  background-color: #efefef;
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -1442,7 +1442,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   border: none;
   border-radius: 16px;
   cursor: pointer;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     background-color: #2b78ef;
@@ -1451,9 +1451,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   &:disabled {
     cursor: not-allowed;
   }
+
+  &:hover,
+  &:focus {
+    background-color: var(--btn-task-form-background-color-hover);
+    color: #fff;
+  }
 `,LK=A.button`
-  color: var(--secondary-text-color);
-  background-color: var(--modal-feedback-btn-cancel-background-color);
+  color: #111;
+  background-color: #efefef;
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -1464,9 +1470,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   cursor: pointer;
   transition: var(--transition-changetheme-color),
     var(--transition-changetheme-background-color);
+
   &:hover,
   &:focus {
-    color: #2b78ef;
+    background-color: var(--btn-task-form-background-color-hover);
+    color: #fff;
   }
 `,IK=A.button`
   position: absolute;
