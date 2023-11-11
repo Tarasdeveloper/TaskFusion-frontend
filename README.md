@@ -2,8 +2,8 @@
 
 Technologies used:
 
-Frontend: React, Vite, Redux, Swiper, Axios, Yup;
+Frontend: React, Vite, Redux, Swiper, Axios, Yup, Formik, Notiflix;
 
-Backend: Node.js, MongoDB, swagger
+Backend: Node.js, MongoDB, Swagger.
 
 
