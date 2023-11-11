@@ -1,5 +1,6 @@
 # React + Vite
 
-Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). 
+Technologies used Frontend: React, Vite, Redux, Swiper, Axios, Yup;
+Backend: Node.js, MongoDB, swagger
 
 
