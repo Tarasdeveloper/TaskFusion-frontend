@@ -1,4 +1,4 @@
-# React + Vite (The first load may take a while due to a sleeping backend)
+# TaskFusion (The first load may take a while due to a sleeping backend)
 
 Technologies used - 
 
