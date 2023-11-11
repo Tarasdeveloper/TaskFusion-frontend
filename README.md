@@ -1,6 +1,5 @@
-# React + Vite template
+# React + Vite
 
-Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). Для
-знайомства і налаштування додаткових можливостей
-[звернися до документації](https://vitejs.dev/guide/).
+Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). 
+
 
